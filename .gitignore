@@ -1,3 +1,6 @@
+# AppCode
+.idea/
+
 # OS X
 .DS_Store
 
@@ -21,6 +24,13 @@ DerivedData
 
 # Bundler
 .bundle
+
+## Other
+*.orig
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+Pods/
 
 Carthage
 # We recommend against adding the Pods directory to your .gitignore. However
