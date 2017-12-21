@@ -1,0 +1,7 @@
+use_frameworks!
+target 'Web3Swift_Tests' do
+  pod 'Web3Swift', :path => '../'
+  
+  pod 'Quick', '~> 1.2.0'
+  pod 'Nimble', '~> 7.0.2'
+end
