@@ -1,8 +1,14 @@
-import UIKit
-import XCTest
-import Web3Swift
+//
+//  AnotherTest.swift
+//  Web3Swift_Tests
+//
+//  Created by Timofey on 1/22/18.
+//  Copyright © 2018 CocoaPods. All rights reserved.
+//
 
-class Tests: XCTestCase {
+import XCTest
+
+class AnotherTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -16,12 +22,12 @@ class Tests: XCTestCase {
     
     func testExample() {
         // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measure() {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }

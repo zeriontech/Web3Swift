@@ -1,11 +1,10 @@
+platform :ios, '10.0'
 use_frameworks!
 
 target 'Web3Swift_Example' do
   pod 'Web3Swift', :path => '../'
+end
 
-  target 'Web3Swift_Tests' do
-    inherit! :search_paths
-
-    
-  end
+target 'Web3Swift_Tests' do
+  pod 'Web3Swift', :path => '../'
 end

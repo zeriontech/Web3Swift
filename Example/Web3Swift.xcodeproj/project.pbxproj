@@ -13,8 +13,9 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		607FACEC1AFB9204008FA782 /* GetTransactionsCountProcedureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* GetTransactionsCountProcedureTests.swift */; };
 		94831128426593F56EE4BCAF /* Pods_Web3Swift_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31007316603078343330134 /* Pods_Web3Swift_Example.framework */; };
+		96227F0A201547150076F466 /* AnotherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96227F09201547150076F466 /* AnotherTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,8 +31,8 @@
 /* Begin PBXFileReference section */
 		1683BBDF32FA87183DA47238 /* Pods-Web3Swift_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Web3Swift_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Web3Swift_Tests/Pods-Web3Swift_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		17A034A484746115F55C4602 /* Pods-Web3Swift_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Web3Swift_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Web3Swift_Example/Pods-Web3Swift_Example.release.xcconfig"; sourceTree = "<group>"; };
-		2F320EB26501545845D58F10 /* Web3Swift.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = Web3Swift.podspec; path = ../Web3Swift.podspec; sourceTree = "<group>"; };
-		343D350F5D884606EEA5C913 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		2F320EB26501545845D58F10 /* Web3Swift.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Web3Swift.podspec; path = ../Web3Swift.podspec; sourceTree = "<group>"; };
+		343D350F5D884606EEA5C913 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Web3Swift_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Web3Swift_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,9 +42,10 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* Web3Swift_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Web3Swift_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		607FACEB1AFB9204008FA782 /* GetTransactionsCountProcedureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionsCountProcedureTests.swift; sourceTree = "<group>"; };
 		8D3D6BEF8030D59C6F4A15FB /* Pods_Web3Swift_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Web3Swift_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D6D1308587140D3019CBC0F5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		96227F09201547150076F466 /* AnotherTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherTest.swift; sourceTree = "<group>"; };
+		D6D1308587140D3019CBC0F5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		EF31EFC3250D5A7EF77E859E /* Pods-Web3Swift_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Web3Swift_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Web3Swift_Example/Pods-Web3Swift_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		F31007316603078343330134 /* Pods_Web3Swift_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Web3Swift_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F63B257E71ACEC57197C6918 /* Pods-Web3Swift_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Web3Swift_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Web3Swift_Tests/Pods-Web3Swift_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -126,8 +128,9 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				607FACEB1AFB9204008FA782 /* GetTransactionsCountProcedureTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
+				96227F09201547150076F466 /* AnotherTest.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -300,9 +303,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Web3Swift_Tests/Pods-Web3Swift_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Web3Swift/Web3Swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Web3Swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -352,10 +360,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Web3Swift_Example/Pods-Web3Swift_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Web3Swift/Web3Swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Web3Swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,7 +389,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				607FACEC1AFB9204008FA782 /* GetTransactionsCountProcedureTests.swift in Sources */,
+				96227F0A201547150076F466 /* AnotherTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +529,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Web3Swift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -533,6 +545,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Web3Swift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -546,10 +559,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F63B257E71ACEC57197C6918 /* Pods-Web3Swift_Tests.debug.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -567,10 +576,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1683BBDF32FA87183DA47238 /* Pods-Web3Swift_Tests.release.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
