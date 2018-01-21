@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'Web3Swift_Example' do
+  pod 'Web3Swift', :path => '../'
+
+  target 'Web3Swift_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
