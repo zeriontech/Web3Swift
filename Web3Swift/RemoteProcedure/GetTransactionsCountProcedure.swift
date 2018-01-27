@@ -18,19 +18,21 @@ class GetTransactionsCountProcedure: RemoteProcedure {
         self.address = address
     }
 
-    func call() throws -> Data {
-        return try session.data(
-            from: URLPostRequest(
-                url: networkURL,
-                body: JSON(
-                    dictionary: [
-                        "jsonrpc" : "2.0",
-                        "method" : "eth_getTransactionCount",
-                        "params" : [address.toString(), "latest"],
-                        "id" : 0
-                    ]
-                ).rawData()
-            ).toURLRequest()
+    func call() throws -> JSON {
+        return try JSON(
+            data: session.data(
+                from: URLPostRequest(
+                    url: networkURL,
+                    body: JSON(
+                        dictionary: [
+                            "jsonrpc" : "2.0",
+                            "method" : "eth_getTransactionCount",
+                            "params" : [address.toString(), "latest"],
+                            "id" : 0
+                        ]
+                    ).rawData()
+                ).toURLRequest()
+            )
         )
     }
 
