@@ -21,7 +21,7 @@ class SimpleNetwork: Network {
                     dictionary: [
                         "jsonrpc" : "2.0",
                         "method" : method,
-                        "params" : try params.map {
+                        "params" : params.map {
                             try $0.value()
                         },
                         "id" : 1
