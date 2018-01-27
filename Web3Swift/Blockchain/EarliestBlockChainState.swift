@@ -1,6 +1,6 @@
 import Foundation
 
-class EarliestBlockChainState: BlockchainState {
+class EarliestBlockChainState: BlockChainState {
     
     func toString() -> String {
         return "earliest"
