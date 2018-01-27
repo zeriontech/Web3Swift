@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-               BuildableName = "Web3Swift_Example.app"
-               BlueprintName = "Web3Swift_Example"
-               ReferencedContainer = "container:Web3Swift.xcodeproj">
+               BlueprintIdentifier = "42008735DE0BDBF2A4A183FACA157914"
+               BuildableName = "Pods_Web3Swift_Tests.framework"
+               BlueprintName = "Pods-Web3Swift_Tests"
+               ReferencedContainer = "container:Pods/Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -57,10 +57,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "Web3Swift_Example.app"
-            BlueprintName = "Web3Swift_Example"
-            ReferencedContainer = "container:Web3Swift.xcodeproj">
+            BlueprintIdentifier = "42008735DE0BDBF2A4A183FACA157914"
+            BuildableName = "Pods_Web3Swift_Tests.framework"
+            BlueprintName = "Pods-Web3Swift_Tests"
+            ReferencedContainer = "container:Pods/Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -77,16 +77,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "Web3Swift_Example.app"
-            BlueprintName = "Web3Swift_Example"
-            ReferencedContainer = "container:Web3Swift.xcodeproj">
+            BlueprintIdentifier = "42008735DE0BDBF2A4A183FACA157914"
+            BuildableName = "Pods_Web3Swift_Tests.framework"
+            BlueprintName = "Pods-Web3Swift_Tests"
+            ReferencedContainer = "container:Pods/Pods.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -96,16 +95,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "Web3Swift_Example.app"
-            BlueprintName = "Web3Swift_Example"
-            ReferencedContainer = "container:Web3Swift.xcodeproj">
+            BlueprintIdentifier = "42008735DE0BDBF2A4A183FACA157914"
+            BuildableName = "Pods_Web3Swift_Tests.framework"
+            BlueprintName = "Pods-Web3Swift_Tests"
+            ReferencedContainer = "container:Pods/Pods.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

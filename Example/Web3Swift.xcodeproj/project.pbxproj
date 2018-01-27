@@ -17,6 +17,7 @@
 		8C385CDA201D0160005A5CDE /* GethParamsInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C385CD9201D0160005A5CDE /* GethParamsInitTests.swift */; };
 		94831128426593F56EE4BCAF /* Pods_Web3Swift_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31007316603078343330134 /* Pods_Web3Swift_Example.framework */; };
 		96227F0A201547150076F466 /* AnotherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96227F09201547150076F466 /* AnotherTest.swift */; };
+		968F8AD1201CDBA300197098 /* EthTransactionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FADD561A8A8E9C610B673 /* EthTransactionsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 		17A034A484746115F55C4602 /* Pods-Web3Swift_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Web3Swift_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Web3Swift_Example/Pods-Web3Swift_Example.release.xcconfig"; sourceTree = "<group>"; };
 		2F320EB26501545845D58F10 /* Web3Swift.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Web3Swift.podspec; path = ../Web3Swift.podspec; sourceTree = "<group>"; };
 		343D350F5D884606EEA5C913 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		584FADD561A8A8E9C610B673 /* EthTransactionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthTransactionsTests.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Web3Swift_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Web3Swift_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 				96227F09201547150076F466 /* AnotherTest.swift */,
 				8C385CD9201D0160005A5CDE /* GethParamsInitTests.swift */,
+				584FADD561A8A8E9C610B673 /* EthTransactionsTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				968F8AD1201CDBA300197098 /* EthTransactionsTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* GetTransactionsCountProcedureTests.swift in Sources */,
 				96227F0A201547150076F466 /* AnotherTest.swift in Sources */,
 				8C385CDA201D0160005A5CDE /* GethParamsInitTests.swift in Sources */,

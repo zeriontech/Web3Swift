@@ -3,9 +3,10 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 protocol RemoteProcedure {
 
-    func call() throws -> Data
+    func call() throws -> JSON
 
 }
