@@ -1,9 +1,6 @@
 # Web3Swift
 
-[![CI Status](http://img.shields.io/travis/biboran/Web3Swift.svg?style=flat)](https://travis-ci.org/biboran/Web3Swift)
-[![Version](https://img.shields.io/cocoapods/v/Web3Swift.svg?style=flat)](http://cocoapods.org/pods/Web3Swift)
-[![License](https://img.shields.io/cocoapods/l/Web3Swift.svg?style=flat)](http://cocoapods.org/pods/Web3Swift)
-[![Platform](https://img.shields.io/cocoapods/p/Web3Swift.svg?style=flat)](http://cocoapods.org/pods/Web3Swift)
+[![CI Status](http://img.shields.io/travis/BlockStoreApp/Web3Swift.svg?style=flat)](https://travis-ci.org/BlockStoreApp/Web3Swift)
 
 ## Example
 
