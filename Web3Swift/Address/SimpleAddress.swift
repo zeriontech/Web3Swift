@@ -4,11 +4,26 @@
 
 import Foundation
 
+fileprivate class InvalidAddressError: Swift.Error { }
+
 final class SimpleAddress: Address {
 
     private let value: String
-    init(value: String) {
-        self.value = value
+    
+    init(value: String) throws {
+        
+        if(!value.isHex())
+        {
+            throw InvalidAddressError()
+        }
+        
+        if(value.removeHexPrefix().count != 20)
+        {
+            throw InvalidAddressError()
+        }
+        
+        self.value = value.addHexPrefix()
+        
     }
 
     func toString() -> String {
