@@ -9,7 +9,7 @@ class SimpleNetwork: Network {
     
     init(session: URLSession, url: URL, headers: Dictionary<String,String>) {
         self.session = session
-        self.url = URL
+        self.url = url
         self.headers = headers
     }
     

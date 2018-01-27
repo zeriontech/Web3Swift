@@ -2,13 +2,13 @@ import Foundation
 
 class StringParameter: GethParameter {
 
-    private var value: String
+    private var param: String
 
     init(value: String) {
-        self.value = value
+        self.param = value
     }
 
     func value() throws -> Any {
-        return value
+        return param
     }
 }

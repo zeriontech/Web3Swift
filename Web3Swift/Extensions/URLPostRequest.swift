@@ -21,7 +21,7 @@ class URLPostRequest {
         request.httpMethod = "POST"
         request.httpBody = body
         headers.forEach {
-            request.allHTTPHeaderFields($0.key, $0.value)
+            request.addValue($0.value, forHTTPHeaderField: $0.key)
         }
         return request
     }

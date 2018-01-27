@@ -21,12 +21,8 @@ class GetTransactionsCountProcedure: RemoteProcedure {
         return try network.call(
                 method: "eth_getTransactionCount",
                 params: [
-                        AddressParameter(
-                                address
-                        ),
-                        TagParameter(
-                                blockChainState
-                        )
+                    AddressParameter(address: address),
+                    TagParameter(state: blockChainState)
                 ]
         )
     }

@@ -6,6 +6,6 @@ protocol NetworkAdapter {
     
     func getUrl() -> URL
 
-    func getHeaders() -> Array<String, String>
+    func getHeaders() -> Dictionary<String, String>
     
 }

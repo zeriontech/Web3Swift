@@ -8,7 +8,7 @@ class QuantityParameter: GethParameter {
         self.quantity = quantity
     }
 
-    func toData() -> Data {
+    func value() -> Any {
         return String(format:"%2X", quantity).addHexPrefix()
     }
 }

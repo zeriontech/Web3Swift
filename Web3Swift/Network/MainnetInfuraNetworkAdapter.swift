@@ -4,7 +4,7 @@ class MainnetInfuraNetwork: NetworkAdapter {
     
     private var session: URLSession
     private var url: URL
-    private var headers: Array<String, String>
+    private var headers: Dictionary<String, String>
     
     init(apiKey: String) throws {
         session = URLSession(configuration: URLSessionConfiguration.default)
@@ -12,6 +12,7 @@ class MainnetInfuraNetwork: NetworkAdapter {
             throw  NetworkError("Invalid url")
         }
         url = infuraUrl
+        headers = [:]
     }
     
     func getSession() -> URLSession {
@@ -22,7 +23,7 @@ class MainnetInfuraNetwork: NetworkAdapter {
         return url
     }
 
-    func getHeaders() -> Array<String> {
+    func getHeaders() -> Dictionary<String,String> {
         fatalError("getHeaders() has not been implemented")
     }
 

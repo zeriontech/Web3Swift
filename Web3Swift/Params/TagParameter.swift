@@ -5,7 +5,7 @@ class TagParameter: GethParameter {
     
     private var state: BlockChainState
     
-    init(state: BlockchainState) {
+    init(state: BlockChainState) {
         self.state = state
     }
     

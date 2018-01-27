@@ -17,7 +17,7 @@ final class SimpleAddress: Address {
             throw InvalidAddressError()
         }
         
-        if(value.removeHexPrefix().count != 20)
+        if(value.removeHexPrefix().count != 40)
         {
             throw InvalidAddressError()
         }
