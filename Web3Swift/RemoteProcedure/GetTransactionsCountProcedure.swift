@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class GetTransactionsCountProcedure: RemoteProcedure {
 
@@ -16,14 +17,15 @@ class GetTransactionsCountProcedure: RemoteProcedure {
         self.blockChainState = blockChainState
     }
 
-    func call() throws -> Data {
-
-        return try network.call(
+    func call() throws -> JSON {
+        return try JSON(
+            data: network.call(
                 method: "eth_getTransactionCount",
                 params: [
                     AddressParameter(address: address),
                     TagParameter(state: blockChainState)
                 ]
+            )
         )
     }
 

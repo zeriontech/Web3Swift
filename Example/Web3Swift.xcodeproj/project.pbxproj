@@ -16,7 +16,6 @@
 		607FACEC1AFB9204008FA782 /* GetTransactionsCountProcedureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* GetTransactionsCountProcedureTests.swift */; };
 		8C385CDA201D0160005A5CDE /* GethParamsInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C385CD9201D0160005A5CDE /* GethParamsInitTests.swift */; };
 		94831128426593F56EE4BCAF /* Pods_Web3Swift_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31007316603078343330134 /* Pods_Web3Swift_Example.framework */; };
-		96227F0A201547150076F466 /* AnotherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96227F09201547150076F466 /* AnotherTest.swift */; };
 		968F8AD1201CDBA300197098 /* EthTransactionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FADD561A8A8E9C610B673 /* EthTransactionsTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +47,6 @@
 		607FACEB1AFB9204008FA782 /* GetTransactionsCountProcedureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionsCountProcedureTests.swift; sourceTree = "<group>"; };
 		8C385CD9201D0160005A5CDE /* GethParamsInitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GethParamsInitTests.swift; sourceTree = "<group>"; };
 		8D3D6BEF8030D59C6F4A15FB /* Pods_Web3Swift_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Web3Swift_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		96227F09201547150076F466 /* AnotherTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherTest.swift; sourceTree = "<group>"; };
 		D6D1308587140D3019CBC0F5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		EF31EFC3250D5A7EF77E859E /* Pods-Web3Swift_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Web3Swift_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Web3Swift_Example/Pods-Web3Swift_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		F31007316603078343330134 /* Pods_Web3Swift_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Web3Swift_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,7 +132,6 @@
 			children = (
 				607FACEB1AFB9204008FA782 /* GetTransactionsCountProcedureTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
-				96227F09201547150076F466 /* AnotherTest.swift */,
 				8C385CD9201D0160005A5CDE /* GethParamsInitTests.swift */,
 				584FADD561A8A8E9C610B673 /* EthTransactionsTests.swift */,
 			);
@@ -397,7 +394,6 @@
 			files = (
 				968F8AD1201CDBA300197098 /* EthTransactionsTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* GetTransactionsCountProcedureTests.swift in Sources */,
-				96227F0A201547150076F466 /* AnotherTest.swift in Sources */,
 				8C385CDA201D0160005A5CDE /* GethParamsInitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
