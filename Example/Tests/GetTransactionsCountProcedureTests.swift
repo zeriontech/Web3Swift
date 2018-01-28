@@ -5,14 +5,18 @@ import XCTest
 final class GetTransactionsCountProcedureTests: XCTestCase {
     
     func testNotEmptyData() {
-        let json = try? GetTransactionsCountProcedure(
-            session: URLSession.shared,
-            networkURL: URL(string: "https://mainnet.infura.io/3O4Ywm6wGFgpIn8G10TT")!,
-            address: SimpleAddress(value: "0xe35d276812001e33e3A8f6f445e2D1e90ff86F1C")
-        ).call()
-            
-        XCTAssertNotNil(json)
-        XCTAssert(json?.isEmpty == false)
+        let data = try? GetTransactionsCountProcedure(
+                network: SimpleNetwork(
+                    session: URLSession.shared,
+                    url: URL(string: "https://mainnet.infura.io/3O4Ywm6wGFgpIn8G10TT")!,
+                    headers: [:]
+                ),
+                address: SimpleAddress(value: "0xe35d276812001e33e3A8f6f445e2D1e90ff86F1C"),
+                blockChainState: LatestBlockChainState()
+            ).call()
+        
+        XCTAssertNotNil(data)
+        XCTAssert(data?.isEmpty == false)
     }
     
 }

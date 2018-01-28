@@ -1,14 +1,7 @@
-//
-//  AnotherTest.swift
-//  Web3Swift_Tests
-//
-//  Created by Timofey on 1/22/18.
-//  Copyright © 2018 CocoaPods. All rights reserved.
-//
-
 import XCTest
+@testable import Web3Swift
 
-class AnotherTest: XCTestCase {
+class GethParamsInitTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -21,8 +14,25 @@ class AnotherTest: XCTestCase {
     }
     
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        XCTAssertThrowsError(
+            try {
+                try SimpleAddress(value: "blabla")
+            }()
+        )
+        
+    }
+    
+    func testAnother() {
+        XCTAssertNoThrow(
+            try {
+                let address = try SimpleAddress(value: "0xe35d276812001e33e3A8f6f445e2D1e90ff86F1C")
+                XCTAssertEqual(
+                    address.toString().lowercased(),
+                    String("0xe35d276812001e33e3A8f6f445e2D1e90ff86F1C").lowercased()
+                )
+            }()
+        )
     }
     
     func testPerformanceExample() {
