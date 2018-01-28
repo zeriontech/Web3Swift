@@ -7,4 +7,6 @@ end
 
 target 'Web3Swift_Tests' do
   pod 'Web3Swift', :path => '../'
+  pod 'Quick', '~> 1.2'
+  pod 'Nimble', '~> 7.0'
 end

@@ -1,9 +1,13 @@
 PODS:
+  - Nimble (7.0.3)
+  - Quick (1.2.0)
   - SwiftyJSON (4.0.0)
   - Web3Swift (0.1.0):
     - SwiftyJSON (~> 4.0)
 
 DEPENDENCIES:
+  - Nimble (~> 7.0)
+  - Quick (~> 1.2)
   - Web3Swift (from `../`)
 
 EXTERNAL SOURCES:
@@ -11,9 +15,11 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
+  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   Web3Swift: 9112f0db7c8c332c4b41c59588f1b2fc2dba7aa4
 
-PODFILE CHECKSUM: afe71422a1bae4a0fab66fe116a50e763306a799
+PODFILE CHECKSUM: 2890144e6a624928edd4b5377aca871b7422a3c4
 
 COCOAPODS: 1.3.1
