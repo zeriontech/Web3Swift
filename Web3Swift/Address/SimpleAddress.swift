@@ -4,7 +4,7 @@
 
 import Foundation
 
-fileprivate class InvalidAddressError: Swift.Error { }
+class InvalidAddressError: Swift.Error { }
 
 final class SimpleAddress: Address {
 
