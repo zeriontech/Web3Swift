@@ -17,12 +17,12 @@ final class SimpleAddress: Address {
             throw InvalidAddressError()
         }
         
-        if(value.removeHexPrefix().count != 40)
+        if(value.removingHexPrefix().count != 40)
         {
             throw InvalidAddressError()
         }
         
-        self.value = value.addHexPrefix()
+        self.value = value.addingHexPrefix()
         
     }
 

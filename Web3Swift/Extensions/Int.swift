@@ -19,4 +19,8 @@ extension Int {
         }
     }
 
+    func unsignedByteWidth() -> Int {
+        return (self.bitWidth - self.leadingZeroBitCount - 1).unsafeDivided(by: 8) + 1
+    }
+
 }

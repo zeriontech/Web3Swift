@@ -4,30 +4,14 @@ fileprivate class EmptyDataError: Swift.Error { }
 
 extension String {
     
-    func data(using encoding: String.Encoding) throws -> Data {
-        
-        if let data = self.data(using: encoding, allowLossyConversion: false) {
-            return data
-        } else {
-            throw EmptyDataError()
-        }
-        
-    }
-
-    func utf8data() throws -> Data {
-
-        return try self.data(using: .utf8)
-
-    }
-    
-    func addHexPrefix() -> String {
+    func addingHexPrefix() -> String {
         if !self.hasPrefix("0x") {
             return "0x" + self
         }
         return self
     }
     
-    func removeHexPrefix() -> String {
+    func removingHexPrefix() -> String {
         if self.hasPrefix("0x") {
             let indexStart = self.index(self.startIndex, offsetBy: 2)
             return String(self[indexStart...])
@@ -44,7 +28,7 @@ extension String {
         var str = self
         
         if self.hasPrefix("0x") {
-            str = str.removeHexPrefix()
+            str = str.removingHexPrefix()
         }
         
         let chars = CharacterSet(charactersIn: "0123456789ABCDEF")
@@ -52,7 +36,7 @@ extension String {
         guard str.uppercased().rangeOfCharacter(from: chars) != nil else {
             return false
         }
-        
+
         return true
     }
     
