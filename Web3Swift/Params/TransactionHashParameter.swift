@@ -19,12 +19,12 @@ class TransactionHashParameter: GethParameter {
             throw InvalidTransactionHashError()
         }
 
-        if(transactionHash.removeHexPrefix().count != 32)
+        if(transactionHash.removingHexPrefix().count != 32)
         {
             throw InvalidTransactionHashError()
         }
 
-        return transactionHash.addHexPrefix()
+        return transactionHash.addingHexPrefix()
     }
     
 }
