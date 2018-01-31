@@ -51,4 +51,34 @@ final class RandomNonceTests: XCTestCase {
         )
     }
 
+    func testNonceSize() {
+        expect(
+            [
+                try RandomNonce(size: 32).toData().count,
+                try RandomNonce(size: 20).toData().count,
+                try RandomNonce(size: 1).toData().count
+            ]
+        ).to(
+            equal(
+                [
+                    32,
+                    20,
+                    1
+                ]
+            )
+        )
+    }
+    
+    func testRandomNonces() {
+        let firstNonceData = try! RandomNonce(size: 64).toData()
+        let secondNonceData = try! RandomNonce(size: 64).toData()
+        expect(
+            firstNonceData
+        ).toNot(
+            equal(
+                secondNonceData
+            )
+        )
+    }
+
 }
