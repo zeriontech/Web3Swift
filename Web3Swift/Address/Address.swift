@@ -7,5 +7,7 @@ import Foundation
 protocol Address {
 
     func toString() -> String
+    
+    func toData() -> Data
 
 }
