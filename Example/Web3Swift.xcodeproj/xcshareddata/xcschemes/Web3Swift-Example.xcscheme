@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1E0A4EC65F39B9FC36897A66A1ADF8F7"
+               BlueprintIdentifier = "593F1ABB691CFF363BF2D7FA40C73D2C"
                BuildableName = "Pods_Web3Swift_Tests.framework"
                BlueprintName = "Pods-Web3Swift_Tests"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">

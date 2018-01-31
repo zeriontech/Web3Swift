@@ -1,8 +1,12 @@
 PODS:
+  - CryptoSwift (0.8.1)
   - Nimble (7.0.3)
   - Quick (1.2.0)
+  - secp256k1_ios (0.1.1)
   - SwiftyJSON (4.0.0)
   - Web3Swift (0.1.0):
+    - CryptoSwift (~> 0.8)
+    - secp256k1_ios (= 0.1.1)
     - SwiftyJSON (~> 4.0)
 
 DEPENDENCIES:
@@ -15,10 +19,12 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
+  CryptoSwift: 4b07d5b508c1eb67bfa314a727b705f8048a85de
   Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  secp256k1_ios: 3c94e6cce14ff03924cb6dc10c5017f17011b79d
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
-  Web3Swift: 9112f0db7c8c332c4b41c59588f1b2fc2dba7aa4
+  Web3Swift: f6d41add836e70aabd1ef55775ff8b962bd2357f
 
 PODFILE CHECKSUM: 2890144e6a624928edd4b5377aca871b7422a3c4
 
