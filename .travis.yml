@@ -9,6 +9,7 @@ podfile: Example/Podfile
 before_install:
 - gem install cocoapods
 - gem install xcpretty -N
+- pod repo update
 - pod install --project-directory=Example
 script:
 - set -o pipefail && xcodebuild clean test -enableCodeCoverage YES -workspace Example/Web3Swift.xcworkspace -scheme Web3Swift-Example -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.2' ONLY_ACTIVE_ARCH=NO | xcpretty
