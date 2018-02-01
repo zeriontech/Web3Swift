@@ -2,9 +2,9 @@ import Foundation
 
 class QuantityParameter: GethParameter {
 
-    private var quantity: Int
+    private var quantity: UInt64
 
-    init(quantity: Int) throws {
+    init(quantity: UInt64) {
         self.quantity = quantity
     }
 

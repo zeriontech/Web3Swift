@@ -5,7 +5,7 @@ class ObjectParameter: GethParameter {
 
     private var dictionary: Dictionary<String, GethParameter>
 
-    init(dictionary: Dictionary<String,GethParameter>) throws {
+    init(dictionary: Dictionary<String,GethParameter>) {
         self.dictionary = dictionary
     }
 
