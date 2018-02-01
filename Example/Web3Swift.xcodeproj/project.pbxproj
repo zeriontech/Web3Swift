@@ -17,6 +17,7 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
+		8C0139D0202349CC00659D2B /* EstimateGasProcedureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0139CF202349CC00659D2B /* EstimateGasProcedureTests.swift */; };
 		94831128426593F56EE4BCAF /* Pods_Web3Swift_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31007316603078343330134 /* Pods_Web3Swift_Example.framework */; };
 		968F8AD1201CDBA300197098 /* EthTransactionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FADD561A8A8E9C610B673 /* EthTransactionsTests.swift */; };
 		968F8AD4201E8A3700197098 /* RLPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FABDFE39DD64536E33A4A /* RLPTests.swift */; };
@@ -54,6 +55,7 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* Web3Swift_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Web3Swift_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C0139CF202349CC00659D2B /* EstimateGasProcedureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateGasProcedureTests.swift; sourceTree = "<group>"; };
 		8D3D6BEF8030D59C6F4A15FB /* Pods_Web3Swift_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Web3Swift_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D1308587140D3019CBC0F5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		EF31EFC3250D5A7EF77E859E /* Pods-Web3Swift_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Web3Swift_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Web3Swift_Example/Pods-Web3Swift_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			children = (
 				584FAFC4DFD37E513B7E286C /* GetTransactionsCountProcedureTests.swift */,
 				584FA8BDDA8B4B1DF68FA7AA /* ChainIDProcedureTests.swift */,
+				8C0139CF202349CC00659D2B /* EstimateGasProcedureTests.swift */,
 			);
 			path = Procedures;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				968F8AD6201F9BD500197098 /* ByteWidthTests.swift in Sources */,
 				584FA3C6D453891392C46534 /* RandomNonceTests.swift in Sources */,
 				584FA1D30FE97BD70FAD9117 /* GetTransactionsCountProcedureTests.swift in Sources */,
+				8C0139D0202349CC00659D2B /* EstimateGasProcedureTests.swift in Sources */,
 				584FA77CEB52A63A15F3A08F /* GethParamsInitTests.swift in Sources */,
 				584FAD3793AFB655815DBBA6 /* ChainIDProcedureTests.swift in Sources */,
 			);

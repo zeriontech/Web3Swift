@@ -7,8 +7,8 @@ class QuantityParameter: GethParameter {
     init(quantity: UInt64) {
         self.quantity = quantity
     }
-
+    //TODO: Fix formating here for numbers less that 16
     func value() -> Any {
-        return String(format:"%2X", quantity).addingHexPrefix()
+        return String(format:"%X", quantity).addingHexPrefix()
     }
 }

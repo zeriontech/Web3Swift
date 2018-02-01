@@ -40,4 +40,8 @@ extension String {
         return true
     }
     
+    func removingWhitespace() -> String {
+        return self.trimmingCharacters(in: .whitespaces)
+    }
+    
 }
