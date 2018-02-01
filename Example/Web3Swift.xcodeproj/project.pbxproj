@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		179920E6147A7C94464EBBDE /* Pods_Web3Swift_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3D6BEF8030D59C6F4A15FB /* Pods_Web3Swift_Tests.framework */; };
+		584FA1D30FE97BD70FAD9117 /* GetTransactionsCountProcedureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAFC4DFD37E513B7E286C /* GetTransactionsCountProcedureTests.swift */; };
+		584FA3C6D453891392C46534 /* RandomNonceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA2188BD864664AE3653B /* RandomNonceTests.swift */; };
+		584FA77CEB52A63A15F3A08F /* GethParamsInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA25F2CE345888231B85E /* GethParamsInitTests.swift */; };
+		584FAD3793AFB655815DBBA6 /* ChainIDProcedureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA8BDDA8B4B1DF68FA7AA /* ChainIDProcedureTests.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -37,9 +41,13 @@
 		17A034A484746115F55C4602 /* Pods-Web3Swift_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Web3Swift_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Web3Swift_Example/Pods-Web3Swift_Example.release.xcconfig"; sourceTree = "<group>"; };
 		2F320EB26501545845D58F10 /* Web3Swift.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Web3Swift.podspec; path = ../Web3Swift.podspec; sourceTree = "<group>"; };
 		343D350F5D884606EEA5C913 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		584FA2188BD864664AE3653B /* RandomNonceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomNonceTests.swift; sourceTree = "<group>"; };
+		584FA25F2CE345888231B85E /* GethParamsInitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GethParamsInitTests.swift; sourceTree = "<group>"; };
 		584FA45D783FD9227ECBA470 /* ByteWidthTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ByteWidthTests.swift; sourceTree = "<group>"; };
+		584FA8BDDA8B4B1DF68FA7AA /* ChainIDProcedureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainIDProcedureTests.swift; sourceTree = "<group>"; };
 		584FABDFE39DD64536E33A4A /* RLPTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLPTests.swift; sourceTree = "<group>"; };
 		584FADD561A8A8E9C610B673 /* EthTransactionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthTransactionsTests.swift; sourceTree = "<group>"; };
+		584FAFC4DFD37E513B7E286C /* GetTransactionsCountProcedureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTransactionsCountProcedureTests.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Web3Swift_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Web3Swift_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +98,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		584FA25211AC8EDFB1E3D317 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				584FA25F2CE345888231B85E /* GethParamsInitTests.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		584FA64570984CF2A40AF835 /* Procedures */ = {
+			isa = PBXGroup;
+			children = (
+				584FAFC4DFD37E513B7E286C /* GetTransactionsCountProcedureTests.swift */,
+				584FA8BDDA8B4B1DF68FA7AA /* ChainIDProcedureTests.swift */,
+			);
+			path = Procedures;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -136,13 +161,14 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* GetTransactionsCountProcedureTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
-				8C385CD9201D0160005A5CDE /* GethParamsInitTests.swift */,
 				584FADD561A8A8E9C610B673 /* EthTransactionsTests.swift */,
 				584FABDFE39DD64536E33A4A /* RLPTests.swift */,
 				584FA45D783FD9227ECBA470 /* ByteWidthTests.swift */,
 				8C0139C52023310B00659D2B /* GetGasPriceProcedureTests.swift */,
+				584FA2188BD864664AE3653B /* RandomNonceTests.swift */,
+				584FA64570984CF2A40AF835 /* Procedures */,
+				584FA25211AC8EDFB1E3D317 /* Network */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -316,15 +342,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Web3Swift_Tests/Pods-Web3Swift_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Web3Swift/Web3Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/secp256k1_ios/secp256k1_ios.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Web3Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1_ios.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 			);
@@ -376,13 +406,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Web3Swift_Example/Pods-Web3Swift_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Web3Swift/Web3Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/secp256k1_ios/secp256k1_ios.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Web3Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1_ios.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -410,7 +444,10 @@
 				8C0139C62023310B00659D2B /* GetGasPriceProcedureTests.swift in Sources */,
 				968F8AD4201E8A3700197098 /* RLPTests.swift in Sources */,
 				968F8AD6201F9BD500197098 /* ByteWidthTests.swift in Sources */,
-				8C385CDA201D0160005A5CDE /* GethParamsInitTests.swift in Sources */,
+				584FA3C6D453891392C46534 /* RandomNonceTests.swift in Sources */,
+				584FA1D30FE97BD70FAD9117 /* GetTransactionsCountProcedureTests.swift in Sources */,
+				584FA77CEB52A63A15F3A08F /* GethParamsInitTests.swift in Sources */,
+				584FAD3793AFB655815DBBA6 /* ChainIDProcedureTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

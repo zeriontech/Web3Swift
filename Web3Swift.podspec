@@ -12,9 +12,11 @@ Pod::Spec.new do |s|
   s.author           = { 'biboran' => 'tim-solonin2@yandex.ru' }
   s.source           = { :git => 'https://github.com/BlockStoreApp/Web3Swift.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'Web3Swift/**/*'
   s.dependency 'SwiftyJSON', '~> 4.0'
+  s.dependency 'secp256k1_ios', '= 0.1.1'
+  s.dependency 'CryptoSwift', '~> 0.8'
 
 end
