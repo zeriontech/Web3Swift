@@ -6,6 +6,8 @@
 import XCTest
 import Quick
 import Nimble
+import secp256k1_ios
+import CryptoSwift
 @testable import Web3Swift
 
 final class RandomNonceTests: XCTestCase {
