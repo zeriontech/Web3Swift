@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1E0A4EC65F39B9FC36897A66A1ADF8F7"
-               BuildableName = "Pods_Web3Swift_Tests.framework"
-               BlueprintName = "Pods-Web3Swift_Tests"
-               ReferencedContainer = "container:Pods/Pods.xcodeproj">
+               BlueprintIdentifier = "607FACCF1AFB9204008FA782"
+               BuildableName = "Web3Swift_Example.app"
+               BlueprintName = "Web3Swift_Example"
+               ReferencedContainer = "container:Web3Swift.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -77,6 +77,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "607FACCF1AFB9204008FA782"
+            BuildableName = "Web3Swift_Example.app"
+            BlueprintName = "Web3Swift_Example"
+            ReferencedContainer = "container:Web3Swift.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
