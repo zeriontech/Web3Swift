@@ -20,7 +20,7 @@ pod 'Web3Swift'
 
 ## Author
 
-- Timofey Solonin [@biboran](https://github.com/biboran), tim-solonin2@yandex.ru
+- Timofey Solonin [@biboran](https://github.com/biboran), abdulowork@gmail.com
 - Vadim Koleoshkin [@rockfridrich](https://github.com/rockfridrich), vadim@zerion.io
 
 ## License
