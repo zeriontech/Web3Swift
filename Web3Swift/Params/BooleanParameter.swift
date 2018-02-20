@@ -1,14 +1,14 @@
 import Foundation
 
-class BooleanParameter: GethParameter {
+public final class BooleanParameter: GethParameter {
     
-    private var param : Bool
+    private var param: Bool
     
     init(value: Bool) {
         self.param = value
     }
-    
-    func value() throws -> Any {
+
+    public func value() throws -> Any {
         return param
     }
     

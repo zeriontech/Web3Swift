@@ -4,9 +4,9 @@
 
 import Foundation
 
-final class RLPBytesAppendix: RLPAppendix {
+public final class RLPBytesAppendix: RLPAppendix {
 
-    func applying(to bytes: Data) throws -> Data {
+    public func applying(to bytes: Data) throws -> Data {
         switch bytes.count {
         case 1:
             return bytes

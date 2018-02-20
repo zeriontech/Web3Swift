@@ -16,7 +16,9 @@
 		584FA9DBA01B7EAE9EC1021B /* EthTransactionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAE325995A0ABA7A8A643 /* EthTransactionsTests.swift */; };
 		584FAA14203BE4FA51BD4A13 /* GetGasPriceProcedureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FACF870DFF799329F558F /* GetGasPriceProcedureTests.swift */; };
 		584FACDDE9E98EDA9C414EF6 /* RandomNonceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAB47440D3CE3C6ED0684 /* RandomNonceTests.swift */; };
+		584FACEC7F5AD9060590ED93 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA82731B90F65C00992E6 /* URL.swift */; };
 		584FAD3793AFB655815DBBA6 /* ChainIDProcedureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA8BDDA8B4B1DF68FA7AA /* ChainIDProcedureTests.swift */; };
+		584FADD6EB5CAA11200C1147 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA371F4A75FBAC4AE2D7D /* Collection.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -42,7 +44,9 @@
 		343D350F5D884606EEA5C913 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		584FA147B4074725F6630283 /* SECP256k1SignatureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECP256k1SignatureTests.swift; sourceTree = "<group>"; };
 		584FA25F2CE345888231B85E /* GethParamsInitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GethParamsInitTests.swift; sourceTree = "<group>"; };
+		584FA371F4A75FBAC4AE2D7D /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		584FA6C98ECA780456027E15 /* ByteWidthTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ByteWidthTests.swift; sourceTree = "<group>"; };
+		584FA82731B90F65C00992E6 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		584FA8BDDA8B4B1DF68FA7AA /* ChainIDProcedureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainIDProcedureTests.swift; sourceTree = "<group>"; };
 		584FAB47440D3CE3C6ED0684 /* RandomNonceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomNonceTests.swift; sourceTree = "<group>"; };
 		584FACC5A38F59EE5FCD2BC7 /* RLPTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLPTests.swift; sourceTree = "<group>"; };
@@ -154,6 +158,15 @@
 			path = RLP;
 			sourceTree = "<group>";
 		};
+		584FAC786109413F2D9921CE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				584FA371F4A75FBAC4AE2D7D /* Collection.swift */,
+				584FA82731B90F65C00992E6 /* URL.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +176,7 @@
 				607FACD11AFB9204008FA782 /* Products */,
 				50C3ECB5548832459AC51D59 /* Pods */,
 				B8B89B3A7E7096470B1FDD04 /* Frameworks */,
+				584FAC786109413F2D9921CE /* Extensions */,
 			);
 			sourceTree = "<group>";
 		};
@@ -252,6 +266,7 @@
 				607FACCE1AFB9204008FA782 /* Resources */,
 				EBB6B6BA4C731E232BDF097E /* [CP] Embed Pods Frameworks */,
 				03DF536FB09CC228AFF589E8 /* [CP] Copy Pods Resources */,
+				96C55DCE203C61A300F7B8B3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -272,6 +287,7 @@
 				607FACE31AFB9204008FA782 /* Resources */,
 				6614058F101887C8832107D8 /* [CP] Embed Pods Frameworks */,
 				55BC1A45B4B811FB26B4C303 /* [CP] Copy Pods Resources */,
+				96C55DCF203C64CF00F7B8B3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -420,6 +436,32 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		96C55DCE203C61A300F7B8B3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint --path ../";
+		};
+		96C55DCF203C64CF00F7B8B3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint --path ../";
+		};
 		D0ECBA0FCDB34E08A91BF630 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -487,6 +529,8 @@
 				584FACDDE9E98EDA9C414EF6 /* RandomNonceTests.swift in Sources */,
 				584FA27299B5C54E558E6355 /* ByteWidthTests.swift in Sources */,
 				584FA538B1B4B38D0AD9D0C9 /* SECP256k1SignatureTests.swift in Sources */,
+				584FADD6EB5CAA11200C1147 /* Collection.swift in Sources */,
+				584FACEC7F5AD9060590ED93 /* URL.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

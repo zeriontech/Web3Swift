@@ -1,7 +1,7 @@
-import XCTest
-import Quick
 import Nimble
+import Quick
 @testable import Web3Swift
+import XCTest
 
 final class GetGasPriceProcedureTests: XCTestCase {
     
@@ -11,19 +11,19 @@ final class GetGasPriceProcedureTests: XCTestCase {
                 network: TestingEthereumNetwork()
                 ).call()
         }.toNot(
-                beEmpty()
+            beEmpty()
         )
     }
     
     func testValueGreaterThanZero() {
-        expect(
-            UInt64(
-                try GetGasPriceProcedure(
+        expect{
+            try UInt64(
+                GetGasPriceProcedure(
                     network: TestingEthereumNetwork()
                 ).call()["result"].string().removingHexPrefix(),
                 radix: 16
             )
-        ).to(
+        }.to(
             beGreaterThan(0)
         )
     }

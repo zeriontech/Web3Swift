@@ -4,7 +4,7 @@
 
 import Foundation
 
-protocol RLPAppendix {
+public protocol RLPAppendix {
 
     func applying(to: Data) throws -> Data
 

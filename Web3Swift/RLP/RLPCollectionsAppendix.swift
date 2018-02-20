@@ -4,9 +4,9 @@
 
 import Foundation
 
-final class RLPCollectionAppendix: RLPAppendix {
+public final class RLPCollectionAppendix: RLPAppendix {
 
-    func applying(to bytes: Data) throws -> Data {
+    public func applying(to bytes: Data) throws -> Data {
         return try RLPStandardAppendix(
             offset: 0xc0
         ).applying(to: bytes)

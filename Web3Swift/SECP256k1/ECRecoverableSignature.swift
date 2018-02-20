@@ -4,7 +4,7 @@
 
 import Foundation
 
-protocol ECRecoverableSignature {
+public protocol ECRecoverableSignature {
 
     func r() throws -> Data
 

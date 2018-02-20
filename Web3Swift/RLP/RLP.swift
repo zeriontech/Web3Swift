@@ -4,7 +4,7 @@
 
 import Foundation
 
-protocol RLP {
+public protocol RLP {
 
     func toData() throws -> Data
 

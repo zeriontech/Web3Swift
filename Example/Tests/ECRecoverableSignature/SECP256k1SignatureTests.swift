@@ -5,24 +5,24 @@
 
 import Foundation
 
-import Quick
-import Nimble
-import XCTest
 import CryptoSwift
+import Nimble
+import Quick
 @testable import Web3Swift
+import XCTest
 
 //FIXME: SigningError case is not tested
 //FIXME: SignatureSerializationError case is not tested
 //FIXME: A lot of copy paste tests.
 final class SECP256k1SignatureTests: XCTestCase {
 
-    private let validPrivateKey = Data(hex: "bdd61bcde5541ac8ad18c0ec53356419a0e62e8f147a1cc16ea36799e2cc64dd").map{$0}
+    private let validPrivateKey: [UInt8] = Array(hex: "bdd61bcde5541ac8ad18c0ec53356419a0e62e8f147a1cc16ea36799e2cc64dd")
 
     func testIncorrectHashingFunction() {
         expect(
             try SECP256k1Signature(
                 privateKey: self.validPrivateKey,
-                message: "Hello world".utf8.map{$0},
+                message: Array("Hello world".utf8),
                 hashFunction: SHA3(variant: .keccak224).calculate,
                 entropy: RandomNonce(size: 32)
             ).r()
@@ -36,14 +36,14 @@ final class SECP256k1SignatureTests: XCTestCase {
 
         let firstSignature = SECP256k1Signature(
             privateKey: self.validPrivateKey,
-            message: "Hello world".utf8.map{$0},
+            message: Array("Hello world".utf8),
             hashFunction: SHA3(variant: .keccak256).calculate,
             entropy: nonce
         )
 
         let secondSignature = SECP256k1Signature(
             privateKey: self.validPrivateKey,
-            message: "Hello world".utf8.map{$0},
+            message: Array("Hello world".utf8),
             hashFunction: SHA3(variant: .keccak256).calculate,
             entropy: nonce
         )
@@ -60,14 +60,14 @@ final class SECP256k1SignatureTests: XCTestCase {
     func testDifferentNonce() {
         let firstSignature = SECP256k1Signature(
             privateKey: self.validPrivateKey,
-            message: "Hello world".utf8.map{$0},
+            message: Array("Hello world".utf8),
             hashFunction: SHA3(variant: .keccak256).calculate,
             entropy: RandomNonce(size: 32)
         )
 
         let secondSignature = SECP256k1Signature(
             privateKey: self.validPrivateKey,
-            message: "Hello world".utf8.map{$0},
+            message: Array("Hello world".utf8),
             hashFunction: SHA3(variant: .keccak256).calculate,
             entropy: RandomNonce(size: 32)
         )
@@ -86,14 +86,14 @@ final class SECP256k1SignatureTests: XCTestCase {
 
         let firstSignature = SECP256k1Signature(
             privateKey: self.validPrivateKey,
-            message: "Hello world".utf8.map{$0},
+            message: Array("Hello world".utf8),
             hashFunction: SHA3(variant: .keccak256).calculate,
             entropy: nonce
         )
 
         let secondSignature = SECP256k1Signature(
             privateKey: self.validPrivateKey,
-            message: "Hello worlds".utf8.map{$0},
+            message: Array("Hello worlds".utf8),
             hashFunction: SHA3(variant: .keccak256).calculate,
             entropy: nonce
         )

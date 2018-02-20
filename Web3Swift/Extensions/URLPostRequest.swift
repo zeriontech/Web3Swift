@@ -5,12 +5,12 @@
 import Foundation
 
 //FIXME: Init should throw since URLRequest is actually HTTPURLRequest
-class URLPostRequest {
+public final class URLPostRequest {
 
     private let url: URL
     private let body: Data
-    private let headers: Dictionary<String,String>
-    init(url: URL, body: Data, headers: Dictionary<String,String>) {
+    private let headers: Dictionary<String, String>
+    init(url: URL, body: Data, headers: Dictionary<String, String>) {
         self.url = url
         self.body = body
         self.headers = headers

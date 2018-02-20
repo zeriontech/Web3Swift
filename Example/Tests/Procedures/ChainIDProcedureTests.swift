@@ -3,10 +3,10 @@
 // Copyright (c) 2018 CocoaPods. All rights reserved.
 //
 
-import XCTest
-import Quick
 import Nimble
+import Quick
 @testable import Web3Swift
+import XCTest
 
 final class ChainIDProcedureTests: XCTestCase {
 
@@ -21,11 +21,11 @@ final class ChainIDProcedureTests: XCTestCase {
     }
     
     func testMainNetID() {
-        expect(
+        expect{
             try ChainIDProcedure(
                 network: TestingEthereumNetwork()
             ).call()["result"].string()
-        ).to(
+        }.to(
             equal(
                 "1"
             )

@@ -5,7 +5,7 @@
 import Foundation
 import SwiftyJSON
 
-class GetTransactionsCountProcedure: RemoteProcedure {
+public class GetTransactionsCountProcedure: RemoteProcedure {
 
     private var network: Network
     private var address: Address
@@ -17,7 +17,7 @@ class GetTransactionsCountProcedure: RemoteProcedure {
         self.blockChainState = blockChainState
     }
 
-    func call() throws -> JSON {
+    public func call() throws -> JSON {
         return try JSON(
             data: network.call(
                 method: "eth_getTransactionCount",

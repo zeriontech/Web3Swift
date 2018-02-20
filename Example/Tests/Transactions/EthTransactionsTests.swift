@@ -3,10 +3,10 @@
 // Copyright (c) 2018 CocoaPods. All rights reserved.
 //
 
-import XCTest
-import Quick
 import Nimble
+import Quick
 @testable import Web3Swift
+import XCTest
 
 final class EthTransactionsTests: XCTestCase {
 

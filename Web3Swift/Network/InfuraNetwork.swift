@@ -1,6 +1,6 @@
 import Foundation
 
-class InfuraNetwork: Network {
+public final class InfuraNetwork: Network {
     
     private var geth: GethNetwork
     
@@ -10,7 +10,7 @@ class InfuraNetwork: Network {
         
     }
     
-    func call(method: String, params: Array<GethParameter>) throws -> Data {
+    public func call(method: String, params: Array<GethParameter>) throws -> Data {
         return try geth.call(method: method, params: params)
     }
     

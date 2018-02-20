@@ -1,6 +1,6 @@
 import Foundation
 
-class StringParameter: GethParameter {
+public final class StringParameter: GethParameter {
 
     private var param: String
 
@@ -8,7 +8,7 @@ class StringParameter: GethParameter {
         self.param = value
     }
 
-    func value() throws -> Any {
+    public func value() throws -> Any {
         return param
     }
 }
