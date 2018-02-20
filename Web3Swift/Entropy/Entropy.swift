@@ -4,7 +4,7 @@
 
 import Foundation
 
-protocol Entropy {
+public protocol Entropy {
 
     func toData() throws -> Data
 

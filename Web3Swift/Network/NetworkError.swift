@@ -1,8 +1,8 @@
 import Foundation
 
-struct NetworkError: LocalizedError {
-    
-    var errorDescription: String? {
+public struct NetworkError: LocalizedError {
+
+    public var errorDescription: String? {
         return localizedDescription
     }
     var localizedDescription: String

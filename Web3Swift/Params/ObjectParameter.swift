@@ -1,7 +1,7 @@
 import Foundation
 import SwiftyJSON
 
-class ObjectParameter: GethParameter {
+public final class ObjectParameter: GethParameter {
 
     private var dictionary: Dictionary<String, GethParameter>
 
@@ -9,7 +9,7 @@ class ObjectParameter: GethParameter {
         self.dictionary = dictionary
     }
 
-    func value() throws -> Any {
+    public func value() throws -> Any {
         return try dictionary.mapValues {
             try $0.value()
         }

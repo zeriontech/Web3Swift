@@ -1,6 +1,6 @@
 import Foundation
 
-protocol NetworkAdapter {
+public protocol NetworkAdapter {
     
     func getSession() -> URLSession
     

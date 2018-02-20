@@ -5,7 +5,7 @@
 import Foundation
 
 //FIXME: Init should throw since URLRequest is actually HTTPURLRequest
-class URLPostRequest {
+public final class URLPostRequest {
 
     private let url: URL
     private let body: Data

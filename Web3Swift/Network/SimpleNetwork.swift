@@ -1,7 +1,7 @@
 import Foundation
 import SwiftyJSON
 
-class SimpleNetwork: Network {
+public class SimpleNetwork: Network {
     
     private var session: URLSession
     private var url: URL
@@ -13,7 +13,7 @@ class SimpleNetwork: Network {
         self.headers = headers
     }
     
-    func call(method: String, params: Array<GethParameter>) throws -> Data {
+    public func call(method: String, params: Array<GethParameter>) throws -> Data {
         return try session.data(
             from: URLPostRequest(
                 url: url,

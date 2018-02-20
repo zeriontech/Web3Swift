@@ -79,14 +79,16 @@ final class RandomNonceTests: XCTestCase {
     
     func testRandomNonces() {
         expect{
-            expect(
-                try RandomNonce(size: 64).toData()
+            try expect(
+                RandomNonce(size: 64).toData()
             ).toNot(
                 equal(
-                    try RandomNonce(size: 64).toData()
+                    RandomNonce(size: 64).toData()
                 )
             )
-        }
+        }.toNot(
+            throwError()
+        )
     }
 
 }

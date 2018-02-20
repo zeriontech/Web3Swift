@@ -1,6 +1,6 @@
 import Foundation
 
-class MainnetInfuraNetwork: NetworkAdapter {
+public class MainnetInfuraNetwork: NetworkAdapter {
     
     private var session: URLSession
     private var url: URL
@@ -15,15 +15,15 @@ class MainnetInfuraNetwork: NetworkAdapter {
         headers = [:]
     }
     
-    func getSession() -> URLSession {
+    public func getSession() -> URLSession {
         return session
     }
     
-    func getUrl() -> URL {
+    public func getUrl() -> URL {
         return url
     }
 
-    func getHeaders() -> Dictionary<String, String> {
+    public func getHeaders() -> Dictionary<String, String> {
         fatalError("getHeaders() has not been implemented")
     }
 

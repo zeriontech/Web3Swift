@@ -1,5 +1,5 @@
 import Foundation
 
-protocol GethParameter {
+public protocol GethParameter {
     func value() throws -> Any
 }

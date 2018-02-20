@@ -6,13 +6,13 @@ import CryptoSwift
 import Foundation
 import secp256k1_ios
 
-final class IncorrectHashLengthError: Swift.Error {}
+public final class IncorrectHashLengthError: Swift.Error {}
 
-final class SigningError: Swift.Error {}
+public final class SigningError: Swift.Error {}
 
-final class SignatureSerializationError: Swift.Error {}
+public final class SignatureSerializationError: Swift.Error {}
 
-final class SECP256k1Signature: ECRecoverableSignature {
+public final class SECP256k1Signature: ECRecoverableSignature {
 
     // swiftlint:disable:next large_tuple
     private let stickyComputation: StickyComputation<(r: Data, s: Data, recoveryID: UInt8)>
@@ -61,15 +61,15 @@ final class SECP256k1Signature: ECRecoverableSignature {
         }
     }
 
-    func r() throws -> Data {
+    public func r() throws -> Data {
         return try stickyComputation.result().r
     }
 
-    func s() throws -> Data {
+    public func s() throws -> Data {
         return try stickyComputation.result().s
     }
 
-    func recoverID() throws -> UInt8 {
+    public func recoverID() throws -> UInt8 {
         return try stickyComputation.result().recoveryID
     }
 

@@ -4,7 +4,7 @@
 
 import Foundation
 
-final class StickyComputation<ReturnType> {
+internal final class StickyComputation<ReturnType> {
 
     private let computation: () throws -> (ReturnType)
     init(computation: @escaping () throws -> (ReturnType)) {

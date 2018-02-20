@@ -4,7 +4,7 @@
 
 import Foundation
 
-protocol Transactions {
+public protocol Transactions {
 
     func count() throws -> Int
 

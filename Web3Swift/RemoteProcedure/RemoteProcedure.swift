@@ -5,7 +5,7 @@
 import Foundation
 import SwiftyJSON
 
-protocol RemoteProcedure {
+public protocol RemoteProcedure {
 
     func call() throws -> JSON
 

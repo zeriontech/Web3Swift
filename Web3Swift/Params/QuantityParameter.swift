@@ -1,6 +1,6 @@
 import Foundation
 
-class QuantityParameter: GethParameter {
+public final class QuantityParameter: GethParameter {
 
     private var quantity: Int
 
@@ -8,7 +8,7 @@ class QuantityParameter: GethParameter {
         self.quantity = quantity
     }
 
-    func value() -> Any {
+    public func value() -> Any {
         return String(format: "%2X", quantity).addingHexPrefix()
     }
 }

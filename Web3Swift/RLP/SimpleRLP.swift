@@ -4,7 +4,7 @@
 
 import Foundation
 
-final class SimpleRLP: RLP {
+public final class SimpleRLP: RLP {
 
     private let lazyBytes: () throws -> (Data)
     private let appendix: RLPAppendix
@@ -18,7 +18,7 @@ final class SimpleRLP: RLP {
         self.appendix = RLPCollectionAppendix()
     }
 
-    func toData() throws -> Data {
+    public func toData() throws -> Data {
         return try appendix.applying(to: lazyBytes())
     }
 
