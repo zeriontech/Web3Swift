@@ -5,9 +5,9 @@ class SimpleNetwork: Network {
     
     private var session: URLSession
     private var url: URL
-    private var headers: Dictionary<String,String>
+    private var headers: Dictionary<String, String>
     
-    init(session: URLSession, url: URL, headers: Dictionary<String,String>) {
+    init(session: URLSession, url: URL, headers: Dictionary<String, String>) {
         self.session = session
         self.url = url
         self.headers = headers

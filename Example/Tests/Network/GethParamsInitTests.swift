@@ -1,7 +1,7 @@
-import XCTest
-import Quick
 import Nimble
+import Quick
 @testable import Web3Swift
+import XCTest
 
 class GethParamsInitTests: XCTestCase {
 

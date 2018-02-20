@@ -3,12 +3,12 @@
 // Copyright (c) 2018 CocoaPods. All rights reserved.
 //
 
-import XCTest
-import Quick
-import Nimble
-import secp256k1_ios
 import CryptoSwift
+import Nimble
+import Quick
+import secp256k1_ios
 @testable import Web3Swift
+import XCTest
 
 final class RandomNonceTests: XCTestCase {
 

@@ -3,10 +3,10 @@
 // Copyright (c) 2018 CocoaPods. All rights reserved.
 //
 
-import Quick
 import Nimble
-import XCTest
+import Quick
 @testable import Web3Swift
+import XCTest
 
 final class RLPTests: XCTestCase {
 
@@ -14,13 +14,13 @@ final class RLPTests: XCTestCase {
         expect{
             try SimpleRLP(
                 bytes: Data(
-                    bytes: "dog".utf8.map{ $0 }
+                    bytes: Array("dog".utf8)
                 )
             ).toData()
         }.to(
             equal(
                 Data(
-                    bytes: [0x83] + "dog".utf8.map{ $0 }
+                    bytes: [0x83] + Array("dog".utf8)
                 )
             )
         )
@@ -32,12 +32,12 @@ final class RLPTests: XCTestCase {
                 rlps: [
                     SimpleRLP(
                         bytes: Data(
-                            bytes: "cat".utf8.map{ $0 }
+                            bytes: Array("cat".utf8)
                         )
                     ),
                     SimpleRLP(
                         bytes: Data(
-                            bytes: "dog".utf8.map{ $0 }
+                            bytes: Array("dog".utf8)
                         )
                     ),
                 ]
@@ -169,13 +169,13 @@ final class RLPTests: XCTestCase {
         expect(
             try SimpleRLP(
                 bytes: Data(
-                    bytes: "Lorem ipsum dolor sit amet, consectetur adipisicing elit".utf8.map{ $0 }
+                    bytes: Array("Lorem ipsum dolor sit amet, consectetur adipisicing elit".utf8)
                 )
             ).toData()
         ).to(
             equal(
                 Data(
-                    bytes: [0xb8, 0x38] + "Lorem ipsum dolor sit amet, consectetur adipisicing elit".utf8.map{ $0 }
+                    bytes: [0xb8, 0x38] + Array("Lorem ipsum dolor sit amet, consectetur adipisicing elit".utf8)
                 )
             )
         )
@@ -189,13 +189,13 @@ final class RLPTests: XCTestCase {
         expect(
             try SimpleRLP(
                 bytes: Data(
-                    bytes: string.utf8.map{$0}
+                    bytes: Array(string.utf8)
                 )
             ).toData()
         ).to(
             equal(
                 Data(
-                    bytes: [0xb9, 0x04, 0x00] + string.utf8.map{$0}
+                    bytes: [0xb9, 0x04, 0x00] + Array(string.utf8)
                 )
             )
         )

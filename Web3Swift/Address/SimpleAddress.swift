@@ -2,8 +2,8 @@
 // Created by Timofey on 1/20/18.
 //
 
-import Foundation
 import CryptoSwift
+import Foundation
 
 class InvalidAddressError: Swift.Error { }
 

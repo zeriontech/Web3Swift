@@ -23,7 +23,7 @@ class MainnetInfuraNetwork: NetworkAdapter {
         return url
     }
 
-    func getHeaders() -> Dictionary<String,String> {
+    func getHeaders() -> Dictionary<String, String> {
         fatalError("getHeaders() has not been implemented")
     }
 

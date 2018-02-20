@@ -7,23 +7,11 @@ class TransactionHashParameter: GethParameter {
     private var transactionHash: String
     
     init(transactionHash: String) {
-        
         self.transactionHash = transactionHash
-        
     }
     
     func value() throws -> Any {
-
-        if(!transactionHash.isHex())
-        {
-            throw InvalidTransactionHashError()
-        }
-
-        if(transactionHash.removingHexPrefix().count != 32)
-        {
-            throw InvalidTransactionHashError()
-        }
-
+        guard transactionHash.isHex(), transactionHash.removingHexPrefix().count == 32 else { throw InvalidTransactionHashError() }
         return transactionHash.addingHexPrefix()
     }
     

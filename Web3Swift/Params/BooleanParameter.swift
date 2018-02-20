@@ -2,7 +2,7 @@ import Foundation
 
 class BooleanParameter: GethParameter {
     
-    private var param : Bool
+    private var param: Bool
     
     init(value: Bool) {
         self.param = value

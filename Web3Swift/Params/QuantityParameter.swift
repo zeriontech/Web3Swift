@@ -9,6 +9,6 @@ class QuantityParameter: GethParameter {
     }
 
     func value() -> Any {
-        return String(format:"%2X", quantity).addingHexPrefix()
+        return String(format: "%2X", quantity).addingHexPrefix()
     }
 }
