@@ -24,7 +24,7 @@ class SimpleNetwork: Network {
                         "params" : params.map {
                             try $0.value()
                         },
-                        "id" : 1
+                        "id" : 16180 //https://en.wikipedia.org/wiki/Golden_ratio
                     ]
                     ).rawData(),
                     headers: headers
