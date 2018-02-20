@@ -1,6 +1,6 @@
 import Foundation
 
-class GethNetwork: Network {
+public final class GethNetwork: Network {
     
     private var network: SimpleNetwork
     
@@ -38,8 +38,8 @@ class GethNetwork: Network {
         self.init(url: gethUrl)
         
     }
-    
-    func call(method: String, params: Array<GethParameter>) throws -> Data {
+
+    public func call(method: String, params: Array<GethParameter>) throws -> Data {
         return try network.call(method: method, params: params)
     }
     

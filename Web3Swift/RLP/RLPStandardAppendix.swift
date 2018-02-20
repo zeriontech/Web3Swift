@@ -4,9 +4,9 @@
 
 import Foundation
 
-final class BytesLengthOverflow: Swift.Error { }
+public final class BytesLengthOverflow: Swift.Error { }
 
-final class RLPStandardAppendix: RLPAppendix {
+internal final class RLPStandardAppendix: RLPAppendix {
 
     private let offset: UInt8
     init(offset: UInt8) {

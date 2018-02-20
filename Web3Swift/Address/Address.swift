@@ -4,7 +4,7 @@
 
 import Foundation
 
-protocol Address {
+public protocol Address {
 
     func toString() -> String
     

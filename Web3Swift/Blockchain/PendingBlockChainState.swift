@@ -1,8 +1,8 @@
 import Foundation
 
-class PendingBlockChainState: BlockChainState {
-    
-    func toString() -> String {
+public final class PendingBlockChainState: BlockChainState {
+
+    public func toString() -> String {
         return "pending"
     }
     

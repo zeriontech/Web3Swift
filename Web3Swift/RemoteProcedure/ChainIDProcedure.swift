@@ -8,7 +8,7 @@
 import Foundation
 import SwiftyJSON
 
-final class ChainIDProcedure: RemoteProcedure {
+public final class ChainIDProcedure: RemoteProcedure {
 
     private let network: Network
 
@@ -16,7 +16,7 @@ final class ChainIDProcedure: RemoteProcedure {
         self.network = network
     }
 
-    func call() throws -> JSON {
+    public func call() throws -> JSON {
         return try JSON(
             data: network.call(
                 method: "net_version",

@@ -3,12 +3,12 @@
 // Copyright (c) 2018 CocoaPods. All rights reserved.
 //
 
-import XCTest
-import Quick
-import Nimble
-import secp256k1_ios
 import CryptoSwift
+import Nimble
+import Quick
+import secp256k1_ios
 @testable import Web3Swift
+import XCTest
 
 final class RandomNonceTests: XCTestCase {
 
@@ -41,45 +41,53 @@ final class RandomNonceTests: XCTestCase {
     }
 
     func testImmutability() {
-        let nonce = RandomNonce(size: 32)
-        let firstNonceData = try! nonce.toData()
-        let secondNonceData = try! nonce.toData()
-        expect(
-            firstNonceData
-        ).to(
-            equal(
-                secondNonceData
+        expect{
+            let nonce = RandomNonce(size: 32)
+            return try expect(
+                nonce.toData()
+            ).to(
+                equal(
+                    nonce.toData()
+                )
             )
+        }.toNot(
+            throwError()
         )
     }
 
     func testNonceSize() {
-        expect(
-            [
-                try RandomNonce(size: 32).toData().count,
-                try RandomNonce(size: 20).toData().count,
-                try RandomNonce(size: 1).toData().count
-            ]
-        ).to(
-            equal(
+        expect{
+            try expect(
                 [
-                    32,
-                    20,
-                    1
+                    RandomNonce(size: 32).toData().count,
+                    RandomNonce(size: 20).toData().count,
+                    RandomNonce(size: 1).toData().count
                 ]
+            ).to(
+                equal(
+                    [
+                        32,
+                        20,
+                        1
+                    ]
+                )
             )
+        }.toNot(
+            throwError()
         )
     }
     
     func testRandomNonces() {
-        let firstNonceData = try! RandomNonce(size: 64).toData()
-        let secondNonceData = try! RandomNonce(size: 64).toData()
-        expect(
-            firstNonceData
-        ).toNot(
-            equal(
-                secondNonceData
+        expect{
+            try expect(
+                RandomNonce(size: 64).toData()
+            ).toNot(
+                equal(
+                    RandomNonce(size: 64).toData()
+                )
             )
+        }.toNot(
+            throwError()
         )
     }
 

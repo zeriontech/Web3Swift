@@ -1,14 +1,14 @@
 import Foundation
 
-class AddressParameter: GethParameter {
+public final class AddressParameter: GethParameter {
     
     private var address: Address
     
     init(address: Address) {
         self.address = address
     }
-    
-    func value() throws -> Any {
+
+    public func value() throws -> Any {
         return address.toString()
     }
     

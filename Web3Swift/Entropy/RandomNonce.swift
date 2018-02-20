@@ -5,9 +5,9 @@
 import Foundation
 import Security
 
-final class SecRandomError: Swift.Error { }
+public final class SecRandomError: Swift.Error { }
 
-final class RandomNonce: Entropy {
+public final class RandomNonce: Entropy {
 
     private let size: Int
 
@@ -17,7 +17,7 @@ final class RandomNonce: Entropy {
 
     private var cachedNonce: Data?
 
-    func toData() throws -> Data {
+    public func toData() throws -> Data {
         if let nonce = cachedNonce {
             return nonce
         } else {

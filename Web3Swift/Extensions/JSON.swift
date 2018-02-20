@@ -13,7 +13,7 @@ fileprivate class InvalidTypeError: Swift.Error {
 
 extension JSON {
 
-    init(dictionary: [String : Any]) {
+    init(dictionary: [String: Any]) {
         self.init(dictionary)
     }
 

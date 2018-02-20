@@ -2,12 +2,12 @@
 // Created by Timofey on 1/20/18.
 //
 
-import Foundation
 import CryptoSwift
+import Foundation
 
-class InvalidAddressError: Swift.Error { }
+public final class InvalidAddressError: Swift.Error { }
 
-final class SimpleAddress: Address {
+public final class SimpleAddress: Address {
 
     private let value: String
     
@@ -16,12 +16,12 @@ final class SimpleAddress: Address {
         self.value = value.addingHexPrefix()
     }
 
-    func toString() -> String {
+    public func toString() -> String {
         return value
     }
     
     private lazy var asData: Data = Data(hex: self.value.removingHexPrefix())
-    func toData() -> Data {
+    public func toData() -> Data {
         return asData
     }
 

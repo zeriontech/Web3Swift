@@ -14,8 +14,8 @@ extension Data {
         )
     }
 
-    func droppingLeadingZeroes() -> Data {
-        return self.dropLast().drop(while: { $0 == 0 }) + [self.last].flatMap{$0}
+    internal func droppingLeadingZeroes() -> Data {
+        return self.dropLast().drop(while: { $0 == 0 }) + [self.last].flatMap{ $0 }
     }
 
 }

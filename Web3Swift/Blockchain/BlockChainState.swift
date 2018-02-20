@@ -1,7 +1,7 @@
 import Foundation
 
-protocol BlockChainState {
-    
+public protocol BlockChainState {
+
     func toString() -> String
     
 }
