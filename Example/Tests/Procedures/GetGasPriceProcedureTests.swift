@@ -8,12 +8,8 @@ final class GetGasPriceProcedureTests: XCTestCase {
     func testNotEmptyData() {
         expect{
             try GetGasPriceProcedure(
-                network: SimpleNetwork(
-                    session: URLSession.shared,
-                    url: URL(string: "https://mainnet.infura.io/3O4Ywm6wGFgpIn8G10TT"),
-                    headers: [:]
-                )
-            ).call()
+                network: TestingEthereumNetwork()
+                ).call()
         }.toNot(
             beEmpty()
         )
@@ -23,11 +19,7 @@ final class GetGasPriceProcedureTests: XCTestCase {
         expect{
             try UInt64(
                 GetGasPriceProcedure(
-                    network: SimpleNetwork(
-                        session: URLSession.shared,
-                        url: URL(string: "https://mainnet.infura.io/3O4Ywm6wGFgpIn8G10TT"),
-                        headers: [:]
-                    )
+                    network: TestingEthereumNetwork()
                 ).call()["result"].string().removingHexPrefix(),
                 radix: 16
             )

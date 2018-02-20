@@ -13,11 +13,7 @@ final class ChainIDProcedureTests: XCTestCase {
     func testNoThrow() {
         expect(
             try ChainIDProcedure(
-                network: SimpleNetwork(
-                    session: URLSession.shared,
-                    url: URL(string: "https://mainnet.infura.io/3O4Ywm6wGFgpIn8G10TT"),
-                    headers: [:]
-                )
+                network: TestingEthereumNetwork()
             ).call()
         ).toNot(
             throwError()
@@ -26,21 +22,13 @@ final class ChainIDProcedureTests: XCTestCase {
     
     func testMainNetID() {
         expect{
-            try expect(
-                ChainIDProcedure(
-                    network: SimpleNetwork(
-                        session: URLSession.shared,
-                        url: URL(string: "https://mainnet.infura.io/3O4Ywm6wGFgpIn8G10TT"),
-                        headers: [:]
-                    )
-                ).call()["result"].string()
-            ).to(
-                equal(
-                    "1"
-                )
+            try ChainIDProcedure(
+                network: TestingEthereumNetwork()
+            ).call()["result"].string()
+        }.to(
+            equal(
+                "1"
             )
-        }.toNot(
-            throwError()
         )
     }
 
