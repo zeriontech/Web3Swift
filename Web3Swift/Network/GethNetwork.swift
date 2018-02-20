@@ -4,21 +4,30 @@ class GethNetwork: Network {
     
     private var network: SimpleNetwork
     
-    init(url: String) throws {
+    init(url: URL) {
         
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        
+        let gethHeaders = [
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        ]
+        
+        network = SimpleNetwork(session: session, url: url, headers: gethHeaders)
+        
+    }
+    
+    convenience init(url: String) throws {
+    
         guard let gethUrl = URL(string: url) else {
             throw  NetworkError("Invalid url")
         }
         
-        let session = URLSession(configuration: URLSessionConfiguration.default)
-        
-        let gethHeaders = [String: String]()
-        
-        network = SimpleNetwork(session: session, url: gethUrl, headers: gethHeaders)
+        self.init(url: gethUrl)
         
     }
     
-    init(ip: String, port: String, isSecureConnection: Bool) throws {
+    convenience init(ip: String, port: String, isSecureConnection: Bool) throws {
         
         let prefix = (isSecureConnection) ? "https" : "http"
         
@@ -26,11 +35,7 @@ class GethNetwork: Network {
             throw  NetworkError("Invalid url")
         }
         
-        let session = URLSession(configuration: URLSessionConfiguration.default)
-        
-        let gethHeaders = [String: String]()
-        
-        network = SimpleNetwork(session: session, url: gethUrl, headers: gethHeaders)
+        self.init(url: gethUrl)
         
     }
     
