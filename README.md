@@ -1,6 +1,7 @@
 # Web3Swift
 
 [![CI Status](http://img.shields.io/travis/BlockStoreApp/Web3Swift.svg?style=flat)](https://travis-ci.org/BlockStoreApp/Web3Swift)
+[![codecov](https://codecov.io/gh/BlockStoreApp/Web3Swift/branch/develop/graph/badge.svg?token=SY7mpMQbGs)](https://codecov.io/gh/BlockStoreApp/Web3Swift)
 
 ## Example
 
