@@ -28,36 +28,40 @@ final class RLPTests: XCTestCase {
 
     func testCatDog() {
         expect{
-            try SimpleRLP(
-                rlps: [
-                    SimpleRLP(
-                        bytes: Data(
-                            bytes: Array("cat".utf8)
-                        )
-                    ),
-                    SimpleRLP(
-                        bytes: Data(
-                            bytes: Array("dog".utf8)
-                        )
-                    ),
-                ]
-            ).toData()
-        }.to(
-            equal(
-                Data(
-                    bytes: [
-                        0xc8,
-                        0x83,
-                        "c".utf8.first!,
-                        "a".utf8.first!,
-                        "t".utf8.first!,
-                        0x83,
-                        "d".utf8.first!,
-                        "o".utf8.first!,
-                        "g".utf8.first!
+            try expect{
+                try SimpleRLP(
+                    rlps: [
+                        SimpleRLP(
+                            bytes: Data(
+                                bytes: Array("cat".utf8)
+                            )
+                        ),
+                        SimpleRLP(
+                            bytes: Data(
+                                bytes: Array("dog".utf8)
+                            )
+                        ),
                     ]
+                ).toData()
+            }.to(
+                equal(
+                    Data(
+                        bytes: [
+                            0xc8,
+                            0x83,
+                            "c".utf8.single(),
+                            "a".utf8.single(),
+                            "t".utf8.single(),
+                            0x83,
+                            "d".utf8.single(),
+                            "o".utf8.single(),
+                            "g".utf8.single()
+                        ]
+                    )
                 )
             )
+        }.toNot(
+            throwError()
         )
     }
 
@@ -186,13 +190,14 @@ final class RLPTests: XCTestCase {
             bytes: Array<UInt8>(repeating: 0x46, count: 1024),
             encoding: String.Encoding.utf8
         )!
-        expect(
+        // swiftlint:disable:previous force_unwrapping
+        expect{
             try SimpleRLP(
                 bytes: Data(
                     bytes: Array(string.utf8)
                 )
             ).toData()
-        ).to(
+        }.to(
             equal(
                 Data(
                     bytes: [0xb9, 0x04, 0x00] + Array(string.utf8)

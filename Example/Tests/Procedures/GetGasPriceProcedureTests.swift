@@ -10,28 +10,28 @@ final class GetGasPriceProcedureTests: XCTestCase {
             try GetGasPriceProcedure(
                 network: SimpleNetwork(
                     session: URLSession.shared,
-                    url: URL(string: "https://mainnet.infura.io/3O4Ywm6wGFgpIn8G10TT")!,
+                    url: URL(string: "https://mainnet.infura.io/3O4Ywm6wGFgpIn8G10TT"),
                     headers: [:]
                 )
-                ).call()
+            ).call()
         }.toNot(
-                beEmpty()
+            beEmpty()
         )
     }
     
     func testValueGreaterThanZero() {
-        expect(
-            UInt64(
-                try GetGasPriceProcedure(
+        expect{
+            try UInt64(
+                GetGasPriceProcedure(
                     network: SimpleNetwork(
                         session: URLSession.shared,
-                        url: URL(string: "https://mainnet.infura.io/3O4Ywm6wGFgpIn8G10TT")!,
+                        url: URL(string: "https://mainnet.infura.io/3O4Ywm6wGFgpIn8G10TT"),
                         headers: [:]
                     )
                 ).call()["result"].string().removingHexPrefix(),
                 radix: 16
             )
-        ).to(
+        }.to(
             beGreaterThan(0)
         )
     }

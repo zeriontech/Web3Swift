@@ -14,7 +14,9 @@ final class SignatureSerializationError: Swift.Error {}
 
 final class SECP256k1Signature: ECRecoverableSignature {
 
+    // swiftlint:disable:next large_tuple
     private let stickyComputation: StickyComputation<(r: Data, s: Data, recoveryID: UInt8)>
+
     //FIXME: Design is bad. There is no need to pass message and hashFunction at the same time.
     init(
         privateKey: Array<UInt8>,
