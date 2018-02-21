@@ -107,7 +107,7 @@ final class SECP256k1SignatureTests: XCTestCase {
         )
     }
 
-    func testFirstExample() {
+    private func testFirstExample() {
         let signature = SECP256k1Signature(
             privateKey: Array(hex: "0x4646464646464646464646464646464646464646464646464646464646464646"),
             message: Array(hex: "0xec098504a817c800825208943535353535353535353535353535353535353535880de0b6b3a764000080018080"),
