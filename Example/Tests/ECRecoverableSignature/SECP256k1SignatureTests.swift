@@ -107,4 +107,27 @@ final class SECP256k1SignatureTests: XCTestCase {
         )
     }
 
+    func testFirstExample() {
+        let signature = SECP256k1Signature(
+            privateKey: Array(hex: "0x4646464646464646464646464646464646464646464646464646464646464646"),
+            message: Array(hex: "0xec098504a817c800825208943535353535353535353535353535353535353535880de0b6b3a764000080018080"),
+            hashFunction: SHA3(variant: .keccak256).calculate,
+            entropy: RandomNonce(size: 32)
+        )
+        expect{
+            try signature.r()
+        }.to(
+            equal(
+                Data(hex: "0x28ef61340bd939bc2195fe537567866003e1a15d3c71ff63e1590620aa636276")
+            )
+        )
+        expect{
+            try signature.s()
+        }.to(
+            equal(
+                Data(hex: "0x67cbe9d8997f761aecb703304b3800ccf555c9f3dc64214b297fb1966a3b6d83")
+            )
+        )
+    }
+
 }
