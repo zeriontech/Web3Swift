@@ -11,9 +11,9 @@ public final class SimpleAddress: Address {
 
     private let value: String
     
-    init(value: String) throws {
-        guard value.isHex() && value.removingHexPrefix().count == 40 else { throw InvalidAddressError() }
-        self.value = value.addingHexPrefix()
+    init(hex: Hex) throws {
+        guard hex.toString().count == 40 else { throw InvalidAddressError() }
+        self.value = hex.toPrefixString()
     }
 
     public func toString() -> String {
