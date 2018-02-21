@@ -28,6 +28,10 @@
 		8C77B9E3203DADC30097DE61 /* TestingEthereumNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9E0203DACDC0097DE61 /* TestingEthereumNetwork.swift */; };
 		8C77B9E8203DAF320097DE61 /* SimpleAddressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9E7203DAF320097DE61 /* SimpleAddressTests.swift */; };
 		8C77B9F0203DB8A60097DE61 /* HexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9EF203DB8A60097DE61 /* HexTests.swift */; };
+		8C77B9F3203DC77A0097DE61 /* AddressParameterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9F2203DC77A0097DE61 /* AddressParameterTests.swift */; };
+		8C77B9F5203DC9340097DE61 /* BooleanParameterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9F4203DC9340097DE61 /* BooleanParameterTests.swift */; };
+		8C77B9F9203DCA220097DE61 /* QuantityParameterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9F8203DCA220097DE61 /* QuantityParameterTests.swift */; };
+		8C77B9FB203DCC390097DE61 /* TransactionHashParameterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9FA203DCC390097DE61 /* TransactionHashParameterTests.swift */; };
 		94831128426593F56EE4BCAF /* Pods_Web3Swift_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31007316603078343330134 /* Pods_Web3Swift_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +74,10 @@
 		8C77B9E0203DACDC0097DE61 /* TestingEthereumNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingEthereumNetwork.swift; sourceTree = "<group>"; };
 		8C77B9E7203DAF320097DE61 /* SimpleAddressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAddressTests.swift; sourceTree = "<group>"; };
 		8C77B9EF203DB8A60097DE61 /* HexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexTests.swift; sourceTree = "<group>"; };
+		8C77B9F2203DC77A0097DE61 /* AddressParameterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressParameterTests.swift; sourceTree = "<group>"; };
+		8C77B9F4203DC9340097DE61 /* BooleanParameterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooleanParameterTests.swift; sourceTree = "<group>"; };
+		8C77B9F8203DCA220097DE61 /* QuantityParameterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityParameterTests.swift; sourceTree = "<group>"; };
+		8C77B9FA203DCC390097DE61 /* TransactionHashParameterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHashParameterTests.swift; sourceTree = "<group>"; };
 		8D3D6BEF8030D59C6F4A15FB /* Pods_Web3Swift_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Web3Swift_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D1308587140D3019CBC0F5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		EF31EFC3250D5A7EF77E859E /* Pods-Web3Swift_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Web3Swift_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Web3Swift_Example/Pods-Web3Swift_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -222,6 +230,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				8C77B9F1203DC75D0097DE61 /* Params */,
 				8C77B9EE203DB8610097DE61 /* Hex */,
 				8C77B9E6203DAF0F0097DE61 /* Address */,
 				8C77B9DD203DAC7A0097DE61 /* Mocks */,
@@ -278,6 +287,17 @@
 				8C77B9EF203DB8A60097DE61 /* HexTests.swift */,
 			);
 			path = Hex;
+			sourceTree = "<group>";
+		};
+		8C77B9F1203DC75D0097DE61 /* Params */ = {
+			isa = PBXGroup;
+			children = (
+				8C77B9F2203DC77A0097DE61 /* AddressParameterTests.swift */,
+				8C77B9F4203DC9340097DE61 /* BooleanParameterTests.swift */,
+				8C77B9F8203DCA220097DE61 /* QuantityParameterTests.swift */,
+				8C77B9FA203DCC390097DE61 /* TransactionHashParameterTests.swift */,
+			);
+			path = Params;
 			sourceTree = "<group>";
 		};
 		B8B89B3A7E7096470B1FDD04 /* Frameworks */ = {
@@ -556,8 +576,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C77B9F9203DCA220097DE61 /* QuantityParameterTests.swift in Sources */,
+				8C77B9F3203DC77A0097DE61 /* AddressParameterTests.swift in Sources */,
 				584FA1D30FE97BD70FAD9117 /* GetTransactionsCountProcedureTests.swift in Sources */,
 				8C77B9E3203DADC30097DE61 /* TestingEthereumNetwork.swift in Sources */,
+				8C77B9FB203DCC390097DE61 /* TransactionHashParameterTests.swift in Sources */,
+				8C77B9F5203DC9340097DE61 /* BooleanParameterTests.swift in Sources */,
 				584FA77CEB52A63A15F3A08F /* GethParamsInitTests.swift in Sources */,
 				584FAD3793AFB655815DBBA6 /* ChainIDProcedureTests.swift in Sources */,
 				8C77B9F0203DB8A60097DE61 /* HexTests.swift in Sources */,
