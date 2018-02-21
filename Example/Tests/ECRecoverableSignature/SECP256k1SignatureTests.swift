@@ -23,8 +23,7 @@ final class SECP256k1SignatureTests: XCTestCase {
             try SECP256k1Signature(
                 privateKey: self.validPrivateKey,
                 message: Array("Hello world".utf8),
-                hashFunction: SHA3(variant: .keccak224).calculate,
-                entropy: RandomNonce(size: 32)
+                hashFunction: SHA3(variant: .keccak224).calculate
             ).r()
         ).to(
             throwError(errorType: IncorrectHashLengthError.self)
@@ -32,20 +31,17 @@ final class SECP256k1SignatureTests: XCTestCase {
     }
 
     func testEqualSignatures() {
-        let nonce = RandomNonce(size: 32)
 
         let firstSignature = SECP256k1Signature(
             privateKey: self.validPrivateKey,
             message: Array("Hello world".utf8),
-            hashFunction: SHA3(variant: .keccak256).calculate,
-            entropy: nonce
+            hashFunction: SHA3(variant: .keccak256).calculate
         )
 
         let secondSignature = SECP256k1Signature(
             privateKey: self.validPrivateKey,
             message: Array("Hello world".utf8),
-            hashFunction: SHA3(variant: .keccak256).calculate,
-            entropy: nonce
+            hashFunction: SHA3(variant: .keccak256).calculate
         )
 
         expect(
@@ -57,45 +53,18 @@ final class SECP256k1SignatureTests: XCTestCase {
         )
     }
 
-    func testDifferentNonce() {
-        let firstSignature = SECP256k1Signature(
-            privateKey: self.validPrivateKey,
-            message: Array("Hello world".utf8),
-            hashFunction: SHA3(variant: .keccak256).calculate,
-            entropy: RandomNonce(size: 32)
-        )
-
-        let secondSignature = SECP256k1Signature(
-            privateKey: self.validPrivateKey,
-            message: Array("Hello world".utf8),
-            hashFunction: SHA3(variant: .keccak256).calculate,
-            entropy: RandomNonce(size: 32)
-        )
-
-        expect(
-            try firstSignature.r() == secondSignature.r()
-                && firstSignature.s() == secondSignature.s()
-                && firstSignature.recoverID() == secondSignature.recoverID()
-        ).to(
-            equal(false)
-        )
-    }
-
     func testDifferentMessages() {
-        let nonce = RandomNonce(size: 32)
 
         let firstSignature = SECP256k1Signature(
             privateKey: self.validPrivateKey,
             message: Array("Hello world".utf8),
-            hashFunction: SHA3(variant: .keccak256).calculate,
-            entropy: nonce
+            hashFunction: SHA3(variant: .keccak256).calculate
         )
 
         let secondSignature = SECP256k1Signature(
             privateKey: self.validPrivateKey,
             message: Array("Hello worlds".utf8),
-            hashFunction: SHA3(variant: .keccak256).calculate,
-            entropy: nonce
+            hashFunction: SHA3(variant: .keccak256).calculate
         )
 
         expect(
@@ -107,12 +76,11 @@ final class SECP256k1SignatureTests: XCTestCase {
         )
     }
 
-    private func testFirstExample() {
+    func testFirstExample() {
         let signature = SECP256k1Signature(
             privateKey: Array(hex: "0x4646464646464646464646464646464646464646464646464646464646464646"),
             message: Array(hex: "0xec098504a817c800825208943535353535353535353535353535353535353535880de0b6b3a764000080018080"),
-            hashFunction: SHA3(variant: .keccak256).calculate,
-            entropy: RandomNonce(size: 32)
+            hashFunction: SHA3(variant: .keccak256).calculate
         )
         expect{
             try signature.r()

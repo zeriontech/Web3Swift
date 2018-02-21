@@ -21,8 +21,7 @@ public final class SECP256k1Signature: ECRecoverableSignature {
     init(
         privateKey: Array<UInt8>,
         message: Array<UInt8>,
-        hashFunction: @escaping (Array<UInt8>) -> (Array<UInt8>),
-        entropy: Entropy
+        hashFunction: @escaping (Array<UInt8>) -> (Array<UInt8>)
     ) {
         stickyComputation = StickyComputation{
 
@@ -30,14 +29,13 @@ public final class SECP256k1Signature: ECRecoverableSignature {
             guard hash.count == 32 else { throw IncorrectHashLengthError() }
             var signature: secp256k1_ecdsa_recoverable_signature = secp256k1_ecdsa_recoverable_signature()
             var privateKey = privateKey
-            var entropy = try Array(entropy.toData())
             guard secp256k1_ecdsa_sign_recoverable(
                 secp256k1_context_create(UInt32(SECP256K1_CONTEXT_SIGN | SECP256K1_CONTEXT_VERIFY)),
                 &signature,
                 &hash,
                 &privateKey,
-                secp256k1_nonce_function_rfc6979,
-                &entropy
+                nil,
+                nil
             ) == 1 else {
                 throw SigningError()
             }
