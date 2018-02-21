@@ -2,6 +2,7 @@
 
 [![CI Status](http://img.shields.io/travis/BlockStoreApp/Web3Swift.svg?style=flat)](https://travis-ci.org/BlockStoreApp/Web3Swift)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![codecov](https://codecov.io/gh/BlockStoreApp/Web3Swift/branch/develop/graph/badge.svg?token=SY7mpMQbGs)](https://codecov.io/gh/BlockStoreApp/Web3Swift)
 
 ## Example
 
