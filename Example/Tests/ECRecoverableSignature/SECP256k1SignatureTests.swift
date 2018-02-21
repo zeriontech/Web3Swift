@@ -18,6 +18,7 @@ final class SECP256k1SignatureTests: XCTestCase {
 
     private let validPrivateKey: [UInt8] = Array(hex: "bdd61bcde5541ac8ad18c0ec53356419a0e62e8f147a1cc16ea36799e2cc64dd")
 
+    /// Assert incorrect hashing function throws error
     func testIncorrectHashingFunction() {
         expect(
             try SECP256k1Signature(
@@ -30,6 +31,7 @@ final class SECP256k1SignatureTests: XCTestCase {
         )
     }
 
+    /// Assert two signature with same message are equal
     func testEqualSignatures() {
 
         let firstSignature = SECP256k1Signature(
@@ -53,6 +55,7 @@ final class SECP256k1SignatureTests: XCTestCase {
         )
     }
 
+    /// Assert two signatures with different messages are not equal
     func testDifferentMessages() {
 
         let firstSignature = SECP256k1Signature(
@@ -76,6 +79,7 @@ final class SECP256k1SignatureTests: XCTestCase {
         )
     }
 
+    /// Assert example from EIP-155 matches SECP256k1Signature implementation
     func testOneRawMessage() {
         let signature = SECP256k1Signature(
             privateKey: Array(hex: "0x4646464646464646464646464646464646464646464646464646464646464646"),
@@ -98,6 +102,7 @@ final class SECP256k1SignatureTests: XCTestCase {
         )
     }
 
+    /// Assert example from EIP-155 matches SECP256k1Signature implementation dependent upon SimpleRLP implementation
     func testOneRLP() {
         let signature: SECP256k1Signature
         do {
