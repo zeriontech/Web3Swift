@@ -10,6 +10,7 @@
 
 import Foundation
 
+/// Protocol for wrapping hex strings
 public protocol Hex {
     
     func toString() -> String

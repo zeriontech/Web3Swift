@@ -4,6 +4,10 @@ public final class GethNetwork: Network {
     
     private var network: SimpleNetwork
     
+    /// <#Description#>
+    ///
+    /// - Parameter
+    ///     - url: URL o
     init(url: URL) {
         
         let session = URLSession(configuration: URLSessionConfiguration.default)

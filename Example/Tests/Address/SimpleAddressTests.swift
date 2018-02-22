@@ -44,7 +44,7 @@ final class SimpleAddressTests: XCTestCase {
                 hex: SimpleHex(value: "0x000000000")
             )
         }.to(
-                throwError()
+            throwError()
         )
 
     }

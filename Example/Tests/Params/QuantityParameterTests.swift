@@ -21,9 +21,9 @@ class QuantityParameterTests: XCTestCase {
         expect{
             try QuantityParameter(
                     quantity: 1
-                ).value() as! String // swiftlint:disable:this force_cast
+            ).value() as! String // swiftlint:disable:this force_cast
         }.to(
-                equal("0x1")
+            equal("0x1")
         )
         
     }

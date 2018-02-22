@@ -12,6 +12,7 @@ import Foundation
 
 public final class InvalidHexError: Swift.Error { }
 
+/// An implementation of hex string wrapper
 public final class SimpleHex: Hex {
     
     private let hex: String
@@ -32,10 +33,22 @@ public final class SimpleHex: Hex {
     
     }
     
+    /**
+    Converts object to string
+     
+    - returns:
+    A non prefixed hex string
+    */
     public func toString() -> String {
         return hex
     }
     
+    /**
+    Converts object to string
+     
+    - returns:
+    A prefixed hex string
+    */
     public func toPrefixString() -> String {
         return hex.addingHexPrefix()
     }
