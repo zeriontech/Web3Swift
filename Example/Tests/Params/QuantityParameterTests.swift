@@ -15,6 +15,7 @@ import XCTest
 
 class QuantityParameterTests: XCTestCase {
     
+    /// QuantityParameter should return correct hex string from passed integer
     func testQuantityParameterToString() {
         
         expect{

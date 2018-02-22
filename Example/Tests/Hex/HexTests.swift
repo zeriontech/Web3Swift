@@ -15,6 +15,7 @@ import XCTest
 
 class HexTests: XCTestCase {
     
+    /// Hex should not throw any errors if correct hex was passed to it
     func testValidHex() {
         
         expect{
@@ -25,6 +26,7 @@ class HexTests: XCTestCase {
         
     }
     
+    /// Hex should not throw an error if incorrect hex was passed to it. 'R' character in this test
     func testInValidHex() {
         
         expect{
@@ -35,6 +37,7 @@ class HexTests: XCTestCase {
         
     }
     
+    /// Hex should return not prefixed string on convertation to string
     func testHexToString() {
         
         expect{
@@ -45,6 +48,7 @@ class HexTests: XCTestCase {
         
     }
     
+    /// Hex should return prefixed string on convertation to string with prefix
     func testHexToPrefixString() {
         
         expect{

@@ -15,6 +15,7 @@ import XCTest
 
 class AddressParameterTests: XCTestCase {
     
+    /// AddressParameter should return same string that was passed to the constructor
     func testAddressParameterToString() {
         
         expect{

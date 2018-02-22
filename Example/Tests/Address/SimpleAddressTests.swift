@@ -15,6 +15,7 @@ import XCTest
 
 final class SimpleAddressTests: XCTestCase {
     
+    /// SimpleAddress should not throw any errors if correct length hex string was passed to it
     func testValidAddress() {
 
         expect{
@@ -26,7 +27,8 @@ final class SimpleAddressTests: XCTestCase {
         )
 
     }
-
+    
+    /// SimpleAddress should throw an error if longer/shorter length hex string was passed to it
     func testInValidLengthAddress() {
 
         expect{
@@ -36,9 +38,18 @@ final class SimpleAddressTests: XCTestCase {
         }.to(
             throwError()
         )
+        
+        expect{
+            try SimpleAddress(
+                hex: SimpleHex(value: "0x000000000")
+            )
+        }.to(
+                throwError()
+        )
 
     }
     
+    /// SimpleAddress should return correct prefixed hex string
     func testAddressToString() {
         
         expect{

@@ -5,6 +5,7 @@ import XCTest
 
 final class GetGasPriceProcedureTests: XCTestCase {
     
+    /// GetGasPriceProcedure should return not empty data on network call
     func testNotEmptyData() {
         expect{
             try GetGasPriceProcedure(
@@ -15,6 +16,7 @@ final class GetGasPriceProcedureTests: XCTestCase {
         )
     }
     
+    /// GetGasPriceProcedure should return number (in hex format) that is greater than 0
     func testValueGreaterThanZero() {
         expect{
             try UInt64(

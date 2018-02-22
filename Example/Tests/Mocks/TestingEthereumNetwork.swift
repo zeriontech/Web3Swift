@@ -23,4 +23,8 @@ public final class TestingEthereumNetwork: Network {
         return try infura.call(method: method, params: params)
     }
     
+    public func getNetworkId() -> String {
+        return "1"
+    }
+    
 }

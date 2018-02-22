@@ -5,6 +5,7 @@ import XCTest
 
 class GethParamsInitTests: XCTestCase {
 
+    /// DEPRETIATED: Check SimpleAddressTests.swift
     func testIncorrectAddress() {
         expect{
             try SimpleAddress(
@@ -15,6 +16,7 @@ class GethParamsInitTests: XCTestCase {
         )
     }
     
+    /// DEPRETIATED: Check SimpleAddressTests.swift
     func testCorrectAddress() {
         expect{
             try SimpleAddress(

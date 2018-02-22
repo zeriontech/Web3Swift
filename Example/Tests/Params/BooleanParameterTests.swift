@@ -15,6 +15,7 @@ import XCTest
 
 class BooleanParameterTests: XCTestCase {
     
+    /// BooleanParameter should return 'true' if it was passed into it
     func testBooleanParameterToTrue() {
         
         expect{
@@ -27,6 +28,7 @@ class BooleanParameterTests: XCTestCase {
         
     }
     
+    /// BooleanParameter should return 'false' if it was passed into it
     func testBooleanParameterToFalse() {
         
         expect{
@@ -39,6 +41,7 @@ class BooleanParameterTests: XCTestCase {
         
     }
     
+    /// BooleanParameter should NOT return 'false' if 'true' was passed into it
     func testBooleanParameterNotToTrue() {
         
         expect{
