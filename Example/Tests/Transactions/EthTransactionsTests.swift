@@ -14,8 +14,8 @@ final class EthTransactionsTests: XCTestCase {
         expect{
             try EthTransactions(
                 transactionsCountProcedure: GetTransactionsCountProcedure(
-                    network: TestingEthereumNetwork(),
-                    address: TestingAddress(),
+                    network: InfuraNetwork(chain: "mainnet", apiKey: "metamask"),
+                    address: SimpleAddress(value: "0xe35d276812001e33e3A8f6f445e2D1e90ff86F1C"),
                     blockChainState: PendingBlockChainState()
                 )
             ).count()
