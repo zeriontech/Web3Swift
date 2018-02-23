@@ -15,7 +15,7 @@ import XCTest
 
 final class SimpleAddressTests: XCTestCase {
     
-    /// SimpleAddress should not throw any errors if correct length hex string was passed to it
+    /// Assert correct address does not throw an error
     func testValidAddress() {
 
         expect{
@@ -23,12 +23,13 @@ final class SimpleAddressTests: XCTestCase {
                 hex: SimpleHex(value: "0x0000000000000000000000000000000000000000")
             )
         }.notTo(
-            throwError()
+            throwError(),
+            description: "Make sure correct address does not throw an error"
         )
 
     }
     
-    /// SimpleAddress should throw an error if longer/shorter length hex string was passed to it
+    /// Assert invalid address throws an error of type `InvalidAddressLengthError`
     func testInValidLengthAddress() {
 
         expect{
@@ -36,7 +37,8 @@ final class SimpleAddressTests: XCTestCase {
                 hex: SimpleHex(value: "0x0000000000000000000000000000000000000000111")
             )
         }.to(
-            throwError()
+            throwError(),
+            description: "Make sure longer address throws an error"
         )
         
         expect{
@@ -44,12 +46,13 @@ final class SimpleAddressTests: XCTestCase {
                 hex: SimpleHex(value: "0x000000000")
             )
         }.to(
-            throwError()
+            throwError(),
+            description: "Make sure shorter address throws an error"
         )
 
     }
     
-    /// SimpleAddress should return correct prefixed hex string
+    /// Assert address converts to right prefixed string
     func testAddressToString() {
         
         expect{
@@ -57,7 +60,8 @@ final class SimpleAddressTests: XCTestCase {
                     hex: SimpleHex(value: "0x0000000000000000000000000000000000000000")
                 ).toString()
         }.to(
-            equal("0x0000000000000000000000000000000000000000")
+            equal("0x0000000000000000000000000000000000000000"),
+            description: "Make sure correct prefixed string is retuned"
         )
         
     }

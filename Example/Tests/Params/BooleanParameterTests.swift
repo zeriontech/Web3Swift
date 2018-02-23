@@ -15,7 +15,7 @@ import XCTest
 
 class BooleanParameterTests: XCTestCase {
     
-    /// BooleanParameter should return 'true' if it was passed into it
+    /// Assert that parameter returns 'true'
     func testBooleanParameterToTrue() {
         
         expect{
@@ -23,12 +23,13 @@ class BooleanParameterTests: XCTestCase {
                 value: true
                 ).value() as! Bool // swiftlint:disable:this force_cast
         }.to(
-                equal(true)
+            equal(true),
+            description: "Make sure that same state is returned"
         )
         
     }
     
-    /// BooleanParameter should return 'false' if it was passed into it
+    /// Assert that parameter returns 'false'
     func testBooleanParameterToFalse() {
         
         expect{
@@ -36,12 +37,13 @@ class BooleanParameterTests: XCTestCase {
                 value: false
                 ).value() as! Bool // swiftlint:disable:this force_cast
         }.to(
-                equal(false)
+            equal(false),
+            description: "Make sure that same state is returned"
         )
         
     }
     
-    /// BooleanParameter should NOT return 'false' if 'true' was passed into it
+    /// Assert that parameter doest not returns 'false'
     func testBooleanParameterNotToTrue() {
         
         expect{
@@ -49,7 +51,8 @@ class BooleanParameterTests: XCTestCase {
                 value: true
                 ).value() as! Bool // swiftlint:disable:this force_cast
         }.notTo(
-                equal(false)
+            equal(false),
+            description: "Make sure that same state is returned"
         )
         
     }

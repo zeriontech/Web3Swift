@@ -13,16 +13,13 @@ public final class SimpleAddress: Address {
     private let value: String
     
     /**
-     Constructs new Ethereum address with hex string representation.
+    ctor
      
-     - returns:
-     An Ethereum address object.
+    - throws:
+    An error of type `InvalidAddressLengthError`
      
-     - throws:
-     An error of type `InvalidAddressLengthError`
-     
-     - parameters:
-     - hex: A valid hex string wrapped in `Hex` object.
+    - parameters:
+        - hex: A valid hex string wrapped in `Hex` object.
      */
     init(hex: Hex) throws {
         guard hex.toString().count == 40 else { throw InvalidAddressLengthError() }

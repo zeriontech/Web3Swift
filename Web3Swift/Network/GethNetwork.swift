@@ -4,11 +4,7 @@ public final class GethNetwork: Network {
     
     private var network: SimpleNetwork
     
-    /// <#Description#>
-    ///
-    /// - Parameter
-    ///     - url: URL o
-    init(url: URL) {
+    private init(url: URL) {
         
         let session = URLSession(configuration: URLSessionConfiguration.default)
         
@@ -27,6 +23,8 @@ public final class GethNetwork: Network {
             throw  NetworkError("Invalid url")
         }
         
+        print(gethUrl)
+        
         self.init(url: gethUrl)
         
     }
@@ -34,6 +32,10 @@ public final class GethNetwork: Network {
     convenience init(ip: String, port: String, isSecureConnection: Bool) throws {
         
         let prefix = (isSecureConnection) ? "https" : "http"
+        
+        guard ip.range(of: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$", options: [.regularExpression, .caseInsensitive]) != nil else {
+            throw  NetworkError("Invalid IP")
+        }
         
         guard let gethUrl = URL(string: prefix+"://"+ip+":"+port) else {
             throw  NetworkError("Invalid url")

@@ -15,7 +15,7 @@ import XCTest
 
 class AddressParameterTests: XCTestCase {
     
-    /// AddressParameter should return same string that was passed to the constructor
+    /// Assert that parameter returns correct string
     func testAddressParameterToString() {
         
         expect{
@@ -23,7 +23,10 @@ class AddressParameterTests: XCTestCase {
                 address: TestingAddress()
             ).value() as! String // swiftlint:disable:this force_cast
         }.to(
-            equal(TestingAddress().toString())
+            equal(
+                TestingAddress().toString()
+            ),
+            description: "Make sure same prefixed hex string is returned"
         )
         
     }

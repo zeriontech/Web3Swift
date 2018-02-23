@@ -11,7 +11,6 @@
 		584FA1D30FE97BD70FAD9117 /* GetTransactionsCountProcedureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAFC4DFD37E513B7E286C /* GetTransactionsCountProcedureTests.swift */; };
 		584FA27299B5C54E558E6355 /* ByteWidthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA6C98ECA780456027E15 /* ByteWidthTests.swift */; };
 		584FA538B1B4B38D0AD9D0C9 /* SECP256k1SignatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA147B4074725F6630283 /* SECP256k1SignatureTests.swift */; };
-		584FA77CEB52A63A15F3A08F /* GethParamsInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA25F2CE345888231B85E /* GethParamsInitTests.swift */; };
 		584FA848F23C434B6D50B7C3 /* RLPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FACC5A38F59EE5FCD2BC7 /* RLPTests.swift */; };
 		584FA9DBA01B7EAE9EC1021B /* EthTransactionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAE325995A0ABA7A8A643 /* EthTransactionsTests.swift */; };
 		584FAA14203BE4FA51BD4A13 /* GetGasPriceProcedureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FACF870DFF799329F558F /* GetGasPriceProcedureTests.swift */; };
@@ -24,6 +23,11 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
+		8C748B8F20407AF100F40AF9 /* ObjectParameterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C748B8E20407AF100F40AF9 /* ObjectParameterTests.swift */; };
+		8C748B9120407D1500F40AF9 /* StringParameterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C748B9020407D1500F40AF9 /* StringParameterTests.swift */; };
+		8C748B9320407E1800F40AF9 /* GethNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C748B9220407E1800F40AF9 /* GethNetworkTests.swift */; };
+		8C748B952040848B00F40AF9 /* SimpleNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C748B942040848B00F40AF9 /* SimpleNetworkTests.swift */; };
+		8C748B9720408A4800F40AF9 /* InfuraNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C748B9620408A4800F40AF9 /* InfuraNetworkTests.swift */; };
 		8C77B9E2203DADBE0097DE61 /* TestingAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9DE203DAC9C0097DE61 /* TestingAddress.swift */; };
 		8C77B9E3203DADC30097DE61 /* TestingEthereumNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9E0203DACDC0097DE61 /* TestingEthereumNetwork.swift */; };
 		8C77B9E8203DAF320097DE61 /* SimpleAddressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9E7203DAF320097DE61 /* SimpleAddressTests.swift */; };
@@ -51,7 +55,6 @@
 		2F320EB26501545845D58F10 /* Web3Swift.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Web3Swift.podspec; path = ../Web3Swift.podspec; sourceTree = "<group>"; };
 		343D350F5D884606EEA5C913 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		584FA147B4074725F6630283 /* SECP256k1SignatureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECP256k1SignatureTests.swift; sourceTree = "<group>"; };
-		584FA25F2CE345888231B85E /* GethParamsInitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GethParamsInitTests.swift; sourceTree = "<group>"; };
 		584FA371F4A75FBAC4AE2D7D /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		584FA6C98ECA780456027E15 /* ByteWidthTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ByteWidthTests.swift; sourceTree = "<group>"; };
 		584FA82731B90F65C00992E6 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
@@ -70,6 +73,11 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* Web3Swift_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Web3Swift_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C748B8E20407AF100F40AF9 /* ObjectParameterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectParameterTests.swift; sourceTree = "<group>"; };
+		8C748B9020407D1500F40AF9 /* StringParameterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringParameterTests.swift; sourceTree = "<group>"; };
+		8C748B9220407E1800F40AF9 /* GethNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GethNetworkTests.swift; sourceTree = "<group>"; };
+		8C748B942040848B00F40AF9 /* SimpleNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNetworkTests.swift; sourceTree = "<group>"; };
+		8C748B9620408A4800F40AF9 /* InfuraNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfuraNetworkTests.swift; sourceTree = "<group>"; };
 		8C77B9DE203DAC9C0097DE61 /* TestingAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingAddress.swift; sourceTree = "<group>"; };
 		8C77B9E0203DACDC0097DE61 /* TestingEthereumNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingEthereumNetwork.swift; sourceTree = "<group>"; };
 		8C77B9E7203DAF320097DE61 /* SimpleAddressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAddressTests.swift; sourceTree = "<group>"; };
@@ -119,7 +127,9 @@
 		584FA25211AC8EDFB1E3D317 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				584FA25F2CE345888231B85E /* GethParamsInitTests.swift */,
+				8C748B9220407E1800F40AF9 /* GethNetworkTests.swift */,
+				8C748B942040848B00F40AF9 /* SimpleNetworkTests.swift */,
+				8C748B9620408A4800F40AF9 /* InfuraNetworkTests.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -296,6 +306,8 @@
 				8C77B9F4203DC9340097DE61 /* BooleanParameterTests.swift */,
 				8C77B9F8203DCA220097DE61 /* QuantityParameterTests.swift */,
 				8C77B9FA203DCC390097DE61 /* TransactionHashParameterTests.swift */,
+				8C748B8E20407AF100F40AF9 /* ObjectParameterTests.swift */,
+				8C748B9020407D1500F40AF9 /* StringParameterTests.swift */,
 			);
 			path = Params;
 			sourceTree = "<group>";
@@ -576,13 +588,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C748B8F20407AF100F40AF9 /* ObjectParameterTests.swift in Sources */,
 				8C77B9F9203DCA220097DE61 /* QuantityParameterTests.swift in Sources */,
+				8C748B952040848B00F40AF9 /* SimpleNetworkTests.swift in Sources */,
 				8C77B9F3203DC77A0097DE61 /* AddressParameterTests.swift in Sources */,
 				584FA1D30FE97BD70FAD9117 /* GetTransactionsCountProcedureTests.swift in Sources */,
 				8C77B9E3203DADC30097DE61 /* TestingEthereumNetwork.swift in Sources */,
 				8C77B9FB203DCC390097DE61 /* TransactionHashParameterTests.swift in Sources */,
 				8C77B9F5203DC9340097DE61 /* BooleanParameterTests.swift in Sources */,
-				584FA77CEB52A63A15F3A08F /* GethParamsInitTests.swift in Sources */,
 				584FAD3793AFB655815DBBA6 /* ChainIDProcedureTests.swift in Sources */,
 				8C77B9F0203DB8A60097DE61 /* HexTests.swift in Sources */,
 				8C77B9E2203DADBE0097DE61 /* TestingAddress.swift in Sources */,
@@ -591,7 +604,10 @@
 				584FA848F23C434B6D50B7C3 /* RLPTests.swift in Sources */,
 				584FACDDE9E98EDA9C414EF6 /* RandomNonceTests.swift in Sources */,
 				584FA27299B5C54E558E6355 /* ByteWidthTests.swift in Sources */,
+				8C748B9320407E1800F40AF9 /* GethNetworkTests.swift in Sources */,
 				8C77B9E8203DAF320097DE61 /* SimpleAddressTests.swift in Sources */,
+				8C748B9120407D1500F40AF9 /* StringParameterTests.swift in Sources */,
+				8C748B9720408A4800F40AF9 /* InfuraNetworkTests.swift in Sources */,
 				584FA538B1B4B38D0AD9D0C9 /* SECP256k1SignatureTests.swift in Sources */,
 				584FADD6EB5CAA11200C1147 /* Collection.swift in Sources */,
 				584FACEC7F5AD9060590ED93 /* URL.swift in Sources */,

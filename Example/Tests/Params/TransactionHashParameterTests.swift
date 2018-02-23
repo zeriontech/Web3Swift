@@ -15,7 +15,7 @@ import XCTest
 
 class TransactionHashParameterTests: XCTestCase {
     
-    /// TransactionHashParameter should not throw any errors if correct length hex string was passed to it
+    /// Assert valid transaction hash does not throws an error
     func testValidTransactionHash() {
         
         expect{
@@ -25,12 +25,13 @@ class TransactionHashParameterTests: XCTestCase {
                     )
                 ).value()
         }.notTo(
-            throwError()
+            throwError(),
+            description: "Make sure valida transaction hash does not throw and error"
         )
         
     }
     
-    /// TransactionHashParameter should throw error if longer/shorter length hex string was passed to it
+    /// Assert invalid transaction hash throws an error of type `InvalidTransactionHashError`
     func testInValidTransactionHash() {
         
         expect{
@@ -40,7 +41,8 @@ class TransactionHashParameterTests: XCTestCase {
                 )
             ).value()
         }.to(
-            throwError()
+            throwError(),
+            description: "Make sure longer transaction hash throws an error"
         )
         
         expect{
@@ -50,7 +52,8 @@ class TransactionHashParameterTests: XCTestCase {
                 )
             ).value()
         }.to(
-            throwError()
+            throwError(),
+            description: "Make sure shorter transaction hash throws an error"
         )
         
     }

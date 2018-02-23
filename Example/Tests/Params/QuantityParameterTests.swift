@@ -15,7 +15,7 @@ import XCTest
 
 class QuantityParameterTests: XCTestCase {
     
-    /// QuantityParameter should return correct hex string from passed integer
+    /// Assert parameter returns correct hex string
     func testQuantityParameterToString() {
         
         expect{
@@ -23,7 +23,8 @@ class QuantityParameterTests: XCTestCase {
                     quantity: 1
             ).value() as! String // swiftlint:disable:this force_cast
         }.to(
-            equal("0x1")
+            equal("0x1"),
+            description: "Make sure that correct hex string is returned"
         )
         
     }

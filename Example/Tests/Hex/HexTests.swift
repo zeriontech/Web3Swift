@@ -15,46 +15,50 @@ import XCTest
 
 class HexTests: XCTestCase {
     
-    /// Hex should not throw any errors if correct hex was passed to it
+    /// Assert Hex does not throw an error on incorrect hex string
     func testValidHex() {
         
         expect{
             try SimpleHex(value: "0xdeadbeaF")
         }.notTo(
-            throwError()
+            throwError(),
+            description: "Make sure correct hex does not throw an error"
         )
         
     }
     
-    /// Hex should not throw an error if incorrect hex was passed to it. 'R' character in this test
+    /// Assert Hex throws an error on incorrect hex string 'R' character in this test
     func testInValidHex() {
         
         expect{
             try SimpleHex(value: "0xdeadbeaR")
         }.to(
-            throwError()
+            throwError(),
+            description: "Make sure incorrect hex throws an error"
         )
         
     }
     
-    /// Hex should return not prefixed string on convertation to string
+    /// Assert that Hex returns non prefixed string
     func testHexToString() {
         
         expect{
             try SimpleHex(value: "0xdeadbeaf").toString()
         }.to(
-            equal("deadbeaf")
+            equal("deadbeaf"),
+            description: "Make sure correct non prefixed string is returned"
         )
         
     }
     
-    /// Hex should return prefixed string on convertation to string with prefix
+    /// Assert that Hex returns prefixed string
     func testHexToPrefixString() {
         
         expect{
             try SimpleHex(value: "deadbeaf").toPrefixString()
         }.to(
-            equal("0xdeadbeaf")
+            equal("0xdeadbeaf"),
+            description: "Make sure correct prefixed string is returned"
         )
         
     }
