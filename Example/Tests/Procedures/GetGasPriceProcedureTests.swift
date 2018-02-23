@@ -8,7 +8,7 @@ final class GetGasPriceProcedureTests: XCTestCase {
     func testNotEmptyData() {
         expect{
             try GetGasPriceProcedure(
-                network: TestingEthereumNetwork()
+                network: InfuraNetwork(chain: "mainnet", apiKey: "metamask")
                 ).call()
         }.toNot(
             beEmpty()
@@ -19,7 +19,7 @@ final class GetGasPriceProcedureTests: XCTestCase {
         expect{
             try UInt64(
                 GetGasPriceProcedure(
-                    network: TestingEthereumNetwork()
+                    network: InfuraNetwork(chain: "mainnet", apiKey: "metamask")
                 ).call()["result"].string().removingHexPrefix(),
                 radix: 16
             )
