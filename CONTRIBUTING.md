@@ -1,8 +1,9 @@
 ## Pull Requests
 
 All changes, no matter how trivial, must be done via pull request. Commits
-should never be made directly on the `master` branch. Prefer rebasing over
-merging `master` into your PR branch to update it and resolve conflicts.
+should never be made directly on the `develop` branch. Prefer rebasing over
+merging `develop` into your PR branch to update it and resolve conflicts.
+`master` branches are for releases only.
 
 ## Tests
 
