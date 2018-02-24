@@ -31,9 +31,7 @@ extension String {
             str = str.removingHexPrefix()
         }
         
-        let chars = CharacterSet(charactersIn: "0123456789ABCDEF")
-            
-        guard str.uppercased().rangeOfCharacter(from: chars) != nil else {
+        guard str.range(of: "^[a-f0-9]+$", options: [.regularExpression, .caseInsensitive]) != nil else {
             return false
         }
 
