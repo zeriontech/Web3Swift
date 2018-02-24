@@ -21,8 +21,8 @@ class ObjectParameterTests: XCTestCase {
         expect{
             try ObjectParameter(
                 dictionary: [
-                    "from": AddressParameter(address: TestingAddress()),
-                    "to": AddressParameter(address: TestingAddress()),
+                    "from": AddressParameter(address: Alice().toAddress()),
+                    "to": AddressParameter(address: Bob().toAddress()),
                     "gas": QuantityParameter(quantity: 90000),
                     "gasPrice": QuantityParameter(quantity: Int(pow(10.0, 9.0))),
                     "value": QuantityParameter(quantity: Int(pow(10.0, 18.0))),

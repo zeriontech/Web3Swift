@@ -9,18 +9,20 @@ import Quick
 import XCTest
 
 final class EthTransactionsTests: XCTestCase {
-
+    
+    /// Assert that transaction count returns positive number
     func testTransactionsCount() {
         expect{
             try EthTransactions(
                 transactionsCountProcedure: GetTransactionsCountProcedure(
-                    network: TestingEthereumNetwork(),
-                    address: TestingAddress(),
+                    network: FakeEthereumNetwork(),
+                    address: Alice().toAddress(),
                     blockChainState: PendingBlockChainState()
                 )
             ).count()
         }.to(
-            beGreaterThanOrEqualTo(0)
+            beGreaterThanOrEqualTo(0),
+            description: "Make sure positive number is returned"
         )
     }
 

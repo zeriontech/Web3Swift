@@ -20,13 +20,45 @@ class AddressParameterTests: XCTestCase {
         
         expect{
             try AddressParameter(
-                address: TestingAddress()
+                address: Alice().toAddress()
             ).value() as! String // swiftlint:disable:this force_cast
         }.to(
             equal(
-                TestingAddress().toString()
+                Alice().toAddress().toString()
             ),
             description: "Make sure same prefixed hex string is returned"
+        )
+        
+    }
+    
+    /// Assert that parameter returns correct string
+    func testOtherAddressParameterToString() {
+        
+        expect{
+            try AddressParameter(
+                address: Bob().toAddress()
+                ).value() as! String // swiftlint:disable:this force_cast
+        }.to(
+                equal(
+                    Bob().toAddress().toString()
+                ),
+                description: "Make sure same prefixed hex string is returned"
+        )
+        
+    }
+    
+    /// Assert that parameter returns correct string
+    func testIncorrectAddressParameterToString() {
+        
+        expect{
+            try AddressParameter(
+                address: Bob().toAddress()
+                ).value() as! String // swiftlint:disable:this force_cast
+        }.notTo(
+                equal(
+                    Alice().toAddress().toString()
+                ),
+                description: "Make sure same prefixed hex string is returned"
         )
         
     }

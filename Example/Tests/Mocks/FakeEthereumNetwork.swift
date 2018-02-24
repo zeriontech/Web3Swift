@@ -11,7 +11,7 @@
 import Foundation
 @testable import Web3Swift
 
-public final class TestingEthereumNetwork: Network {
+public final class FakeEthereumNetwork: Network {
     
     private var infura: InfuraNetwork
     
@@ -21,10 +21,6 @@ public final class TestingEthereumNetwork: Network {
     
     public func call(method: String, params: Array<GethParameter>) throws -> Data {
         return try infura.call(method: method, params: params)
-    }
-    
-    public func getNetworkId() -> String {
-        return "1"
     }
     
 }

@@ -20,8 +20,8 @@ final class GetTransactionsCountProcedureTests: XCTestCase {
     func testNotEmptyData() {
         expect{
             try GetTransactionsCountProcedure(
-                network: TestingEthereumNetwork(),
-                address: TestingAddress(),
+                network: FakeEthereumNetwork(),
+                address: Alice().toAddress(),
                 blockChainState: LatestBlockChainState()
             ).call()
         }.toNot(
@@ -35,15 +35,15 @@ final class GetTransactionsCountProcedureTests: XCTestCase {
         expect{
             try UInt64(
                 GetTransactionsCountProcedure(
-                    network: TestingEthereumNetwork(),
-                    address: TestingAddress(),
+                    network: FakeEthereumNetwork(),
+                    address: Alice().toAddress(),
                     blockChainState: LatestBlockChainState()
                 ).call()["result"].string().removingHexPrefix(),
                 radix: 16
             )
         }.to(
-                beGreaterThanOrEqualTo(0),
-                description: "Make sure positive number is returned"
+            beGreaterThanOrEqualTo(0),
+            description: "Make sure positive number is returned"
         )
     }
     
