@@ -32,7 +32,7 @@ class GethNetworkTests: XCTestCase {
         expect{
             try GethNetwork(url: "fdasdf@@fodksafjm($^^8fdsf")
         }.to(
-            throwError(),
+            throwError(errorType: IncorrectUrlStringError.self),
             description: "Make sure network can not be initialised with correct url"
         )
     }
@@ -50,8 +50,8 @@ class GethNetworkTests: XCTestCase {
         expect{
             try GethNetwork(ip: "127.0.0.1", port: "8545", isSecureConnection: true)
         }.notTo(
-                throwError(),
-                description: "Make sure network can be initialised with correct IP, port and security scheme"
+            throwError(),
+            description: "Make sure network can be initialised with correct IP, port and security scheme"
         )
     }
     
@@ -61,7 +61,7 @@ class GethNetworkTests: XCTestCase {
         expect{
             try GethNetwork(ip: "99.99.99.99.99", port: "8545", isSecureConnection: false)
         }.to(
-            throwError(),
+            throwError(errorType: IncorrectIpStringError.self),
             description: "Make sure network can not be initialised with correct IP, port and security scheme"
         )
     }
