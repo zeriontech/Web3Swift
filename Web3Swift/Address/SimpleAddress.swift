@@ -5,6 +5,7 @@
 import CryptoSwift
 import Foundation
 
+/// Error describes invalid length of ethereum address provided
 public final class IncorrectAddressLengthError: DescribedError {
     
     private let length: Int
