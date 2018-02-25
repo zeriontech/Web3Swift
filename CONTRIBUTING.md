@@ -5,6 +5,18 @@ should never be made directly on the `develop` branch. Prefer rebasing over
 merging `develop` into your PR branch to update it and resolve conflicts.
 `master` branches are for releases only.
 
+In addition, you must follow these rules
+
+1. Create an issue before creating a PR where you describe the problem. Your issue should
+be limited to only one problem.
+
+2. All PR commits must reference an issue and provide a brief commit message about the commit.
+Here is an example
+```
+#123456 - Fixed an issue with unhanded client errors.
+
+```
+
 ## Tests
 
 When writing a unit test, please be sure to follow these rules.
@@ -28,7 +40,7 @@ When writing a unit test, please be sure to follow these rules.
     
 3. Constant values that are used in the test follow this structure
     ```
-    private let CONTANT = "Some test value for test purposes."
+    private let CONTANT: SomeType = "Some test value for test purposes."
     ```
     In other words, do not hardcode the constants in the test methods or constructors.
     
