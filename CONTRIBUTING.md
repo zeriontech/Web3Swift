@@ -40,7 +40,7 @@ When writing a unit test, please be sure to follow these rules.
     
 3. Constant values that are used in the test follow this structure
     ```
-    private let CONTANT: SomeType = "Some test value for test purposes."
+    private let FILE_PATH: SomeType = "Some test value for test purposes."
     ```
     In other words, do not hardcode the constants in the test methods or constructors.
     
