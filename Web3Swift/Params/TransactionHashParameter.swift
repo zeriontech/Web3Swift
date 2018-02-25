@@ -1,6 +1,7 @@
 import Foundation
 
-public final class IncorrectTransactionHashLengthError: DescribedError {
+/// Error describes invalid length of transaction hash provided
+public final class IncorrectTxHashLengthError: DescribedError {
     
     private let length: Int
     
@@ -23,7 +24,11 @@ public final class TransactionHashParameter: GethParameter {
     }
 
     public func value() throws -> Any {
-        guard transactionHash.toString().count == 64 else { throw IncorrectTransactionHashLengthError(length: transactionHash.toString().count) }
+        guard transactionHash.toString().count == 64 else {
+            throw IncorrectTxHashLengthError(
+                length: transactionHash.toString().count
+            )
+        }
         return transactionHash.toPrefixString()
     }
     
