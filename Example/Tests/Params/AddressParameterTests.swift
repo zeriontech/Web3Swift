@@ -39,10 +39,10 @@ class AddressParameterTests: XCTestCase {
                 address: Bob().toAddress()
                 ).value() as! String // swiftlint:disable:this force_cast
         }.to(
-                equal(
-                    Bob().toAddress().toString()
-                ),
-                description: "Make sure same prefixed hex string is returned"
+            equal(
+                Bob().toAddress().toString()
+            ),
+            description: "Make sure same prefixed hex string is returned"
         )
         
     }
@@ -55,10 +55,10 @@ class AddressParameterTests: XCTestCase {
                 address: Bob().toAddress()
                 ).value() as! String // swiftlint:disable:this force_cast
         }.notTo(
-                equal(
-                    Alice().toAddress().toString()
-                ),
-                description: "Make sure same prefixed hex string is returned"
+            equal(
+                Alice().toAddress().toString()
+            ),
+            description: "Make sure same prefixed hex string is returned"
         )
         
     }

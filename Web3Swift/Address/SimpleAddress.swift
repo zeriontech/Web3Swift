@@ -5,7 +5,19 @@
 import CryptoSwift
 import Foundation
 
-public final class InvalidAddressLengthError: Swift.Error { }
+public final class IncorrectAddressLengthError: DescribedError {
+    
+    private let length: Int
+    
+    public init(length: Int) {
+        self.length = length
+    }
+    
+    public var description: String {
+        return "Hex returned \(self.length) characters string when 40 was expected"
+    }
+    
+}
 
 /// Ethereum address object basic implementation
 public final class SimpleAddress: Address {
@@ -22,7 +34,7 @@ public final class SimpleAddress: Address {
         - hex: A valid hex string wrapped in `Hex` object.
      */
     init(hex: Hex) throws {
-        guard hex.toString().count == 40 else { throw InvalidAddressLengthError() }
+        guard hex.toString().count == 40 else { throw IncorrectAddressLengthError(length: hex.toString().count) }
         self.value = hex.toPrefixString()
     }
 
