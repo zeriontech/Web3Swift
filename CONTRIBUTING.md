@@ -40,11 +40,19 @@ When writing a unit test, please be sure to follow these rules.
     
 3. Constant values that are used in the test follow this structure
     ```
-    private let FILE_PATH: SomeType = "Some test value for test purposes."
+    private let filePath: SomeType = "Some test value for test purposes."
     ```
     In other words, do not hardcode the constants in the test methods or constructors.
     
-4.  Your test has proper documentation, which explains what class it is testing
+4. The usage of the setUp() and tearDown() methods is prohibited.
+
+5. The tests must not share any test values, such as sample input values.
+   The only exception is the test resources, like directory path or test API URL.
+   (These must be structured according to test rule #3)
+   
+   See [this](http://www.yegor256.com/2016/05/03/test-methods-must-share-nothing.html) for more information.
+    
+5.  Your test has proper documentation, which explains what class it is testing
     in the format specified below
    
     ```
@@ -59,13 +67,13 @@ When writing a unit test, please be sure to follow these rules.
     //
     ```
 
-5.  The name of the unit test source file has to follow this structure
+6.  The name of the unit test source file has to follow this structure
 
     ```
     ClassNameTest.swift
     ```
     
-6.  The name of the integration test source file has to follow this structure
+7.  The name of the integration test source file has to follow this structure
 
     ```
     ClassNameIT.swift
