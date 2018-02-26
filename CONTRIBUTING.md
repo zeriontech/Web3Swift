@@ -38,15 +38,9 @@ When writing a unit test, please be sure to follow these rules.
 2. If you are creating fake classes/decorators for a test, make sure
     that these classes are named as `FakeXXXX`.
     
-3. Constant values that are used in the test follow this structure
-    ```
-    private let filePath: SomeType = "Some test value for test purposes."
-    ```
-    In other words, do not hardcode the constants in the test methods or constructors.
-    
-4. The usage of the setUp() and tearDown() methods is prohibited.
+3. The usage of the setUp() and tearDown() methods is prohibited.
 
-5. The tests must not share any test values, such as sample input values.
+4. The tests must not share any test values, such as sample input values.
    The only exception is the test resources, like directory path or test API URL.
    (These must be structured according to test rule #3)
    
