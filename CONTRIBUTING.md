@@ -28,7 +28,8 @@ When writing a unit test, please be sure to follow these rules.
           ClassYouAreTesting().value()
     }.To(
           expectedValue,
-         "Description of the test failure."
+         "Description of the test intention.
+          (e.g. "Returned value must be in the 1..5 range.")"
       )
     ```
     
