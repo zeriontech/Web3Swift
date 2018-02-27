@@ -1,6 +1,17 @@
-import Foundation
+//
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// TestingEthereumNetwork.swift
+//
+// Created by Vadim Koleoshkin on 21/02/2018
+//
 
-public final class TestingEthereumNetwork: Network {
+import Foundation
+@testable import Web3Swift
+
+public final class FakeEthereumNetwork: Network {
     
     private var infura: InfuraNetwork
     
@@ -13,4 +24,3 @@ public final class TestingEthereumNetwork: Network {
     }
     
 }
-

@@ -1,6 +1,11 @@
 //
-// Created by Timofey on 2/1/18.
-// Copyright (c) 2018 CocoaPods. All rights reserved.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// ChainIDProcedureTests.swift
+//
+// Created by Timofey Solonin on 2/1/18.
 //
 
 import Nimble
@@ -9,17 +14,20 @@ import Quick
 import XCTest
 
 final class ChainIDProcedureTests: XCTestCase {
-
+    
+    // Assert network does not throw an error on network call
     func testNoThrow() {
         expect(
             try ChainIDProcedure(
                 network: InfuraNetwork(chain: "mainnet", apiKey: "metamask")
             ).call()
         ).toNot(
-            throwError()
+            throwError(),
+            description: "Make sure nework call does not throw an error"
         )
     }
     
+    /// Assert response contains right chain id
     func testMainNetID() {
         expect{
             try ChainIDProcedure(
@@ -28,7 +36,8 @@ final class ChainIDProcedureTests: XCTestCase {
         }.to(
             equal(
                 "1"
-            )
+            ),
+            description: "Make sure right chain id is returned"
         )
     }
 
