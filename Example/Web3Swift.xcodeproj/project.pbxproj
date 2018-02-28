@@ -207,6 +207,7 @@
 				50C3ECB5548832459AC51D59 /* Pods */,
 				B8B89B3A7E7096470B1FDD04 /* Frameworks */,
 				584FAC786109413F2D9921CE /* Extensions */,
+				C2E095FBE1BB2235A75CDA84 /* CONTRIBUTING.md */,
 			);
 			sourceTree = "<group>";
 		};
