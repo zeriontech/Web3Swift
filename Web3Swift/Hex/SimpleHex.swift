@@ -55,6 +55,22 @@ public final class SimpleHex: Hex {
         hex = hexString
         bytes = try Data(hexValue: hexString)
     }
+
+    /**
+    ctor that resolves a length ambiguity by adding a leading zero
+
+    - throws:
+    `DescribedError` if something goes wrong
+    */
+    convenience init(bigEndianCompactValue: String) throws {
+        if bigEndianCompactValue.count.isEven() {
+            try self.init(value: bigEndianCompactValue)
+        } else {
+            let hexValue = bigEndianCompactValue.removingHexPrefix()
+            try self.init(value: "0"+hexValue)
+        }
+    }
+
     
     /**
     Converts object to string
