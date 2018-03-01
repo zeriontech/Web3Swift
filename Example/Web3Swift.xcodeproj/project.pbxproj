@@ -14,6 +14,7 @@
 		584FA848F23C434B6D50B7C3 /* RLPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FACC5A38F59EE5FCD2BC7 /* RLPTests.swift */; };
 		584FA9DBA01B7EAE9EC1021B /* EthTransactionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAE325995A0ABA7A8A643 /* EthTransactionsTests.swift */; };
 		584FAA14203BE4FA51BD4A13 /* GetGasPriceProcedureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FACF870DFF799329F558F /* GetGasPriceProcedureTests.swift */; };
+		584FAC872236D4D12AA6C0F6 /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA2C7D2205CF3D85F6DD7 /* DataTests.swift */; };
 		584FACDDE9E98EDA9C414EF6 /* RandomNonceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAB47440D3CE3C6ED0684 /* RandomNonceTests.swift */; };
 		584FACEC7F5AD9060590ED93 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA82731B90F65C00992E6 /* URL.swift */; };
 		584FAD3793AFB655815DBBA6 /* ChainIDProcedureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA8BDDA8B4B1DF68FA7AA /* ChainIDProcedureTests.swift */; };
@@ -57,6 +58,7 @@
 		2F320EB26501545845D58F10 /* Web3Swift.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Web3Swift.podspec; path = ../Web3Swift.podspec; sourceTree = "<group>"; };
 		343D350F5D884606EEA5C913 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		584FA147B4074725F6630283 /* SECP256k1SignatureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECP256k1SignatureTests.swift; sourceTree = "<group>"; };
+		584FA2C7D2205CF3D85F6DD7 /* DataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
 		584FA371F4A75FBAC4AE2D7D /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		584FA6C98ECA780456027E15 /* ByteWidthTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ByteWidthTests.swift; sourceTree = "<group>"; };
 		584FA82731B90F65C00992E6 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
@@ -136,6 +138,14 @@
 				8C748B9620408A4800F40AF9 /* InfuraNetworkTests.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		584FA5170936BD947884AE75 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				584FA2C7D2205CF3D85F6DD7 /* DataTests.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		584FA570513D0B01E7E12749 /* Transactions */ = {
@@ -257,6 +267,7 @@
 				584FA71CD28EA64EC86A73DE /* Entropy */,
 				584FA7FDA8ECE17E99DE5A4D /* Other */,
 				584FA7594A5B6ACEE1F669C4 /* ECRecoverableSignature */,
+				584FA5170936BD947884AE75 /* Data */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -620,6 +631,7 @@
 				584FA538B1B4B38D0AD9D0C9 /* SECP256k1SignatureTests.swift in Sources */,
 				584FADD6EB5CAA11200C1147 /* Collection.swift in Sources */,
 				584FACEC7F5AD9060590ED93 /* URL.swift in Sources */,
+				584FAC872236D4D12AA6C0F6 /* DataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
