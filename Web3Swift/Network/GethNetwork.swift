@@ -1,5 +1,31 @@
 import Foundation
 
+public final class IncorrectUrlStringError: DescribedError {
+    
+    private let url: String
+    
+    public init(url: String) {
+        self.url = url
+    }
+    
+    public var description: String {
+        return "Incorrect URL string \"\(self.url)\""
+    }
+}
+
+public final class IncorrectIpStringError: DescribedError {
+    
+    private let ip: String
+    
+    public init(ip: String) {
+        self.ip = ip
+    }
+    
+    public var description: String {
+        return "Incorrect IP string \"\(self.ip)\""
+    }
+}
+
 public final class GethNetwork: Network {
     
     private var network: SimpleNetwork
@@ -20,10 +46,8 @@ public final class GethNetwork: Network {
     convenience init(url: String) throws {
     
         guard let gethUrl = URL(string: url) else {
-            throw  NetworkError("Invalid url")
+            throw IncorrectUrlStringError(url : url)
         }
-        
-        print(gethUrl)
         
         self.init(url: gethUrl)
         
@@ -34,11 +58,13 @@ public final class GethNetwork: Network {
         let prefix = (isSecureConnection) ? "https" : "http"
         
         guard ip.range(of: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$", options: [.regularExpression, .caseInsensitive]) != nil else {
-            throw  NetworkError("Invalid IP")
+            throw IncorrectIpStringError(ip: ip)
         }
         
-        guard let gethUrl = URL(string: prefix+"://"+ip+":"+port) else {
-            throw  NetworkError("Invalid url")
+        let url = prefix+"://"+ip+":"+port
+        
+        guard let gethUrl = URL(string: url) else {
+            throw IncorrectUrlStringError(url: url)
         }
         
         self.init(url: gethUrl)

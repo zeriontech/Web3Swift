@@ -8,9 +8,9 @@
 
 import Foundation
 
-fileprivate class UnknownURLSessionError: LocalizedError {
+fileprivate class UnknownURLSessionError: DescribedError {
 
-    var errorDescription: String? {
+    public var description: String {
         return "Unknown URLSession error"
     }
 
