@@ -30,7 +30,13 @@ public final class IncorrectHexCharacterError: DescribedError {
 public final class SimpleHex: Hex {
     
     private let hex: String
-    
+    private let bytes: Data
+    /**
+    ctor
+
+    - throws:
+    Throws `DescribedError` if something goes wrong
+    */
     init(value: String) throws {
         
         var hexString = value
@@ -47,7 +53,7 @@ public final class SimpleHex: Hex {
         }
         
         hex = hexString
-    
+        bytes = try Data(hexValue: hexString)
     }
     
     /**
@@ -68,6 +74,10 @@ public final class SimpleHex: Hex {
     */
     public func toPrefixString() -> String {
         return hex.addingHexPrefix()
+    }
+
+    public func toBytes() -> Data {
+        return bytes
     }
     
 }

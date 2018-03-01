@@ -23,7 +23,7 @@ public final class IncorrectAddressLengthError: DescribedError {
 /// Ethereum address object basic implementation
 public final class SimpleAddress: Address {
     
-    private let value: String
+    private let hex: Hex
     
     /**
     ctor
@@ -36,22 +36,21 @@ public final class SimpleAddress: Address {
      */
     init(hex: Hex) throws {
         guard hex.toString().count == 40 else { throw IncorrectAddressLengthError(length: hex.toString().count) }
-        self.value = hex.toPrefixString()
+        self.hex = hex
     }
 
     /**
     Converts Ethereum address to string
      
     - returns:
-    A prefixed hex string of length 40
+    An prefixed hex string of length 42
      */
     public func toString() -> String {
-        return value
+        return hex.toPrefixString()
     }
-    
-    private lazy var asData: Data = Data(hex: self.value.removingHexPrefix())
+
     public func toData() -> Data {
-        return asData
+        return hex.toBytes()
     }
 
 }

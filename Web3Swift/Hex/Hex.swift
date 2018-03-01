@@ -16,5 +16,13 @@ public protocol Hex {
     func toString() -> String
     
     func toPrefixString() -> String
+
+    /**
+    Bytes of the Hex
+
+    - returns:
+    Data which represents bytes of the Hex
+    */
+    func toBytes() -> Data
     
 }
