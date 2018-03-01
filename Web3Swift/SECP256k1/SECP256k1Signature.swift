@@ -84,7 +84,6 @@ public final class SECP256k1Signature: ECRecoverableSignature {
         hashFunction: @escaping (Array<UInt8>) -> (Array<UInt8>)
     ) {
         stickyComputation = StickyComputation{
-
             var hash = hashFunction(message)
             guard hash.count == 32 else { throw IncorrectHashLengthError(length: hash.count) }
             var signature: secp256k1_ecdsa_recoverable_signature = secp256k1_ecdsa_recoverable_signature()
@@ -99,7 +98,6 @@ public final class SECP256k1Signature: ECRecoverableSignature {
             ) == 1 else {
                 throw SigningError(hash: hash)
             }
-
             var rs: Array<UInt8> = Array<UInt8>(repeating: 0, count: 64)
             var recoveryID: Int32 = -1
             guard secp256k1_ecdsa_recoverable_signature_serialize_compact(
@@ -114,7 +112,6 @@ public final class SECP256k1Signature: ECRecoverableSignature {
                     signature: signature
                 )
             }
-
             return (
                 r: Data(bytes: rs.prefix(32)),
                 s: Data(bytes: rs.suffix(32)),

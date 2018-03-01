@@ -24,17 +24,13 @@ extension String {
     }
     
     func isHex() -> Bool {
-        
         var str = self
-        
         if self.hasPrefix("0x") {
             str = str.removingHexPrefix()
         }
-        
         guard str.range(of: "^[a-f0-9]+$", options: [.regularExpression, .caseInsensitive]) != nil else {
             return false
         }
-
         return true
     }
     

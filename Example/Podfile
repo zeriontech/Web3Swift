@@ -3,12 +3,12 @@ use_frameworks!
 
 target 'Web3Swift_Example' do
   pod 'Web3Swift', :path => '../'
-  pod 'SwiftLint', '~> 0.25'
+  pod 'SwiftLint', :git => 'https://github.com/driver733/SwiftLint.git', :branch => 'emptyLineRule'
 end
 
 target 'Web3Swift_Tests' do
   pod 'Web3Swift', :path => '../'
-  pod 'SwiftLint', '~> 0.25'
+  pod 'SwiftLint', :git => 'https://github.com/driver733/SwiftLint.git', :branch => 'emptyLineRule'
   pod 'Quick', '~> 1.2'
   pod 'Nimble', '~> 7.0'
 end
