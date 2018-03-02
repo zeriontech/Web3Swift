@@ -31,6 +31,8 @@ whitelist_rules:
   - force_try
   - force_unwrapping
   - function_body_length
+  - function_body_comments
+  - function_body_whitespace_lines
   - function_parameter_count
   - generic_type_name
   - identifier_name
@@ -64,7 +66,6 @@ whitelist_rules:
   - unused_optional_binding
   - vertical_parameter_alignment
   - yoda_condition
-  - function_body_whitespace_lines
 
 included:
   - Web3Swift
