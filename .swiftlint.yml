@@ -56,6 +56,7 @@ whitelist_rules:
   - shorthand_operator
   - single_test_class
   - sorted_imports
+  - subclass
   - superfluous_disable_command
   - switch_case_alignment
   - type_body_length
