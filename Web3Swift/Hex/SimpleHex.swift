@@ -32,22 +32,17 @@ public final class SimpleHex: Hex {
     private let hex: String
     
     init(value: String) throws {
-        
         var hexString = value
-        
         if hexString.hasPrefix("0x") {
             hexString = hexString.removingHexPrefix()
         }
-        
         guard hexString.range(
                 of: "^[a-f0-9]+$",
                 options: [.regularExpression, .caseInsensitive]
             ) != nil else {
             throw IncorrectHexCharacterError(hex: hexString)
         }
-        
         hex = hexString
-    
     }
     
     /**

@@ -37,7 +37,6 @@ final class SECP256k1SignatureTests: XCTestCase {
             message: Array("Hello world".utf8),
             hashFunction: SHA3(variant: .keccak256).calculate
         )
-
         let secondSignature = SECP256k1Signature(
             privateKey: self.validPrivateKey,
             message: Array("Hello world".utf8),
@@ -73,7 +72,6 @@ final class SECP256k1SignatureTests: XCTestCase {
             throwError(),
             description: "None of the above statements are expected to throw"
         )
-
     }
 
     func testDifferentMessages() {
