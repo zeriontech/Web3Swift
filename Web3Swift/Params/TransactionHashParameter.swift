@@ -1,6 +1,19 @@
 import Foundation
 
-fileprivate class InvalidTransactionHashError: Swift.Error { }
+/// Error describes invalid length of transaction hash provided
+public final class IncorrectTxHashLengthError: DescribedError {
+    
+    private let length: Int
+    
+    public init(length: Int) {
+        self.length = length
+    }
+    
+    public var description: String {
+        return "Hex returned \(self.length) characters string when 64 was expected"
+    }
+    
+}
 
 public final class TransactionHashParameter: GethParameter {
     
@@ -11,7 +24,11 @@ public final class TransactionHashParameter: GethParameter {
     }
 
     public func value() throws -> Any {
-        guard transactionHash.toString().count == 64 else { throw InvalidTransactionHashError() }
+        guard transactionHash.toString().count == 64 else {
+            throw IncorrectTxHashLengthError(
+                length: transactionHash.toString().count
+            )
+        }
         return transactionHash.toPrefixString()
     }
     
