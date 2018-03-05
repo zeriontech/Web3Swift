@@ -521,7 +521,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ ! -f ${PODS_ROOT}/SwiftLint/.build/release/swiftlint ]; then\n    echo \"Building swiftlint...\"\n    cd ${PODS_ROOT}/SwiftLint\n    git submodule update --init --recursive; make install\nfi\ncp ${PODS_ROOT}/SwiftLint/.build/release/swiftlint ${PODS_ROOT}/SwiftLint/\n${PODS_ROOT}/SwiftLint/.build/release/swiftlint --path ${PODS_ROOT}/../../\n";
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint --path ../\n";
 		};
 		96C55DCF203C64CF00F7B8B3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
