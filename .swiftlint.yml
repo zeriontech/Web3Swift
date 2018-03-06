@@ -31,6 +31,8 @@ whitelist_rules:
   - force_try
   - force_unwrapping
   - function_body_length
+  - function_body_comments
+  - function_body_whitespace_lines
   - function_parameter_count
   - generic_type_name
   - identifier_name
@@ -54,6 +56,7 @@ whitelist_rules:
   - shorthand_operator
   - single_test_class
   - sorted_imports
+  - subclass
   - superfluous_disable_command
   - switch_case_alignment
   - type_body_length

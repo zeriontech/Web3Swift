@@ -12,7 +12,8 @@ public class SimpleNetwork: Network {
         self.url = url
         self.headers = headers
     }
-    
+
+    // "id" : 16180 - see https://en.wikipedia.org/wiki/Golden_ratio
     public func call(method: String, params: Array<GethParameter>) throws -> Data {
         return try session.data(
             from: URLPostRequest(
@@ -24,7 +25,7 @@ public class SimpleNetwork: Network {
                         "params" : params.map {
                             try $0.value()
                         },
-                        "id" : 16180 //https://en.wikipedia.org/wiki/Golden_ratio
+                        "id" : 16180
                     ]
                     ).rawData(),
                     headers: headers
