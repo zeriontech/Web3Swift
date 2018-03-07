@@ -13,7 +13,12 @@ public final class EthTransactions: Transactions {
     }
 
     public func count() throws -> NumberScalar {
-        fatalError("g")
+        let transactionsCountProcedure = self.transactionsCountProcedure
+        return try BigEndianCompactNumber(
+            hex: SimpleString{
+                try transactionsCountProcedure.call()["result"].string()
+            }
+        )
     }
 
 }

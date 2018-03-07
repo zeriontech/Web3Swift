@@ -17,19 +17,19 @@ public final class IncorrectTxHashLengthError: DescribedError {
 
 public final class TransactionHashParameter: EthParameter {
     
-    private var transactionHash: Hex
-    
-    init(transactionHash: Hex) {
-        self.transactionHash = transactionHash
+//    private var transactionHash: Hex
+    init(transactionHash: BytesScalar) {
+        fatalError("e")
     }
 
+//    guard transactionHash.toString().count == 64 else {
+//            throw IncorrectTxHashLengthError(
+//                length: transactionHash.toString().count
+//            )
+//        }
+//        return transactionHash.toPrefixString()
     public func value() throws -> Any {
-        guard transactionHash.toString().count == 64 else {
-            throw IncorrectTxHashLengthError(
-                length: transactionHash.toString().count
-            )
-        }
-        return transactionHash.toPrefixString()
+        fatalError("g")
     }
     
 }
