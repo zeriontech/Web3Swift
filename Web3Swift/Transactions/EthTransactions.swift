@@ -14,7 +14,7 @@ public final class EthTransactions: Transactions {
 
     public func count() throws -> NumberScalar {
         let transactionsCountProcedure = self.transactionsCountProcedure
-        return try BigEndianCompactNumber(
+        return BigEndianCompactNumber(
             hex: SimpleString{
                 try transactionsCountProcedure.call()["result"].string()
             }
