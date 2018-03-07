@@ -169,7 +169,7 @@ final class SECP256k1SignatureTests: XCTestCase {
                                 bytes: Data() //stubbed s according to EIP-155
                             ),
                         ]
-                    ).toData()
+                    ).value()
                 ),
                 hashFunction: SHA3(variant: .keccak256).calculate
             )

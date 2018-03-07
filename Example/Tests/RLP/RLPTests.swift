@@ -16,7 +16,7 @@ final class RLPTests: XCTestCase {
                 bytes: Data(
                     bytes: Array("dog".utf8)
                 )
-            ).toData()
+            ).value()
         }.to(
             equal(
                 Data(
@@ -42,7 +42,7 @@ final class RLPTests: XCTestCase {
                             )
                         ),
                     ]
-                ).toData()
+                ).value()
             }.to(
                 equal(
                     Data(
@@ -71,7 +71,7 @@ final class RLPTests: XCTestCase {
                 bytes: Data(
                     integer: UInt(0).bigEndian
                 ).droppingLeadingZeroes()
-            ).toData()
+            ).value()
         }.to(
             equal(
                 Data(
@@ -89,7 +89,7 @@ final class RLPTests: XCTestCase {
                 bytes: Data(
                     integer: UInt(15).bigEndian
                 ).droppingLeadingZeroes()
-            ).toData()
+            ).value()
         }.to(
             equal(
                 Data(
@@ -107,7 +107,7 @@ final class RLPTests: XCTestCase {
                 bytes: Data(
                     integer: UInt(1024).bigEndian
             ).droppingLeadingZeroes()
-            ).toData()
+            ).value()
         }.to(
             equal(
                 Data(
@@ -150,7 +150,7 @@ final class RLPTests: XCTestCase {
                         ]
                     )
                 ]
-            ).toData()
+            ).value()
         }.to(
             equal(
                 Data(
@@ -175,7 +175,7 @@ final class RLPTests: XCTestCase {
                 bytes: Data(
                     bytes: Array("Lorem ipsum dolor sit amet, consectetur adipisicing elit".utf8)
                 )
-            ).toData()
+            ).value()
         ).to(
             equal(
                 Data(
@@ -196,7 +196,7 @@ final class RLPTests: XCTestCase {
                 bytes: Data(
                     bytes: Array(string.utf8)
                 )
-            ).toData()
+            ).value()
         }.to(
             equal(
                 Data(

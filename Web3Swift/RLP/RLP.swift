@@ -4,8 +4,4 @@
 
 import Foundation
 
-public protocol RLP {
-
-    func toData() throws -> Data
-
-}
+public protocol RLP: BytesScalar { }
