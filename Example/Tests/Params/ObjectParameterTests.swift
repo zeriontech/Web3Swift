@@ -24,8 +24,8 @@ class ObjectParameterTests: XCTestCase {
                     "from": AddressParameter(address: Alice().toAddress()),
                     "to": AddressParameter(address: Bob().toAddress()),
                     "gas": QuantityParameter(quantity: 90000),
-                    "gasPrice": QuantityParameter(quantity: Int(pow(10.0, 9.0))),
-                    "value": QuantityParameter(quantity: Int(pow(10.0, 18.0))),
+                    "gasPrice": QuantityParameter(quantity: UInt(pow(10.0, 9.0))),
+                    "value": QuantityParameter(quantity: UInt(pow(10.0, 18.0))),
                     "data": StringParameter(value: "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675")
                 ]
                 ).value()

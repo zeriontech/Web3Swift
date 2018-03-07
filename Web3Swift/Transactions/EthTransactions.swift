@@ -12,10 +12,8 @@ public final class EthTransactions: Transactions {
         self.transactionsCountProcedure = transactionsCountProcedure
     }
 
-    public func count() throws -> Int {
-        return try Int(
-            prefixedHexString: transactionsCountProcedure.call()["result"].string()
-        )
+    public func count() throws -> NumberScalar {
+        fatalError("g")
     }
 
 }

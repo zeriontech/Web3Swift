@@ -10,22 +10,6 @@
 
 import Foundation
 
-/// Error describes invalid hex character provided
-public final class IncorrectHexCharacterError: DescribedError {
-    
-    private let hex: String
-    
-    public init(hex: String) {
-        self.hex = hex
-    }
-    
-    public var description: String {
-        //TODO: Highlight incorrect characters here
-        return "Incorrect hex string \"\(self.hex)\""
-    }
-    
-}
-
 /// An implementation of hex string wrapper
 public final class SimpleHex: Hex {
     
@@ -35,12 +19,6 @@ public final class SimpleHex: Hex {
         var hexString = value
         if hexString.hasPrefix("0x") {
             hexString = hexString.removingHexPrefix()
-        }
-        guard hexString.range(
-                of: "^[a-f0-9]+$",
-                options: [.regularExpression, .caseInsensitive]
-            ) != nil else {
-            throw IncorrectHexCharacterError(hex: hexString)
         }
         hex = hexString
     }

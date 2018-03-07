@@ -19,7 +19,7 @@ final class EthTransactionsTests: XCTestCase {
                     address: Alice().toAddress(),
                     blockChainState: PendingBlockChainState()
                 )
-            ).count()
+            ).count().uint()
         }.to(
             beGreaterThanOrEqualTo(0),
             description: "Make sure positive number is returned"
