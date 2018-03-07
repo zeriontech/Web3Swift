@@ -20,11 +20,27 @@ class ObjectParameterTests: XCTestCase {
         expect{
             try ObjectParameter(
                 dictionary: [
-                    "from": BytesParameter(bytes: Alice().address()),
-                    "to": BytesParameter(bytes: Bob().address()),
-                    "gas": QuantityParameter(quantity: 90000),
-                    "gasPrice": QuantityParameter(quantity: UInt(pow(10.0, 9.0))),
-                    "value": QuantityParameter(quantity: UInt(pow(10.0, 18.0))),
+                    "from": BytesParameter(
+                        bytes: Alice().address()
+                    ),
+                    "to": BytesParameter(
+                        bytes: Bob().address()
+                    ),
+                    "gas": QuantityParameter(
+                        number: BigEndianNumber(
+                            uint: 9000
+                        )
+                    ),
+                    "gasPrice": QuantityParameter(
+                        number: BigEndianNumber(
+                            uint: UInt(pow(10.0, 9.0))
+                        )
+                    ),
+                    "value": QuantityParameter(
+                        number: BigEndianNumber(
+                            uint: UInt(pow(10.0, 18.0))
+                        )
+                    ),
                     "data": BytesParameter(
                         bytes: BytesFromHexString(
                             hex: "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675"

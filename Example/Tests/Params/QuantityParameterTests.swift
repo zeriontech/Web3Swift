@@ -17,16 +17,16 @@ class QuantityParameterTests: XCTestCase {
     
     /// Assert parameter returns correct hex string
     func testQuantityParameterToString() {
-        
         expect{
             try QuantityParameter(
-                    quantity: 1
+                number: BigEndianCompactNumber(
+                    uint: 1
+                )
             ).value() as! String // swiftlint:disable:this force_cast
         }.to(
             equal("0x1"),
             description: "Make sure that correct hex string is returned"
         )
-        
     }
-    
+
 }

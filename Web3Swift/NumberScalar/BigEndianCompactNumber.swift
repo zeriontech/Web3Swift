@@ -7,24 +7,40 @@ import Foundation
 public final class BigEndianCompactNumber: NumberScalar {
 
     private let origin: NumberScalar
-    init(hex: StringScalar) {
-        self.origin = BigEndianNumber(
-            hex: SimpleString{
-                let hex = try TrimmedPrefixString(
-                    string: hex,
-                    prefix: SimpleString{ "0x" }
-                ).value()
-                if hex.count.isEven() {
-                    return hex
-                } else {
-                    return "0" + hex
+    init(origin: NumberScalar) {
+        self.origin = origin
+    }
+
+    convenience init(hex: StringScalar) {
+        self.init(
+            origin: BigEndianNumber(
+                hex: SimpleString{
+                    let hex = try TrimmedPrefixString(
+                        string: hex,
+                        prefix: SimpleString{ "0x" }
+                    ).value()
+                    if hex.count.isEven() {
+                        return hex
+                    } else {
+                        return "0" + hex
+                    }
                 }
-            }
+            )
         )
     }
 
     convenience init(hex: String) {
-        self.init(hex: SimpleString{ hex })
+        self.init(
+            hex: SimpleString{ hex }
+        )
+    }
+
+    convenience init(uint: UInt) {
+        self.init(
+            origin: BigEndianNumber(
+                uint: uint
+            )
+        )
     }
 
     public func hex() throws -> BytesScalar {

@@ -2,23 +2,9 @@ import Foundation
 
 public final class QuantityParameter: EthParameter {
 
-    private let hex: Hex
-
-    /**
-    ctor that accepts a `Hex`
-    */
-    public init(hex: Hex) {
-        self.hex = hex
-    }
-
-//    /**
-//    ctor that accepts an `UInt`
-//
-//    - throws:
-//    `DescribedError` if something went wrong
-//    */
-    public convenience init(quantity: UInt) throws {
-        fatalError("f")
+    private let number: NumberScalar
+    public init(number: NumberScalar) {
+        self.number = number
     }
 
     /**
@@ -28,7 +14,12 @@ public final class QuantityParameter: EthParameter {
     `Any` which should be a `String`
     */
     public func value() throws -> Any {
-        fatalError("g")
+        let number = self.number
+        return try "0x" + UnprefixedHexString(
+            bytes: LeadingCompactBytes(
+                origin: number.hex()
+            )
+        ).value().drop(while: { $0 == "0" })
     }
 
 }

@@ -14,6 +14,16 @@ public final class UnprefixedHexString: StringScalar {
         )
     }
 
+    convenience init(bytes: BytesScalar) {
+        self.init(
+            hex: SimpleString{
+                return try String(
+                    bytes.value().toHexString()
+                )
+            }
+        )
+    }
+
     func value() throws -> String {
         return try hex.value()
     }
