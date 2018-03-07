@@ -133,8 +133,11 @@ public final class SECP256k1Signature: ECRecoverableSignature {
         - throws:
         `DescribedError` if something went wrong
     */
-    public func r() throws -> Data {
-        return try stickyComputation.result().r
+    public func r() throws -> BytesScalar {
+        let stickyComputation = self.stickyComputation
+        return SimpleBytes{
+            try stickyComputation.result().r
+        }
     }
 
     /**
@@ -146,10 +149,14 @@ public final class SECP256k1Signature: ECRecoverableSignature {
         - throws:
         `DescribedError` if something went wrong
     */
-    public func s() throws -> Data {
-        return try stickyComputation.result().s
+    public func s() throws -> BytesScalar {
+        let stickyComputation = self.stickyComputation
+        return SimpleBytes{
+            try stickyComputation.result().s
+        }
     }
 
+    //TODO: This need to be properly wrapped
     /**
         Recovery id as defined in ecdsa
 
@@ -159,8 +166,12 @@ public final class SECP256k1Signature: ECRecoverableSignature {
         - throws:
         `DescribedError` if something went wrong
     */
-    public func recoverID() throws -> UInt8 {
-        return try stickyComputation.result().recoveryID
+    public func recoverID() throws -> NumberScalar {
+        return try BigEndianNumber(
+            uint: UInt(
+                stickyComputation.result().recoveryID
+            )
+        )
     }
 
 }

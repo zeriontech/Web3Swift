@@ -6,10 +6,10 @@ import Foundation
 
 public protocol ECRecoverableSignature {
 
-    func r() throws -> Data
+    func r() throws -> BytesScalar
 
-    func s() throws -> Data
+    func s() throws -> BytesScalar
 
-    func recoverID() throws -> UInt8
+    func recoverID() throws -> NumberScalar
 
 }
