@@ -79,15 +79,19 @@ public final class SECP256k1Signature: ECRecoverableSignature {
             - hashFunction: hashing function that is used to compute message hash
     */
     init(
-        privateKey: Array<UInt8>,
-        message: Array<UInt8>,
+        privateKey: PrivateKey,
+        message: BytesScalar,
         hashFunction: @escaping (Array<UInt8>) -> (Array<UInt8>)
     ) {
         stickyComputation = StickyComputation{
-            var hash = hashFunction(message)
+            var hash = try hashFunction(
+                Array(
+                    message.value()
+                )
+            )
             guard hash.count == 32 else { throw IncorrectHashLengthError(length: hash.count) }
             var signature: secp256k1_ecdsa_recoverable_signature = secp256k1_ecdsa_recoverable_signature()
-            var privateKey = privateKey
+            var privateKey = try Array(privateKey.value())
             guard secp256k1_ecdsa_sign_recoverable(
                 secp256k1_context_create(UInt32(SECP256K1_CONTEXT_SIGN | SECP256K1_CONTEXT_VERIFY)),
                 &signature,
