@@ -30,9 +30,9 @@
 		8C748B952040848B00F40AF9 /* SimpleNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C748B942040848B00F40AF9 /* SimpleNetworkTests.swift */; };
 		8C748B9720408A4800F40AF9 /* InfuraNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C748B9620408A4800F40AF9 /* InfuraNetworkTests.swift */; };
 		8C77B9E3203DADC30097DE61 /* FakeEthereumNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9E0203DACDC0097DE61 /* FakeEthereumNetwork.swift */; };
-		8C77B9E8203DAF320097DE61 /* SimpleAddressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9E7203DAF320097DE61 /* SimpleAddressTests.swift */; };
+		8C77B9E8203DAF320097DE61 /* EthAddressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9E7203DAF320097DE61 /* EthAddressTests.swift */; };
 		8C77B9F0203DB8A60097DE61 /* HexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9EF203DB8A60097DE61 /* HexTests.swift */; };
-		8C77B9F3203DC77A0097DE61 /* AddressParameterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9F2203DC77A0097DE61 /* AddressParameterTests.swift */; };
+		8C77B9F3203DC77A0097DE61 /* BytesParameterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9F2203DC77A0097DE61 /* BytesParameterTests.swift */; };
 		8C77B9F5203DC9340097DE61 /* BooleanParameterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9F4203DC9340097DE61 /* BooleanParameterTests.swift */; };
 		8C77B9F9203DCA220097DE61 /* QuantityParameterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9F8203DCA220097DE61 /* QuantityParameterTests.swift */; };
 		8C77B9FB203DCC390097DE61 /* TransactionHashParameterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9FA203DCC390097DE61 /* TransactionHashParameterTests.swift */; };
@@ -83,9 +83,9 @@
 		8C748B942040848B00F40AF9 /* SimpleNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNetworkTests.swift; sourceTree = "<group>"; };
 		8C748B9620408A4800F40AF9 /* InfuraNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfuraNetworkTests.swift; sourceTree = "<group>"; };
 		8C77B9E0203DACDC0097DE61 /* FakeEthereumNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeEthereumNetwork.swift; sourceTree = "<group>"; };
-		8C77B9E7203DAF320097DE61 /* SimpleAddressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAddressTests.swift; sourceTree = "<group>"; };
+		8C77B9E7203DAF320097DE61 /* EthAddressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthAddressTests.swift; sourceTree = "<group>"; };
 		8C77B9EF203DB8A60097DE61 /* HexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexTests.swift; sourceTree = "<group>"; };
-		8C77B9F2203DC77A0097DE61 /* AddressParameterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressParameterTests.swift; sourceTree = "<group>"; };
+		8C77B9F2203DC77A0097DE61 /* BytesParameterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BytesParameterTests.swift; sourceTree = "<group>"; };
 		8C77B9F4203DC9340097DE61 /* BooleanParameterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooleanParameterTests.swift; sourceTree = "<group>"; };
 		8C77B9F8203DCA220097DE61 /* QuantityParameterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityParameterTests.swift; sourceTree = "<group>"; };
 		8C77B9FA203DCC390097DE61 /* TransactionHashParameterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHashParameterTests.swift; sourceTree = "<group>"; };
@@ -303,7 +303,7 @@
 		8C77B9E6203DAF0F0097DE61 /* Address */ = {
 			isa = PBXGroup;
 			children = (
-				8C77B9E7203DAF320097DE61 /* SimpleAddressTests.swift */,
+				8C77B9E7203DAF320097DE61 /* EthAddressTests.swift */,
 			);
 			path = Address;
 			sourceTree = "<group>";
@@ -319,7 +319,7 @@
 		8C77B9F1203DC75D0097DE61 /* Params */ = {
 			isa = PBXGroup;
 			children = (
-				8C77B9F2203DC77A0097DE61 /* AddressParameterTests.swift */,
+				8C77B9F2203DC77A0097DE61 /* BytesParameterTests.swift */,
 				8C77B9F4203DC9340097DE61 /* BooleanParameterTests.swift */,
 				8C77B9F8203DCA220097DE61 /* QuantityParameterTests.swift */,
 				8C77B9FA203DCC390097DE61 /* TransactionHashParameterTests.swift */,
@@ -608,7 +608,7 @@
 				8C748B8F20407AF100F40AF9 /* ObjectParameterTests.swift in Sources */,
 				8C77B9F9203DCA220097DE61 /* QuantityParameterTests.swift in Sources */,
 				8C748B952040848B00F40AF9 /* SimpleNetworkTests.swift in Sources */,
-				8C77B9F3203DC77A0097DE61 /* AddressParameterTests.swift in Sources */,
+				8C77B9F3203DC77A0097DE61 /* BytesParameterTests.swift in Sources */,
 				8CF1E94820415673008578AB /* Alice.swift in Sources */,
 				584FA1D30FE97BD70FAD9117 /* GetTransactionsCountProcedureTests.swift in Sources */,
 				8C77B9E3203DADC30097DE61 /* FakeEthereumNetwork.swift in Sources */,
@@ -623,7 +623,7 @@
 				584FA27299B5C54E558E6355 /* ByteWidthTests.swift in Sources */,
 				8CF1E94C204157F9008578AB /* Actor.swift in Sources */,
 				8C748B9320407E1800F40AF9 /* GethNetworkTests.swift in Sources */,
-				8C77B9E8203DAF320097DE61 /* SimpleAddressTests.swift in Sources */,
+				8C77B9E8203DAF320097DE61 /* EthAddressTests.swift in Sources */,
 				8CF1E94A204157EE008578AB /* Bob.swift in Sources */,
 				8C748B9120407D1500F40AF9 /* StringParameterTests.swift in Sources */,
 				8C748B9720408A4800F40AF9 /* InfuraNetworkTests.swift in Sources */,

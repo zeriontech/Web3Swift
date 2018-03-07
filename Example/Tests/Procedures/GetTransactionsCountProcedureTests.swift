@@ -21,7 +21,7 @@ final class GetTransactionsCountProcedureTests: XCTestCase {
         expect{
             try GetTransactionsCountProcedure(
                 network: FakeEthereumNetwork(),
-                address: Alice().toAddress(),
+                address: Alice().address(),
                 blockChainState: LatestBlockChainState()
             ).call()
         }.toNot(
@@ -36,7 +36,7 @@ final class GetTransactionsCountProcedureTests: XCTestCase {
             try UInt64(
                 GetTransactionsCountProcedure(
                     network: FakeEthereumNetwork(),
-                    address: Alice().toAddress(),
+                    address: Alice().address(),
                     blockChainState: LatestBlockChainState()
                 ).call()["result"].string().removingHexPrefix(),
                 radix: 16

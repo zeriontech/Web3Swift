@@ -8,7 +8,7 @@ public final class InfuraNetwork: Network {
         geth = try GethNetwork(url: "https://"+chain+".infura.io/"+apiKey)
     }
     
-    public func call(method: String, params: Array<GethParameter>) throws -> Data {
+    public func call(method: String, params: Array<EthParameter>) throws -> Data {
         return try geth.call(method: method, params: params)
     }
     

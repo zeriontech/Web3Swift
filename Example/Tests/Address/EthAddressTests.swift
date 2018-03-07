@@ -13,38 +13,35 @@ import Quick
 @testable import Web3Swift
 import XCTest
 
-final class SimpleAddressTests: XCTestCase {
+final class EthAddressTests: XCTestCase {
     
     /// Assert correct address does not throw an error
     func testValidAddress() {
-
         expect{
-            try SimpleAddress(
-                hex: SimpleHex(value: "0x0000000000000000000000000000000000000000")
-            )
+            try EthAddress(
+                hex: "0x0000000000000000000000000000000000000000"
+            ).value()
         }.notTo(
             throwError(),
             description: "Make sure correct address does not throw an error"
         )
-
     }
     
     /// Assert invalid address throws an error of type `InvalidAddressLengthError`
     func testInValidLengthAddress() {
-
         expect{
-            try SimpleAddress(
-                hex: SimpleHex(value: "0x0000000000000000000000000000000000000000111")
-            )
+            try EthAddress(
+                hex: "0x0000000000000000000000000000000000000000111"
+            ).value()
         }.to(
             throwError(),
             description: "Make sure longer address throws an error"
         )
         
         expect{
-            try SimpleAddress(
-                hex: SimpleHex(value: "0x000000000")
-            )
+            try EthAddress(
+                hex: "0x000000000"
+            ).value()
         }.to(
             throwError(),
             description: "Make sure shorter address throws an error"
@@ -56,16 +53,14 @@ final class SimpleAddressTests: XCTestCase {
     func testAddressToString() {
         
         expect{
-            try SimpleAddress(
-                    hex: SimpleHex(value: "0x0000000000000000000000000000000000000000")
-                ).toString()
+            try EthAddress(
+                hex: "0x0000000000000000000000000000000000000000"
+            ).value()
         }.to(
-            equal("0x0000000000000000000000000000000000000000"),
+            equal(Data(bytes: Array<UInt8>(repeating: 0x00, count: 20))),
             description: "Make sure correct prefixed string is retuned"
         )
         
     }
-    
-    //TODO: Implement toData test
     
 }

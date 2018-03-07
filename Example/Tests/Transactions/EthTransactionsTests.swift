@@ -16,7 +16,7 @@ final class EthTransactionsTests: XCTestCase {
             try EthTransactions(
                 transactionsCountProcedure: GetTransactionsCountProcedure(
                     network: FakeEthereumNetwork(),
-                    address: Alice().toAddress(),
+                    address: Alice().address(),
                     blockChainState: PendingBlockChainState()
                 )
             ).count().uint()

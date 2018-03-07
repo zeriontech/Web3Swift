@@ -14,7 +14,7 @@ public class SimpleNetwork: Network {
     }
 
     // "id" : 16180 - see https://en.wikipedia.org/wiki/Golden_ratio
-    public func call(method: String, params: Array<GethParameter>) throws -> Data {
+    public func call(method: String, params: Array<EthParameter>) throws -> Data {
         return try session.data(
             from: URLPostRequest(
                 url: url,

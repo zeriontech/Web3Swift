@@ -13,19 +13,17 @@ import Foundation
 @testable import Web3Swift
 
 public final class Bob: Actor {
-    
-    private let address: Address
-    
-    init() {
-        // swiftlint:disable:next force_try
-        let hex = try! SimpleHex(value: "0x5F6d691343939aa5C0f6d01ac7038f59EEc38eA0")
-        // swiftlint:disable:next force_try
-        address = try! SimpleAddress(hex: hex)
+
+    public func address() -> BytesScalar {
+        return EthAddress(
+            bytes: BytesFromHexString(
+                hex: self.rawAddress()
+            )
+        )
     }
-    
-    public func toAddress() -> Address
-    {
-        return address
+
+    public func rawAddress() -> String {
+        return "0x5F6d691343939aa5C0f6d01ac7038f59EEc38eA0"
     }
-    
+
 }

@@ -15,7 +15,7 @@ public final class IncorrectTxHashLengthError: DescribedError {
     
 }
 
-public final class TransactionHashParameter: GethParameter {
+public final class TransactionHashParameter: EthParameter {
     
     private var transactionHash: Hex
     

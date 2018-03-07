@@ -1,6 +1,6 @@
 import Foundation
 
-public protocol GethParameter {
+public protocol EthParameter {
 
     func value() throws -> Any
 

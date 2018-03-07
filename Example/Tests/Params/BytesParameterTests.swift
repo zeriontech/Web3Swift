@@ -13,54 +13,48 @@ import Quick
 @testable import Web3Swift
 import XCTest
 
-class AddressParameterTests: XCTestCase {
+class BytesParameterTests: XCTestCase {
     
     /// Assert that parameter returns correct string
     func testAddressParameterToString() {
-        
         expect{
-            try AddressParameter(
-                address: Alice().toAddress()
+            try BytesParameter(
+                bytes: Alice().address()
             ).value() as! String // swiftlint:disable:this force_cast
         }.to(
             equal(
-                Alice().toAddress().toString()
+                Alice().rawAddress().lowercased()
             ),
             description: "Make sure same prefixed hex string is returned"
         )
-        
     }
     
     /// Assert that parameter returns correct string
     func testOtherAddressParameterToString() {
-        
         expect{
-            try AddressParameter(
-                address: Bob().toAddress()
-                ).value() as! String // swiftlint:disable:this force_cast
+            try BytesParameter(
+                bytes: Bob().address()
+            ).value() as! String // swiftlint:disable:this force_cast
         }.to(
             equal(
-                Bob().toAddress().toString()
+                Bob().rawAddress().lowercased()
             ),
             description: "Make sure same prefixed hex string is returned"
         )
-        
     }
     
     /// Assert that parameter returns correct string
     func testIncorrectAddressParameterToString() {
-        
         expect{
-            try AddressParameter(
-                address: Bob().toAddress()
-                ).value() as! String // swiftlint:disable:this force_cast
+            try BytesParameter(
+                bytes: Bob().address()
+            ).value() as! String // swiftlint:disable:this force_cast
         }.notTo(
             equal(
-                Alice().toAddress().toString()
+                Alice().rawAddress().lowercased()
             ),
             description: "Make sure same prefixed hex string is returned"
         )
-        
     }
     
 }

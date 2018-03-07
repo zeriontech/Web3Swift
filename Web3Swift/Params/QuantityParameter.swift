@@ -1,6 +1,6 @@
 import Foundation
 
-public final class QuantityParameter: GethParameter {
+public final class QuantityParameter: EthParameter {
 
     private let hex: Hex
 

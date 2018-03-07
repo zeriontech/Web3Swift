@@ -1,7 +1,7 @@
 //Receives
 import Foundation
 
-public final class TagParameter: GethParameter {
+public final class TagParameter: EthParameter {
     
     private var state: BlockChainState
     

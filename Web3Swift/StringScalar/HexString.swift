@@ -2,6 +2,7 @@
 // Created by Timofey on 3/7/18.
 //
 
+import CryptoSwift
 import Foundation
 
 private final class AmbiguousHexStringError: DescribedError {
@@ -40,16 +41,20 @@ public final class HexString: StringScalar {
     }
 
     convenience init(hex: String) {
-        self.init(hex: SimpleString{ hex })
+        self.init(
+            hex: SimpleString{ hex }
+        )
     }
 
     func value() throws -> String {
         let hex = try self.hex.value()
         guard hex.count.isEven() else { throw AmbiguousHexStringError(hex: hex) }
-        guard hex.range(
-            of: "^[a-f0-9]+$",
-            options: [.regularExpression, .caseInsensitive]
-        ) != nil else { throw IncorrectHexCharacterError(hex: hex) }
+        guard try NSRegularExpression(pattern: "(0[xX]){0,1}[0-9a-fA-F]+").matches(
+            in: hex,
+            range: NSRange((0..<hex.count))
+        ).count == 1 else {
+            throw IncorrectHexCharacterError(hex: hex)
+        }
         return hex
     }
 

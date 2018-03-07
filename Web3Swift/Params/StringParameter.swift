@@ -1,14 +1,17 @@
 import Foundation
 
-public final class StringParameter: GethParameter {
+public final class StringParameter: EthParameter {
 
-    private var param: String
-
-    init(value: String) {
+    private var param: StringScalar
+    init(value: StringScalar) {
         self.param = value
     }
 
+    convenience init(value: String) {
+        self.init(value: SimpleString{ value })
+    }
+
     public func value() throws -> Any {
-        return param
+        return try param.value()
     }
 }

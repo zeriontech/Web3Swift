@@ -58,7 +58,7 @@ public final class GethNetwork: Network {
         self.init(url: gethUrl)
     }
 
-    public func call(method: String, params: Array<GethParameter>) throws -> Data {
+    public func call(method: String, params: Array<EthParameter>) throws -> Data {
         return try network.call(method: method, params: params)
     }
     

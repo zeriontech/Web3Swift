@@ -2,6 +2,7 @@
 // Created by Timofey on 3/7/18.
 //
 
+import CryptoSwift
 import Foundation
 
 public final class PrefixedHexString: StringScalar {
@@ -9,6 +10,14 @@ public final class PrefixedHexString: StringScalar {
     private let hex: StringScalar
     init(hex: StringScalar) {
         self.hex = HexString(hex: hex)
+    }
+
+    convenience init(bytes: BytesScalar) {
+        self.init(
+            hex: SimpleString{
+                return try bytes.value().toHexString()
+            }
+        )
     }
 
     func value() throws -> String {

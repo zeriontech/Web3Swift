@@ -23,6 +23,10 @@ public final class BigEndianCompactNumber: NumberScalar {
         )
     }
 
+    convenience init(hex: String) {
+        self.init(hex: SimpleString{ hex })
+    }
+
     public func hex() throws -> BytesScalar {
         return try LeadingCompactBytes(
             origin: origin.hex()
