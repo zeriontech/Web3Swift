@@ -4,11 +4,11 @@
 
 import Foundation
 
-private final class IncorrectNumberOfElementsError<T>: DescribedError {
+internal final class IncorrectNumberOfElementsError: DescribedError {
 
-    private let collection: AnyCollection<T>
-    init(collection: AnyCollection<T>) {
-        self.collection = collection
+    private let collection: AnyCollection<Any>
+    init<T>(collection: AnyCollection<T>) {
+        self.collection = AnyCollection<Any>(collection.map{ $0 as Any })
     }
 
     var description: String {
@@ -19,12 +19,19 @@ private final class IncorrectNumberOfElementsError<T>: DescribedError {
 
 extension Collection {
 
-    func single() throws -> Self.Element {
+    /**
+    - returns:
+    a single element of a collection
+
+    - throws:
+    `DescribedError` when element of a collection is not single
+    */
+    public func single() throws -> Self.Element {
         if self.count == 1, let first = self.first {
             return first
         } else {
             throw IncorrectNumberOfElementsError(
-                collection: AnyCollection<Self.Element>(Array(self))
+                collection: AnyCollection(Array(self))
             )
         }
     }
