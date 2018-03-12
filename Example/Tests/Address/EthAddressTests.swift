@@ -14,8 +14,7 @@ import Quick
 import XCTest
 
 final class EthAddressTests: XCTestCase {
-    
-    /// Assert correct address does not throw an error
+
     func testValidAddress() {
         expect{
             try EthAddress(
@@ -26,41 +25,49 @@ final class EthAddressTests: XCTestCase {
             description: "Make sure correct address does not throw an error"
         )
     }
-    
-    /// Assert invalid address throws an error of type `InvalidAddressLengthError`
-    func testInValidLengthAddress() {
+
+    func testShortAddress() {
         expect{
             try EthAddress(
-                hex: "0x0000000000000000000000000000000000000000111"
-            ).value()
-        }.to(
-            throwError(),
-            description: "Make sure longer address throws an error"
-        )
-        
-        expect{
-            try EthAddress(
-                hex: "0x000000000"
+                hex: "0x0000000000"
             ).value()
         }.to(
             throwError(),
             description: "Make sure shorter address throws an error"
         )
-
     }
-    
-    /// Assert address converts to right prefixed string
-    func testAddressToString() {
-        
+
+    func testLongAddress() {
         expect{
             try EthAddress(
-                hex: "0x0000000000000000000000000000000000000000"
+                hex: "0x00000000000000000000000000000000000000001111"
             ).value()
         }.to(
-            equal(Data(bytes: Array<UInt8>(repeating: 0x00, count: 20))),
-            description: "Make sure correct prefixed string is retuned"
+            throwError(),
+            description: "Make sure longer address throws an error"
         )
-        
+    }
+
+    func testAmbiguousLength() {
+        expect{
+            try EthAddress(
+                hex: "0xD8aC90d9cc7e4c03430d58d2f3e87Dae70b807e"
+            ).value()
+        }.to(
+            throwError(),
+            description: "Ambiguous length address is expected to throw error"
+        )
+    }
+
+    func testAddressToString() {
+        expect{
+            try EthAddress(
+                hex: "0xcD8aC90d9cc7e4c03430d58d2f3e87Dae70b807e"
+            ).value()
+        }.to(
+            equal(Data(bytes: [0xcd, 0x8a, 0xC9, 0x0d, 0x9c, 0xc7, 0xe4, 0xc0, 0x34, 0x30, 0xd5, 0x8d, 0x2f, 0x3e, 0x87, 0xDa, 0xe7, 0x0b, 0x80, 0x7e])),
+            description: "Make sure correct bytes representation is returned"
+        )
     }
     
 }
