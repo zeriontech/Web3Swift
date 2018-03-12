@@ -4,7 +4,7 @@
 
 import Foundation
 
-private final class IncorrectBytesLengthError: DescribedError {
+internal final class IncorrectBytesLengthError: DescribedError {
 
     private let length: UInt
     private let bytes: Data
