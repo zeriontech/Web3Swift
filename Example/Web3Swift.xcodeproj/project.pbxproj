@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		179920E6147A7C94464EBBDE /* Pods_Web3Swift_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3D6BEF8030D59C6F4A15FB /* Pods_Web3Swift_Tests.framework */; };
+		584FA0A1656975E37C890523 /* LeadingCompactBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA05EFE4DB2A85EFA494B /* LeadingCompactBytesTests.swift */; };
 		584FA1A012191D2A54C91613 /* BytesFromCompactHexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAAEB7FCC55D0DED15A42 /* BytesFromCompactHexStringTests.swift */; };
 		584FA1AA2BED7032494BFE8F /* IntegerBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAE4F0D7A5BD3C3484ACC /* IntegerBytesTests.swift */; };
 		584FA1D30FE97BD70FAD9117 /* GetTransactionsCountProcedureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAFC4DFD37E513B7E286C /* GetTransactionsCountProcedureTests.swift */; };
@@ -59,6 +60,7 @@
 		17A034A484746115F55C4602 /* Pods-Web3Swift_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Web3Swift_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Web3Swift_Example/Pods-Web3Swift_Example.release.xcconfig"; sourceTree = "<group>"; };
 		2F320EB26501545845D58F10 /* Web3Swift.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Web3Swift.podspec; path = ../Web3Swift.podspec; sourceTree = "<group>"; };
 		343D350F5D884606EEA5C913 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		584FA05EFE4DB2A85EFA494B /* LeadingCompactBytesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeadingCompactBytesTests.swift; sourceTree = "<group>"; };
 		584FA147B4074725F6630283 /* SECP256k1SignatureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECP256k1SignatureTests.swift; sourceTree = "<group>"; };
 		584FA607D63F69F66C666FCF /* BigEndianNumberToUnsignedIntegerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigEndianNumberToUnsignedIntegerTests.swift; sourceTree = "<group>"; };
 		584FA6C98ECA780456027E15 /* ByteWidthTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ByteWidthTests.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				584FAEA2A535B392091AA1B2 /* ConcatenatedBytesTests.swift */,
 				584FAECE55D11B16B13F39A0 /* FixedLengthBytesTests.swift */,
 				584FAE4F0D7A5BD3C3484ACC /* IntegerBytesTests.swift */,
+				584FA05EFE4DB2A85EFA494B /* LeadingCompactBytesTests.swift */,
 			);
 			path = BytesScalar;
 			sourceTree = "<group>";
@@ -647,6 +650,7 @@
 				584FAED8755DD6F0E88C6D04 /* ConcatenatedBytesTests.swift in Sources */,
 				584FA29BFE13850E334AEE11 /* FixedLengthBytesTests.swift in Sources */,
 				584FA1AA2BED7032494BFE8F /* IntegerBytesTests.swift in Sources */,
+				584FA0A1656975E37C890523 /* LeadingCompactBytesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
