@@ -10,7 +10,7 @@ import Quick
 
 final class EthPrivateKeyTests: XCTestCase {
 
-    func test() {
+    func testValidPrivateKey() {
         expect{
             try EthPrivateKey(
                 bytes: BytesFromHexString(
