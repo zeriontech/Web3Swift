@@ -5,7 +5,7 @@
 import CryptoSwift
 import Foundation
 
-private final class AmbiguousHexStringError: DescribedError {
+internal final class AmbiguousHexStringError: DescribedError {
 
     private let hex: String
     init(hex: String) {
@@ -18,7 +18,7 @@ private final class AmbiguousHexStringError: DescribedError {
 
 }
 
-private final class IncorrectHexCharacterError: DescribedError {
+internal final class IncorrectHexCharacterError: DescribedError {
 
     private let hex: String
 
@@ -63,7 +63,7 @@ public final class HexString: StringScalar {
     }
 
     /**
-    TODO: Validations below are temporarily coupled. single() call will cause valid hex strings such as "0x" or "" to be denied but it will not trigger because swift will verify only first two cases. This is a bad design.
+    TODO: Validations below are temporarily coupled. single() call will cause valid hex strings such as "0x" or "" to be denied but it will not trigger because swift will verify only first two cases. This is a bad design. (sequential search)
 
     - returns:
     `String` representation of a string describing a hexadecimal
@@ -73,14 +73,14 @@ public final class HexString: StringScalar {
     */
     public func value() throws -> String {
         let hex = try self.hex.value()
-        guard hex.count.isEven() else {
-            throw AmbiguousHexStringError(hex: hex)
-        }
         guard try hex.isEmpty || hex == "0x" || NSRegularExpression(pattern: "(0[xX]){0,1}[0-9a-fA-F]+").matches(
             in: hex,
             range: NSRange(location: 0, length: hex.count)
-        ).single().range == NSRange(location: 0, length: hex.count) else {
+        ).first?.range == NSRange(location: 0, length: hex.count) else {
             throw IncorrectHexCharacterError(hex: hex)
+        }
+        guard hex.count.isEven() else {
+            throw AmbiguousHexStringError(hex: hex)
         }
         return hex
     }
