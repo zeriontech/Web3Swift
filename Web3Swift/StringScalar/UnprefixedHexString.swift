@@ -4,27 +4,46 @@
 
 import Foundation
 
+//Hex string that is not prefixed by "0x"
 public final class UnprefixedHexString: StringScalar {
 
     private let hex: StringScalar
+
+    /**
+    Ctor
+
+    - parameters:
+        - hex: a string describing a hexadecimal
+    */
     init(hex: StringScalar) {
         self.hex = TrimmedPrefixString(
             string: HexString(hex: hex),
-            prefix: SimpleString{ "0x" }
+            prefix: SimpleString(string: "0x")
         )
     }
 
+    /**
+    Ctor
+
+    - parameters:
+        - bytes: bytes of a hexadecimal
+    */
     convenience init(bytes: BytesScalar) {
         self.init(
             hex: SimpleString{
-                return try String(
-                    bytes.value().toHexString()
-                )
+                try bytes.value().toHexString()
             }
         )
     }
 
-    func value() throws -> String {
+    /**
+    - returns:
+    Unprefixed `String` representation of a hexadecimal
+
+    - throws:
+    `DescribedError` if something went wrong
+    */
+    public func value() throws -> String {
         return try hex.value()
     }
 

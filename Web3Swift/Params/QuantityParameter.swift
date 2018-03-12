@@ -3,15 +3,23 @@ import Foundation
 public final class QuantityParameter: EthParameter {
 
     private let number: NumberScalar
+
+    /**
+    Ctor
+
+    - parameters:
+        - number: number to be converted to parameter
+    */
     public init(number: NumberScalar) {
         self.number = number
     }
 
     /**
-    Converts an ethereum `Quantity` to `String` dropping leading zeroes
-
     - returns:
-    `Any` which should be a `String`
+    `String` representation of the number as specified by ethereum JSON RPC (dropping any leading zeroes in string representation)
+
+    - throws:
+    `DescribedError` is something went wrong
     */
     public func value() throws -> Any {
         let number = self.number

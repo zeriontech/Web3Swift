@@ -39,7 +39,7 @@ public final class SimpleRLP: RLP {
 
     convenience init(rlps: [RLP]) {
         self.init(
-            bytes: MergedBytes(bytes: rlps),
+            bytes: ConcatenatedBytes(bytes: rlps),
             appendix: RLPCollectionAppendix()
         )
     }

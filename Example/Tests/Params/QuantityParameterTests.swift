@@ -19,7 +19,7 @@ class QuantityParameterTests: XCTestCase {
     func testQuantityParameterToString() {
         expect{
             try QuantityParameter(
-                number: BigEndianCompactNumber(
+                number: BigEndianNumber(
                     uint: 1
                 )
             ).value() as! String // swiftlint:disable:this force_cast

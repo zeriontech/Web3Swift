@@ -22,10 +22,8 @@ public class GetTransactionsCountProcedure: RemoteProcedure {
             data: network.call(
                 method: "eth_getTransactionCount",
                 params: [
-                    StringParameter(
-                        value: PrefixedHexString(
-                            bytes: address
-                        )
+                    BytesParameter(
+                        bytes: address
                     ),
                     TagParameter(state: blockChainState)
                 ]

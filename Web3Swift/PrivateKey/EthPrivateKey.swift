@@ -22,9 +22,17 @@ private final class UnableToSerializePublicKeyError: DescribedError {
 
 }
 
+//Private key as specified in the ethereum
 public final class EthPrivateKey: PrivateKey {
 
     private let bytes: BytesScalar
+
+    /**
+    Ctor
+
+    - parameters:
+        - bytes: 32 bytes representation of the private key
+    */
     init(bytes: BytesScalar) {
         self.bytes = FixedLengthBytes(
             origin: bytes,
@@ -32,12 +40,26 @@ public final class EthPrivateKey: PrivateKey {
         )
     }
 
+    /**
+    - returns:
+    32 bytes as `Data` of the private key
+
+    - throws:
+    `DescribedError` if something went wrong
+    */
     public func value() throws -> Data {
         return try bytes.value()
     }
 
-    //TODO: I have no idea how to decompose that cryptography in a reasonable way. Let's leave the comments for a bit of explanation aid for now
-    //swiftlint:disable function_body_comments
+    /**
+    TODO: This method should be decomposed into multiple instances to make computations such as dropping header byte more declarative.
+
+    - returns:
+    20 bytes address computed from the private key as specified by the ethereum
+
+    - throws:
+    `DescribedError` if something went wrong
+    */
     public func address() throws -> BytesScalar {
         let bytes = self.bytes
         return SimpleBytes{
@@ -51,7 +73,7 @@ public final class EthPrivateKey: PrivateKey {
                 throw InvalidPrivateKeyError()
             }
             var publicKey = Array<UInt8>(repeating: 0x00, count: 65)
-            var outputLength = Int(65) //header byte + the public key itself
+            var outputLength = Int(65)
             guard secp256k1_ec_pubkey_serialize(
                 secp256k1_context_create(UInt32(SECP256K1_CONTEXT_SIGN) | UInt32(SECP256K1_CONTEXT_VERIFY)),
                 &publicKey,
@@ -65,7 +87,7 @@ public final class EthPrivateKey: PrivateKey {
                 bytes: SHA3(
                     variant: .keccak256
                 ).calculate(
-                    for: Array(publicKey.dropFirst()) //We need to drop the first value because its a header byte
+                    for: Array(publicKey.dropFirst())
                 ).suffix(20)
             )
         }

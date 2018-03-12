@@ -4,51 +4,69 @@
 
 import Foundation
 
+//A compact big endian number (without leading zeroes)
 public final class BigEndianCompactNumber: NumberScalar {
 
     private let origin: NumberScalar
+
+    /**
+    Ctor
+
+    - parameters:
+        - origin: number for compact representation
+    */
     init(origin: NumberScalar) {
         self.origin = origin
     }
 
+    /**
+    Ctor
+
+    - parameters:
+        - hex: compact string representation of the number. A leading zero is added if string representation is a valid hex of odd length.
+    */
     convenience init(hex: StringScalar) {
         self.init(
             origin: BigEndianNumber(
-                hex: SimpleString{
-                    let hex = try TrimmedPrefixString(
-                        string: hex,
-                        prefix: SimpleString{ "0x" }
-                    ).value()
-                    if hex.count.isEven() {
-                        return hex
-                    } else {
-                        return "0" + hex
-                    }
-                }
+                bytes: BytesFromCompactHexString(
+                    hex: hex
+                )
             )
         )
     }
 
+    /**
+    Ctor
+
+    - parameters:
+        - hex: compact string representation of the number. A leading zero is added if string representation is a valid hex of odd length.
+    */
     convenience init(hex: String) {
         self.init(
             hex: SimpleString{ hex }
         )
     }
 
-    convenience init(uint: UInt) {
-        self.init(
-            origin: BigEndianNumber(
-                uint: uint
-            )
-        )
-    }
+    /**
+    - returns:
+    bytes of the number in big endian order without leading zeroes.
 
+    - throws:
+    `DescribedError` if something went wrong
+    */
     public func hex() throws -> BytesScalar {
         return try LeadingCompactBytes(
             origin: origin.hex()
         )
     }
 
+    /**
+    - returns:
+    unsigned integer representation of the number
+
+    - throws:
+    `DescribedError` if something went wrong
+    */
     public func uint() throws -> UInt {
         return try origin.uint()
     }

@@ -20,13 +20,27 @@ private final class IntegerBytesOverflowError: DescribedError {
 
 }
 
+//Big endian number
 public final class BigEndianNumber: NumberScalar {
 
     private let bytes: BytesScalar
+
+    /**
+    Ctor
+
+    - parameters:
+        - bytes: bytes representation of a big endian number
+    */
     init(bytes: BytesScalar) {
         self.bytes = bytes
     }
 
+    /**
+    Ctor
+
+    - parameters:
+        - uint: integer representation of a big endian number
+    */
     convenience init(uint: UInt) {
         self.init(
             bytes: IntegerBytes(
@@ -35,6 +49,12 @@ public final class BigEndianNumber: NumberScalar {
         )
     }
 
+    /**
+    Ctor
+
+    - parameters:
+        - hex: hexadecimal string representation of a big endian number. Must not be ambiguous.
+    */
     convenience init(hex: StringScalar) {
         self.init(
             bytes: BytesFromHexString(
@@ -43,10 +63,24 @@ public final class BigEndianNumber: NumberScalar {
         )
     }
 
+    /**
+    - returns:
+    bytes of the number in big endian order
+
+    - throws:
+    doesn't throw
+    */
     public func hex() throws -> BytesScalar {
         return bytes
     }
 
+    /**
+    - returns:
+    unsigned integer representation of the number
+
+    - throws:
+    `DescribedError` if something went wrong or if the size of the number is too big for `UInt`
+    */
     public func uint() throws -> UInt {
         let bytes = try self.bytes.value()
         guard bytes.count <= MemoryLayout<UInt>.size else {

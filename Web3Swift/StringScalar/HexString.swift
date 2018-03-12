@@ -33,20 +33,43 @@ private final class IncorrectHexCharacterError: DescribedError {
 
 }
 
+//A string that represents some collection of hexadecimal numbers
 public final class HexString: StringScalar {
 
     private let hex: StringScalar
+
+    /**
+    Ctor
+
+    - parameters:
+        - hex: a string describing a hexadecimal
+    */
     init(hex: StringScalar) {
         self.hex = hex
     }
 
+    /**
+    Ctor
+
+    - parameters:
+        - hex: a string describing a hexadecimal
+    */
     convenience init(hex: String) {
         self.init(
-            hex: SimpleString{ hex }
+            hex: SimpleString(
+                string: hex
+            )
         )
     }
 
-    func value() throws -> String {
+    /**
+    - returns:
+    `String` representation of a string describing a hexadecimal
+
+    - throws:
+    `DescribedError` if something went wrong or if string does not describe a hexadecimal or hexadecimal description is ambiguous
+    */
+    public func value() throws -> String {
         let hex = try self.hex.value()
         guard hex.count.isEven() else { throw AmbiguousHexStringError(hex: hex) }
         guard try NSRegularExpression(pattern: "(0[xX]){0,1}[0-9a-fA-F]+").matches(

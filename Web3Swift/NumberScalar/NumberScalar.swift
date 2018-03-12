@@ -1,5 +1,6 @@
 import Foundation
 
+//Just a number
 public protocol NumberScalar {
 
     /**
