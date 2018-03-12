@@ -5,7 +5,7 @@
 import CryptoSwift
 import Foundation
 
-private final class IntegerBytesOverflowError: DescribedError {
+internal final class IntegerBytesOverflowError: DescribedError {
 
     private let bytes: Data
     private let sizeLimit: Int
@@ -82,7 +82,7 @@ public final class BigEndianNumber: NumberScalar {
     `DescribedError` if something went wrong or if the size of the number is too big for `UInt`
     */
     public func uint() throws -> UInt {
-        let bytes = try self.bytes.value()
+        let bytes = try LeadingCompactBytes(origin: self.bytes).value()
         guard bytes.count <= MemoryLayout<UInt>.size else {
             throw IntegerBytesOverflowError(
                 bytes: bytes,

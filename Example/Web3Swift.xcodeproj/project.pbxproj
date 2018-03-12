@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		179920E6147A7C94464EBBDE /* Pods_Web3Swift_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3D6BEF8030D59C6F4A15FB /* Pods_Web3Swift_Tests.framework */; };
+		584FA007F1C9FE25106C2335 /* BigEndianNumberUIntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAF575C27A0C5582EE1F6 /* BigEndianNumberUIntTests.swift */; };
 		584FA0A1656975E37C890523 /* LeadingCompactBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA05EFE4DB2A85EFA494B /* LeadingCompactBytesTests.swift */; };
 		584FA1A012191D2A54C91613 /* BytesFromCompactHexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAAEB7FCC55D0DED15A42 /* BytesFromCompactHexStringTests.swift */; };
 		584FA1AA2BED7032494BFE8F /* IntegerBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAE4F0D7A5BD3C3484ACC /* IntegerBytesTests.swift */; };
 		584FA1D30FE97BD70FAD9117 /* GetTransactionsCountProcedureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAFC4DFD37E513B7E286C /* GetTransactionsCountProcedureTests.swift */; };
 		584FA27299B5C54E558E6355 /* ByteWidthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA6C98ECA780456027E15 /* ByteWidthTests.swift */; };
 		584FA29BFE13850E334AEE11 /* FixedLengthBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAECE55D11B16B13F39A0 /* FixedLengthBytesTests.swift */; };
+		584FA3967DDC46A750CA7847 /* BigEndianNumberHexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA5CA61C28B8797336539 /* BigEndianNumberHexTests.swift */; };
 		584FA538B1B4B38D0AD9D0C9 /* SECP256k1SignatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA147B4074725F6630283 /* SECP256k1SignatureTests.swift */; };
 		584FA7EFE57C0E816D2A22FE /* BytesFromHexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA82FCF5FAF36C735DEA7 /* BytesFromHexStringTests.swift */; };
 		584FA848F23C434B6D50B7C3 /* RLPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FACC5A38F59EE5FCD2BC7 /* RLPTests.swift */; };
@@ -25,7 +27,6 @@
 		584FACDDE9E98EDA9C414EF6 /* RandomNonceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAB47440D3CE3C6ED0684 /* RandomNonceTests.swift */; };
 		584FACEC7F5AD9060590ED93 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA82731B90F65C00992E6 /* URL.swift */; };
 		584FAD3793AFB655815DBBA6 /* ChainIDProcedureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA8BDDA8B4B1DF68FA7AA /* ChainIDProcedureTests.swift */; };
-		584FAE405B9F0F58E1B8381C /* BigEndianNumberToUnsignedIntegerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA607D63F69F66C666FCF /* BigEndianNumberToUnsignedIntegerTests.swift */; };
 		584FAED8755DD6F0E88C6D04 /* ConcatenatedBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAEA2A535B392091AA1B2 /* ConcatenatedBytesTests.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -65,7 +66,7 @@
 		584FA0226149AA277B0AE608 /* CollectionSingleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionSingleTests.swift; sourceTree = "<group>"; };
 		584FA05EFE4DB2A85EFA494B /* LeadingCompactBytesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeadingCompactBytesTests.swift; sourceTree = "<group>"; };
 		584FA147B4074725F6630283 /* SECP256k1SignatureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECP256k1SignatureTests.swift; sourceTree = "<group>"; };
-		584FA607D63F69F66C666FCF /* BigEndianNumberToUnsignedIntegerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigEndianNumberToUnsignedIntegerTests.swift; sourceTree = "<group>"; };
+		584FA5CA61C28B8797336539 /* BigEndianNumberHexTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigEndianNumberHexTests.swift; sourceTree = "<group>"; };
 		584FA6C98ECA780456027E15 /* ByteWidthTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ByteWidthTests.swift; sourceTree = "<group>"; };
 		584FA82731B90F65C00992E6 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		584FA82FCF5FAF36C735DEA7 /* BytesFromHexStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BytesFromHexStringTests.swift; sourceTree = "<group>"; };
@@ -79,6 +80,7 @@
 		584FAE4F0D7A5BD3C3484ACC /* IntegerBytesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegerBytesTests.swift; sourceTree = "<group>"; };
 		584FAEA2A535B392091AA1B2 /* ConcatenatedBytesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcatenatedBytesTests.swift; sourceTree = "<group>"; };
 		584FAECE55D11B16B13F39A0 /* FixedLengthBytesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixedLengthBytesTests.swift; sourceTree = "<group>"; };
+		584FAF575C27A0C5582EE1F6 /* BigEndianNumberUIntTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigEndianNumberUIntTests.swift; sourceTree = "<group>"; };
 		584FAFABC7894A1043564BE3 /* EthPrivateKeyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthPrivateKeyTests.swift; sourceTree = "<group>"; };
 		584FAFC4DFD37E513B7E286C /* GetTransactionsCountProcedureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTransactionsCountProcedureTests.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Web3Swift_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Web3Swift_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,6 +224,15 @@
 			path = BytesScalar;
 			sourceTree = "<group>";
 		};
+		584FA958B15E7FA47561405D /* BigEndianNumber */ = {
+			isa = PBXGroup;
+			children = (
+				584FAF575C27A0C5582EE1F6 /* BigEndianNumberUIntTests.swift */,
+				584FA5CA61C28B8797336539 /* BigEndianNumberHexTests.swift */,
+			);
+			path = BigEndianNumber;
+			sourceTree = "<group>";
+		};
 		584FAAB7A1467E5512346177 /* RLP */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,7 +252,7 @@
 		584FAF826D879758594EBF0B /* NumberScalar */ = {
 			isa = PBXGroup;
 			children = (
-				584FA607D63F69F66C666FCF /* BigEndianNumberToUnsignedIntegerTests.swift */,
+				584FA958B15E7FA47561405D /* BigEndianNumber */,
 			);
 			path = NumberScalar;
 			sourceTree = "<group>";
@@ -657,7 +668,6 @@
 				8C748B9720408A4800F40AF9 /* InfuraNetworkTests.swift in Sources */,
 				584FA538B1B4B38D0AD9D0C9 /* SECP256k1SignatureTests.swift in Sources */,
 				584FACEC7F5AD9060590ED93 /* URL.swift in Sources */,
-				584FAE405B9F0F58E1B8381C /* BigEndianNumberToUnsignedIntegerTests.swift in Sources */,
 				584FAC63F128D0FD1C832A17 /* EthPrivateKeyTests.swift in Sources */,
 				584FA1A012191D2A54C91613 /* BytesFromCompactHexStringTests.swift in Sources */,
 				584FA7EFE57C0E816D2A22FE /* BytesFromHexStringTests.swift in Sources */,
@@ -667,6 +677,8 @@
 				584FA0A1656975E37C890523 /* LeadingCompactBytesTests.swift in Sources */,
 				584FA9C3714F513ECEEF42B6 /* UTF8StringBytesTests.swift in Sources */,
 				584FAAD68EA651E9A9AC005A /* CollectionSingleTests.swift in Sources */,
+				584FA007F1C9FE25106C2335 /* BigEndianNumberUIntTests.swift in Sources */,
+				584FA3967DDC46A750CA7847 /* BigEndianNumberHexTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
