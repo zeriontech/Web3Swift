@@ -63,6 +63,8 @@ public final class HexString: StringScalar {
     }
 
     /**
+    TODO: Validations below are temporarily coupled. single() call will cause valid hex strings such as "0x" or "" to be denied but it will not trigger because swift will verify only first two cases. This is a bad design.
+
     - returns:
     `String` representation of a string describing a hexadecimal
 
@@ -71,11 +73,13 @@ public final class HexString: StringScalar {
     */
     public func value() throws -> String {
         let hex = try self.hex.value()
-        guard hex.count.isEven() else { throw AmbiguousHexStringError(hex: hex) }
-        guard try NSRegularExpression(pattern: "(0[xX]){0,1}[0-9a-fA-F]+").matches(
+        guard hex.count.isEven() else {
+            throw AmbiguousHexStringError(hex: hex)
+        }
+        guard try hex.isEmpty || hex == "0x" || NSRegularExpression(pattern: "(0[xX]){0,1}[0-9a-fA-F]+").matches(
             in: hex,
-            range: NSRange((0..<hex.count))
-        ).count == 1 else {
+            range: NSRange(location: 0, length: hex.count)
+        ).single().range == NSRange(location: 0, length: hex.count) else {
             throw IncorrectHexCharacterError(hex: hex)
         }
         return hex
