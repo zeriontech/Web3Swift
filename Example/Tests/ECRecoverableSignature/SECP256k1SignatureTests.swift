@@ -30,7 +30,7 @@ final class SECP256k1SignatureTests: XCTestCase {
                 privateKey: self.validPrivateKey,
                 message: UTF8StringBytes(string: "Hello world"),
                 hashFunction: SHA3(variant: .keccak224).calculate
-            ).r()
+            ).r().value()
         ).to(
             throwError(errorType: IncorrectHashLengthError.self),
             description: "Incorrect hash length must result in the IncorrectHashLengthError to be thrown"
