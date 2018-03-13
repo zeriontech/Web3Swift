@@ -33,14 +33,13 @@ final class GetTransactionsCountProcedureTests: XCTestCase {
     /// Assert response contains positive value
     func testValueGreaterThanZero() {
         expect{
-            try UInt64(
-                GetTransactionsCountProcedure(
+            try BigEndianCompactNumber(
+                hex: GetTransactionsCountProcedure(
                     network: FakeEthereumNetwork(),
                     address: Alice().address(),
                     blockChainState: LatestBlockChainState()
-                ).call()["result"].string().removingHexPrefix(),
-                radix: 16
-            )
+                ).call()["result"].string()
+            ).uint()
         }.to(
             beGreaterThanOrEqualTo(0),
             description: "Make sure positive number is returned"

@@ -68,9 +68,11 @@ final class RLPTests: XCTestCase {
     func test0() {
         expect{
             try SimpleRLP(
-                bytes: Data(
-                    integer: UInt(0).bigEndian
-                ).droppingLeadingZeroes()
+                bytes: LeadingCompactBytes(
+                    origin: IntegerBytes(
+                        uint: UInt(0).bigEndian
+                    )
+                )
             ).value()
         }.to(
             equal(
@@ -86,9 +88,11 @@ final class RLPTests: XCTestCase {
     func test15() {
         expect{
             try SimpleRLP(
-                bytes: Data(
-                    integer: UInt(15).bigEndian
-                ).droppingLeadingZeroes()
+                bytes: LeadingCompactBytes(
+                    origin: IntegerBytes(
+                        uint: UInt(15).bigEndian
+                    )
+                )
             ).value()
         }.to(
             equal(
@@ -104,9 +108,11 @@ final class RLPTests: XCTestCase {
     func test1024() {
         expect{
             try SimpleRLP(
-                bytes: Data(
-                    integer: UInt(1024).bigEndian
-            ).droppingLeadingZeroes()
+                bytes: LeadingCompactBytes(
+                    origin: IntegerBytes(
+                        uint: UInt(1024).bigEndian
+                    )
+                )
             ).value()
         }.to(
             equal(

@@ -5,17 +5,6 @@
 import Foundation
 
 extension Int {
-//
-//    init(prefixedHexString: String) throws {
-//        if let int = Int(
-//            prefixedHexString.dropFirst(2),
-//            radix: 16
-//        ) {
-//            self = int
-//        } else {
-//            throw NotAnIntError()
-//        }
-//    }
 
     func unsignedByteWidth() -> Int {
         return (self.bitWidth - self.leadingZeroBitCount - 1).unsafeDivided(by: 8) + 1
@@ -30,6 +19,5 @@ extension Int {
     func isEven() -> Bool {
         return self % 2 == 0
     }
-
 
 }

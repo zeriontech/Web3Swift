@@ -24,13 +24,15 @@ internal final class RLPStandardAppendix: RLPAppendix {
                 ]
             ) + bytes
         case 56...Int.max:
-            return Data(
+            return try Data(
                 bytes: [
                     UInt8(bytes.count.unsignedByteWidth() + Int(offset) + 55)
                 ]
-            ) + Data(
-                integer: UInt(bytes.count).bigEndian
-            ).droppingLeadingZeroes() + bytes
+            ) + LeadingCompactBytes(
+                origin: IntegerBytes(
+                    uint: UInt(bytes.count).bigEndian
+                )
+            ).value() + bytes
         default:
             throw BytesLengthOverflow()
         }
