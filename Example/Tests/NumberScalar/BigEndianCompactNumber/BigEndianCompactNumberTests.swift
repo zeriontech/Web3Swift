@@ -10,7 +10,12 @@ import Quick
 final class BigEndianCompactNumberTests: XCTestCase {
 
     func testResolvesAmbiguity() {
-        Array<(String, [UInt8])>(
+        Array<
+            (
+                String,
+                Array<UInt8>
+            )
+        >(
             [
                 ("0x0", [0x00]),
                 ("0x1", [0x01]),

@@ -9,9 +9,13 @@ import Quick
 
 final class ConcatenatedBytesTests: XCTestCase {
 
-    //swiftlint:disable operator_usage_whitespace
     func testCorrectlyConcatenatedBytes() {
-        Array<(Array<BytesScalar>, Array<UInt8>)>(
+        Array<
+            (
+                Array<BytesScalar>,
+                Array<UInt8>
+            )
+        >(
             [
                 (
                     [BytesScalar](),

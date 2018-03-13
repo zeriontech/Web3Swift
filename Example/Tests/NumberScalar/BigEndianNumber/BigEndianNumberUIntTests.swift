@@ -9,7 +9,6 @@ import Quick
 
 final class BigEndianNumberUIntTests: XCTestCase {
 
-    //swiftlint:disable operator_usage_whitespace
     func testUIntConversionFromUInt() {
         Array<UInt>(
             [
@@ -28,7 +27,12 @@ final class BigEndianNumberUIntTests: XCTestCase {
     }
 
     func testUIntConversionFromHex() {
-        Array<(String, UInt)>(
+        Array<
+            (
+                String,
+                UInt
+            )
+        >(
             [
                 ("0x01", 1),
                 ("0x03ff", 1023),
@@ -49,7 +53,12 @@ final class BigEndianNumberUIntTests: XCTestCase {
     }
 
     func testUIntConversionFromBytes() {
-        Array<(Array<UInt8>, UInt)>(
+        Array<
+            (
+                Array<UInt8>,
+                UInt
+            )
+        >(
             [
                 ([0x01], 1),
                 ([0x03, 0xff], 1023),

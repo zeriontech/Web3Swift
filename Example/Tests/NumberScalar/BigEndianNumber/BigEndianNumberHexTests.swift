@@ -9,9 +9,10 @@ import Quick
 
 final class BigEndianNumberHexTests: XCTestCase {
 
-    //swiftlint:disable operator_usage_whitespace
     func testHexConversionFromBytes() {
-        Array<Array<UInt8>>(
+        Array<
+            Array<UInt8>
+        >(
             [
                 [0x01],
                 [0x03, 0xff],
@@ -37,7 +38,12 @@ final class BigEndianNumberHexTests: XCTestCase {
 
     //TODO: This is not an exact test because set neglects order. We need to test for ending overlap
     func testHexConversionFromUInt() {
-        Array<(Array<UInt8>, UInt)>(
+        Array<
+            (
+                Array<UInt8>,
+                UInt
+            )
+        >(
             [
                 ([0x01], 1),
                 ([0x03, 0xff], 1023),
@@ -58,7 +64,12 @@ final class BigEndianNumberHexTests: XCTestCase {
     }
 
     func testHexConversionFromString() {
-        Array<(String, Array<UInt8>)>(
+        Array<
+            (
+                String,
+                Array<UInt8>
+            )
+        >(
             [
                 ("0x01", [0x01]),
                 ("0x03ff", [0x03, 0xff]),
