@@ -46,7 +46,12 @@ public final class FixedLengthBytes: BytesScalar {
     */
     public func value() throws -> Data {
         let bytes = try origin.value()
-        guard bytes.count == length else { throw IncorrectBytesLengthError(bytes: bytes, length: length) }
+        guard bytes.count == length else {
+            throw IncorrectBytesLengthError(
+                bytes: bytes,
+                length: length
+            )
+        }
         return bytes
     }
 
