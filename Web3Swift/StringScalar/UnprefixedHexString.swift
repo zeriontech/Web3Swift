@@ -18,7 +18,7 @@ public final class UnprefixedHexString: StringScalar {
     init(hex: StringScalar) {
         self.hex = TrimmedPrefixString(
             string: HexString(hex: hex),
-            prefix: SimpleString(string: "0x")
+            prefix: HexPrefix()
         )
     }
 

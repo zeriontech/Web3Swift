@@ -17,7 +17,11 @@ public final class PrefixedHexString: StringScalar {
         - hex: a string describing a hexadecimal
     */
     init(hex: StringScalar) {
-        self.hex = HexString(hex: hex)
+        self.hex = HexPrefixedString(
+            origin: HexString(
+                hex: hex
+            )
+        )
     }
 
     /**
@@ -42,12 +46,7 @@ public final class PrefixedHexString: StringScalar {
     `DescribedError` if something went wrong
     */
     public func value() throws -> String {
-        let hex = try self.hex.value()
-        if hex.hasPrefix("0x") {
-            return hex
-        } else {
-            return "0x" + hex
-        }
+        return try hex.value()
     }
 
 }

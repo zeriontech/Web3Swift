@@ -22,12 +22,17 @@ public final class QuantityParameter: EthParameter {
     `DescribedError` is something went wrong
     */
     public func value() throws -> Any {
-        let number = self.number
-        return try "0x" + UnprefixedHexString(
-            bytes: LeadingCompactBytes(
-                origin: number.hex()
+        return try HexPrefixedString(
+            origin: SimpleString(
+                string: String(
+                    UnprefixedHexString(
+                        bytes: LeadingCompactBytes(
+                            origin: self.number.hex()
+                        )
+                    ).value().drop(while: { $0 == "0" })
+                )
             )
-        ).value().drop(while: { $0 == "0" })
+        ).value()
     }
 
 }

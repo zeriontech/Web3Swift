@@ -73,7 +73,7 @@ public final class HexString: StringScalar {
     */
     public func value() throws -> String {
         let hex = try self.hex.value()
-        guard try hex.isEmpty || hex == "0x" || NSRegularExpression(pattern: "(0[xX]){0,1}[0-9a-fA-F]+").matches(
+        guard try hex.isEmpty || hex == HexPrefix().value() || NSRegularExpression(pattern: "(0[xX]){0,1}[0-9a-fA-F]+").matches(
             in: hex,
             range: NSRange(location: 0, length: hex.count)
         ).first?.range == NSRange(location: 0, length: hex.count) else {

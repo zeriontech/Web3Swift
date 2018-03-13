@@ -31,7 +31,7 @@ public final class BytesFromCompactHexString: BytesScalar {
             hex: SimpleString{
                 let hex = try TrimmedPrefixString(
                     string: self.hex,
-                    prefix: SimpleString{ "0x" }
+                    prefix: HexPrefix()
                 ).value()
                 if hex.count.isEven() {
                     return hex
