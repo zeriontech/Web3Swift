@@ -19,6 +19,7 @@
 		584FA474A83B20483AA3865A /* PrefixedHexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAD359591DA1D23533A0D /* PrefixedHexStringTests.swift */; };
 		584FA538B1B4B38D0AD9D0C9 /* SECP256k1SignatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA147B4074725F6630283 /* SECP256k1SignatureTests.swift */; };
 		584FA7EFE57C0E816D2A22FE /* BytesFromHexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA82FCF5FAF36C735DEA7 /* BytesFromHexStringTests.swift */; };
+		584FA80F75A83DCF7A6C971B /* UnprefixedHexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAC6B00D3D216834AA0F9 /* UnprefixedHexStringTests.swift */; };
 		584FA848F23C434B6D50B7C3 /* RLPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FACC5A38F59EE5FCD2BC7 /* RLPTests.swift */; };
 		584FA9AF9A23FA952F4A0878 /* BigEndianCompactNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAD7F8C311AD4D83C015D /* BigEndianCompactNumberTests.swift */; };
 		584FA9C3714F513ECEEF42B6 /* UTF8StringBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAABDE4B44E4D79747126 /* UTF8StringBytesTests.swift */; };
@@ -79,6 +80,7 @@
 		584FAABDE4B44E4D79747126 /* UTF8StringBytesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UTF8StringBytesTests.swift; sourceTree = "<group>"; };
 		584FAAEB7FCC55D0DED15A42 /* BytesFromCompactHexStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BytesFromCompactHexStringTests.swift; sourceTree = "<group>"; };
 		584FAB47440D3CE3C6ED0684 /* RandomNonceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomNonceTests.swift; sourceTree = "<group>"; };
+		584FAC6B00D3D216834AA0F9 /* UnprefixedHexStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnprefixedHexStringTests.swift; sourceTree = "<group>"; };
 		584FACC5A38F59EE5FCD2BC7 /* RLPTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLPTests.swift; sourceTree = "<group>"; };
 		584FACF870DFF799329F558F /* GetGasPriceProcedureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetGasPriceProcedureTests.swift; sourceTree = "<group>"; };
 		584FAD359591DA1D23533A0D /* PrefixedHexStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefixedHexStringTests.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				584FA9721120A205A9959167 /* HexStringTests.swift */,
 				584FAD359591DA1D23533A0D /* PrefixedHexStringTests.swift */,
 				584FADD609CFD3D1B146EA9A /* TrimmedPrefixStringTests.swift */,
+				584FAC6B00D3D216834AA0F9 /* UnprefixedHexStringTests.swift */,
 			);
 			path = StringScalar;
 			sourceTree = "<group>";
@@ -711,6 +714,7 @@
 				584FAA357B56038EF5C83C01 /* HexStringTests.swift in Sources */,
 				584FA474A83B20483AA3865A /* PrefixedHexStringTests.swift in Sources */,
 				584FAEA6A4077131C889E840 /* TrimmedPrefixStringTests.swift in Sources */,
+				584FA80F75A83DCF7A6C971B /* UnprefixedHexStringTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
