@@ -133,11 +133,13 @@ public final class SECP256k1Signature: ECRecoverableSignature {
         - throws:
         `DescribedError` if something went wrong
     */
-    public func r() throws -> BytesScalar {
+    public func r() throws -> NumberScalar {
         let stickyComputation = self.stickyComputation
-        return SimpleBytes{
-            try stickyComputation.result().r
-        }
+        return BigEndianNumber(
+            bytes: SimpleBytes{
+                try stickyComputation.result().r
+            }
+        )
     }
 
     /**
@@ -149,11 +151,13 @@ public final class SECP256k1Signature: ECRecoverableSignature {
         - throws:
         `DescribedError` if something went wrong
     */
-    public func s() throws -> BytesScalar {
+    public func s() throws -> NumberScalar {
         let stickyComputation = self.stickyComputation
-        return SimpleBytes{
-            try stickyComputation.result().s
-        }
+        return BigEndianNumber(
+            bytes: SimpleBytes{
+                try stickyComputation.result().s
+            }
+        )
     }
 
     //TODO: This need to be properly wrapped

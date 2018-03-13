@@ -30,7 +30,7 @@ final class SECP256k1SignatureTests: XCTestCase {
                 privateKey: self.validPrivateKey,
                 message: UTF8StringBytes(string: "Hello world"),
                 hashFunction: SHA3(variant: .keccak224).calculate
-            ).r().value()
+            ).r().hex().value()
         ).to(
             throwError(errorType: IncorrectHashLengthError.self),
             description: "Incorrect hash length must result in the IncorrectHashLengthError to be thrown"
@@ -50,18 +50,18 @@ final class SECP256k1SignatureTests: XCTestCase {
         )
         expect{
             expect(
-                try firstSignature.r().value()
+                try firstSignature.r().hex().value()
             ).to(
                 equal(
-                    try secondSignature.r().value()
+                    try secondSignature.r().hex().value()
                 ),
                 description: "Two signatures with equal messages must have equal r values"
             )
             expect(
-                try firstSignature.s().value()
+                try firstSignature.s().hex().value()
             ).to(
                 equal(
-                    try secondSignature.s().value()
+                    try secondSignature.s().hex().value()
                 ),
                 description: "Two signatures with equal messages must have equal s values"
             )
@@ -92,8 +92,8 @@ final class SECP256k1SignatureTests: XCTestCase {
             hashFunction: SHA3(variant: .keccak256).calculate
         )
         expect{
-            try firstSignature.r().value() == secondSignature.r().value()
-                && firstSignature.s().value() == secondSignature.s().value()
+            try firstSignature.r().hex().value() == secondSignature.r().hex().value()
+                && firstSignature.s().hex().value() == secondSignature.s().hex().value()
                 && firstSignature.recoverID().uint() == secondSignature.recoverID().uint()
         }.to(
             equal(false),
@@ -113,7 +113,7 @@ final class SECP256k1SignatureTests: XCTestCase {
             hashFunction: SHA3(variant: .keccak256).calculate
         )
         expect{
-            try signature.r().value()
+            try signature.r().hex().value()
         }.to(
             equal(
                 Data(hex: "0x28ef61340bd939bc2195fe537567866003e1a15d3c71ff63e1590620aa636276")
@@ -121,7 +121,7 @@ final class SECP256k1SignatureTests: XCTestCase {
             description: "Signature r is expected to match example r"
         )
         expect{
-            try signature.s().value()
+            try signature.s().hex().value()
         }.to(
             equal(
                 Data(hex: "0x67cbe9d8997f761aecb703304b3800ccf555c9f3dc64214b297fb1966a3b6d83")
@@ -184,7 +184,7 @@ final class SECP256k1SignatureTests: XCTestCase {
             hashFunction: SHA3(variant: .keccak256).calculate
         )
         expect{
-            try signature.r().value()
+            try signature.r().hex().value()
         }.to(
             equal(
                 Data(hex: "0x28ef61340bd939bc2195fe537567866003e1a15d3c71ff63e1590620aa636276")
@@ -192,7 +192,7 @@ final class SECP256k1SignatureTests: XCTestCase {
             description: "Signature r is expected to match example r"
         )
         expect{
-            try signature.s().value()
+            try signature.s().hex().value()
         }.to(
             equal(
                 Data(hex: "0x67cbe9d8997f761aecb703304b3800ccf555c9f3dc64214b297fb1966a3b6d83")

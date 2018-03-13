@@ -8,7 +8,7 @@ import Foundation
 public protocol ECRecoverableSignature {
 
     /**
-        R point as defined in ecdsa
+        R value as defined in ecdsa
 
         - returns:
         bytes representation
@@ -16,10 +16,10 @@ public protocol ECRecoverableSignature {
         - throws:
         `DescribedError` if something went wrong
     */
-    func r() throws -> BytesScalar
+    func r() throws -> NumberScalar
 
     /**
-        S point as defined in ecdsa
+        S value as defined in ecdsa
 
         - returns:
         bytes representation
@@ -27,7 +27,7 @@ public protocol ECRecoverableSignature {
         - throws:
         `DescribedError` if something went wrong
     */
-    func s() throws -> BytesScalar
+    func s() throws -> NumberScalar
 
     /**
         Recovery id as defined in ecdsa
