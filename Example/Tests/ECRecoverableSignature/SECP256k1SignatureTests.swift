@@ -16,15 +16,21 @@ import XCTest
 //FIXME: A lot of copy paste tests.
 final class SECP256k1SignatureTests: XCTestCase {
 
-    private let validPrivateKey: [UInt8] = Array(hex: "bdd61bcde5541ac8ad18c0ec53356419a0e62e8f147a1cc16ea36799e2cc64dd")
+    private let validPrivateKey: PrivateKey = {
+        EthPrivateKey(
+            bytes: BytesFromHexString(
+                hex: "bdd61bcde5541ac8ad18c0ec53356419a0e62e8f147a1cc16ea36799e2cc64dd"
+            )
+        )
+    }()
 
     func testIncorrectHashingFunction() {
         expect(
             try SECP256k1Signature(
                 privateKey: self.validPrivateKey,
-                message: Array("Hello world".utf8),
+                message: UTF8StringBytes(string: "Hello world"),
                 hashFunction: SHA3(variant: .keccak224).calculate
-            ).r()
+            ).r().hex().value()
         ).to(
             throwError(errorType: IncorrectHashLengthError.self),
             description: "Incorrect hash length must result in the IncorrectHashLengthError to be thrown"
@@ -34,36 +40,36 @@ final class SECP256k1SignatureTests: XCTestCase {
     func testEqualSignatures() {
         let firstSignature = SECP256k1Signature(
             privateKey: self.validPrivateKey,
-            message: Array("Hello world".utf8),
+            message: UTF8StringBytes(string: "Hello world"),
             hashFunction: SHA3(variant: .keccak256).calculate
         )
         let secondSignature = SECP256k1Signature(
             privateKey: self.validPrivateKey,
-            message: Array("Hello world".utf8),
+            message: UTF8StringBytes(string: "Hello world"),
             hashFunction: SHA3(variant: .keccak256).calculate
         )
         expect{
             expect(
-                try firstSignature.r()
+                try firstSignature.r().hex().value()
             ).to(
                 equal(
-                    try secondSignature.r()
+                    try secondSignature.r().hex().value()
                 ),
                 description: "Two signatures with equal messages must have equal r values"
             )
             expect(
-                try firstSignature.s()
+                try firstSignature.s().hex().value()
             ).to(
                 equal(
-                    try secondSignature.s()
+                    try secondSignature.s().hex().value()
                 ),
                 description: "Two signatures with equal messages must have equal s values"
             )
             expect(
-                try firstSignature.recoverID()
+                try firstSignature.recoverID().uint()
             ).to(
                 equal(
-                    try secondSignature.recoverID()
+                    try secondSignature.recoverID().uint()
                 ),
                 description: "Two signatures with equal messages must have equal recovery id values"
             )
@@ -77,18 +83,18 @@ final class SECP256k1SignatureTests: XCTestCase {
     func testDifferentMessages() {
         let firstSignature = SECP256k1Signature(
             privateKey: self.validPrivateKey,
-            message: Array("Hello world".utf8),
+            message: UTF8StringBytes(string: "Hello world"),
             hashFunction: SHA3(variant: .keccak256).calculate
         )
         let secondSignature = SECP256k1Signature(
             privateKey: self.validPrivateKey,
-            message: Array("Hello worlds".utf8),
+            message: UTF8StringBytes(string: "Hello worlds"),
             hashFunction: SHA3(variant: .keccak256).calculate
         )
         expect{
-            try firstSignature.r() == secondSignature.r()
-                && firstSignature.s() == secondSignature.s()
-                && firstSignature.recoverID() == secondSignature.recoverID()
+            try firstSignature.r().hex().value() == secondSignature.r().hex().value()
+                && firstSignature.s().hex().value() == secondSignature.s().hex().value()
+                && firstSignature.recoverID().uint() == secondSignature.recoverID().uint()
         }.to(
             equal(false),
             description: "Signatures with different messages must be different"
@@ -98,12 +104,16 @@ final class SECP256k1SignatureTests: XCTestCase {
     /// Assert example from EIP-155 matches SECP256k1Signature implementation
     func testOneRawMessage() {
         let signature = SECP256k1Signature(
-            privateKey: Array(hex: "0x4646464646464646464646464646464646464646464646464646464646464646"),
-            message: Array(hex: "0xec098504a817c800825208943535353535353535353535353535353535353535880de0b6b3a764000080018080"),
+            privateKey: EthPrivateKey(
+                bytes: BytesFromHexString(
+                    hex: "0x4646464646464646464646464646464646464646464646464646464646464646"
+                )
+            ),
+            message: BytesFromHexString(hex: "0xec098504a817c800825208943535353535353535353535353535353535353535880de0b6b3a764000080018080"),
             hashFunction: SHA3(variant: .keccak256).calculate
         )
         expect{
-            try signature.r()
+            try signature.r().hex().value()
         }.to(
             equal(
                 Data(hex: "0x28ef61340bd939bc2195fe537567866003e1a15d3c71ff63e1590620aa636276")
@@ -111,7 +121,7 @@ final class SECP256k1SignatureTests: XCTestCase {
             description: "Signature r is expected to match example r"
         )
         expect{
-            try signature.s()
+            try signature.s().hex().value()
         }.to(
             equal(
                 Data(hex: "0x67cbe9d8997f761aecb703304b3800ccf555c9f3dc64214b297fb1966a3b6d83")
@@ -122,68 +132,59 @@ final class SECP256k1SignatureTests: XCTestCase {
 
     /// Assert example from EIP-155 matches SECP256k1Signature implementation dependent upon SimpleRLP implementation
     func testOneRLP() {
-        let signature: SECP256k1Signature
-        do {
-            signature = SECP256k1Signature(
-                privateKey: Array(hex: "0x4646464646464646464646464646464646464646464646464646464646464646"),
-                message: Array(
-                    try SimpleRLP(
-                        rlps: [
-                            SimpleRLP(
-                                bytes: Data(
-                                    hex: "0x09" //nonce
-                                )
-                            ),
-                            SimpleRLP(
-                                bytes: Data(
-                                    hex: "0x04a817c800" //gas price
-                                )
-                            ),
-                            SimpleRLP(
-                                bytes: Data(
-                                    hex: "0x5208" //start gas
-                                )
-                            ),
-                            SimpleRLP(
-                                bytes: Data(
-                                    hex: "0x3535353535353535353535353535353535353535" //to
-                                )
-                            ),
-                            SimpleRLP(
-                                bytes: Data(
-                                    hex: "0x0de0b6b3a7640000" //value
-                                )
-                            ),
-                            SimpleRLP(
-                                bytes: Data() //data
-                            ),
-                            SimpleRLP(
-                                bytes: Data(
-                                    hex: "0x01" //chain id (mainnet in this case)
-                                )
-                            ),
-                            SimpleRLP(
-                                bytes: Data() //stubbed r according to EIP-155
-                            ),
-                            SimpleRLP(
-                                bytes: Data() //stubbed s according to EIP-155
-                            ),
-                        ]
-                    ).toData()
-                ),
-                hashFunction: SHA3(variant: .keccak256).calculate
-            )
-        } catch let err {
-            expect {
-                throw err
-            }.toNot(
-                throwError(),
-                description: "RLP construction is not expected to throw"
-            )
-            return
-        }
+        let signature = SECP256k1Signature(
+            privateKey: EthPrivateKey(
+                bytes: BytesFromHexString(
+                    hex: "0x4646464646464646464646464646464646464646464646464646464646464646"
+                )
+            ),
+            message: SimpleRLP(
+                rlps: [
+                    SimpleRLP(
+                        bytes: Data(
+                            hex: "0x09" //nonce
+                        )
+                    ),
+                    SimpleRLP(
+                        bytes: Data(
+                            hex: "0x04a817c800" //gas price
+                        )
+                    ),
+                    SimpleRLP(
+                        bytes: Data(
+                            hex: "0x5208" //start gas
+                        )
+                    ),
+                    SimpleRLP(
+                        bytes: Data(
+                            hex: "0x3535353535353535353535353535353535353535" //to
+                        )
+                    ),
+                    SimpleRLP(
+                        bytes: Data(
+                            hex: "0x0de0b6b3a7640000" //value
+                        )
+                    ),
+                    SimpleRLP(
+                        bytes: Data() //data
+                    ),
+                    SimpleRLP(
+                        bytes: Data(
+                            hex: "0x01" //chain id (mainnet in this case)
+                        )
+                    ),
+                    SimpleRLP(
+                        bytes: Data() //stubbed r according to EIP-155
+                    ),
+                    SimpleRLP(
+                        bytes: Data() //stubbed s according to EIP-155
+                    ),
+                ]
+            ),
+            hashFunction: SHA3(variant: .keccak256).calculate
+        )
         expect{
-            try signature.r()
+            try signature.r().hex().value()
         }.to(
             equal(
                 Data(hex: "0x28ef61340bd939bc2195fe537567866003e1a15d3c71ff63e1590620aa636276")
@@ -191,7 +192,7 @@ final class SECP256k1SignatureTests: XCTestCase {
             description: "Signature r is expected to match example r"
         )
         expect{
-            try signature.s()
+            try signature.s().hex().value()
         }.to(
             equal(
                 Data(hex: "0x67cbe9d8997f761aecb703304b3800ccf555c9f3dc64214b297fb1966a3b6d83")

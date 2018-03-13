@@ -14,18 +14,14 @@ import Foundation
 
 public final class Alice: Actor {
     
-    private let address: Address
-    
-    init() {
-        // swiftlint:disable:next force_try
-        let hex = try! SimpleHex(value: "0x0aD9Fb61a07BAC25625382B63693644497f1B204")
-        // swiftlint:disable:next force_try
-        address = try! SimpleAddress(hex: hex)
+    public func address() -> BytesScalar {
+        return EthAddress(
+            hex: self.rawAddress()
+        )
     }
-    
-    public func toAddress() -> Address
-    {
-        return address
+
+    func rawAddress() -> String {
+        return "0x0aD9Fb61a07BAC25625382B63693644497f1B204"
     }
-    
+
 }

@@ -16,10 +16,10 @@ final class EthTransactionsTests: XCTestCase {
             try EthTransactions(
                 transactionsCountProcedure: GetTransactionsCountProcedure(
                     network: FakeEthereumNetwork(),
-                    address: Alice().toAddress(),
+                    address: Alice().address(),
                     blockChainState: PendingBlockChainState()
                 )
-            ).count()
+            ).count().uint()
         }.to(
             beGreaterThanOrEqualTo(0),
             description: "Make sure positive number is returned"

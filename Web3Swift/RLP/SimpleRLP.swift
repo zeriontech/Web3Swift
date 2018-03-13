@@ -6,20 +6,46 @@ import Foundation
 
 public final class SimpleRLP: RLP {
 
-    private let lazyBytes: () throws -> (Data)
+    private let bytes: BytesScalar
     private let appendix: RLPAppendix
-    init(bytes: Data) {
-        self.lazyBytes = { bytes }
-        self.appendix = RLPBytesAppendix()
+
+    private init(bytes: BytesScalar, appendix: RLPAppendix) {
+        self.bytes = bytes
+        self.appendix = appendix
     }
 
-    init(rlps: [RLP]) throws {
-        self.lazyBytes = { try rlps.map{ try $0.toData() }.reduce(Data()) { $0 + $1 } }
-        self.appendix = RLPCollectionAppendix()
+    convenience init(bytes: BytesScalar) {
+        self.init(
+            bytes: bytes,
+            appendix: RLPBytesAppendix()
+        )
     }
 
-    public func toData() throws -> Data {
-        return try appendix.applying(to: lazyBytes())
+    convenience init(bytes: Data) {
+        self.init(
+            bytes: SimpleBytes(
+                bytes: bytes
+            )
+        )
+    }
+
+    convenience init(bytes: Array<UInt8>) {
+        self.init(
+            bytes: SimpleBytes(
+                bytes: bytes
+            )
+        )
+    }
+
+    convenience init(rlps: [RLP]) {
+        self.init(
+            bytes: ConcatenatedBytes(bytes: rlps),
+            appendix: RLPCollectionAppendix()
+        )
+    }
+
+    public func value() throws -> Data {
+        return try appendix.applying(to: bytes.value())
     }
 
 }

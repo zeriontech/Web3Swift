@@ -8,10 +8,10 @@ import SwiftyJSON
 public class GetTransactionsCountProcedure: RemoteProcedure {
 
     private var network: Network
-    private var address: Address
+    private var address: BytesScalar
     private var blockChainState: BlockChainState
 
-    init(network: Network, address: Address, blockChainState: BlockChainState) {
+    init(network: Network, address: BytesScalar, blockChainState: BlockChainState) {
         self.network = network
         self.address = address
         self.blockChainState = blockChainState
@@ -22,7 +22,9 @@ public class GetTransactionsCountProcedure: RemoteProcedure {
             data: network.call(
                 method: "eth_getTransactionCount",
                 params: [
-                    AddressParameter(address: address),
+                    BytesParameter(
+                        bytes: address
+                    ),
                     TagParameter(state: blockChainState)
                 ]
             )

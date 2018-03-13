@@ -13,12 +13,19 @@ PODS:
 DEPENDENCIES:
   - Nimble (~> 7.0)
   - Quick (~> 1.2)
-  - SwiftLint (~> 0.25)
+  - SwiftLint (from `https://github.com/driver733/SwiftLint.git`)
   - Web3Swift (from `../`)
 
 EXTERNAL SOURCES:
+  SwiftLint:
+    :git: https://github.com/driver733/SwiftLint.git
   Web3Swift:
     :path: ../
+
+CHECKOUT OPTIONS:
+  SwiftLint:
+    :commit: 4228486613b96d7c72bf7d4781fc8b35c6969f79
+    :git: https://github.com/driver733/SwiftLint.git
 
 SPEC CHECKSUMS:
   CryptoSwift: 4b07d5b508c1eb67bfa314a727b705f8048a85de
@@ -29,6 +36,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   Web3Swift: 07b8e79f086ea618e5f2be316e732966f43b47c8
 
-PODFILE CHECKSUM: fc12f0b6caa178d9e1383cd595bc13c144acbcc7
+PODFILE CHECKSUM: c6f0abaa8518064d71a7b40f34a58f5a54b7b963
 
 COCOAPODS: 1.4.0

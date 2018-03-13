@@ -1,6 +1,6 @@
 import Foundation
 
-public final class BooleanParameter: GethParameter {
+public final class BooleanParameter: EthParameter {
     
     private var param: Bool
     

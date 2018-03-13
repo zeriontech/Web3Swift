@@ -12,9 +12,12 @@ public final class EthTransactions: Transactions {
         self.transactionsCountProcedure = transactionsCountProcedure
     }
 
-    public func count() throws -> Int {
-        return try Int(
-            prefixedHexString: transactionsCountProcedure.call()["result"].string()
+    public func count() throws -> NumberScalar {
+        let transactionsCountProcedure = self.transactionsCountProcedure
+        return BigEndianCompactNumber(
+            hex: SimpleString{
+                try transactionsCountProcedure.call()["result"].string()
+            }
         )
     }
 

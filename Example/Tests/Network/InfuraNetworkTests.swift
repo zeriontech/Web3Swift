@@ -16,33 +16,41 @@ import XCTest
 class InfuraNetworkTests: XCTestCase {
     
     /// Assert network call does not throw an error on valid params
-    func testValidCall()
-    {
+    func testValidCall() {
         expect{
             try InfuraNetwork(chain: "mainnet", apiKey: "metamask").call(
                 method: "web3_sha3",
                 params: [
-                    StringParameter(value: "web3swift")
-                ])
+                    BytesParameter(
+                        bytes: UTF8StringBytes(
+                            string: "web3swift"
+                        )
+                    )
+                ]
+            )
         }.notTo(
-                throwError(),
-                description: "Make sure network call executed succesfully"
+            throwError(),
+            description: "Make sure network call executed succesfully"
         )
         
     }
     
     /// Assert network call throws an error on invalid method
-    func testInValidCall()
-    {
+    func testInValidCall() {
         expect{
             try InfuraNetwork(chain: "mainnet", apiKey: "metamask").call(
                 method: "web4_sha4",
                 params: [
-                    StringParameter(value: "web3swift")
-                ])
+                    BytesParameter(
+                        bytes: UTF8StringBytes(
+                            string: "web3swift"
+                        )
+                    )
+                ]
+            )
         }.to(
-                throwError(),
-                description: "Make sure network call execution fails"
+            throwError(),
+            description: "Make sure network call execution fails"
         )
     }
     

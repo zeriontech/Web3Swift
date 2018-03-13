@@ -6,6 +6,6 @@ import Foundation
 
 public protocol Transactions {
 
-    func count() throws -> Int
+    func count() throws -> NumberScalar
 
 }

@@ -1,11 +1,10 @@
 import Foundation
 import SwiftyJSON
 
-public final class ObjectParameter: GethParameter {
+public final class ObjectParameter: EthParameter {
 
-    private var dictionary: Dictionary<String, GethParameter>
-
-    init(dictionary: Dictionary<String, GethParameter>) throws {
+    private let dictionary: Dictionary<String, EthParameter>
+    init(dictionary: Dictionary<String, EthParameter>) {
         self.dictionary = dictionary
     }
 
@@ -14,4 +13,5 @@ public final class ObjectParameter: GethParameter {
             try $0.value()
         }
     }
+
 }

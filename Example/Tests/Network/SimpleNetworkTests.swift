@@ -16,54 +16,51 @@ import XCTest
 class SimpleNetworkTests: XCTestCase {
     
     /// Assert network call does not throw an error on valid params
-    func testValidCall()
-    {
+    func testValidCall() {
         expect{
-            // swiftlint:disable:next force_unwrapping
-            let url = URL(string: "https://mainnet.infura.io/metamask")!
-            
-            let session = URLSession(configuration: URLSessionConfiguration.default)
-            
-            let gethHeaders = [
-                "Accept": "application/json",
-                "Content-Type": "application/json"
-            ]
-            
-            let network = SimpleNetwork(session: session, url: url, headers: gethHeaders)
-            
-            return try network.call(
+            try SimpleNetwork(
+                session: URLSession(configuration: URLSessionConfiguration.default),
+                url: URL(string: "https://mainnet.infura.io/metamask")!, // swiftlint:disable:this force_unwrapping
+                headers: [
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                ]
+            ).call(
                 method: "web3_sha3",
                 params: [
-                    StringParameter(value: "web3swift")
-                ])
+                    BytesParameter(
+                        bytes: UTF8StringBytes(
+                            string: "web3swift"
+                        )
+                    )
+                ]
+            )
         }.notTo(
             throwError(),
             description: "Make sure network call executed succesfully"
         )
-       
     }
     
     /// Assert network call throws an error on invalid method
-    func testInValidCall()
-    {
+    func testInValidCall() {
         expect{
-            // swiftlint:disable:next force_unwrapping
-            let url = URL(string: "https://mainnet.infura.io/metamask")!
-            
-            let session = URLSession(configuration: URLSessionConfiguration.default)
-            
-            let gethHeaders = [
-                "Accept": "application/json",
-                "Content-Type": "application/json"
-            ]
-            
-            let network = SimpleNetwork(session: session, url: url, headers: gethHeaders)
-            
-            return try network.call(
+            return try SimpleNetwork(
+                session: URLSession(configuration: URLSessionConfiguration.default),
+                url: URL(string: "https://mainnet.infura.io/metamask")!, // swiftlint:disable:this force_unwrapping
+                headers: [
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                ]
+            ).call(
                 method: "web4_sha4",
                 params: [
-                    StringParameter(value: "web3swift")
-                ])
+                    BytesParameter(
+                        bytes: UTF8StringBytes(
+                            string: "web3swift"
+                        )
+                    )
+                ]
+            )
         }.to(
             throwError(),
             description: "Make sure network call execution fails"
@@ -71,26 +68,25 @@ class SimpleNetworkTests: XCTestCase {
     }
     
     /// Assert network call throws an error on invalid url
-    func testInValidUrlCall()
-    {
+    func testInValidUrlCall() {
         expect{
-            // swiftlint:disable:next force_unwrapping
-            let url = URL(string: "https://mainnet-web3swift.infura.io/metamask")!
-            
-            let session = URLSession(configuration: URLSessionConfiguration.default)
-            
-            let gethHeaders = [
-                "Accept": "application/json",
-                "Content-Type": "application/json"
-            ]
-            
-            let network = SimpleNetwork(session: session, url: url, headers: gethHeaders)
-            
-            return try network.call(
-                method: "web3_sha3",
+            try SimpleNetwork(
+                session: URLSession(configuration: URLSessionConfiguration.default),
+                url: URL(string: "https://mainnet-web3swift.infura.io/metamask")!, // swiftlint:disable:this force_unwrapping
+                headers: [
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                ]
+            ).call(
+                method: "web4_sha4",
                 params: [
-                    StringParameter(value: "web3swift")
-                ])
+                    BytesParameter(
+                        bytes: UTF8StringBytes(
+                            string: "web3swift"
+                        )
+                    )
+                ]
+            )
         }.to(
             throwError(),
             description: "Make sure network call execution fails"

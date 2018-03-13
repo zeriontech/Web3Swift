@@ -13,6 +13,8 @@ import Foundation
 
 protocol Actor {
     
-    func toAddress() -> Address
+    func address() -> BytesScalar
+
+    func rawAddress() -> String
     
 }

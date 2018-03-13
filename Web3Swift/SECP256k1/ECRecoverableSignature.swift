@@ -4,12 +4,40 @@
 
 import Foundation
 
+//Elliptic curve recoverable signature
 public protocol ECRecoverableSignature {
 
-    func r() throws -> Data
+    /**
+        R value as defined in ecdsa
 
-    func s() throws -> Data
+        - returns:
+        bytes representation
 
-    func recoverID() throws -> UInt8
+        - throws:
+        `DescribedError` if something went wrong
+    */
+    func r() throws -> NumberScalar
+
+    /**
+        S value as defined in ecdsa
+
+        - returns:
+        bytes representation
+
+        - throws:
+        `DescribedError` if something went wrong
+    */
+    func s() throws -> NumberScalar
+
+    /**
+        Recovery id as defined in ecdsa
+
+        - returns:
+        a number
+
+        - throws:
+        `DescribedError` if something went wrong
+    */
+    func recoverID() throws -> NumberScalar
 
 }

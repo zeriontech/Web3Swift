@@ -19,12 +19,11 @@ final class GetGasPriceProcedureTests: XCTestCase {
     /// Assert gas price should be number (in hex format) that is greater than 0
     func testValueGreaterThanZero() {
         expect{
-            try UInt64(
-                GetGasPriceProcedure(
+            try BigEndianCompactNumber(
+                hex: GetGasPriceProcedure(
                     network: InfuraNetwork(chain: "mainnet", apiKey: "metamask")
-                ).call()["result"].string().removingHexPrefix(),
-                radix: 16
-            )
+                ).call()["result"].string()
+            ).uint()
         }.to(
             beGreaterThan(0),
             description: "Make sure positive gas price is returned"

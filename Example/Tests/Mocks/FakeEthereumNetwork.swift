@@ -19,7 +19,7 @@ public final class FakeEthereumNetwork: Network {
         infura = try InfuraNetwork(chain: "mainnet", apiKey: "metamask")
     }
     
-    public func call(method: String, params: Array<GethParameter>) throws -> Data {
+    public func call(method: String, params: Array<EthParameter>) throws -> Data {
         return try infura.call(method: method, params: params)
     }
     
