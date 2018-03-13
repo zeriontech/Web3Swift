@@ -55,12 +55,9 @@ public final class EthPrivateKey: PrivateKey {
     TODO: This method should be decomposed into multiple instances to make computations such as dropping header byte more declarative.
 
     - returns:
-    20 bytes address computed from the private key as specified by the ethereum
-
-    - throws:
-    `DescribedError` if something went wrong
+    64 bytes public key computed from the private key
     */
-    public func address() throws -> BytesScalar {
+    private func publicKey() -> BytesScalar {
         let bytes = self.bytes
         return SimpleBytes{
             var publicKeyStructure = secp256k1_pubkey()
@@ -84,10 +81,30 @@ public final class EthPrivateKey: PrivateKey {
                 throw UnableToSerializePublicKeyError()
             }
             return Data(
+                bytes: publicKey.dropFirst()
+            )
+        }
+    }
+
+    /**
+    TODO: This method should be decomposed into an Address object
+
+    - returns:
+    20 bytes address computed from the private key as specified by the ethereum
+
+    - throws:
+    doesn't throw
+    */
+    public func address() throws -> BytesScalar {
+        let publicKey = self.publicKey()
+        return SimpleBytes{
+            return try Data(
                 bytes: SHA3(
                     variant: .keccak256
                 ).calculate(
-                    for: Array(publicKey.dropFirst())
+                    for: Array(
+                        publicKey.value()
+                    )
                 ).suffix(20)
             )
         }
