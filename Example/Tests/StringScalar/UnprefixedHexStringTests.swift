@@ -57,4 +57,31 @@ final class UnprefixedHexStringTests: XCTestCase {
         }
     }
 
+    func testCorrectlyUnprefixedValueFromBytes() {
+        Array<
+        (
+            Array<UInt8>,
+            String
+        )
+        >(
+            [
+                ([0x00], "00"),
+                ([0x00, 0x01], "0001"),
+                ([0xff, 0xff, 0x00, 0xff, 0x00], "ffff00ff00"),
+                ([0x01, 0x00, 0x00, 0x00, 0x00, 0x00], "010000000000")
+            ]
+        ).forEach{ bytes, hex in
+            expect{
+                try UnprefixedHexString(
+                    bytes: SimpleBytes(
+                        bytes: bytes
+                    )
+                ).value()
+            }.to(
+                equal(hex),
+                description: "Bytes \(bytes) are expected to match prefixed hex \(hex)"
+            )
+        }
+    }
+
 }

@@ -53,4 +53,31 @@ final class PrefixedHexStringTests: XCTestCase {
         }
     }
 
+    func testCorrectlyPrefixedValueFromBytes() {
+        Array<
+            (
+                Array<UInt8>,
+                String
+            )
+        >(
+            [
+                ([0x00], "0x00"),
+                ([0x00, 0x01], "0x0001"),
+                ([0xff, 0xff, 0x00, 0xff, 0x00], "0xffff00ff00"),
+                ([0x01, 0x00, 0x00, 0x00, 0x00, 0x00], "0x010000000000")
+            ]
+        ).forEach{ bytes, hex in
+            expect{
+                try PrefixedHexString(
+                    bytes: SimpleBytes(
+                        bytes: bytes
+                    )
+                ).value()
+            }.to(
+                equal(hex),
+                description: "Bytes \(bytes) are expected to match prefixed hex \(hex)"
+            )
+        }
+    }
+
 }
