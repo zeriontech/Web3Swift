@@ -11,10 +11,12 @@
 		584FA007F1C9FE25106C2335 /* BigEndianNumberUIntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAF575C27A0C5582EE1F6 /* BigEndianNumberUIntTests.swift */; };
 		584FA0A1656975E37C890523 /* LeadingCompactBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA05EFE4DB2A85EFA494B /* LeadingCompactBytesTests.swift */; };
 		584FA0A7CF0EBB0B9AAD344A /* HexPrefixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA3ACF247722B05D563C4 /* HexPrefixTests.swift */; };
+		584FA166D13C708CA59C1D40 /* EthGasPriceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA38F8C473B2FD090FFCA /* EthGasPriceTests.swift */; };
 		584FA1A012191D2A54C91613 /* BytesFromCompactHexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAAEB7FCC55D0DED15A42 /* BytesFromCompactHexStringTests.swift */; };
 		584FA1AA2BED7032494BFE8F /* IntegerBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAE4F0D7A5BD3C3484ACC /* IntegerBytesTests.swift */; };
 		584FA1D30FE97BD70FAD9117 /* GetTransactionsCountProcedureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAFC4DFD37E513B7E286C /* GetTransactionsCountProcedureTests.swift */; };
 		584FA1F986D1B7764655DC75 /* HexPrefixedStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAE5CF87E621257F15405 /* HexPrefixedStringTests.swift */; };
+		584FA245CD1B6BA97CF19D3E /* EstimateGasProcedureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA4CA2C3E830CA0CAF980 /* EstimateGasProcedureTests.swift */; };
 		584FA27299B5C54E558E6355 /* ByteWidthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA6C98ECA780456027E15 /* ByteWidthTests.swift */; };
 		584FA29BFE13850E334AEE11 /* FixedLengthBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAECE55D11B16B13F39A0 /* FixedLengthBytesTests.swift */; };
 		584FA3967DDC46A750CA7847 /* BigEndianNumberHexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA5CA61C28B8797336539 /* BigEndianNumberHexTests.swift */; };
@@ -33,6 +35,7 @@
 		584FAAD68EA651E9A9AC005A /* CollectionSingleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA0226149AA277B0AE608 /* CollectionSingleTests.swift */; };
 		584FAC63F128D0FD1C832A17 /* EthPrivateKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAFABC7894A1043564BE3 /* EthPrivateKeyTests.swift */; };
 		584FAC87B490AD9C55DBB3AA /* EthRLPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAAFBCBF4F2230595455E /* EthRLPTests.swift */; };
+		584FACA026F2BF079EB9CB13 /* EthGasEstimateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAC3714986BAFD48E092D /* EthGasEstimateTests.swift */; };
 		584FACDDE9E98EDA9C414EF6 /* RandomNonceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAB47440D3CE3C6ED0684 /* RandomNonceTests.swift */; };
 		584FACEC7F5AD9060590ED93 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA82731B90F65C00992E6 /* URL.swift */; };
 		584FAD3793AFB655815DBBA6 /* ChainIDProcedureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA8BDDA8B4B1DF68FA7AA /* ChainIDProcedureTests.swift */; };
@@ -77,7 +80,9 @@
 		584FA05EFE4DB2A85EFA494B /* LeadingCompactBytesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeadingCompactBytesTests.swift; sourceTree = "<group>"; };
 		584FA1322EE0360321406074 /* PrefixedStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefixedStringTests.swift; sourceTree = "<group>"; };
 		584FA147B4074725F6630283 /* SECP256k1SignatureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECP256k1SignatureTests.swift; sourceTree = "<group>"; };
+		584FA38F8C473B2FD090FFCA /* EthGasPriceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthGasPriceTests.swift; sourceTree = "<group>"; };
 		584FA3ACF247722B05D563C4 /* HexPrefixTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexPrefixTests.swift; sourceTree = "<group>"; };
+		584FA4CA2C3E830CA0CAF980 /* EstimateGasProcedureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstimateGasProcedureTests.swift; sourceTree = "<group>"; };
 		584FA5CA61C28B8797336539 /* BigEndianNumberHexTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigEndianNumberHexTests.swift; sourceTree = "<group>"; };
 		584FA6C98ECA780456027E15 /* ByteWidthTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ByteWidthTests.swift; sourceTree = "<group>"; };
 		584FA82731B90F65C00992E6 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
@@ -89,6 +94,7 @@
 		584FAAEB7FCC55D0DED15A42 /* BytesFromCompactHexStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BytesFromCompactHexStringTests.swift; sourceTree = "<group>"; };
 		584FAAFBCBF4F2230595455E /* EthRLPTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthRLPTests.swift; sourceTree = "<group>"; };
 		584FAB47440D3CE3C6ED0684 /* RandomNonceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomNonceTests.swift; sourceTree = "<group>"; };
+		584FAC3714986BAFD48E092D /* EthGasEstimateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthGasEstimateTests.swift; sourceTree = "<group>"; };
 		584FAC6B00D3D216834AA0F9 /* UnprefixedHexStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnprefixedHexStringTests.swift; sourceTree = "<group>"; };
 		584FACC5A38F59EE5FCD2BC7 /* RLPTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLPTests.swift; sourceTree = "<group>"; };
 		584FACF870DFF799329F558F /* GetGasPriceProcedureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetGasPriceProcedureTests.swift; sourceTree = "<group>"; };
@@ -180,6 +186,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		584FA47F02767864535279C3 /* GasPrice */ = {
+			isa = PBXGroup;
+			children = (
+				584FA38F8C473B2FD090FFCA /* EthGasPriceTests.swift */,
+			);
+			path = GasPrice;
+			sourceTree = "<group>";
+		};
 		584FA570513D0B01E7E12749 /* Transactions */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +216,7 @@
 				584FAFC4DFD37E513B7E286C /* GetTransactionsCountProcedureTests.swift */,
 				584FA8BDDA8B4B1DF68FA7AA /* ChainIDProcedureTests.swift */,
 				584FACF870DFF799329F558F /* GetGasPriceProcedureTests.swift */,
+				584FA4CA2C3E830CA0CAF980 /* EstimateGasProcedureTests.swift */,
 			);
 			path = Procedures;
 			sourceTree = "<group>";
@@ -228,6 +243,14 @@
 				584FA6C98ECA780456027E15 /* ByteWidthTests.swift */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		584FA80309A0661BF7BCE0BA /* GasEstimate */ = {
+			isa = PBXGroup;
+			children = (
+				584FAC3714986BAFD48E092D /* EthGasEstimateTests.swift */,
+			);
+			path = GasEstimate;
 			sourceTree = "<group>";
 		};
 		584FA85052E815BD96E46069 /* StringScalar */ = {
@@ -372,6 +395,8 @@
 				584FA87EA28B234165C1C136 /* BytesScalar */,
 				584FA1CF848A0F456637AA1A /* Collection */,
 				584FA85052E815BD96E46069 /* StringScalar */,
+				584FA47F02767864535279C3 /* GasPrice */,
+				584FA80309A0661BF7BCE0BA /* GasEstimate */,
 				584FAB8A4A2E83022FEA8491 /* JSON */,
 			);
 			path = Tests;
@@ -741,6 +766,9 @@
 				584FA0A7CF0EBB0B9AAD344A /* HexPrefixTests.swift in Sources */,
 				584FA1F986D1B7764655DC75 /* HexPrefixedStringTests.swift in Sources */,
 				584FAA8181A6C461F4592D3A /* PrefixedStringTests.swift in Sources */,
+				584FA166D13C708CA59C1D40 /* EthGasPriceTests.swift in Sources */,
+				584FA245CD1B6BA97CF19D3E /* EstimateGasProcedureTests.swift in Sources */,
+				584FACA026F2BF079EB9CB13 /* EthGasEstimateTests.swift in Sources */,
 				584FAA7C2DB291CE1E05EB63 /* JSONTypeErrorTests.swift in Sources */,
 				584FAC87B490AD9C55DBB3AA /* EthRLPTests.swift in Sources */,
 			);
