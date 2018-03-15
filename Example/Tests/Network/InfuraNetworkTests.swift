@@ -53,5 +53,29 @@ class InfuraNetworkTests: XCTestCase {
             description: "Make sure network call execution fails"
         )
     }
+
+    func testValidID() {
+        Array<
+            (
+                String,
+                UInt
+            )
+        >(
+            [
+                ("mainnet", 1),
+                ("kovan", 42)
+            ]
+        ).forEach{ chain, id in
+            expect{
+                try InfuraNetwork(
+                    chain: chain,
+                    apiKey: "metamask"
+                ).id().uint()
+            }.to(
+                equal(id),
+                description: "Network \(chain) is expected to have id \(id)"
+            )
+        }
+    }
     
 }

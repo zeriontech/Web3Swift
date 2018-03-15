@@ -13,14 +13,18 @@ import Foundation
 
 public final class FakeEthereumNetwork: Network {
     
-    private var infura: InfuraNetwork
+    private var origin: InfuraNetwork
     
     init() {
-        infura = try! InfuraNetwork(chain: "mainnet", apiKey: "metamask") //swiftlint:disable:this force_try
+        origin = InfuraNetwork(chain: "mainnet", apiKey: "metamask")
     }
-    
+
+    public func id() throws -> NumberScalar {
+        return try origin.id()
+    }
+
     public func call(method: String, params: Array<EthParameter>) throws -> Data {
-        return try infura.call(method: method, params: params)
+        return try origin.call(method: method, params: params)
     }
     
 }

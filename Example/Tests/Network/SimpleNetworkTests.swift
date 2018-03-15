@@ -20,7 +20,7 @@ class SimpleNetworkTests: XCTestCase {
         expect{
             try SimpleNetwork(
                 session: URLSession(configuration: URLSessionConfiguration.default),
-                url: URL(string: "https://mainnet.infura.io/metamask")!, // swiftlint:disable:this force_unwrapping
+                url: "https://mainnet.infura.io/metamask",
                 headers: [
                     "Accept": "application/json",
                     "Content-Type": "application/json"
@@ -46,7 +46,7 @@ class SimpleNetworkTests: XCTestCase {
         expect{
             return try SimpleNetwork(
                 session: URLSession(configuration: URLSessionConfiguration.default),
-                url: URL(string: "https://mainnet.infura.io/metamask")!, // swiftlint:disable:this force_unwrapping
+                url: "https://mainnet.infura.io/metamask",
                 headers: [
                     "Accept": "application/json",
                     "Content-Type": "application/json"
@@ -72,7 +72,7 @@ class SimpleNetworkTests: XCTestCase {
         expect{
             try SimpleNetwork(
                 session: URLSession(configuration: URLSessionConfiguration.default),
-                url: URL(string: "https://mainnet-web3swift.infura.io/metamask")!, // swiftlint:disable:this force_unwrapping
+                url: "https://mainnet-web3swift.infura.io/metamask",
                 headers: [
                     "Accept": "application/json",
                     "Content-Type": "application/json"
