@@ -22,6 +22,7 @@
 		584FA3967DDC46A750CA7847 /* BigEndianNumberHexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA5CA61C28B8797336539 /* BigEndianNumberHexTests.swift */; };
 		584FA474A83B20483AA3865A /* PrefixedHexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAD359591DA1D23533A0D /* PrefixedHexStringTests.swift */; };
 		584FA538B1B4B38D0AD9D0C9 /* SECP256k1SignatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA147B4074725F6630283 /* SECP256k1SignatureTests.swift */; };
+		584FA665B514D92127A9EE7E /* CachedNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA6A977436ED13112AD8C /* CachedNumberTests.swift */; };
 		584FA7EFE57C0E816D2A22FE /* BytesFromHexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA82FCF5FAF36C735DEA7 /* BytesFromHexStringTests.swift */; };
 		584FA80F75A83DCF7A6C971B /* UnprefixedHexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAC6B00D3D216834AA0F9 /* UnprefixedHexStringTests.swift */; };
 		584FA848F23C434B6D50B7C3 /* RLPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FACC5A38F59EE5FCD2BC7 /* RLPTests.swift */; };
@@ -33,6 +34,7 @@
 		584FAA7C2DB291CE1E05EB63 /* JSONTypeErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA9049076A62873C3412B /* JSONTypeErrorTests.swift */; };
 		584FAA8181A6C461F4592D3A /* PrefixedStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA1322EE0360321406074 /* PrefixedStringTests.swift */; };
 		584FAAD68EA651E9A9AC005A /* CollectionSingleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA0226149AA277B0AE608 /* CollectionSingleTests.swift */; };
+		584FAADDF5CB1FD4572644E1 /* CachedBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAC17EC066058E7D20BE2 /* CachedBytesTests.swift */; };
 		584FAC63F128D0FD1C832A17 /* EthPrivateKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAFABC7894A1043564BE3 /* EthPrivateKeyTests.swift */; };
 		584FAC87B490AD9C55DBB3AA /* EthRLPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAAFBCBF4F2230595455E /* EthRLPTests.swift */; };
 		584FACA026F2BF079EB9CB13 /* EthGasEstimateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAC3714986BAFD48E092D /* EthGasEstimateTests.swift */; };
@@ -84,6 +86,7 @@
 		584FA3ACF247722B05D563C4 /* HexPrefixTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexPrefixTests.swift; sourceTree = "<group>"; };
 		584FA4CA2C3E830CA0CAF980 /* EstimateGasProcedureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstimateGasProcedureTests.swift; sourceTree = "<group>"; };
 		584FA5CA61C28B8797336539 /* BigEndianNumberHexTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigEndianNumberHexTests.swift; sourceTree = "<group>"; };
+		584FA6A977436ED13112AD8C /* CachedNumberTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachedNumberTests.swift; sourceTree = "<group>"; };
 		584FA6C98ECA780456027E15 /* ByteWidthTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ByteWidthTests.swift; sourceTree = "<group>"; };
 		584FA82731B90F65C00992E6 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		584FA82FCF5FAF36C735DEA7 /* BytesFromHexStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BytesFromHexStringTests.swift; sourceTree = "<group>"; };
@@ -94,6 +97,7 @@
 		584FAAEB7FCC55D0DED15A42 /* BytesFromCompactHexStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BytesFromCompactHexStringTests.swift; sourceTree = "<group>"; };
 		584FAAFBCBF4F2230595455E /* EthRLPTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthRLPTests.swift; sourceTree = "<group>"; };
 		584FAB47440D3CE3C6ED0684 /* RandomNonceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomNonceTests.swift; sourceTree = "<group>"; };
+		584FAC17EC066058E7D20BE2 /* CachedBytesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachedBytesTests.swift; sourceTree = "<group>"; };
 		584FAC3714986BAFD48E092D /* EthGasEstimateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthGasEstimateTests.swift; sourceTree = "<group>"; };
 		584FAC6B00D3D216834AA0F9 /* UnprefixedHexStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnprefixedHexStringTests.swift; sourceTree = "<group>"; };
 		584FACC5A38F59EE5FCD2BC7 /* RLPTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLPTests.swift; sourceTree = "<group>"; };
@@ -285,6 +289,7 @@
 				584FAE4F0D7A5BD3C3484ACC /* IntegerBytesTests.swift */,
 				584FA05EFE4DB2A85EFA494B /* LeadingCompactBytesTests.swift */,
 				584FAABDE4B44E4D79747126 /* UTF8StringBytesTests.swift */,
+				584FAC17EC066058E7D20BE2 /* CachedBytesTests.swift */,
 			);
 			path = BytesScalar;
 			sourceTree = "<group>";
@@ -328,6 +333,7 @@
 			children = (
 				584FA958B15E7FA47561405D /* BigEndianNumber */,
 				584FA63C1CDF4870C34BF6B8 /* BigEndianCompactNumber */,
+				584FA6A977436ED13112AD8C /* CachedNumberTests.swift */,
 			);
 			path = NumberScalar;
 			sourceTree = "<group>";
@@ -771,6 +777,8 @@
 				584FACA026F2BF079EB9CB13 /* EthGasEstimateTests.swift in Sources */,
 				584FAA7C2DB291CE1E05EB63 /* JSONTypeErrorTests.swift in Sources */,
 				584FAC87B490AD9C55DBB3AA /* EthRLPTests.swift in Sources */,
+				584FAADDF5CB1FD4572644E1 /* CachedBytesTests.swift in Sources */,
+				584FA665B514D92127A9EE7E /* CachedNumberTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
