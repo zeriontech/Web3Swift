@@ -4,7 +4,12 @@
 
 import Foundation
 
-//An encoding specific to ethereum quantities
+/**
+An encoding specific to ethereum quantities
+
+Ethereum imposes a specific requirement on RLP encoding for quantities:
+https://ethereum.stackexchange.com/questions/30518/does-rlp-specify-integer-encoding
+*/
 public final class EthRLP: RLP {
 
     private let number: NumberScalar
