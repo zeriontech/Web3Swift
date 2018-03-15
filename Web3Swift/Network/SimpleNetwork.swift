@@ -28,7 +28,6 @@ internal final class InvalidIDResponseError: DescribedError {
 
 }
 
-
 public class SimpleNetwork: Network {
     
     private let session: URLSession
