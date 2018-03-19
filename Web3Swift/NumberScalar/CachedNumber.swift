@@ -33,7 +33,7 @@ public final class CachedNumber: NumberScalar {
     `DescribedError` if something went wrong
     */
     public func hex() throws -> BytesScalar {
-        return try stickyHex
+        return stickyHex
     }
 
     /**

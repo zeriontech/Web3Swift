@@ -20,7 +20,7 @@ final class GetTransactionsCountProcedureTests: XCTestCase {
     func testNotEmptyData() {
         expect{
             try GetTransactionsCountProcedure(
-                network: FakeEthereumNetwork(),
+                network: GanacheLocalNetwork(),
                 address: Alice().address(),
                 blockChainState: LatestBlockChainState()
             ).call()
@@ -35,7 +35,7 @@ final class GetTransactionsCountProcedureTests: XCTestCase {
         expect{
             try BigEndianCompactNumber(
                 hex: GetTransactionsCountProcedure(
-                    network: FakeEthereumNetwork(),
+                    network: GanacheLocalNetwork(),
                     address: Alice().address(),
                     blockChainState: LatestBlockChainState()
                 ).call()["result"].string()

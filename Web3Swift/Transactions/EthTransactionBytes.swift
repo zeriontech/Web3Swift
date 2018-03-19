@@ -72,19 +72,23 @@ public final class EthTransactionBytes: BytesScalar {
             )
         )
         self.init(
-            networkID: BigEndianNumber(
-                bytes: SimpleBytes{
-                    try network.id().hex().value()
-                }
+            networkID: CachedNumber(
+                origin: BigEndianNumber(
+                    bytes: SimpleBytes{
+                        try network.id().hex().value()
+                    }
+                )
             ),
-            transactionsCount: BigEndianNumber(
-                bytes: SimpleBytes{
-                    try EthTransactions(
-                        network: network,
-                        address: senderAddress,
-                        blockChainState: PendingBlockChainState()
-                    ).count().hex().value()
-                }
+            transactionsCount: CachedNumber(
+                origin: BigEndianNumber(
+                    bytes: SimpleBytes{
+                        try EthTransactions(
+                            network: network,
+                            address: senderAddress,
+                            blockChainState: PendingBlockChainState()
+                        ).count().hex().value()
+                    }
+                )
             ),
             gasPrice: gasPrice,
             gasEstimate: CachedNumber(

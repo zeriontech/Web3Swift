@@ -11,7 +11,7 @@ import SwiftyJSON
 final class EthGasEstimateTests: XCTestCase {
 
     func testGasEstimateIsNonNegative() {
-        let network = FakeEthereumNetwork()
+        let network = GanacheLocalNetwork()
         expect{
             try EthGasEstimate(
                 network: network,

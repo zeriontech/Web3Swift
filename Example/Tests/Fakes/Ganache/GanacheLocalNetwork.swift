@@ -11,18 +11,36 @@
 import Foundation
 @testable import Web3Swift
 
-public final class FakeEthereumNetwork: Network {
+//Local test net
+public final class GanacheLocalNetwork: Network {
     
-    private var origin: InfuraNetwork
-    
+    private let origin: Network
+
+    /**
+    Ctor
+    */
     init() {
-        origin = InfuraNetwork(chain: "mainnet", apiKey: "metamask")
+        origin = GethNetwork(url: "http://127.0.0.1:8545")
     }
 
+    /**
+    - returns:
+    Id of a ganache network
+
+    - throws:
+    `DescribedError` if something went wrong
+    */
     public func id() throws -> NumberScalar {
         return try origin.id()
     }
 
+    /**
+    - returns:
+    `Data` from the testnet
+
+    - throws:
+    `DescribedError` if something went wrong
+    */
     public func call(method: String, params: Array<EthParameter>) throws -> Data {
         return try origin.call(method: method, params: params)
     }

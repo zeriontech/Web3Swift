@@ -10,7 +10,7 @@ import Quick
 
 final class EthTransactionBytesTests: XCTestCase {
 
-    func testSignsCorrectly() {
+    func testStaticParametersAreSignedCorrectly() {
         expect{
             return try EthTransactionBytes(
                 networkID: BigEndianCompactNumber(
@@ -52,7 +52,5 @@ final class EthTransactionBytesTests: XCTestCase {
             description: "The above transaction is expected to be correctly signed"
         )
     }
-
-
 
 }

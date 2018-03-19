@@ -12,7 +12,7 @@ final class EthGasPriceTests: XCTestCase {
     func testNonNegativeGasPrice() {
         expect{
             try EthGasPrice(
-                network: FakeEthereumNetwork()
+                network: GanacheLocalNetwork()
             ).uint()
         }.to(
             beGreaterThanOrEqualTo(0),

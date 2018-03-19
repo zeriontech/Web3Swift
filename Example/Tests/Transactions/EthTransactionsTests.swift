@@ -14,7 +14,7 @@ final class EthTransactionsTests: XCTestCase {
     func testTransactionsCount() {
         expect{
             try EthTransactions(
-                network: FakeEthereumNetwork(),
+                network: GanacheLocalNetwork(),
                 address: Alice().address(),
                 blockChainState: PendingBlockChainState()
             ).count().uint()
