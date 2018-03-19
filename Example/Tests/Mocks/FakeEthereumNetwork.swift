@@ -15,8 +15,8 @@ public final class FakeEthereumNetwork: Network {
     
     private var infura: InfuraNetwork
     
-    init() throws {
-        infura = try InfuraNetwork(chain: "mainnet", apiKey: "metamask")
+    init() {
+        infura = try! InfuraNetwork(chain: "mainnet", apiKey: "metamask") //swiftlint:disable:this force_try
     }
     
     public func call(method: String, params: Array<EthParameter>) throws -> Data {
