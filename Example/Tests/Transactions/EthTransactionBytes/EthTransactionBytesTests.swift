@@ -23,9 +23,9 @@ final class EthTransactionBytesTests: XCTestCase {
                         uint: 0
                     )
                 ),
-                gasPrice: BigEndianCompactNumber(
-                    origin: BigEndianNumber(
-                        uint: 30_000_000_000
+                gasPrice: BigEndianNumber(
+                    hex: SimpleString(
+                        string: "0x06FC23AC00"
                     )
                 ),
                 gasEstimate: BigEndianCompactNumber(
@@ -41,9 +41,9 @@ final class EthTransactionBytesTests: XCTestCase {
                 recipientAddress: BytesFromHexString(
                     hex: "0xcD8aC90d9cc7e4c03430d58d2f3e87Dae70b807e"
                 ),
-                weiAmount: BigEndianCompactNumber(
-                    origin: BigEndianNumber(
-                        uint: 1_000_000_000_000
+                weiAmount: BigEndianNumber(
+                    hex: SimpleString(
+                        string: "0xE8D4A51000"
                     )
                 )
             ).value().toHexString()
