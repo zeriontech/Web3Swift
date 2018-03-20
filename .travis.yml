@@ -19,7 +19,7 @@ before_install:
 - pod install --project-directory=Example
 - brew install yarn
 - yarn install
-- yarn run ganache-cli --account="0x1636e10756e62baabddd4364010444205f1216bdb1644ff8f776f6e2982aa9f5,1" --gasPrice="20000000000" --gasLimit="21000" --networkId="1" &
+- yarn run ganache-cli --account="0x1636e10756e62baabddd4364010444205f1216bdb1644ff8f776f6e2982aa9f5,1000000000000000000" --gasPrice="20000000000" --gasLimit="21000" --networkId="1" &
 script:
 - pod lib lint --allow-warnings
 - set -o pipefail && xcodebuild clean test -enableCodeCoverage YES -workspace Example/Web3Swift.xcworkspace -scheme All-Tests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.2' ONLY_ACTIVE_ARCH=NO | xcpretty
