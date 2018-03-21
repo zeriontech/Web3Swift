@@ -13,7 +13,7 @@ final class TransactionReceiptProcedureTests: XCTestCase {
     func testNotEmptyReceipt() {
         expect{
             try TransactionReceiptProcedure(
-                network: InfuraNetwork(chain: "mainnet", apiKey: "metamask"),
+                network: MainnetInfuraMetamaskNetwork(),
                 transactionHash: BytesFromHexString(
                     hex: "0xd84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"
                 )

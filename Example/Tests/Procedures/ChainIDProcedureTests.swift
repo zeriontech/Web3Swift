@@ -19,7 +19,7 @@ final class ChainIDProcedureTests: XCTestCase {
     func testNoThrow() {
         expect(
             try ChainIDProcedure(
-                network: InfuraNetwork(chain: "mainnet", apiKey: "metamask")
+                network: MainnetInfuraMetamaskNetwork()
             ).call()
         ).toNot(
             throwError(),
@@ -31,7 +31,7 @@ final class ChainIDProcedureTests: XCTestCase {
     func testMainNetID() {
         expect{
             try ChainIDProcedure(
-                network: InfuraNetwork(chain: "mainnet", apiKey: "metamask")
+                network: MainnetInfuraMetamaskNetwork()
             ).call()["result"].string()
         }.to(
             equal(

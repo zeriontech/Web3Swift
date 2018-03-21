@@ -9,7 +9,7 @@ final class GetGasPriceProcedureTests: XCTestCase {
     func testNotEmptyData() {
         expect{
             try GetGasPriceProcedure(
-                network: InfuraNetwork(chain: "mainnet", apiKey: "metamask")
+                network: MainnetInfuraMetamaskNetwork()
                 ).call()
         }.toNot(
             beEmpty()
@@ -21,7 +21,7 @@ final class GetGasPriceProcedureTests: XCTestCase {
         expect{
             try BigEndianCompactNumber(
                 hex: GetGasPriceProcedure(
-                    network: InfuraNetwork(chain: "mainnet", apiKey: "metamask")
+                    network: MainnetInfuraMetamaskNetwork()
                 ).call()["result"].string()
             ).uint()
         }.to(

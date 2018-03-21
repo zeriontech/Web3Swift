@@ -12,7 +12,7 @@ public final class InfuraNetwork: Network {
         - chain: chain identifier
         - apiKey: api key for accessing JSON RPC calls
     */
-    init(chain: String, apiKey: String) {
+    public init(chain: String, apiKey: String) {
         origin = GethNetwork(url: "https://"+chain+".infura.io/"+apiKey)
     }
 

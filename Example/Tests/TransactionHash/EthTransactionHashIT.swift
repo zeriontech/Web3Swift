@@ -13,10 +13,7 @@ final class EthTransactionHashIT: XCTestCase {
     func testExistingTransactionHashReceipt() {
         expect{
             try EthTransactionHash(
-                network: InfuraNetwork(
-                    chain: "mainnet",
-                    apiKey: "metamask"
-                ),
+                network: MainnetInfuraMetamaskNetwork(),
                 transactionHash: BytesFromHexString(
                     hex: "0xd84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"
                 )
@@ -30,10 +27,7 @@ final class EthTransactionHashIT: XCTestCase {
     func testExistingTransactionHashTransaction() {
         expect{
             try EthTransactionHash(
-                network: InfuraNetwork(
-                    chain: "mainnet",
-                    apiKey: "metamask"
-                ),
+                network: MainnetInfuraMetamaskNetwork(),
                 transactionHash: BytesFromHexString(
                     hex: "0xd84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"
                 )
@@ -47,10 +41,7 @@ final class EthTransactionHashIT: XCTestCase {
     func testPersistsHashValue() {
         expect{
             try EthTransactionHash(
-                network: InfuraNetwork(
-                    chain: "mainnet",
-                    apiKey: "metamask"
-                ),
+                network: MainnetInfuraMetamaskNetwork(),
                 transactionHash: BytesFromHexString(
                     hex: "0xd84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"
                 )
