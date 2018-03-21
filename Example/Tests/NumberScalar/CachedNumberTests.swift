@@ -20,10 +20,26 @@ fileprivate final class MutableRandomNumber: NumberScalar {
         }
     )
 
+    /**
+    - returns:
+    random 32 bytes
+
+    - throws:
+    `Swift.Error` if something went wrong
+    */
     fileprivate func hex() throws -> BytesScalar {
         return try origin.hex()
     }
 
+    /**
+    Will most probably throw if UInt isn't UInt256
+
+    - returns:
+    unsigned integer representation of the number
+
+    - throws:
+    `DescribedError` if something went wrong
+    */
     fileprivate func uint() throws -> UInt {
         return try origin.uint()
     }

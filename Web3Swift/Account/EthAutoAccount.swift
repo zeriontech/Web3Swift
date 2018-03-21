@@ -44,8 +44,12 @@ public final class EthAutoAccount: Account {
     /**
     Send value from this account to the recipient
 
+    - parameters:
+        - weiAmount: amount to be sent in wei
+        - recipientAddress: address of the recipient
+
     - returns:
-    `TransactionHash` of the transaction
+    `TransactionHash` identifier of the transaction
 
     - throws:
     `DescribedError` if something went wrong
