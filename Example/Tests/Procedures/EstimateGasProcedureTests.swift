@@ -11,7 +11,7 @@ import SwiftyJSON
 final class EstimateGasProcedureTests: XCTestCase {
 
     func testCorrectlyAssembledProcedureDoesntFail() {
-        let network = FakeEthereumNetwork()
+        let network = GanacheLocalNetwork()
         expect{
             try EstimateGasProcedure(
                 network: network, 

@@ -31,6 +31,8 @@ DerivedData
 *.moved-aside
 *.xcuserstate
 Pods/
+node_modules/
+yarn-error.log
 
 Carthage
 # We recommend against adding the Pods directory to your .gitignore. However

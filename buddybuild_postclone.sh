@@ -1,0 +1,2 @@
+yarn install
+screen -S unittest-api -d -m bash -c "yarn run ganache-cli --account="0x1636e10756e62baabddd4364010444205f1216bdb1644ff8f776f6e2982aa9f5,1000000000000000000" --account="0x159b7c413354adec1bd31caaf7e4fde71e9132a5b29193d2f6181de777745493,1000000000000000000" --gasPrice="20000000000" --gasLimit="21000" --networkId="1""

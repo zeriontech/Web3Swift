@@ -7,13 +7,17 @@ import SwiftyJSON
 
 public final class EthTransactions: Transactions {
 
-    private let transactionsCountProcedure: RemoteProcedure
-    init(transactionsCountProcedure: RemoteProcedure) {
-        self.transactionsCountProcedure = transactionsCountProcedure
+    private let procedure: RemoteProcedure
+    init(network: Network, address: BytesScalar, blockChainState: BlockChainState) {
+        self.procedure = GetTransactionsCountProcedure(
+            network: network,
+            address: address,
+            blockChainState: blockChainState
+        )
     }
 
     public func count() throws -> NumberScalar {
-        let transactionsCountProcedure = self.transactionsCountProcedure
+        let transactionsCountProcedure = self.procedure
         return BigEndianCompactNumber(
             hex: SimpleString{
                 try transactionsCountProcedure.call()["result"].string()

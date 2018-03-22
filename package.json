@@ -1,0 +1,16 @@
+{
+	"name": "Web3SwiftGanacheDeps",
+	"version": "0.0.1.",
+	"description": "Web3Swift test net dependencies",
+	"author": "Web3Swift",
+	"license": "Apache License 2.0",
+	"private": true,
+	"engines": {
+		"yarn": "^1.2.1"
+	},
+	"dependencies": {
+		"bignumber.js": "^6.0.0",
+		"ganache-cli": "^6.0.3",
+		"truffle": "^4.0.6"
+	}
+}
