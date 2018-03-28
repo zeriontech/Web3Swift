@@ -17,7 +17,7 @@ internal final class IncorrectNumberOfElementsError: DescribedError {
 
 }
 
-extension Collection {
+public extension Collection {
 
     /**
     - returns:
@@ -34,6 +34,23 @@ extension Collection {
                 collection: AnyCollection(Array(self))
             )
         }
+    }
+
+    public func splitAt(separator: (Self.Element) throws -> Bool) rethrows -> [SubSequence] {
+        var p = self.startIndex
+        var result: [SubSequence] = try self.indices.flatMap { i in
+            guard try separator(self[i]) else {
+                return nil
+            }
+            defer {
+                p = self.index(after: i)
+            }
+            return self[p...i]
+        }
+        if p != self.endIndex {
+            result.append(suffix(from: p))
+        }
+        return result
     }
 
 }
