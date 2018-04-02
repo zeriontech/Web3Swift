@@ -18,7 +18,7 @@ import CryptoSwift
 import Foundation
 
 //Encoded ABI function call
-final class EncodedABIFunction: BytesScalar {
+public final class EncodedABIFunction: BytesScalar {
 
     private let signature: StringScalar
     private let parameters: [ABIEncodedParameter]
@@ -42,7 +42,7 @@ final class EncodedABIFunction: BytesScalar {
     - throws:
     `DescribedError` if something went wrong.
     */
-    func value() throws -> Data {
+    public func value() throws -> Data {
         return try ConcatenatedBytes(
             bytes: [
                 Keccak256Bytes(

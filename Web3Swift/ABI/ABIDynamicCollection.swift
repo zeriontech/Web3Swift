@@ -17,7 +17,7 @@ limitations under the License.
 import Foundation
 
 //A collection of ABI parameters encoded as an ABI parameter
-final class ABIDynamicCollection: ABIEncodedParameter {
+public final class ABIDynamicCollection: ABIEncodedParameter {
 
     private let parameters: [ABIEncodedParameter]
 
@@ -27,7 +27,7 @@ final class ABIDynamicCollection: ABIEncodedParameter {
     - parameters:
         - parameters: ABI parameters to be encoded as a dynamic collection
     */
-    init(parameters: [ABIEncodedParameter]) {
+    public init(parameters: [ABIEncodedParameter]) {
         self.parameters = parameters
     }
 
@@ -38,7 +38,7 @@ final class ABIDynamicCollection: ABIEncodedParameter {
     - returns:
     A collection with a single element representing a distance from the beginning of the encoding to the tails of the dynamic collection
     */
-    func heads(offset: Int) throws -> [BytesScalar] {
+    public func heads(offset: Int) throws -> [BytesScalar] {
         return [
             LeftZeroPaddedBytes(
                 origin: SimpleBytes{
@@ -58,7 +58,7 @@ final class ABIDynamicCollection: ABIEncodedParameter {
     - returns:
     A collection of the parameters encodings prefixed by the parameters count. Parameters encodings are offset by the previous offset plus a 1 for the count prefix.
     */
-    func tails(offset: Int) throws -> [BytesScalar] {
+    public func tails(offset: Int) throws -> [BytesScalar] {
         let parameters = self.parameters
         return try [
             LeftZeroPaddedBytes(

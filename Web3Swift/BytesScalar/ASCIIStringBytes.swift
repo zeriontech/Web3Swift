@@ -30,7 +30,7 @@ internal final class NotAnASCIIScalarError: DescribedError {
 }
 
 //Bytes of the string in ascii representation
-final class ASCIIStringBytes: BytesScalar {
+public final class ASCIIStringBytes: BytesScalar {
 
     private let string: StringScalar
 
@@ -38,7 +38,7 @@ final class ASCIIStringBytes: BytesScalar {
     - parameters:
         - string: string to be converted into bytes
     */
-    init(string: StringScalar) {
+    public init(string: StringScalar) {
         self.string = string
     }
 
@@ -49,7 +49,7 @@ final class ASCIIStringBytes: BytesScalar {
     - throws:
     `DescribedError` if something went wrong. For instance if string consists of some elements that are not ascii.
     */
-    func value() throws -> Data {
+    public func value() throws -> Data {
         return try Data(
             bytes: string.value()
                 .unicodeScalars

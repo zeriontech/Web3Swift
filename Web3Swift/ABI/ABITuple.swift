@@ -17,7 +17,7 @@ limitations under the License.
 import Foundation
 
 //A collection of non dynamic elements of fixed length. Parameters of the ABI function are a dynamically typed tuple. Fixed length ABI arrays are a statically typed flatmapped tuple.
-final class ABITuple: ABIEncodedParameter {
+public final class ABITuple: ABIEncodedParameter {
 
     private let parameters: [ABIEncodedParameter]
 
@@ -27,7 +27,7 @@ final class ABITuple: ABIEncodedParameter {
     - parameters:
         - parameters: a collection of parameters to be encoded as a tuple. All tuples inside tuples must be logically flatmapped to the root tuple. Having tuple in a dynamic collection in a tuple is allowed.
     */
-    init(parameters: [ABIEncodedParameter]) {
+    public init(parameters: [ABIEncodedParameter]) {
         self.parameters = parameters
     }
 
@@ -39,7 +39,7 @@ final class ABITuple: ABIEncodedParameter {
     - returns:
     A collection of heads followed by tails of the tuple parameters
     */
-    func heads(offset: Int) throws -> [BytesScalar] {
+    public func heads(offset: Int) throws -> [BytesScalar] {
         let parameters = self.parameters
         var additionalOffset: Int = offset + parameters.count
         var heads: [BytesScalar] = []
@@ -64,7 +64,7 @@ final class ABITuple: ABIEncodedParameter {
     - returns:
     Empty collection
     */
-    func tails(offset: Int) throws -> [BytesScalar] {
+    public func tails(offset: Int) throws -> [BytesScalar] {
         return []
     }
 

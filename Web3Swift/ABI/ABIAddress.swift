@@ -17,7 +17,7 @@ limitations under the License.
 import Foundation
 
 //Address encoded as an ABI parameter
-final class ABIAddress: ABIEncodedParameter {
+public final class ABIAddress: ABIEncodedParameter {
 
     private let address: ABIEncodedParameter
 
@@ -28,7 +28,7 @@ final class ABIAddress: ABIEncodedParameter {
     - parameters:
         - address: ethereum address represented as bytes
     */
-    init(address: BytesScalar) {
+    public init(address: BytesScalar) {
         self.address = ABIFixedBytes(
             origin: FixedLengthBytes(
                 origin: LeftZeroPaddedBytes(
@@ -52,7 +52,7 @@ final class ABIAddress: ABIEncodedParameter {
     - throws:
     `DescribedError` if something went wrong
     */
-    func heads(offset: Int) throws -> [BytesScalar] {
+    public func heads(offset: Int) throws -> [BytesScalar] {
         return try address.heads(offset: offset)
     }
 
@@ -66,7 +66,7 @@ final class ABIAddress: ABIEncodedParameter {
     - throws:
     `DescribedError` if something went wrong
     */
-    func tails(offset: Int) throws -> [BytesScalar] {
+    public func tails(offset: Int) throws -> [BytesScalar] {
         return try address.tails(offset: offset)
     }
 

@@ -17,7 +17,7 @@ limitations under the License.
 import Foundation
 
 //String value encoded as an ABI parameter
-final class ABIString: ABIEncodedParameter {
+public final class ABIString: ABIEncodedParameter {
 
     private let origin: ABIEncodedParameter
 
@@ -27,7 +27,7 @@ final class ABIString: ABIEncodedParameter {
     - parameters:
         - origin: string to be encoded
     */
-    init(origin: StringScalar) {
+    public init(origin: StringScalar) {
         self.origin = ABIVariableBytes(
             origin: UTF8StringBytes(
                 string: origin
@@ -42,7 +42,7 @@ final class ABIString: ABIEncodedParameter {
     - returns:
     A collection with a single element representing a distance from the beginning of the encoding to the tails of the string
     */
-    func heads(offset: Int) throws -> [BytesScalar] {
+    public func heads(offset: Int) throws -> [BytesScalar] {
         return try origin.heads(offset: offset)
     }
 
@@ -53,7 +53,7 @@ final class ABIString: ABIEncodedParameter {
     - returns:
     A collection of encoded bytes from utf8 representation of a string prefixed by the length of the string in utf8 representation
     */
-    func tails(offset: Int) throws -> [BytesScalar] {
+    public func tails(offset: Int) throws -> [BytesScalar] {
         return try origin.tails(offset: offset)
     }
 

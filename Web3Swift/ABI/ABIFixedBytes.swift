@@ -17,7 +17,7 @@ limitations under the License.
 import Foundation
 
 //Fixed length bytes (up to 32) encoded as an ABI parameter
-final class ABIFixedBytes: ABIEncodedParameter {
+public final class ABIFixedBytes: ABIEncodedParameter {
 
     private let origin: BytesScalar
 
@@ -38,7 +38,7 @@ final class ABIFixedBytes: ABIEncodedParameter {
     - returns:
     A collection with a single element representing an ABI encoded boolean value.
     */
-    func heads(offset: Int) throws -> [BytesScalar] {
+    public func heads(offset: Int) throws -> [BytesScalar] {
         return [
             FixedLengthBytes(
                 origin: RightZeroPaddedBytes(
@@ -57,7 +57,7 @@ final class ABIFixedBytes: ABIEncodedParameter {
     - returns:
     Empty collection
     */
-    func tails(offset: Int) throws -> [BytesScalar] {
+    public func tails(offset: Int) throws -> [BytesScalar] {
         return []
     }
 

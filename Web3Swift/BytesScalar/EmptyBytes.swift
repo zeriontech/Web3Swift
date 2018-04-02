@@ -16,9 +16,16 @@ limitations under the License.
 
 import Foundation
 
-final class EmptyBytes: BytesScalar {
+public final class EmptyBytes: BytesScalar {
 
-    func value() throws -> Data {
+    /**
+    - returns:
+    Empty bytes as `Data`
+
+    - throws:
+    Doesn't throw
+    */
+    public func value() throws -> Data {
         return Data(bytes: [])
     }
 
