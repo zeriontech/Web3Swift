@@ -16,9 +16,17 @@ limitations under the License.
 
 import Foundation
 
-public final class ABINumber: ABIEncodedParameter {
+//Unsigned number encoded as an ABI parameter
+public final class ABIUnsignedNumber: ABIEncodedParameter {
 
     private let origin: ABIEncodedParameter
+
+    /**
+    Ctor
+
+    - parameters:
+        - origin: number to encode
+    */
     init(origin: NumberScalar) {
         self.origin = ABIFixedBytes(
             origin: LeftZeroPaddedBytes(
@@ -30,10 +38,24 @@ public final class ABINumber: ABIEncodedParameter {
         )
     }
 
+    /**
+    - parameters:
+        - offset: unsigned number is invariant
+
+    - returns:
+    A collection with a single element representing an ABI encoded number.
+    */
     public func heads(offset: Int) throws -> [BytesScalar] {
         return try origin.heads(offset: offset)
     }
 
+    /**
+    - parameters:
+        - offset: unsigned number is invariant
+
+    - returns:
+    Empty collection
+    */
     public func tails(offset: Int) throws -> [BytesScalar] {
         return try origin.tails(offset: offset)
     }

@@ -16,10 +16,31 @@ limitations under the License.
 
 import Foundation
 
+//An encoded ABI parameter
 public protocol ABIEncodedParameter {
 
+    /**
+    - parameters:
+        - offset: number of elements preceding the parameter tails
+
+    - returns:
+    A collection of 32 bytes pieces of the head of the encoded parameter.
+
+    - throws:
+    `DescribedError` if something went wrong
+    */
     func heads(offset: Int) throws -> [BytesScalar]
 
+    /**
+    - parameters:
+        - offset: number of elements preceding the parameter tails
+
+    - returns:
+    A collection of 32 bytes pieces of the tail of the encoded parameter. Tail is empty for "static" parameters.
+
+    - throws:
+    `DescribedError` if something went wrong
+    */
     func tails(offset: Int) throws -> [BytesScalar]
 
 }

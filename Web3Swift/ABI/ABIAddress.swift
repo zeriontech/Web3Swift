@@ -16,14 +16,25 @@ limitations under the License.
 
 import Foundation
 
+//Address encoded as an ABI parameter
 final class ABIAddress: ABIEncodedParameter {
 
     private let address: ABIEncodedParameter
+
+    //TODO: Should EthAddress defensive decorator be here?
+    /**
+    Ctor
+
+    - parameters:
+        - address: ethereum address represented as bytes
+    */
     init(address: BytesScalar) {
         self.address = ABIFixedBytes(
             origin: FixedLengthBytes(
                 origin: LeftZeroPaddedBytes(
-                    origin: address,
+                    origin: EthAddress(
+                        bytes: address
+                    ),
                     padding: 32
                 ),
                 length: 32
@@ -31,10 +42,30 @@ final class ABIAddress: ABIEncodedParameter {
         )
     }
 
+    /**
+    - parameters:
+        - offset: address is invariant
+
+    - returns:
+    A collection with a single element representing an ABI encoded ethereum address.
+
+    - throws:
+    `DescribedError` if something went wrong
+    */
     func heads(offset: Int) throws -> [BytesScalar] {
         return try address.heads(offset: offset)
     }
 
+    /**
+    - parameters:
+        - offset: address is invariant
+
+    - returns:
+    Empty collection.
+
+    - throws:
+    `DescribedError` if something went wrong
+    */
     func tails(offset: Int) throws -> [BytesScalar] {
         return try address.tails(offset: offset)
     }

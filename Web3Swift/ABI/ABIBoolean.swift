@@ -16,9 +16,17 @@ limitations under the License.
 
 import Foundation
 
+//Boolean value encoded as an ABI parameter
 public final class ABIBoolean: ABIEncodedParameter {
 
     private let origin: ABIEncodedParameter
+
+    /**
+    Ctor
+
+    - parameters:
+        - origin: `Bool` representation of a boolean value
+    */
     init(origin: Bool) {
         self.origin = ABIFixedBytes(
             origin: LeftZeroPaddedBytes(
@@ -38,10 +46,24 @@ public final class ABIBoolean: ABIEncodedParameter {
         )
     }
 
+    /**
+    - parameters:
+        - offset: boolean is invariant
+
+    - returns:
+    A collection with a single element representing an ABI encoded boolean value.
+    */
     public func heads(offset: Int) throws -> [BytesScalar] {
         return try origin.heads(offset: offset)
     }
 
+    /**
+    - parameters:
+        - offset: boolean is invariant
+
+    - returns:
+    Empty collection.
+    */
     public func tails(offset: Int) throws -> [BytesScalar] {
         return try origin.tails(offset: offset)
     }

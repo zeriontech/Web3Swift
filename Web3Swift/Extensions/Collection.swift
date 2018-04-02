@@ -36,19 +36,29 @@ public extension Collection {
         }
     }
 
-    public func splitAt(separator: (Self.Element) throws -> Bool) rethrows -> [SubSequence] {
-        var p = self.startIndex
+    /**
+    - parameters:
+        - separationStrategy: a closure that determines whether element is a beginning of a new sequence.
+
+    - returns:
+    A collection of sequences separated by the `sequencingStrategy`
+
+    - throws:
+    `Swift.Error` if something went wrong
+    */
+    public func splitAt(sequencingStrategy: (Self.Element) throws -> Bool) rethrows -> [SubSequence] {
+        var currentIndex = self.startIndex
         var result: [SubSequence] = try self.indices.flatMap { i in
-            guard try separator(self[i]) else {
+            guard try sequencingStrategy(self[i]) else {
                 return nil
             }
             defer {
-                p = self.index(after: i)
+                currentIndex = self.index(after: i)
             }
-            return self[p...i]
+            return self[currentIndex...i]
         }
-        if p != self.endIndex {
-            result.append(suffix(from: p))
+        if currentIndex != self.endIndex {
+            result.append(suffix(from: currentIndex))
         }
         return result
     }

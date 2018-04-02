@@ -16,49 +16,45 @@ limitations under the License.
 
 import Foundation
 
-//Fixed length bytes (up to 32) encoded as an ABI parameter
-final class ABIFixedBytes: ABIEncodedParameter {
+//String value encoded as an ABI parameter
+final class ABIString: ABIEncodedParameter {
 
-    private let origin: BytesScalar
+    private let origin: ABIEncodedParameter
 
     /**
     Ctor
 
     - parameters:
-        - origin: bytes to be encoded
+        - origin: string to be encoded
     */
-    init(origin: BytesScalar) {
-        self.origin = origin
+    init(origin: StringScalar) {
+        self.origin = ABIVariableBytes(
+            origin: UTF8StringBytes(
+                string: origin
+            )
+        )
     }
 
     /**
     - parameters:
-        - offset: fixed bytes are invariant
+        - offset: number of elements preceding the string tails
 
     - returns:
-    A collection with a single element representing an ABI encoded boolean value.
+    A collection with a single element representing a distance from the beginning of the encoding to the tails of the string
     */
     func heads(offset: Int) throws -> [BytesScalar] {
-        return [
-            FixedLengthBytes(
-                origin: RightZeroPaddedBytes(
-                    origin: origin,
-                    padding: 32
-                ),
-                length: 32
-            )
-        ]
+        return try origin.heads(offset: offset)
     }
 
     /**
     - parameters:
-        - offset: fixed bytes are invariant
+        - offset: invariant for tails
 
     - returns:
-    Empty collection
+    A collection of encoded bytes from utf8 representation of a string prefixed by the length of the string in utf8 representation
     */
     func tails(offset: Int) throws -> [BytesScalar] {
-        return []
+        return try origin.tails(offset: offset)
     }
 
 }

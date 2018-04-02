@@ -362,7 +362,7 @@ final class ABIIT: XCTestCase {
             try ConcatenatedBytes(
                 bytes: ABITuple(
                     parameters: [
-                        ABINumber(
+                        ABIUnsignedNumber(
                             origin: BigEndianNumber(
                                 uint: 5
                             )
@@ -372,7 +372,7 @@ final class ABIIT: XCTestCase {
                                 hex:"0x131a3afc00d1b1e3461b955e53fc866dcf303b3eb9f4c16f89e388930f48134b231a3afc00d1b1e3461b955e53fc866dcf303b3eb9f4c16f89e388930f48134b"
                             )
                         ),
-                        ABINumber(
+                        ABIUnsignedNumber(
                             origin: BigEndianNumber(
                                 uint: 3
                             )
@@ -409,44 +409,44 @@ final class ABIIT: XCTestCase {
             try ConcatenatedBytes(
                 bytes: ABITuple(
                     parameters: [
-                        ABINumber(
+                        ABIUnsignedNumber(
                             origin: BigEndianNumber(
                                 uint: 1
                             )
                         ),
-                        ABIVariableBytes(
-                            origin: UTF8StringBytes(
+                        ABIString(
+                            origin: SimpleString(
                                 string: "gavofyork"
                             )
                         ),
-                        ABINumber(
+                        ABIUnsignedNumber(
                             origin: BigEndianNumber(
                                 uint: 2
                             )
                         ),
-                        ABINumber(
+                        ABIUnsignedNumber(
                             origin: BigEndianNumber(
                                 uint: 3
                             )
                         ),
-                        ABINumber(
+                        ABIUnsignedNumber(
                             origin: BigEndianNumber(
                                 uint: 4
                             )
                         ),
                         ABIDynamicCollection(
                             parameters: [
-                                ABINumber(
+                                ABIUnsignedNumber(
                                     origin: BigEndianNumber(
                                         uint: 5
                                     )
                                 ),
-                                ABINumber(
+                                ABIUnsignedNumber(
                                     origin: BigEndianNumber(
                                         uint: 6
                                     )
                                 ),
-                                ABINumber(
+                                ABIUnsignedNumber(
                                     origin: BigEndianNumber(
                                         uint: 7
                                     )
@@ -475,6 +475,61 @@ final class ABIIT: XCTestCase {
             ),
             description: "int, string, int, int, int, int[]"
         )
+    }
+
+    func testTwoDynamicIntArrays() {
+        func testNumberBytesNumberBytes() {
+            expect{
+                try ConcatenatedBytes(
+                    bytes: ABITuple(
+                        parameters: [
+                            ABIDynamicCollection(
+                                parameters: [
+                                    ABIUnsignedNumber(
+                                        origin: BigEndianNumber(
+                                            uint: 1
+                                        )
+                                    ),
+                                    ABIUnsignedNumber(
+                                        origin: BigEndianNumber(
+                                            uint: 2
+                                        )
+                                    )
+                                ]
+                            ),
+                            ABIDynamicCollection(
+                                parameters: [
+                                    ABIUnsignedNumber(
+                                        origin: BigEndianNumber(
+                                            uint: 3
+                                        )
+                                    ),
+                                    ABIUnsignedNumber(
+                                        origin: BigEndianNumber(
+                                            uint: 4
+                                        )
+                                    )
+                                ]
+                            )
+                        ]
+                    ).heads(offset: 0)
+                ).value()
+            }.to(
+                equal(
+                    Data(
+                        hex:"0000000000000000000000000000000000000000000000000000000000000040" +
+                            "00000000000000000000000000000000000000000000000000000000000000a0" +
+                            "0000000000000000000000000000000000000000000000000000000000000002" +
+                            "0000000000000000000000000000000000000000000000000000000000000001" +
+                            "0000000000000000000000000000000000000000000000000000000000000002" +
+                            "0000000000000000000000000000000000000000000000000000000000000002" +
+                            "0000000000000000000000000000000000000000000000000000000000000003" +
+                            "0000000000000000000000000000000000000000000000000000000000000004"
+                    )
+                ),
+                description: "int[], int[]"
+            )
+        }
     }
 
 }

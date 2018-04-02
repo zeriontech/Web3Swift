@@ -10,7 +10,6 @@
 		179920E6147A7C94464EBBDE /* Pods_Web3Swift_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3D6BEF8030D59C6F4A15FB /* Pods_Web3Swift_Tests.framework */; };
 		584FA007F1C9FE25106C2335 /* BigEndianNumberUIntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAF575C27A0C5582EE1F6 /* BigEndianNumberUIntTests.swift */; };
 		584FA053366BD47D5ED75CEA /* EthTransactionBytesIT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA0AE11248FDD3B3D916B /* EthTransactionBytesIT.swift */; };
-		584FA0718BAC1BD86153C5F4 /* ABITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA413E52131F56355D39C /* ABITests.swift */; };
 		584FA0A1656975E37C890523 /* LeadingCompactBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA05EFE4DB2A85EFA494B /* LeadingCompactBytesTests.swift */; };
 		584FA0A7CF0EBB0B9AAD344A /* HexPrefixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA3ACF247722B05D563C4 /* HexPrefixTests.swift */; };
 		584FA0C5E8ED7728A2AAD364 /* GanacheLocalNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA888EDFB99F27887D65B /* GanacheLocalNetwork.swift */; };
@@ -58,6 +57,7 @@
 		584FACDDE9E98EDA9C414EF6 /* RandomNonceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAB47440D3CE3C6ED0684 /* RandomNonceTests.swift */; };
 		584FACEC7F5AD9060590ED93 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA82731B90F65C00992E6 /* URL.swift */; };
 		584FAD3793AFB655815DBBA6 /* ChainIDProcedureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA8BDDA8B4B1DF68FA7AA /* ChainIDProcedureTests.swift */; };
+		584FAE299A36048499060E9D /* ABIAddressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAEEB20D703357326C55D /* ABIAddressTests.swift */; };
 		584FAEA6A4077131C889E840 /* TrimmedPrefixStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FADD609CFD3D1B146EA9A /* TrimmedPrefixStringTests.swift */; };
 		584FAED8755DD6F0E88C6D04 /* ConcatenatedBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAEA2A535B392091AA1B2 /* ConcatenatedBytesTests.swift */; };
 		584FAFF5E966CB6A9CF1B17A /* EthAutoAccountIT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA15466E980BC9B309CE9 /* EthAutoAccountIT.swift */; };
@@ -103,7 +103,6 @@
 		584FA38F8C473B2FD090FFCA /* EthGasPriceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthGasPriceTests.swift; sourceTree = "<group>"; };
 		584FA39CA2D6FCF228B88B86 /* TransactionReceiptProcedureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionReceiptProcedureTests.swift; sourceTree = "<group>"; };
 		584FA3ACF247722B05D563C4 /* HexPrefixTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexPrefixTests.swift; sourceTree = "<group>"; };
-		584FA413E52131F56355D39C /* ABITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABITests.swift; sourceTree = "<group>"; };
 		584FA4208C30EBB90E274EC4 /* EthTransactionHashIT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthTransactionHashIT.swift; sourceTree = "<group>"; };
 		584FA4CA2C3E830CA0CAF980 /* EstimateGasProcedureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstimateGasProcedureTests.swift; sourceTree = "<group>"; };
 		584FA59C4A88A66CD1D2A635 /* Actor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actor.swift; sourceTree = "<group>"; };
@@ -142,6 +141,7 @@
 		584FAE5CF87E621257F15405 /* HexPrefixedStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexPrefixedStringTests.swift; sourceTree = "<group>"; };
 		584FAEA2A535B392091AA1B2 /* ConcatenatedBytesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcatenatedBytesTests.swift; sourceTree = "<group>"; };
 		584FAECE55D11B16B13F39A0 /* FixedLengthBytesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixedLengthBytesTests.swift; sourceTree = "<group>"; };
+		584FAEEB20D703357326C55D /* ABIAddressTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABIAddressTests.swift; sourceTree = "<group>"; };
 		584FAF575C27A0C5582EE1F6 /* BigEndianNumberUIntTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigEndianNumberUIntTests.swift; sourceTree = "<group>"; };
 		584FAFABC7894A1043564BE3 /* EthPrivateKeyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthPrivateKeyTests.swift; sourceTree = "<group>"; };
 		584FAFC4DFD37E513B7E286C /* GetTransactionsCountProcedureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTransactionsCountProcedureTests.swift; sourceTree = "<group>"; };
@@ -256,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				584FAC76DDB015EC3F5212DE /* ABIIT.swift */,
+				584FAEEB20D703357326C55D /* ABIAddressTests.swift */,
 			);
 			path = ABI;
 			sourceTree = "<group>";
@@ -519,7 +520,6 @@
 				584FA4C0A535BA6627AEB4B7 /* Transaction */,
 				584FACC939541AC8126A9806 /* TransactionHash */,
 				584FA8F99985AF23201B4D1A /* TransactionReceipt */,
-				584FA413E52131F56355D39C /* ABITests.swift */,
 				584FA60EFCE14F0780FD437B /* ABI */,
 			);
 			path = Tests;
@@ -897,8 +897,8 @@
 				584FA8DB9AC9BD077D9315A5 /* MainnetInfuraMetamaskNetworkTests.swift in Sources */,
 				584FA7F17D3B2B2F38437B3B /* RightZeroPaddedBytesTests.swift in Sources */,
 				584FA5C085BF5892631B17AF /* LeftZeroPaddedBytesTests.swift in Sources */,
-				584FA0718BAC1BD86153C5F4 /* ABITests.swift in Sources */,
 				584FA4C51FE10AFE6858E23A /* ABIIT.swift in Sources */,
+				584FAE299A36048499060E9D /* ABIAddressTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

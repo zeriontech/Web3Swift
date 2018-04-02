@@ -19,10 +19,24 @@ import Foundation
 public final class ABIVariableBytes: ABIEncodedParameter {
 
     private let origin: BytesScalar
+
+    /**
+    Ctor
+
+    - parameters:
+        - origin: bytes to be encoded
+    */
     init(origin: BytesScalar) {
         self.origin = origin
     }
 
+    /**
+    - parameters:
+        - offset: number of elements preceding the variable bytes tails
+
+    - returns:
+    A collection with a single element representing a distance from the beginning of the encoding to the tails of the variable bytes
+    */
     public func heads(offset: Int) throws -> [BytesScalar] {
         return [
             LeftZeroPaddedBytes(
@@ -36,6 +50,14 @@ public final class ABIVariableBytes: ABIEncodedParameter {
         ]
     }
 
+    //TODO: This implementation is not lazy and is difficult to understand
+    /**
+    - parameters:
+        - offset: invariant for tails
+
+    - returns:
+    A collection with bytes count followed by the bytes
+    */
     public func tails(offset: Int) throws -> [BytesScalar] {
         let value = try origin.value()
         return try [
@@ -51,11 +73,15 @@ public final class ABIVariableBytes: ABIEncodedParameter {
             .splitAt{ index, _ in
                 (index + 1) % 32 == 0
             }
-            .map{ $0.map{ $0.1 } }
-            .map{
+            .map{ splitBytes in
+                splitBytes.map{ _, bytes in
+                    bytes
+                }
+            }
+            .map{ bytes in
                 RightZeroPaddedBytes(
                     origin: SimpleBytes(
-                        bytes: $0
+                        bytes: bytes
                     ),
                     padding: 32
                 )

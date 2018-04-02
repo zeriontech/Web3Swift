@@ -16,14 +16,28 @@ limitations under the License.
 
 import Foundation
 
+//A collection of ABI parameters encoded as an ABI parameter
 final class ABIDynamicCollection: ABIEncodedParameter {
 
     private let parameters: [ABIEncodedParameter]
 
+    /**
+    Ctor
+
+    - parameters:
+        - parameters: ABI parameters to be encoded as a dynamic collection
+    */
     init(parameters: [ABIEncodedParameter]) {
         self.parameters = parameters
     }
 
+    /**
+    - parameters:
+        - offset: number of elements preceding the dynamic collection tails
+
+    - returns:
+    A collection with a single element representing a distance from the beginning of the encoding to the tails of the dynamic collection
+    */
     func heads(offset: Int) throws -> [BytesScalar] {
         return [
             LeftZeroPaddedBytes(
@@ -37,6 +51,13 @@ final class ABIDynamicCollection: ABIEncodedParameter {
         ]
     }
 
+    /**
+    - parameters:
+        - offset: number of elements preceding the dynamic collection tails
+
+    - returns:
+    A collection of the parameters encodings prefixed by the parameters count. Parameters encodings are offset by the previous offset plus a 1 for the count prefix.
+    */
     func tails(offset: Int) throws -> [BytesScalar] {
         let parameters = self.parameters
         return try [
@@ -50,7 +71,9 @@ final class ABIDynamicCollection: ABIEncodedParameter {
             )
         ] + ABITuple(
             parameters: parameters
-        ).heads(offset: offset + 1)
+        ).heads(
+            offset: offset + 1
+        )
     }
 
 }
