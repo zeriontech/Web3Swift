@@ -23,6 +23,7 @@ public final class EncodedABIFunction: BytesScalar {
     private let signature: StringScalar
     private let parameters: [ABIEncodedParameter]
 
+    //TODO: Function signature should be derived from the parameters.
     /**
     Ctor
 
