@@ -45,10 +45,16 @@ public final class EncodedABIFunction: BytesScalar {
     public func value() throws -> Data {
         return try ConcatenatedBytes(
             bytes: [
-                Keccak256Bytes(
-                    origin: ASCIIStringBytes(
-                        string: signature
-                    )
+                FixedLengthBytes(
+                    origin: FirstBytes(
+                        origin: Keccak256Bytes(
+                            origin: ASCIIStringBytes(
+                                string: signature
+                            )
+                        ),
+                        length: 4
+                    ),
+                    length: 4
                 )
             ] + ABITuple(
                 parameters: parameters

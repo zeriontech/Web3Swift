@@ -40,11 +40,13 @@ public final class Keccak256Bytes: BytesScalar {
     `DescribedError` if something went wrong.
     */
     public func value() throws -> Data {
-        return try SHA3(
-            variant: .keccak256
-        ).calculate(
-            for: Array(
-                origin.value()
+        return try Data(
+            bytes: SHA3(
+                variant: .keccak256
+            ).calculate(
+                for: Array(
+                    origin.value()
+                )
             )
         )
     }
