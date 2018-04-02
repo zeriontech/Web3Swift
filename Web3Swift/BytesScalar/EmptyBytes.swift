@@ -16,6 +16,7 @@ limitations under the License.
 
 import Foundation
 
+//Just empty bytes
 public final class EmptyBytes: BytesScalar {
 
     /**

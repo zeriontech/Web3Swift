@@ -31,7 +31,7 @@ public final class ABIAddress: ABIEncodedParameter {
     public init(address: BytesScalar) {
         self.address = ABIFixedBytes(
             origin: FixedLengthBytes(
-                origin: LeftZeroPaddedBytes(
+                origin: LeftZeroesPaddedBytes(
                     origin: EthAddress(
                         bytes: address
                     ),

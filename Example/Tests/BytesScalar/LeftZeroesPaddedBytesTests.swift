@@ -18,7 +18,7 @@ import Nimble
 import Quick
 @testable import Web3Swift
 
-final class LeftZeroPaddedBytesTests: XCTestCase {
+final class LeftZeroesPaddedBytesTests: XCTestCase {
 
     func testBytesArePaddedNumericallyCorrectly() {
         Array<
@@ -46,7 +46,7 @@ final class LeftZeroPaddedBytesTests: XCTestCase {
             ]
         ).forEach{ initialBytes, paddedBytes in
             expect{
-                try LeftZeroPaddedBytes(
+                try LeftZeroesPaddedBytes(
                     origin: SimpleBytes(
                         bytes: initialBytes
                     ),
@@ -68,7 +68,7 @@ final class LeftZeroPaddedBytesTests: XCTestCase {
         ).forEach{ suffix in
             expect{
                 try String(
-                    bytes: LeftZeroPaddedBytes(
+                    bytes: LeftZeroesPaddedBytes(
                         origin: UTF8StringBytes(string: suffix),
                         padding: 32
                     ).value(),

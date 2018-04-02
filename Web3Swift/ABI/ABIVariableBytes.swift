@@ -39,7 +39,7 @@ public final class ABIVariableBytes: ABIEncodedParameter {
     */
     public func heads(offset: Int) throws -> [BytesScalar] {
         return [
-            LeftZeroPaddedBytes(
+            LeftZeroesPaddedBytes(
                 origin: SimpleBytes{
                     try BigEndianNumber(
                         uint: UInt(offset) * 32
@@ -61,7 +61,7 @@ public final class ABIVariableBytes: ABIEncodedParameter {
     public func tails(offset: Int) throws -> [BytesScalar] {
         let value = try origin.value()
         return try [
-            LeftZeroPaddedBytes(
+            LeftZeroesPaddedBytes(
                 origin: BigEndianNumber(
                     uint: UInt(
                         value.count
@@ -79,7 +79,7 @@ public final class ABIVariableBytes: ABIEncodedParameter {
                 }
             }
             .map{ bytes in
-                RightZeroPaddedBytes(
+                RightZeroesPaddedBytes(
                     origin: SimpleBytes(
                         bytes: bytes
                     ),

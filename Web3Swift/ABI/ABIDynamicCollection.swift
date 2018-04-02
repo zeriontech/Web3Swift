@@ -40,7 +40,7 @@ public final class ABIDynamicCollection: ABIEncodedParameter {
     */
     public func heads(offset: Int) throws -> [BytesScalar] {
         return [
-            LeftZeroPaddedBytes(
+            LeftZeroesPaddedBytes(
                 origin: SimpleBytes{
                     try BigEndianNumber(
                         uint: UInt(offset) * 32
@@ -61,7 +61,7 @@ public final class ABIDynamicCollection: ABIEncodedParameter {
     public func tails(offset: Int) throws -> [BytesScalar] {
         let parameters = self.parameters
         return try [
-            LeftZeroPaddedBytes(
+            LeftZeroesPaddedBytes(
                 origin: SimpleBytes{
                     try BigEndianNumber(
                         uint: UInt(parameters.count)

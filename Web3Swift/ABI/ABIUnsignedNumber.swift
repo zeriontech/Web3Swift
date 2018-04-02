@@ -29,7 +29,7 @@ public final class ABIUnsignedNumber: ABIEncodedParameter {
     */
     init(origin: NumberScalar) {
         self.origin = ABIFixedBytes(
-            origin: LeftZeroPaddedBytes(
+            origin: LeftZeroesPaddedBytes(
                 origin: SimpleBytes{
                     try origin.hex().value()
                 },

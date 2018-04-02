@@ -31,10 +31,10 @@
 		584FA538B1B4B38D0AD9D0C9 /* SECP256k1SignatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA147B4074725F6630283 /* SECP256k1SignatureTests.swift */; };
 		584FA54118C09BB79AE1BB7E /* ASCIIStringBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA5BD2B0C045282F233FE /* ASCIIStringBytesTests.swift */; };
 		584FA57D105290DBCD21DCD7 /* MainnetInfuraMetamaskNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA742AE71D7A00EE214B0 /* MainnetInfuraMetamaskNetwork.swift */; };
-		584FA5C085BF5892631B17AF /* LeftZeroPaddedBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA84177D99BD8D49055C2 /* LeftZeroPaddedBytesTests.swift */; };
+		584FA5C085BF5892631B17AF /* LeftZeroesPaddedBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA84177D99BD8D49055C2 /* LeftZeroesPaddedBytesTests.swift */; };
 		584FA665B514D92127A9EE7E /* CachedNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA6A977436ED13112AD8C /* CachedNumberTests.swift */; };
 		584FA7EFE57C0E816D2A22FE /* BytesFromHexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA82FCF5FAF36C735DEA7 /* BytesFromHexStringTests.swift */; };
-		584FA7F17D3B2B2F38437B3B /* RightZeroPaddedBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAA67F0C1C9448CD094F8 /* RightZeroPaddedBytesTests.swift */; };
+		584FA7F17D3B2B2F38437B3B /* RightZeroesPaddedBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAA67F0C1C9448CD094F8 /* RightZeroesPaddedBytesTests.swift */; };
 		584FA80F75A83DCF7A6C971B /* UnprefixedHexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAC6B00D3D216834AA0F9 /* UnprefixedHexStringTests.swift */; };
 		584FA8368A550CEF7AA30085 /* TransactionReceiptProcedureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA39CA2D6FCF228B88B86 /* TransactionReceiptProcedureTests.swift */; };
 		584FA848F23C434B6D50B7C3 /* RLPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FACC5A38F59EE5FCD2BC7 /* RLPTests.swift */; };
@@ -119,13 +119,13 @@
 		584FA742AE71D7A00EE214B0 /* MainnetInfuraMetamaskNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainnetInfuraMetamaskNetwork.swift; sourceTree = "<group>"; };
 		584FA82731B90F65C00992E6 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		584FA82FCF5FAF36C735DEA7 /* BytesFromHexStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BytesFromHexStringTests.swift; sourceTree = "<group>"; };
-		584FA84177D99BD8D49055C2 /* LeftZeroPaddedBytesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftZeroPaddedBytesTests.swift; sourceTree = "<group>"; };
+		584FA84177D99BD8D49055C2 /* LeftZeroesPaddedBytesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftZeroesPaddedBytesTests.swift; sourceTree = "<group>"; };
 		584FA888EDFB99F27887D65B /* GanacheLocalNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GanacheLocalNetwork.swift; sourceTree = "<group>"; };
 		584FA8BDDA8B4B1DF68FA7AA /* ChainIDProcedureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainIDProcedureTests.swift; sourceTree = "<group>"; };
 		584FA9049076A62873C3412B /* JSONTypeErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTypeErrorTests.swift; sourceTree = "<group>"; };
 		584FA90D66527DCFCE518E9C /* EthTransactionIT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthTransactionIT.swift; sourceTree = "<group>"; };
 		584FA9721120A205A9959167 /* HexStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexStringTests.swift; sourceTree = "<group>"; };
-		584FAA67F0C1C9448CD094F8 /* RightZeroPaddedBytesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightZeroPaddedBytesTests.swift; sourceTree = "<group>"; };
+		584FAA67F0C1C9448CD094F8 /* RightZeroesPaddedBytesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightZeroesPaddedBytesTests.swift; sourceTree = "<group>"; };
 		584FAABDE4B44E4D79747126 /* UTF8StringBytesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UTF8StringBytesTests.swift; sourceTree = "<group>"; };
 		584FAAEB7FCC55D0DED15A42 /* BytesFromCompactHexStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BytesFromCompactHexStringTests.swift; sourceTree = "<group>"; };
 		584FAAFBCBF4F2230595455E /* EthRLPTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthRLPTests.swift; sourceTree = "<group>"; };
@@ -383,8 +383,8 @@
 				584FA05EFE4DB2A85EFA494B /* LeadingCompactBytesTests.swift */,
 				584FAABDE4B44E4D79747126 /* UTF8StringBytesTests.swift */,
 				584FAC17EC066058E7D20BE2 /* CachedBytesTests.swift */,
-				584FAA67F0C1C9448CD094F8 /* RightZeroPaddedBytesTests.swift */,
-				584FA84177D99BD8D49055C2 /* LeftZeroPaddedBytesTests.swift */,
+				584FAA67F0C1C9448CD094F8 /* RightZeroesPaddedBytesTests.swift */,
+				584FA84177D99BD8D49055C2 /* LeftZeroesPaddedBytesTests.swift */,
 				584FA16075964EA60013B3F6 /* Keccak256BytesTests.swift */,
 				584FA5BD2B0C045282F233FE /* ASCIIStringBytesTests.swift */,
 				584FADA4B17A275E320F82F7 /* FirstBytesTests.swift */,
@@ -907,8 +907,8 @@
 				584FA0C5E8ED7728A2AAD364 /* GanacheLocalNetwork.swift in Sources */,
 				584FA57D105290DBCD21DCD7 /* MainnetInfuraMetamaskNetwork.swift in Sources */,
 				584FA8DB9AC9BD077D9315A5 /* MainnetInfuraMetamaskNetworkTests.swift in Sources */,
-				584FA7F17D3B2B2F38437B3B /* RightZeroPaddedBytesTests.swift in Sources */,
-				584FA5C085BF5892631B17AF /* LeftZeroPaddedBytesTests.swift in Sources */,
+				584FA7F17D3B2B2F38437B3B /* RightZeroesPaddedBytesTests.swift in Sources */,
+				584FA5C085BF5892631B17AF /* LeftZeroesPaddedBytesTests.swift in Sources */,
 				584FA4C51FE10AFE6858E23A /* ABIIT.swift in Sources */,
 				584FAE299A36048499060E9D /* ABIAddressTests.swift in Sources */,
 				584FAE0ED1017C2458F33F30 /* ABIBooleanTests.swift in Sources */,

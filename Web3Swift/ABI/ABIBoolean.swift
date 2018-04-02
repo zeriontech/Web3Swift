@@ -29,7 +29,7 @@ public final class ABIBoolean: ABIEncodedParameter {
     */
     init(origin: Bool) {
         self.origin = ABIFixedBytes(
-            origin: LeftZeroPaddedBytes(
+            origin: LeftZeroesPaddedBytes(
                 origin: SimpleBytes{
                     if origin {
                         return Data(

@@ -16,10 +16,19 @@ limitations under the License.
 
 import Foundation
 
-public final class RightZeroPaddedBytes: BytesScalar {
+//Pads bytes with zeroes to the left
+public final class LeftZeroesPaddedBytes: BytesScalar {
 
     private let origin: BytesScalar
     private let padding: UInt
+
+    /**
+    Ctor
+
+    - parameters:
+        - origin: bytes to pad
+        - padding: size to which to pad to
+    */
     init(
         origin: BytesScalar,
         padding: UInt
@@ -28,19 +37,26 @@ public final class RightZeroPaddedBytes: BytesScalar {
         self.padding = padding
     }
 
+    /**
+    - returns:
+    Bytes as `Data` padded with zeroes to the right
+
+    - throws:
+    `DescribedError` if something went wrong
+    */
     public func value() throws -> Data {
         let origin = try self.origin.value()
         let padding = Int(self.padding)
         return try ConcatenatedBytes(
             bytes: [
                 SimpleBytes(
-                    bytes: origin
-                ),
-                SimpleBytes(
                     bytes: Data(
                         repeating: 0x00,
                         count: (padding - (origin.count % padding)) % padding
                     )
+                ),
+                SimpleBytes(
+                    bytes: origin
                 )
             ]
         ).value()

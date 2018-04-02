@@ -41,7 +41,7 @@ public final class ABIFixedBytes: ABIEncodedParameter {
     public func heads(offset: Int) throws -> [BytesScalar] {
         return [
             FixedLengthBytes(
-                origin: RightZeroPaddedBytes(
+                origin: RightZeroesPaddedBytes(
                     origin: origin,
                     padding: 32
                 ),
