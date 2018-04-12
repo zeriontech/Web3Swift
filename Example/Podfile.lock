@@ -1,14 +1,14 @@
 PODS:
-  - CryptoSwift (0.8.1)
+  - CryptoSwift (0.8.3)
   - Nimble (7.0.3)
   - Quick (1.2.0)
   - secp256k1_ios (0.1.1)
   - SwiftLint (0.25.0)
   - SwiftyJSON (4.0.0)
   - Web3Swift (0.1.0):
-    - CryptoSwift (~> 0.8)
+    - CryptoSwift (= 0.8.3)
     - secp256k1_ios (= 0.1.1)
-    - SwiftyJSON (~> 4.0)
+    - SwiftyJSON (= 4.0)
 
 DEPENDENCIES:
   - Nimble (~> 7.0)
@@ -28,13 +28,13 @@ CHECKOUT OPTIONS:
     :git: https://github.com/driver733/SwiftLint.git
 
 SPEC CHECKSUMS:
-  CryptoSwift: 4b07d5b508c1eb67bfa314a727b705f8048a85de
+  CryptoSwift: 033efc3523865d19cc6ab6612fa17a62613b5dfa
   Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   secp256k1_ios: 3c94e6cce14ff03924cb6dc10c5017f17011b79d
   SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
-  Web3Swift: 07b8e79f086ea618e5f2be316e732966f43b47c8
+  Web3Swift: 7429424be623de7a6f804eab5eaa903955e13d00
 
 PODFILE CHECKSUM: c6f0abaa8518064d71a7b40f34a58f5a54b7b963
 

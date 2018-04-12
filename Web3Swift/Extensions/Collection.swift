@@ -17,7 +17,7 @@ internal final class IncorrectNumberOfElementsError: DescribedError {
 
 }
 
-extension Collection {
+public extension Collection {
 
     /**
     - returns:
@@ -34,6 +34,33 @@ extension Collection {
                 collection: AnyCollection(Array(self))
             )
         }
+    }
+
+    /**
+    - parameters:
+        - separationStrategy: a closure that determines whether element is a beginning of a new sequence.
+
+    - returns:
+    A collection of sequences separated by the `sequencingStrategy`
+
+    - throws:
+    `Swift.Error` if something went wrong
+    */
+    public func splitAt(sequencingStrategy: (Self.Element) throws -> Bool) rethrows -> [SubSequence] {
+        var currentIndex = self.startIndex
+        var result: [SubSequence] = try self.indices.flatMap { i in
+            guard try sequencingStrategy(self[i]) else {
+                return nil
+            }
+            defer {
+                currentIndex = self.index(after: i)
+            }
+            return self[currentIndex...i]
+        }
+        if currentIndex != self.endIndex {
+            result.append(suffix(from: currentIndex))
+        }
+        return result
     }
 
 }
