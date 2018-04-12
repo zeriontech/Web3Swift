@@ -15,6 +15,7 @@ public final class EthTransactionBytes: BytesScalar {
     private let senderKey: PrivateKey
     private let recipientAddress: BytesScalar
     private let weiAmount: NumberScalar
+    private let contractCall: BytesScalar
 
     /**
     Ctor
@@ -27,6 +28,7 @@ public final class EthTransactionBytes: BytesScalar {
         - senderKey: private key of a sender
         - recipientAddress: address of a recipient
         - weiAmount: amount to be sent in wei
+        - contractCall: a bytes representation of the ABI call to the contract
     */
     internal init(
         networkID: NumberScalar,
@@ -35,7 +37,8 @@ public final class EthTransactionBytes: BytesScalar {
         gasEstimate: NumberScalar,
         senderKey: PrivateKey,
         recipientAddress: BytesScalar,
-        weiAmount: NumberScalar
+        weiAmount: NumberScalar,
+        contractCall: BytesScalar
     ) {
         self.networkID = networkID
         self.transactionsCount = transactionsCount
@@ -44,6 +47,7 @@ public final class EthTransactionBytes: BytesScalar {
         self.senderKey = senderKey
         self.recipientAddress = recipientAddress
         self.weiAmount = weiAmount
+        self.contractCall = contractCall
     }
 
     /**
@@ -54,57 +58,8 @@ public final class EthTransactionBytes: BytesScalar {
         - senderKey: private key of a sender
         - recipientAddress: address of a recipient
         - weiAmount: amount to be sent in wei
+        - contractCall: a bytes representation of the ABI call to the contract
     */
-    convenience public init(
-        network: Network,
-        senderKey: PrivateKey,
-        recipientAddress: BytesScalar,
-        weiAmount: NumberScalar
-    ) {
-        let senderAddress = CachedBytes(
-            origin: SimpleBytes{
-                try senderKey.address().value()
-            }
-        )
-        let gasPrice = CachedNumber(
-            origin: EthGasPrice(
-                network: network
-            )
-        )
-        self.init(
-            networkID: CachedNumber(
-                origin: BigEndianNumber(
-                    bytes: SimpleBytes{
-                        try network.id().hex().value()
-                    }
-                )
-            ),
-            transactionsCount: CachedNumber(
-                origin: BigEndianNumber(
-                    bytes: SimpleBytes{
-                        try EthTransactions(
-                            network: network,
-                            address: senderAddress,
-                            blockChainState: PendingBlockChainState()
-                        ).count().hex().value()
-                    }
-                )
-            ),
-            gasPrice: gasPrice,
-            gasEstimate: CachedNumber(
-                origin: EthGasEstimate(
-                    network: network,
-                    senderAddress: senderAddress,
-                    recipientAddress: recipientAddress,
-                    gasPrice: gasPrice,
-                    weiAmount: weiAmount
-                )
-            ),
-            senderKey: senderKey,
-            recipientAddress: recipientAddress,
-            weiAmount: weiAmount
-        )
-    }
 
     /**
     It should be noted that 35 is the magic number suggested by EIP155 https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md
@@ -122,7 +77,7 @@ public final class EthTransactionBytes: BytesScalar {
             EthRLP(number: gasEstimate),
             SimpleRLP(bytes: recipientAddress),
             EthRLP(number: weiAmount),
-            SimpleRLP(bytes: [])
+            SimpleRLP(bytes: contractCall)
         ]
         let signature = SECP256k1Signature(
             privateKey: senderKey,

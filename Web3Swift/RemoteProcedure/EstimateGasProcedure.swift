@@ -8,35 +8,23 @@ import SwiftyJSON
 public final class EstimateGasProcedure: RemoteProcedure {
 
     private let network: Network
-
-    private let senderAddress: BytesScalar
-    private let recipientAddress: BytesScalar
-    private let gasPrice: NumberScalar
-    private let weiAmount: NumberScalar
+    private let parameters: [String: EthParameter]
 
     /**
     Ctor
 
     - parameters:
         - network: network to call
-        - senderAddress: bytes representation of a sender address
-        - recipientAddress: bytes representation of a recipient address
-        - gasPrice: price that will be paid for each unit of gas
-        - weiAmount: amount to be sent from sender to recipient in wei
+        - parameters: arguments of the estimate
     */
     public init(
         network: Network,
-        senderAddress: BytesScalar,
-        recipientAddress: BytesScalar,
-        gasPrice: NumberScalar,
-        weiAmount: NumberScalar
+        parameters: [String: EthParameter]
     ) {
         self.network = network
-        self.senderAddress = senderAddress
-        self.recipientAddress = recipientAddress
-        self.gasPrice = gasPrice
-        self.weiAmount = weiAmount
+        self.parameters = parameters
     }
+
 
     /**
     - returns:
@@ -51,20 +39,7 @@ public final class EstimateGasProcedure: RemoteProcedure {
                 method: "eth_estimateGas",
                 params: [
                     ObjectParameter(
-                        dictionary: [
-                            "from" : BytesParameter(
-                                bytes: senderAddress
-                            ),
-                            "to" : BytesParameter(
-                                bytes: recipientAddress
-                            ),
-                            "gasPrice" : QuantityParameter(
-                                number: gasPrice
-                            ),
-                            "value" : QuantityParameter(
-                                number: weiAmount
-                            )
-                        ]
+                        dictionary: parameters
                     )
                 ]
             )
