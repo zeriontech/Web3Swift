@@ -56,10 +56,11 @@ public final class EncodedABIFunction: BytesScalar {
                         length: 4
                     ),
                     length: 4
+                ),
+                EncodedABITuple(
+                    parameters: parameters
                 )
-            ] + ABITuple(
-                parameters: parameters
-            ).heads(offset: 0)
+            ]
         ).value()
     }
 
