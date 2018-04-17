@@ -25,12 +25,45 @@ public final class EthContractCreationBytes: BytesScalar {
     Ctor
 
     - parameters:
-        - network: network where transaction is to be deployed
+        - networkID: id of a network where the transaction is to be deployed
+        - transactionsCount: count of all transactions previously sent by the sender
+        - gasPrice: gas price in Wei
+        - gasEstimate: estimate for gas needed for transaction to be mined
         - senderKey: private key of a sender
         - weiAmount: amount to be sent in wei
         - contractCall: encoded contract ctor call
     */
     public init(
+        networkID: NumberScalar,
+        transactionsCount: NumberScalar,
+        gasPrice: NumberScalar,
+        gasEstimate: NumberScalar,
+        senderKey: PrivateKey,
+        weiAmount: NumberScalar,
+        contractCall: BytesScalar
+    ) {
+        self.origin = EthTransactionBytes(
+            networkID: networkID,
+            transactionsCount: transactionsCount,
+            gasPrice: gasPrice,
+            gasEstimate: gasEstimate,
+            senderKey: senderKey,
+            recipientAddress: EmptyBytes(),
+            weiAmount: weiAmount,
+            contractCall: contractCall
+        )
+    }
+
+    /**
+    Ctor
+
+    - parameters:
+        - network: network where transaction is to be deployed
+        - senderKey: private key of a sender
+        - weiAmount: amount to be sent in wei
+        - contractCall: encoded contract ctor call
+    */
+    public convenience init(
         network: Network,
         senderKey: PrivateKey,
         weiAmount: NumberScalar,
@@ -49,7 +82,7 @@ public final class EthContractCreationBytes: BytesScalar {
         let contractCall = CachedBytes(
             origin: contractCall
         )
-        self.origin = EthTransactionBytes(
+        self.init(
             networkID: CachedNumber(
                 origin: BigEndianNumber(
                     bytes: SimpleBytes{
@@ -86,7 +119,6 @@ public final class EthContractCreationBytes: BytesScalar {
                 )
             ),
             senderKey: senderKey,
-            recipientAddress: EmptyBytes(),
             weiAmount: weiAmount,
             contractCall: contractCall
         )

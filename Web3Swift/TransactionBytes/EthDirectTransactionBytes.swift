@@ -25,12 +25,45 @@ public final class EthDirectTransactionBytes: BytesScalar {
     Ctor
 
     - parameters:
-        - network: Network where transaction is to be deployed
+        - networkID: id of a network where the transaction is to be deployed
+        - transactionsCount: count of all transactions previously sent by the sender
+        - gasPrice: gas price in Wei
+        - gasEstimate: estimate for gas needed for transaction to be mined
         - senderKey: private key of a sender
         - recipientAddress: address of a recipient
         - weiAmount: amount to be sent in wei
     */
     public init(
+        networkID: NumberScalar,
+        transactionsCount: NumberScalar,
+        gasPrice: NumberScalar,
+        gasEstimate: NumberScalar,
+        senderKey: PrivateKey,
+        recipientAddress: BytesScalar,
+        weiAmount: NumberScalar
+    ) {
+        self.origin = EthTransactionBytes(
+            networkID: networkID,
+            transactionsCount: transactionsCount,
+            gasPrice: gasPrice,
+            gasEstimate: gasEstimate,
+            senderKey: senderKey,
+            recipientAddress: recipientAddress,
+            weiAmount: weiAmount,
+            contractCall: EmptyBytes()
+        )
+    }
+
+    /**
+    Ctor
+
+    - parameters:
+        - network: Network where transaction is to be deployed
+        - senderKey: private key of a sender
+        - recipientAddress: address of a recipient
+        - weiAmount: amount to be sent in wei
+    */
+    public convenience init(
         network: Network,
         senderKey: PrivateKey,
         recipientAddress: BytesScalar,
@@ -46,7 +79,7 @@ public final class EthDirectTransactionBytes: BytesScalar {
                 network: network
             )
         )
-        self.origin = EthTransactionBytes(
+        self.init(
             networkID: CachedNumber(
                 origin: BigEndianNumber(
                     bytes: SimpleBytes{
@@ -77,8 +110,7 @@ public final class EthDirectTransactionBytes: BytesScalar {
             ),
             senderKey: senderKey,
             recipientAddress: recipientAddress,
-            weiAmount: weiAmount,
-            contractCall: EmptyBytes()
+            weiAmount: weiAmount
         )
     }
 
