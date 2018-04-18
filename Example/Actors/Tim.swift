@@ -17,7 +17,7 @@ limitations under the License.
 import Foundation
 @testable import Web3Swift
 
-public final class VeryRichMan: Actor {
+public final class Tim: Actor {
 
     private let origin = SimpleActor(
         privateKey: EthPrivateKey(

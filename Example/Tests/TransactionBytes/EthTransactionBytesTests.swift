@@ -77,7 +77,7 @@ final class EthTransactionBytesTests: XCTestCase {
                         uint: 21000
                     )
                 ),
-                senderKey: VeryRichMan().privateKey(),
+                senderKey: Tim().privateKey(),
                 recipientAddress: Alice().address(),
                 weiAmount: BigEndianNumber(
                     hex: SimpleString(
