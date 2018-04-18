@@ -12,6 +12,8 @@ import Foundation
 @testable import Web3Swift
 
 protocol Actor {
+
+    func privateKey() -> PrivateKey
     
     func address() -> BytesScalar
 

@@ -14,16 +14,24 @@ import Foundation
 
 public final class Bob: Actor {
 
-    public func address() -> BytesScalar {
-        return EthAddress(
+    private let origin = SimpleActor(
+        privateKey: EthPrivateKey(
             bytes: BytesFromHexString(
-                hex: self.rawAddress()
+                hex: "0x159b7c413354adec1bd31caaf7e4fde71e9132a5b29193d2f6181de777745493"
             )
         )
+    )
+
+    public func privateKey() -> PrivateKey {
+        return origin.privateKey()
+    }
+
+    public func address() -> BytesScalar {
+        return origin.address()
     }
 
     public func rawAddress() -> String {
-        return "0x5F6d691343939aa5C0f6d01ac7038f59EEc38eA0"
+        return origin.rawAddress()
     }
 
 }
