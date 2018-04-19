@@ -39,6 +39,7 @@
 		584FA57D105290DBCD21DCD7 /* MainnetInfuraMetamaskNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA742AE71D7A00EE214B0 /* MainnetInfuraMetamaskNetwork.swift */; };
 		584FA5983BEADC204550D6B2 /* EncodedContractTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA3A32F07F98B84AEC25E /* EncodedContractTests.swift */; };
 		584FA5C085BF5892631B17AF /* LeftZeroesPaddedBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA84177D99BD8D49055C2 /* LeftZeroesPaddedBytesTests.swift */; };
+		584FA659D7E3D235F107B30A /* ContractDeploymentAndCallIT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA9D0D639D3F5E5025055 /* ContractDeploymentAndCallIT.swift */; };
 		584FA665B514D92127A9EE7E /* CachedNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA6A977436ED13112AD8C /* CachedNumberTests.swift */; };
 		584FA717F76BEE396A3010DE /* EthDirectTransactionBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAA96E69D042148CE79CE /* EthDirectTransactionBytesTests.swift */; };
 		584FA7C41200ACF7635B34F4 /* Tim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA5956573371EC7076EB8 /* Tim.swift */; };
@@ -145,6 +146,7 @@
 		584FA9049076A62873C3412B /* JSONTypeErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTypeErrorTests.swift; sourceTree = "<group>"; };
 		584FA90D66527DCFCE518E9C /* EthTransactionIT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthTransactionIT.swift; sourceTree = "<group>"; };
 		584FA9721120A205A9959167 /* HexStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexStringTests.swift; sourceTree = "<group>"; };
+		584FA9D0D639D3F5E5025055 /* ContractDeploymentAndCallIT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractDeploymentAndCallIT.swift; sourceTree = "<group>"; };
 		584FAA67F0C1C9448CD094F8 /* RightZeroesPaddedBytesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightZeroesPaddedBytesTests.swift; sourceTree = "<group>"; };
 		584FAA96E69D042148CE79CE /* EthDirectTransactionBytesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthDirectTransactionBytesTests.swift; sourceTree = "<group>"; };
 		584FAABDE4B44E4D79747126 /* UTF8StringBytesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UTF8StringBytesTests.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 			children = (
 				584FAD5006DB62AA3B5BF1D0 /* EthTransactionBytesTests.swift */,
 				584FAA96E69D042148CE79CE /* EthDirectTransactionBytesTests.swift */,
+				584FA9D0D639D3F5E5025055 /* ContractDeploymentAndCallIT.swift */,
 			);
 			path = TransactionBytes;
 			sourceTree = "<group>";
@@ -980,6 +983,7 @@
 				584FA5983BEADC204550D6B2 /* EncodedContractTests.swift in Sources */,
 				584FA7C41200ACF7635B34F4 /* Tim.swift in Sources */,
 				584FAFDCB05D1C67298CA74A /* SimpleActor.swift in Sources */,
+				584FA659D7E3D235F107B30A /* ContractDeploymentAndCallIT.swift in Sources */,
 				584FA224DD79A59F68AFCD3E /* ComputedContractAddressTests.swift in Sources */,
 				584FA91C2284970D36822BF8 /* LastBytesTests.swift in Sources */,
 				584FA25884A8A5968AE8796C /* ContractCallProcedureTests.swift in Sources */,
