@@ -55,19 +55,21 @@ fileprivate final class DeployedGetterContractArgument: BytesScalar {
     data() method call from a deployed contract
     */
     func value() throws -> Data {
-        guard try SendRawTransactionProcedure(
-            network: network,
-            transactionBytes: EthContractCreationBytes(
+        guard try VerifiedProcedure(
+            origin: SendRawTransactionProcedure(
                 network: network,
-                senderKey: sender.privateKey(),
-                weiAmount: BigEndianCompactNumber(
-                    origin: BigEndianNumber(
-                        uint: UInt(0)
+                transactionBytes: EthContractCreationBytes(
+                    network: network,
+                    senderKey: sender.privateKey(),
+                    weiAmount: BigEndianCompactNumber(
+                        origin: BigEndianNumber(
+                            uint: UInt(0)
+                        )
+                    ),
+                    contractCall: EncodedContract(
+                        byteCode: contractCode,
+                        arguments: arguments
                     )
-                ),
-                contractCall: EncodedContract(
-                    byteCode: contractCode,
-                    arguments: arguments
                 )
             )
         ).call()["result"].string().isEmpty == false else {
@@ -75,25 +77,27 @@ fileprivate final class DeployedGetterContractArgument: BytesScalar {
         }
         return try BytesFromCompactHexString(
             hex: SimpleString(
-                string: ContractCallProcedure(
-                    network: network,
-                    contractAddress: ComputedContractAddress(
-                        ownerAddress: sender.address(),
-                        transactionNonce: BigEndianCompactNumber(
-                            origin: BigEndianNumber(
-                                uint: EthTransactions(
-                                    network: network,
-                                    address: sender.address(),
-                                    blockChainState: PendingBlockChainState()
-                                ).count().uint() - 1
+                string: VerifiedProcedure(
+                    origin: ContractCallProcedure(
+                        network: network,
+                        contractAddress: ComputedContractAddress(
+                            ownerAddress: sender.address(),
+                            transactionNonce: BigEndianCompactNumber(
+                                origin: BigEndianNumber(
+                                    uint: EthTransactions(
+                                        network: network,
+                                        address: sender.address(),
+                                        blockChainState: PendingBlockChainState()
+                                    ).count().uint() - 1
+                                )
                             )
-                        )
-                    ),
-                    functionCall: EncodedABIFunction(
-                        signature: SimpleString(
-                            string: "data()"
                         ),
-                        parameters: []
+                        functionCall: EncodedABIFunction(
+                            signature: SimpleString(
+                                string: "data()"
+                            ),
+                            parameters: []
+                        )
                     )
                 ).call()["result"].string()
             )
