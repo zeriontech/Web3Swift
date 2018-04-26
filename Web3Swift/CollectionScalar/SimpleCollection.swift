@@ -52,16 +52,6 @@ public final class SimpleCollection<T>: CollectionScalar<T> {
     }
 
     /**
-    Ctor
-
-    - parameters:
-        - collection: a generic collection of elements
-    */
-    public convenience init<C: Collection>(collection: C) where C.Element == T {
-        self.init(collection: { AnyCollection(collection) })
-    }
-
-    /**
     - returns:
     An `Array` representation of collection of elements
 

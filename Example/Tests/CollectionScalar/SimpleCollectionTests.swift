@@ -61,19 +61,4 @@ final class SimpleCollectionTests: XCTestCase {
         )
     }
 
-    func testDirectTypeErasedCollectionPersists() {
-        expect{
-            try SimpleCollection<Int>(
-                collection: AnyRandomAccessCollection(
-                    [1, 2, 3]
-                )
-            ).value()
-        }.to(
-            equal(
-                [1, 2, 3]
-            ),
-            description: "Collection from any collection with a matching type is expected to persist"
-        )
-    }
-
 }
