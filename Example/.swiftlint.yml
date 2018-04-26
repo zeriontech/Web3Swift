@@ -21,7 +21,7 @@ whitelist_rules:
   - empty_parentheses_with_trailing_closure
   # - explicit_acl
   - explicit_init
-  - explicit_type_interface
+  # - explicit_type_interface
   - fallthrough
   - fatal_error_message
   - file_length

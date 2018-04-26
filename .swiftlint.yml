@@ -144,6 +144,8 @@ explicit_init:
 
 explicit_type_interface:
   severity: error
+  excluded: 
+    - local
 
 fallthrough: 
   severity: error
