@@ -35,11 +35,19 @@ internal final class IndexOtOfBoundsError: DescribedError {
 
 }
 
+//Collection constrained in its size
 public final class SizeConstrainedCollection<T>: CollectionScalar<T> {
 
     private let origin: CollectionScalar<T>
     private let minimum: NumberScalar
 
+    /**
+    Ctor
+
+    - parameters:
+        - origin: origin to constraint in size
+        - minimum: minimum number of elements expected in the collection
+    */
     public init(
         origin: CollectionScalar<T>,
         minimum: NumberScalar
@@ -48,6 +56,13 @@ public final class SizeConstrainedCollection<T>: CollectionScalar<T> {
         self.minimum = minimum
     }
 
+    /**
+    Ctor
+
+    - parameters:
+        - origin: origin to constraint in size
+        - minimum: minimum number of elements expected in the collection
+    */
     public convenience init(
         origin: CollectionScalar<T>,
         minimum: UInt
@@ -60,6 +75,13 @@ public final class SizeConstrainedCollection<T>: CollectionScalar<T> {
         )
     }
 
+    /**
+    - returns:
+    A collection with a size of at least `minimum`
+
+    - throws:
+    `DescribedError` if something went wrong. I.e. if size of the collection was less than `minimum`.
+    */
     public override func value() throws -> [T] {
         let origin = try self.origin.value()
         let minimum = try self.minimum.uint()
