@@ -58,7 +58,7 @@ public final class SimpleCollection<T>: CollectionScalar<T> {
         - collection: a generic collection of elements
     */
     public convenience init<C: Collection>(collection: C) where C.Element == T {
-        self.init(collection: { AnyCollection<T>(collection) })
+        self.init(collection: { AnyCollection(collection) })
     }
 
     /**
