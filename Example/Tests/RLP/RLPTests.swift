@@ -151,7 +151,7 @@ final class RLPTests: XCTestCase {
             try SimpleRLP(
                 bytes: LeadingCompactBytes(
                     origin: IntegerBytes(
-                        uint: UInt(128).bigEndian
+                        uint: UInt(255).bigEndian
                     )
                 )
             ).value()
@@ -172,7 +172,7 @@ final class RLPTests: XCTestCase {
             try SimpleRLP(
                 bytes: LeadingCompactBytes(
                     origin: IntegerBytes(
-                        uint: UInt(128).bigEndian
+                        uint: UInt(256).bigEndian
                     )
                 )
             ).value()
