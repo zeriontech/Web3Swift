@@ -7,7 +7,7 @@ whitelist_rules:
   - closure_end_indentation
   - closure_parameter_position
   - closure_spacing
-  - colon
+  # - colon
   - comma
   - compiler_protocol_init
   - contains_over_first_not_nil
