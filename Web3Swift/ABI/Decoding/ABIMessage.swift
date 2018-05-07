@@ -51,7 +51,7 @@ public final class ABIMessage: CollectionScalar<BytesScalar> {
     - parameters:
         - message: concatenated string representation of bytes of the abi message
     */
-    convenience init(message: StringScalar) {
+    public convenience init(message: StringScalar) {
         self.init(
             message: BytesFromHexString(
                 hex: message
@@ -65,7 +65,7 @@ public final class ABIMessage: CollectionScalar<BytesScalar> {
     - parameters:
         - message: concatenated string representation of bytes of the abi message
     */
-    convenience init(message: String) {
+    public convenience init(message: String) {
         self.init(
             message: SimpleString(
                 string: message

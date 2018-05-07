@@ -28,7 +28,7 @@ public final class DecodedABIBoolean: BooleanScalar {
         - abiMessage: message where boolean is located
         - index: position of the boolean
     */
-    init(
+    public init(
         abiMessage: CollectionScalar<BytesScalar>,
         index: UInt
     ) {

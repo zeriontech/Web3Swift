@@ -28,7 +28,7 @@ public final class DecodedABIString: StringScalar {
         - abiMessage: message where string is located
         - index: position of the string
     */
-    init(
+    public init(
         abiMessage: CollectionScalar<BytesScalar>,
         index: UInt
     ) {
