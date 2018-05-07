@@ -20,7 +20,7 @@ class BytesParameterTests: XCTestCase {
         expect{
             try BytesParameter(
                 bytes: Alice().address()
-            ).value() as! String // swiftlint:disable:this force_cast
+            ).value() as? String
         }.to(
             equal(
                 Alice().rawAddress().lowercased()
@@ -34,7 +34,7 @@ class BytesParameterTests: XCTestCase {
         expect{
             try BytesParameter(
                 bytes: Bob().address()
-            ).value() as! String // swiftlint:disable:this force_cast
+            ).value() as? String
         }.to(
             equal(
                 Bob().rawAddress().lowercased()
@@ -48,7 +48,7 @@ class BytesParameterTests: XCTestCase {
         expect{
             try BytesParameter(
                 bytes: Bob().address()
-            ).value() as! String // swiftlint:disable:this force_cast
+            ).value() as? String
         }.notTo(
             equal(
                 Alice().rawAddress().lowercased()
