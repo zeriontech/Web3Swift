@@ -16,8 +16,27 @@ limitations under the License.
 
 import Foundation
 
-public protocol ABIArgument {
+//Hex of a Number
+public class NumberHex: BytesScalar {
 
-    func initialized(at offset: UInt) -> ABIEncodedParameter
+    private let number: NumberScalar
+
+    /**
+    Ctor
+
+    - parameters:
+        - number: number to take the hex from
+    */
+    init(number: NumberScalar) {
+        self.number = number
+    }
+
+    /**
+    - returns:
+    Hex of the number as `Data`
+    */
+    public func value() throws -> Data {
+        return try number.hex().value()
+    }
 
 }

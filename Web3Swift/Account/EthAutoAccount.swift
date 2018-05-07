@@ -61,7 +61,7 @@ public final class EthAutoAccount: Account {
                 hex: SimpleString(
                     string: SendRawTransactionProcedure(
                         network: network,
-                        transactionBytes: EthTransactionBytes(
+                        transactionBytes: EthDirectTransactionBytes(
                             network: network,
                             senderKey: privateKey,
                             recipientAddress: recipientAddress,

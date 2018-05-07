@@ -9,19 +9,30 @@
 //
 
 /// Female actor for testing
+import CryptoSwift
 import Foundation
 @testable import Web3Swift
 
 public final class Alice: Actor {
-    
-    public func address() -> BytesScalar {
-        return EthAddress(
-            hex: self.rawAddress()
+
+    private let origin = SimpleActor(
+        privateKey: EthPrivateKey(
+            bytes: BytesFromHexString(
+                hex: "0x1636e10756e62baabddd4364010444205f1216bdb1644ff8f776f6e2982aa9f5"
+            )
         )
+    )
+
+    public func privateKey() -> PrivateKey {
+        return origin.privateKey()
     }
 
-    func rawAddress() -> String {
-        return "0x0aD9Fb61a07BAC25625382B63693644497f1B204"
+    public func address() -> BytesScalar {
+        return origin.address()
+    }
+
+    public func rawAddress() -> String {
+        return origin.rawAddress()
     }
 
 }

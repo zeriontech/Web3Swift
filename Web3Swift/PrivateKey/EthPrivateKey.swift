@@ -97,17 +97,14 @@ public final class EthPrivateKey: PrivateKey {
     */
     public func address() throws -> BytesScalar {
         let publicKey = self.publicKey()
-        return SimpleBytes{
-            return try Data(
-                bytes: SHA3(
-                    variant: .keccak256
-                ).calculate(
-                    for: Array(
-                        publicKey.value()
-                    )
-                ).suffix(20)
-            )
-        }
+        return LastBytes(
+            origin: Keccak256Bytes(
+                origin: SimpleBytes{
+                    try publicKey.value()
+                }
+            ),
+            length: 20
+        )
     }
 
 }

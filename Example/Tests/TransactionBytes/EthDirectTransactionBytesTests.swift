@@ -8,18 +8,20 @@ import Nimble
 import Quick
 @testable import Web3Swift
 
-final class EthTransactionBytesIT: XCTestCase {
+final class EthDirectTransactionBytesTests: XCTestCase {
 
     func testStaticParametersAreSignedCorrectly() {
         expect{
-            try EthTransactionBytes(
+            try EthDirectTransactionBytes(
                 network: GanacheLocalNetwork(),
                 senderKey: EthPrivateKey(
                     bytes: BytesFromHexString(
                         hex: "0x1636e10756e62baabddd4364010444205f1216bdb1644ff8f776f6e2982aa9f5"
                     )
                 ),
-                recipientAddress: EthAddress(hex: "0xcD8aC90d9cc7e4c03430d58d2f3e87Dae70b807e"),
+                recipientAddress: EthAddress(
+                     hex: "0xcD8aC90d9cc7e4c03430d58d2f3e87Dae70b807e"
+                ),
                 weiAmount: BigEndianCompactNumber(
                     origin: BigEndianNumber(
                         uint: 100

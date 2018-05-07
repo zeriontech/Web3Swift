@@ -8,7 +8,7 @@ public final class RLPBytesAppendix: RLPAppendix {
 
     public func applying(to bytes: Data) throws -> Data {
         switch bytes.count {
-        case 1:
+        case 1 where try bytes.single() < 0x80:
             return bytes
         default:
             return try RLPStandardAppendix(

@@ -105,6 +105,90 @@ final class RLPTests: XCTestCase {
         )
     }
 
+    func test127() {
+        expect{
+            try SimpleRLP(
+                bytes: LeadingCompactBytes(
+                    origin: IntegerBytes(
+                        uint: UInt(127).bigEndian
+                    )
+                )
+            ).value()
+        }.to(
+            equal(
+                Data(
+                    bytes: [
+                        0x7f
+                    ]
+                )
+            )
+        )
+    }
+
+    func test128() {
+        expect{
+            try SimpleRLP(
+                bytes: LeadingCompactBytes(
+                    origin: IntegerBytes(
+                        uint: UInt(128).bigEndian
+                    )
+                )
+            ).value()
+        }.to(
+            equal(
+                Data(
+                    bytes: [
+                        0x81,
+                        0x80
+                    ]
+                )
+            )
+        )
+    }
+
+    func test255() {
+        expect{
+            try SimpleRLP(
+                bytes: LeadingCompactBytes(
+                    origin: IntegerBytes(
+                        uint: UInt(255).bigEndian
+                    )
+                )
+            ).value()
+        }.to(
+            equal(
+                Data(
+                    bytes: [
+                        0x81,
+                        0xff
+                    ]
+                )
+            )
+        )
+    }
+
+    func test256() {
+        expect{
+            try SimpleRLP(
+                bytes: LeadingCompactBytes(
+                    origin: IntegerBytes(
+                        uint: UInt(256).bigEndian
+                    )
+                )
+            ).value()
+        }.to(
+            equal(
+                Data(
+                    bytes: [
+                        0x82,
+                        0x01,
+                        0x00
+                    ]
+                )
+            )
+        )
+    }
+
     func test1024() {
         expect{
             try SimpleRLP(
