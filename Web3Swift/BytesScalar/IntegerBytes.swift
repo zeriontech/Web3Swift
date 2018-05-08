@@ -14,7 +14,7 @@ public final class IntegerBytes: BytesScalar {
     - parameters:
         - uint: an integer for which to get bytes. Endiannes should be specified in advanced.
     */
-    init(uint: UInt) {
+    public init(uint: UInt) {
         self.uint = uint
     }
 

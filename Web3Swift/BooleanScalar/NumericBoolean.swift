@@ -19,11 +19,11 @@ import Foundation
 internal final class NotANumericBooleanError: DescribedError {
 
     private let number: UInt
-    init(number: UInt) {
+    public init(number: UInt) {
         self.number = number
     }
 
-    var description: String {
+    internal var description: String {
         return "Numeric value \(number) does not represent a boolean. 0 or 1 was expected."
     }
 

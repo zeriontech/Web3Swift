@@ -30,7 +30,7 @@ internal final class JSONRPCErrorCode {
     - parameters:
         - code: code of the error
     */
-    init(code: Int) {
+    public init(code: Int) {
         self.code = code
     }
 
@@ -72,7 +72,7 @@ internal final class JSONError: DescribedError {
     - parameters:
         - error: json of a failing response
     */
-    init(error: JSON) {
+    public init(error: JSON) {
         self.error = error
     }
 
@@ -81,7 +81,7 @@ internal final class JSONError: DescribedError {
     - returns:
     Detailed description of a json rpc error
     */
-    var description: String {
+    internal var description: String {
         if let message = error["error"]["message"].string {
             return [
                 "Code: \(JSONRPCErrorCode(code: error["error"]["code"].int ?? 0).value()), ",

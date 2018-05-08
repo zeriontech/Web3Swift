@@ -9,12 +9,12 @@ internal final class IntegerBytesOverflowError: DescribedError {
 
     private let bytes: Data
     private let sizeLimit: Int
-    init(bytes: Data, sizeLimit: Int) {
+    public init(bytes: Data, sizeLimit: Int) {
         self.bytes = bytes
         self.sizeLimit = sizeLimit
     }
 
-    var description: String {
+    internal var description: String {
         return "Integer with hex representation \(bytes.toHexString()) exceeds maximum size \(sizeLimit) by \(bytes.count - sizeLimit)"
     }
 
@@ -31,7 +31,7 @@ public final class BigEndianNumber: NumberScalar {
     - parameters:
         - bytes: bytes representation of a big endian number
     */
-    init(bytes: BytesScalar) {
+    public init(bytes: BytesScalar) {
         self.bytes = bytes
     }
 
@@ -41,7 +41,7 @@ public final class BigEndianNumber: NumberScalar {
     - parameters:
         - uint: integer representation of a big endian number
     */
-    convenience init(uint: UInt) {
+    public convenience init(uint: UInt) {
         self.init(
             bytes: IntegerBytes(
                 uint: uint.bigEndian
@@ -55,7 +55,7 @@ public final class BigEndianNumber: NumberScalar {
     - parameters:
         - hex: hexadecimal string representation of a big endian number. Must not be ambiguous.
     */
-    convenience init(hex: StringScalar) {
+    public convenience init(hex: StringScalar) {
         self.init(
             bytes: BytesFromHexString(
                 hex: hex

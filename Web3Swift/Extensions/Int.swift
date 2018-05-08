@@ -6,7 +6,7 @@ import Foundation
 
 extension Int {
 
-    func unsignedByteWidth() -> Int {
+    internal func unsignedByteWidth() -> Int {
         return (self.bitWidth - self.leadingZeroBitCount - 1).unsafeDivided(by: 8) + 1
     }
 
@@ -16,7 +16,7 @@ extension Int {
     - returns:
     true if even, false if odd
     */
-    func isEven() -> Bool {
+    internal func isEven() -> Bool {
         return self % 2 == 0
     }
 

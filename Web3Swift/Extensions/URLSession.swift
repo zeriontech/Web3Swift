@@ -18,7 +18,7 @@ fileprivate class UnknownURLSessionError: DescribedError {
 
 extension URLSession {
 
-    func data(from request: URLRequest) throws -> Data {
+    public func data(from request: URLRequest) throws -> Data {
         var data: Data? = nil
         var error: Error? = nil
         let semaphore: DispatchSemaphore = DispatchSemaphore(value: 0)

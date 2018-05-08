@@ -9,7 +9,7 @@ public final class GethNetwork: Network {
     - parameters:
         - url: url for accessing JSON RPC
     */
-    init(url: String) {
+    public init(url: String) {
         self.origin = EthNetwork(
             session: URLSession(configuration: URLSessionConfiguration.default),
             url: url,

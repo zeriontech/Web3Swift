@@ -27,7 +27,7 @@ public class NumberHex: BytesScalar {
     - parameters:
         - number: number to take the hex from
     */
-    init(number: NumberScalar) {
+    public init(number: NumberScalar) {
         self.number = number
     }
 

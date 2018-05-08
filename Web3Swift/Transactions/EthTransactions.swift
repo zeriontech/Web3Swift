@@ -8,7 +8,7 @@ import SwiftyJSON
 public final class EthTransactions: Transactions {
 
     private let procedure: RemoteProcedure
-    init(network: Network, address: BytesScalar, blockChainState: BlockChainState) {
+    public init(network: Network, address: BytesScalar, blockChainState: BlockChainState) {
         self.procedure = GetTransactionsCountProcedure(
             network: network,
             address: address,

@@ -32,7 +32,7 @@ public final class FixedLengthBytes: BytesScalar {
         - origin: bytes to be evaluated
         - length: expected length
     */
-    init(origin: BytesScalar, length: UInt) {
+    public init(origin: BytesScalar, length: UInt) {
         self.origin = origin
         self.length = length
     }

@@ -29,7 +29,7 @@ public final class RightZeroesPaddedBytes: BytesScalar {
         - origin: bytes to pad
         - padding: size to which to pad to
     */
-    init(
+    public init(
         origin: BytesScalar,
         padding: UInt
     ) {

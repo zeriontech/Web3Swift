@@ -11,7 +11,7 @@ public final class RandomNonce: Entropy {
 
     private let size: Int
 
-    init(size: UInt) {
+    public init(size: UInt) {
         self.size = Int(size)
     }
 

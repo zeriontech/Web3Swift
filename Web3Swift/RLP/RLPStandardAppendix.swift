@@ -9,11 +9,11 @@ public final class BytesLengthOverflow: Swift.Error { }
 internal final class RLPStandardAppendix: RLPAppendix {
 
     private let offset: UInt8
-    init(offset: UInt8) {
+    public init(offset: UInt8) {
         self.offset = offset
     }
 
-    func applying(to bytes: Data) throws -> Data {
+    internal func applying(to bytes: Data) throws -> Data {
         switch bytes.count {
         case 0...55:
             return Data(

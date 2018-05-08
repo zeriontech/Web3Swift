@@ -26,7 +26,7 @@ public final class ABIVariableBytes: ABIEncodedParameter {
     - parameters:
         - origin: bytes to be encoded
     */
-    init(origin: BytesScalar) {
+    public init(origin: BytesScalar) {
         self.origin = origin
     }
 

@@ -8,11 +8,11 @@ import Foundation
 internal final class AmbiguousHexStringError: DescribedError {
 
     private let hex: String
-    init(hex: String) {
+    public init(hex: String) {
         self.hex = hex
     }
 
-    var description: String {
+    internal var description: String {
         return "Hex string \(hex) length \(hex.count) is not even"
     }
 
@@ -44,7 +44,7 @@ public final class HexString: StringScalar {
     - parameters:
         - hex: a string describing a hexadecimal
     */
-    init(hex: StringScalar) {
+    public init(hex: StringScalar) {
         self.hex = hex
     }
 
@@ -54,7 +54,7 @@ public final class HexString: StringScalar {
     - parameters:
         - hex: a string describing a hexadecimal
     */
-    convenience init(hex: String) {
+    public convenience init(hex: String) {
         self.init(
             hex: SimpleString(
                 string: hex

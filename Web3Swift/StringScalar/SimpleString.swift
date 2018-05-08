@@ -15,7 +15,7 @@ public final class SimpleString: StringScalar {
     - parameters:
         - computation: computation that produces a `String` representation of a string
     */
-    init(computation: @escaping () throws -> (String)) {
+    public init(computation: @escaping () throws -> (String)) {
         self.computation = computation
     }
 
@@ -25,7 +25,7 @@ public final class SimpleString: StringScalar {
     - parameters:
         - string: `String` to be wrapped into scalar
     */
-    convenience init(string: String) {
+    public convenience init(string: String) {
         self.init(computation: { string })
     }
 

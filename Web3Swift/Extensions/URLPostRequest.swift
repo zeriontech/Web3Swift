@@ -5,18 +5,18 @@
 import Foundation
 
 //FIXME: Init should throw since URLRequest is actually HTTPURLRequest
-public final class URLPostRequest {
+internal final class URLPostRequest {
 
     private let url: URL
     private let body: Data
     private let headers: Dictionary<String, String>
-    init(url: URL, body: Data, headers: Dictionary<String, String>) {
+    internal init(url: URL, body: Data, headers: Dictionary<String, String>) {
         self.url = url
         self.body = body
         self.headers = headers
     }
 
-    func toURLRequest() -> URLRequest {
+    internal func toURLRequest() -> URLRequest {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.httpBody = body

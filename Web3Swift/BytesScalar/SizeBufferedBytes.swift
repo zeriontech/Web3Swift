@@ -44,7 +44,7 @@ public final class SizeBufferedBytes: CollectionScalar<BytesScalar> {
         - origin: origin to buffer
         - size: maximum size of each element
     */
-    convenience init(
+    public convenience init(
         origin: BytesScalar,
         size: UInt
     ) {

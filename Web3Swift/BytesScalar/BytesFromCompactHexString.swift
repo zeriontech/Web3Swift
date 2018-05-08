@@ -15,7 +15,7 @@ public final class BytesFromCompactHexString: BytesScalar {
     - parameters:
         - hex: hex string representation of the bytes. A leading zero is added if string representation is a valid hex of odd length.
     */
-    init(hex: StringScalar) {
+    public init(hex: StringScalar) {
         self.hex = hex
     }
 

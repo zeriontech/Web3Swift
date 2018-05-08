@@ -15,7 +15,7 @@ public final class ConcatenatedBytes: BytesScalar {
     - parameters
         - bytes: a collection of bytes to be concatenated
     */
-    init(bytes: CollectionScalar<BytesScalar>) {
+    public init(bytes: CollectionScalar<BytesScalar>) {
         self.bytes = bytes
     }
 
@@ -25,7 +25,7 @@ public final class ConcatenatedBytes: BytesScalar {
     - parameters
         - bytes: a collection of bytes to be concatenated
     */
-    convenience init(bytes: [BytesScalar]) {
+    public convenience init(bytes: [BytesScalar]) {
         self.init(bytes: SimpleCollection(collection: bytes))
     }
 

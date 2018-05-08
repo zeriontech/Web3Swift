@@ -15,7 +15,7 @@ public final class HexPrefixedString: StringScalar {
     - parameters:
         - origin: string to be prefixed
     */
-    init(origin: StringScalar) {
+    public init(origin: StringScalar) {
         self.origin = PrefixedString(
             origin: origin,
             prefix: HexPrefix()

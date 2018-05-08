@@ -78,7 +78,7 @@ public final class SECP256k1Signature: ECRecoverableSignature {
             - message: message as fined in ecdsa
             - hashFunction: hashing function that is used to compute message hash
     */
-    init(
+    public init(
         privateKey: PrivateKey,
         message: BytesScalar,
         hashFunction: @escaping (Array<UInt8>) -> (Array<UInt8>)

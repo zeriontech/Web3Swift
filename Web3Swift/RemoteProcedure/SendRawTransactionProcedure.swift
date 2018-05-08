@@ -18,7 +18,7 @@ public final class SendRawTransactionProcedure: RemoteProcedure {
         - network: network where to deploy transaction
         - transactionBytes: bytes of the transaction to be deployed
     */
-    init(
+    public init(
         network: Network,
         transactionBytes: BytesScalar
     ) {

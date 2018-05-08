@@ -5,7 +5,7 @@ internal final class IncorrectUrlStringError: DescribedError {
 
     private let url: String
 
-    init(url: String) {
+    public init(url: String) {
         self.url = url
     }
 
@@ -18,11 +18,11 @@ internal final class IncorrectUrlStringError: DescribedError {
 internal final class InvalidIDResponseError: DescribedError {
 
     private let response: String
-    init(response: String) {
+    public init(response: String) {
         self.response = response
     }
 
-    var description: String {
+    internal var description: String {
         return "net_version call was expected to return \"result\" as decimal in a string but it was \(response)"
     }
 
@@ -34,7 +34,7 @@ public class EthNetwork: Network {
     private let url: String
     private let headers: Dictionary<String, String>
     
-    init(session: URLSession, url: String, headers: Dictionary<String, String>) {
+    public init(session: URLSession, url: String, headers: Dictionary<String, String>) {
         self.session = session
         self.url = url
         self.headers = headers

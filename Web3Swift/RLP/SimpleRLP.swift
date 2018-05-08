@@ -14,14 +14,14 @@ public final class SimpleRLP: RLP {
         self.appendix = appendix
     }
 
-    convenience init(bytes: BytesScalar) {
+    public convenience init(bytes: BytesScalar) {
         self.init(
             bytes: bytes,
             appendix: RLPBytesAppendix()
         )
     }
 
-    convenience init(bytes: Data) {
+    public convenience init(bytes: Data) {
         self.init(
             bytes: SimpleBytes(
                 bytes: bytes
@@ -29,7 +29,7 @@ public final class SimpleRLP: RLP {
         )
     }
 
-    convenience init(bytes: Array<UInt8>) {
+    public convenience init(bytes: Array<UInt8>) {
         self.init(
             bytes: SimpleBytes(
                 bytes: bytes
@@ -37,7 +37,7 @@ public final class SimpleRLP: RLP {
         )
     }
 
-    convenience init(rlps: [RLP]) {
+    public convenience init(rlps: [RLP]) {
         self.init(
             bytes: ConcatenatedBytes(bytes: rlps),
             appendix: RLPCollectionAppendix()

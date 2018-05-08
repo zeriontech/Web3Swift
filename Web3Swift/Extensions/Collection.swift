@@ -7,11 +7,11 @@ import Foundation
 internal final class IncorrectNumberOfElementsError: DescribedError {
 
     private let collection: AnyCollection<Any>
-    init<T>(collection: AnyCollection<T>) {
+    public init<T>(collection: AnyCollection<T>) {
         self.collection = AnyCollection<Any>(collection.map{ $0 as Any })
     }
 
-    var description: String {
+    internal var description: String {
         return "Collection was expected to have 1 element but had \(collection.count)"
     }
 

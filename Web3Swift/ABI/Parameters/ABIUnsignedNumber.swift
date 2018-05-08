@@ -27,7 +27,7 @@ public final class ABIUnsignedNumber: ABIEncodedParameter {
     - parameters:
         - origin: number to encode
     */
-    init(origin: NumberScalar) {
+    public init(origin: NumberScalar) {
         self.origin = ABIFixedBytes(
             origin: LeftZeroesPaddedBytes(
                 origin: SimpleBytes{

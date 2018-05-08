@@ -27,7 +27,7 @@ public final class SimpleBoolean: BooleanScalar {
     - parameters:
         - bool: a closure that represents of a bool
     */
-    init(bool: @escaping () throws -> (Bool)) {
+    public init(bool: @escaping () throws -> (Bool)) {
         self.bool = bool
     }
 
@@ -37,7 +37,7 @@ public final class SimpleBoolean: BooleanScalar {
     - parameters:
         - bool: just a boolean value
     */
-    convenience init(bool: Bool) {
+    public convenience init(bool: Bool) {
         self.init(bool: { bool })
     }
 

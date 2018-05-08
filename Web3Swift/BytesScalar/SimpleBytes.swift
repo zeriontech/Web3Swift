@@ -16,7 +16,7 @@ public final class SimpleBytes: BytesScalar {
     - parameters:
         - valueComputation: closure which returns bytes as `Data`
     */
-    init(valueComputation: @escaping () throws -> (Data)) {
+    public init(valueComputation: @escaping () throws -> (Data)) {
         self.valueComputation = valueComputation
     }
 
@@ -26,7 +26,7 @@ public final class SimpleBytes: BytesScalar {
     - parameters:
         - bytes: bytes as `Data` to be wrapped into scalar
     */
-    convenience init(bytes: Data) {
+    public convenience init(bytes: Data) {
         self.init(valueComputation: { bytes })
     }
 
@@ -36,7 +36,7 @@ public final class SimpleBytes: BytesScalar {
     - parameters:
         - bytes: bytes as `Array<UInt8>` to be wrapped into scalar
     */
-    convenience init(bytes: Array<UInt8>) {
+    public convenience init(bytes: Array<UInt8>) {
         self.init(valueComputation: { Data(bytes: bytes) })
     }
 

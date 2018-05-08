@@ -15,7 +15,7 @@ public final class UnprefixedHexString: StringScalar {
     - parameters:
         - hex: a string describing a hexadecimal
     */
-    init(hex: StringScalar) {
+    public init(hex: StringScalar) {
         self.hex = TrimmedPrefixString(
             string: HexString(hex: hex),
             prefix: HexPrefix()
@@ -28,7 +28,7 @@ public final class UnprefixedHexString: StringScalar {
     - parameters:
         - bytes: bytes of a hexadecimal
     */
-    convenience init(bytes: BytesScalar) {
+    public convenience init(bytes: BytesScalar) {
         self.init(
             hex: SimpleString{
                 try bytes.value().toHexString()

@@ -18,7 +18,7 @@ public final class EthAutoAccount: Account {
         - network: network to work with
         - privateKey: private key associated with the account
     */
-    init(
+    public init(
         network: Network,
         privateKey: PrivateKey
     ) {

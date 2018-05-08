@@ -11,7 +11,7 @@ public class GetTransactionsCountProcedure: RemoteProcedure {
     private var address: BytesScalar
     private var blockChainState: BlockChainState
 
-    init(network: Network, address: BytesScalar, blockChainState: BlockChainState) {
+    public init(network: Network, address: BytesScalar, blockChainState: BlockChainState) {
         self.network = network
         self.address = address
         self.blockChainState = blockChainState

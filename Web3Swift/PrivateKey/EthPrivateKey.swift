@@ -8,7 +8,7 @@ import secp256k1_ios
 
 private final class InvalidPrivateKeyError: DescribedError {
 
-    var description: String {
+    internal var description: String {
         return "Private key was incorrect"
     }
 
@@ -16,7 +16,7 @@ private final class InvalidPrivateKeyError: DescribedError {
 
 private final class PublicKeySerializationError: DescribedError {
 
-    var description: String {
+    internal var description: String {
         return "Could not serialize public key for unknown reason"
     }
 
@@ -33,7 +33,7 @@ public final class EthPrivateKey: PrivateKey {
     - parameters:
         - bytes: 32 bytes representation of the private key
     */
-    init(bytes: BytesScalar) {
+    public init(bytes: BytesScalar) {
         self.bytes = FixedLengthBytes(
             origin: bytes,
             length: 32

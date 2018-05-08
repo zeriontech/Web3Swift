@@ -14,7 +14,7 @@ public final class BytesParameter: EthParameter {
     - parameters:
         - bytes: unstructed data to be passed to network
     */
-    init(bytes: BytesScalar) {
+    public init(bytes: BytesScalar) {
         self.bytes = bytes
     }
 

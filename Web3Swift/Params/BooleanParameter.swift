@@ -4,7 +4,7 @@ public final class BooleanParameter: EthParameter {
     
     private var param: Bool
     
-    init(value: Bool) {
+    public init(value: Bool) {
         self.param = value
     }
 

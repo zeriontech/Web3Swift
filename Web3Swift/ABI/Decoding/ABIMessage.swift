@@ -27,7 +27,7 @@ public final class ABIMessage: CollectionScalar<BytesScalar> {
     - parameters:
         - message: concatenated bytes of the abi message
     */
-    init(message: BytesScalar) {
+    public init(message: BytesScalar) {
         self.message = SizeConstrainedCollection(
             origin: MappedCollection(
                 origin: SizeBufferedBytes(

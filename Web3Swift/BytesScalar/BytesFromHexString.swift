@@ -16,7 +16,7 @@ public final class BytesFromHexString: BytesScalar {
     - parameters:
         - hex: `StringScalar` representing bytes in hex format
     */
-    init(hex: StringScalar) {
+    public init(hex: StringScalar) {
         self.hex = HexString(hex: hex)
     }
 
@@ -26,7 +26,7 @@ public final class BytesFromHexString: BytesScalar {
     - parameters:
         - hex: `String` representing bytes in hex format
     */
-    convenience init(hex: String) {
+    public convenience init(hex: String) {
         self.init(
             hex: SimpleString(
                 string: hex

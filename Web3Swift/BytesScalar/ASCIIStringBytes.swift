@@ -19,11 +19,11 @@ import Foundation
 internal final class NotAnASCIIScalarError: DescribedError {
 
     private let scalar: Unicode.Scalar
-    init(scalar: Unicode.Scalar) {
+    public init(scalar: Unicode.Scalar) {
         self.scalar = scalar
     }
 
-    var description: String {
+    internal var description: String {
         return "Scalar \(scalar.description) is not an ASCII"
     }
 

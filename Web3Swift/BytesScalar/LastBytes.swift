@@ -44,7 +44,7 @@ final public class LastBytes: BytesScalar {
         - origin: bytes to take suffix of
         - length: maximum length of the suffix
     */
-    convenience init(
+    public convenience init(
         origin: BytesScalar,
         length: UInt
     ) {

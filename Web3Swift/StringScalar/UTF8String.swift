@@ -20,11 +20,11 @@ import Foundation
 internal final class NotUTF8BytesError: DescribedError {
 
     private let bytes: Data
-    init(bytes: Data) {
+    public init(bytes: Data) {
         self.bytes = bytes
     }
 
-    var description: String {
+    internal var description: String {
         return "Bytes 0x\(bytes.toHexString()) do not produce a valid utf8 string"
     }
 

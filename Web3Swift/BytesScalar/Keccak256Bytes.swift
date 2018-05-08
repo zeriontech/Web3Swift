@@ -28,7 +28,7 @@ public final class Keccak256Bytes: BytesScalar {
     - parameters:
         - origin: bytes to digest
     */
-    init(origin: BytesScalar) {
+    public init(origin: BytesScalar) {
         self.origin = origin
     }
 

@@ -15,7 +15,7 @@ public final class EthGasPrice: NumberScalar {
     - parameters:
         - network: network to ask for gas price
     */
-    init(network: Network) {
+    public init(network: Network) {
         self.value = BigEndianCompactNumber(
             hex: SimpleString{
                 try GetGasPriceProcedure(

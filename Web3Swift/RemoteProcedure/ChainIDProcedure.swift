@@ -19,7 +19,7 @@ public final class ChainIDProcedure: RemoteProcedure {
     - parameters:
         - network: network to ask for identifier
     */
-    init(network: Network) {
+    public init(network: Network) {
         self.network = network
     }
 

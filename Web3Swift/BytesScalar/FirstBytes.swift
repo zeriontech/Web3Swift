@@ -44,7 +44,7 @@ final public class FirstBytes: BytesScalar {
         - origin: bytes to take prefix of
         - length: maximum length of the prefix
     */
-    convenience init(
+    public convenience init(
         origin: BytesScalar,
         length: UInt
     ) {

@@ -18,7 +18,7 @@ public final class TransactionProcedure: RemoteProcedure {
         - network: network to ask for transaction
         - transactionHash: hash of the raw transaction
     */
-    init(
+    public init(
         network: Network,
         transactionHash: BytesScalar
     ) {

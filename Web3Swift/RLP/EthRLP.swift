@@ -20,7 +20,7 @@ public final class EthRLP: RLP {
     - parameters: 
         - number: number to be encoded
     */
-    init(number: NumberScalar) {
+    public init(number: NumberScalar) {
         self.number = number
     }
 

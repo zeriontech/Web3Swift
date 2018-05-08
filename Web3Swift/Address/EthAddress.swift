@@ -16,7 +16,7 @@ public final class EthAddress: BytesScalar {
     - parameters:
         - bytes: `BytesScalar` with a `value` count of 20
     */
-    init(bytes: BytesScalar) {
+    public init(bytes: BytesScalar) {
         self.bytes = FixedLengthBytes(
             origin: bytes,
             length: 20
@@ -29,7 +29,7 @@ public final class EthAddress: BytesScalar {
     - parameters:
         - hex: `StringScalar` representing bytes of the address in hex format
     */
-    convenience init(hex: StringScalar) {
+    public convenience init(hex: StringScalar) {
         self.init(
             bytes: BytesFromHexString(
                 hex: hex
@@ -43,7 +43,7 @@ public final class EthAddress: BytesScalar {
     - parameters:
         - hex: `String` representing bytes of the address in hex format
     */
-    convenience init(hex: String) {
+    public convenience init(hex: String) {
         self.init(
             hex: SimpleString{
                 hex

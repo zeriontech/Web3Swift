@@ -5,7 +5,7 @@ public final class TagParameter: EthParameter {
     
     private var state: BlockChainState
     
-    init(state: BlockChainState) {
+    public init(state: BlockChainState) {
         self.state = state
     }
 

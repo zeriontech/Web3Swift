@@ -17,7 +17,7 @@ public final class PrefixedString: StringScalar {
         - origin: origin to be prefixed
         - prefix: prefix to persist
     */
-    init(
+    public init(
         origin: StringScalar,
         prefix: StringScalar
     ) {

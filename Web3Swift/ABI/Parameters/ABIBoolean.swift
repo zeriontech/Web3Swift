@@ -27,7 +27,7 @@ public final class ABIBoolean: ABIEncodedParameter {
     - parameters:
         - origin: `Bool` representation of a boolean value
     */
-    init(origin: Bool) {
+    public init(origin: Bool) {
         self.origin = ABIFixedBytes(
             origin: LeftZeroesPaddedBytes(
                 origin: SimpleBytes{

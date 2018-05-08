@@ -15,7 +15,7 @@ public final class BigEndianCompactNumber: NumberScalar {
     - parameters:
         - origin: number for compact representation
     */
-    init(origin: NumberScalar) {
+    public init(origin: NumberScalar) {
         self.origin = origin
     }
 
@@ -25,7 +25,7 @@ public final class BigEndianCompactNumber: NumberScalar {
     - parameters:
         - hex: compact string representation of the number. A leading zero is added if string representation is a valid hex of odd length.
     */
-    convenience init(hex: StringScalar) {
+    public convenience init(hex: StringScalar) {
         self.init(
             origin: BigEndianNumber(
                 bytes: BytesFromCompactHexString(
@@ -41,7 +41,7 @@ public final class BigEndianCompactNumber: NumberScalar {
     - parameters:
         - hex: compact string representation of the number. A leading zero is added if string representation is a valid hex of odd length.
     */
-    convenience init(hex: String) {
+    public convenience init(hex: String) {
         self.init(
             hex: SimpleString{ hex }
         )

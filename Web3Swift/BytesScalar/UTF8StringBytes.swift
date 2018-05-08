@@ -15,7 +15,7 @@ public final class UTF8StringBytes: BytesScalar {
     - parameters:
         - string: string to be evaluated for bytes
     */
-    init(string: StringScalar) {
+    public init(string: StringScalar) {
         self.string = string
     }
 
@@ -25,7 +25,7 @@ public final class UTF8StringBytes: BytesScalar {
     - parameters:
         - string: string to be evaluated for bytes
     */
-    convenience init(string: String) {
+    public convenience init(string: String) {
         self.init(
             string: SimpleString{ string }
         )

@@ -29,7 +29,7 @@ public final class EncodedContract: BytesScalar {
         - bytesCode: bytes code of the contract
         - arguments: arguments of the contract ctor
     */
-    init(
+    public init(
         byteCode: BytesScalar,
         arguments: [ABIEncodedParameter]
     ) {

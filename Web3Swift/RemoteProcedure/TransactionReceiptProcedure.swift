@@ -18,7 +18,7 @@ public final class TransactionReceiptProcedure: RemoteProcedure {
         - network: network to ask for receipt
         - id: id of a receipt
     */
-    init(network: Network, transactionHash: BytesScalar) {
+    public init(network: Network, transactionHash: BytesScalar) {
         self.network = network
         self.transactionHash = transactionHash
     }

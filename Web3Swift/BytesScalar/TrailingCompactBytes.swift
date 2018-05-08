@@ -26,7 +26,7 @@ public final class TrailingCompactBytes: BytesScalar {
     - parameters:
         - origin: bytes to be compacted
     */
-    init(origin: BytesScalar) {
+    public init(origin: BytesScalar) {
         self.compactOrigin = ReversedBytes(
             origin: LeadingCompactBytes(
                 origin: ReversedBytes(

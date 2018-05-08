@@ -14,7 +14,7 @@ public final class LeadingCompactBytes: BytesScalar {
     - parameters:
         - origin: bytes to be compacted
     */
-    init(origin: BytesScalar) {
+    public init(origin: BytesScalar) {
         self.origin = origin
     }
 

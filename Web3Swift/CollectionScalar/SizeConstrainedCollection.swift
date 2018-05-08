@@ -21,7 +21,7 @@ internal final class IndexOtOfBoundsError: DescribedError {
     private let collectionSize: UInt
     private let index: UInt
 
-    init(
+    public init(
         collectionSize: UInt,
         index: UInt
     ) {

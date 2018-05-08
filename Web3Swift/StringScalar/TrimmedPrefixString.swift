@@ -17,7 +17,7 @@ public final class TrimmedPrefixString: StringScalar {
         - string: string to trim
         - prefix: prefix to search and trim
     */
-    init(string: StringScalar, prefix: StringScalar) {
+    public init(string: StringScalar, prefix: StringScalar) {
         self.string = string
         self.prefix = prefix
     }
