@@ -3,14 +3,14 @@ import Foundation
 //A network of go ethereum implementation
 public final class GethNetwork: Network {
     
-    private let origin: SimpleNetwork
+    private let origin: EthNetwork
 
     /**
     - parameters:
         - url: url for accessing JSON RPC
     */
     init(url: String) {
-        self.origin = SimpleNetwork(
+        self.origin = EthNetwork(
             session: URLSession(configuration: URLSessionConfiguration.default),
             url: url,
             headers: [

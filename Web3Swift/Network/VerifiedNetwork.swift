@@ -15,38 +15,34 @@ limitations under the License.
 */
 
 import Foundation
+import SwiftyJSON
 
-//Anonymous network
-public final class SimpleNetwork: Network {
+//Network with an error verified call
+public final class VerifiedNetwork: Network {
 
-    private let identifier: () throws -> (NumberScalar)
-    private let response: (String, [EthParameter]) throws -> (Data)
+    private let origin: Network
 
     /**
     Ctor
 
     - parameters:
-        - id: closure representation of the id of the network
-        - call: closure representation of the call response
+        - origin: network to verify
     */
-    public init(
-        id: @escaping () throws -> (NumberScalar),
-        call: @escaping (String, [EthParameter]) throws -> (Data)
-    ) {
-        self.identifier = id
-        self.response = call
+    public init(origin: Network) {
+        self.origin = origin
     }
 
     /**
     - returns:
-    id of the network
+    id of a network
 
     - throws:
     `DescribedError` if something went wrong
     */
     public func id() throws -> NumberScalar {
-        return try self.identifier()
+        return try origin.id()
     }
+
 
     /**
     - returns:
@@ -56,10 +52,16 @@ public final class SimpleNetwork: Network {
     `DescribedError` if something went wrong
     */
     public func call(method: String, params: Array<EthParameter>) throws -> Data {
-        return try self.response(
-            method,
-            params
-        )
+        return try VerifiedProcedure(
+            origin: SimpleProcedure(
+                json: JSON(
+                    origin.call(
+                        method: method,
+                        params: params
+                    )
+                )
+            )
+        ).call().rawData()
     }
 
 }

@@ -19,24 +19,29 @@ import Quick
 import SwiftyJSON
 @testable import Web3Swift
 
-final class VerifiedProcedureTests: XCTestCase {
+final class VerifiedNetworkTests: XCTestCase {
 
     func testThrowsWhenNoResultIsPresent() {
         let errorMessage = "mistakes were made"
         let errorData = "42"
         expect{
-            try VerifiedProcedure(
-                origin: SimpleProcedure(
-                    json: JSON(
-                        [
-                            "error" : [
-                                "message" : errorMessage,
-                                "data" : errorData
+            try VerifiedNetwork(
+                origin: SimpleNetwork(
+                    id: {
+                        fatalError("id is irrelevant in this test")
+                    },
+                    call: { _, _ in
+                        return try JSON(
+                            [
+                                "error" : [
+                                    "message" : errorMessage,
+                                    "data" : errorData
+                                ]
                             ]
-                        ]
-                    )
+                        ).rawData()
+                    }
                 )
-            ).call()
+            ).call(method: "method is irrelevant in this test", params: [])
         }.to(
             throwError(
                 errorType: JSONError.self,
@@ -58,18 +63,23 @@ final class VerifiedProcedureTests: XCTestCase {
 
     func testDoesntThrowWhenResultIsPresent() {
         expect{
-            try VerifiedProcedure(
-                origin: SimpleProcedure(
-                    json: JSON(
-                        [
-                            "error" : [
-                                "message" : "mistakes were made"
-                            ],
-                            "result" : "doesn't throw"
-                        ]
-                    )
+            try VerifiedNetwork(
+                origin: SimpleNetwork(
+                    id: {
+                        fatalError("id is irrelevant in this test")
+                    },
+                    call: { _, _ in
+                        return try JSON(
+                            [
+                                "error" : [
+                                    "message" : "mistakes were made"
+                                ],
+                                "result" : "doesn't throw"
+                            ]
+                        ).rawData()
+                    }
                 )
-            ).call()
+            ).call(method: "method is irrelevant in this test", params: [])
         }.toNot(
             throwError(),
             description: "Verified procedure is expected to not throw error when \"result\" is present"
