@@ -1,9 +1,11 @@
 //
-//  URLSession.swift
-//  Web3Swift_Tests
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
 //
-//  Created by Timofey on 12/21/17.
-//  Copyright © 2017 CocoaPods. All rights reserved.
+// URLSession.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Foundation

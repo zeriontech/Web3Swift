@@ -1,6 +1,11 @@
 //
-// Created by Timofey on 3/20/18.
-// Copyright (c) 2018 CocoaPods. All rights reserved.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// EthAutoAccountIT.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Nimble
