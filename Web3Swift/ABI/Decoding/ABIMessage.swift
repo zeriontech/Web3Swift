@@ -10,7 +10,7 @@
 
 import Foundation
 
-//abi message represented as a collection of 32 bytes sequences
+/** abi message represented as a collection of 32 bytes sequences */
 public final class ABIMessage: CollectionScalar<BytesScalar> {
 
     private let message: CollectionScalar<BytesScalar>

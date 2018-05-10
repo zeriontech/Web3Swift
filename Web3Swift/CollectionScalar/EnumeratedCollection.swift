@@ -10,7 +10,7 @@
 
 import Foundation
 
-//A collection of `T` numbering every element in the collection explicitly from 0
+/** A collection of `T` numbering every element in the collection explicitly from 0 */
 public final class EnumeratedCollection<T>: CollectionScalar<(Int, T)> {
 
     private let origin: CollectionScalar<T>

@@ -10,7 +10,7 @@
 
 import Foundation
 
-//A private key
+/** A private key */
 public protocol PrivateKey: BytesScalar {
 
     /**

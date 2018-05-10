@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Bytes buffered into collection elements by a size predicate
+/** Bytes buffered into collection elements by a size predicate */
 public final class SizeBufferedBytes: CollectionScalar<BytesScalar> {
 
     private let origin: BytesScalar

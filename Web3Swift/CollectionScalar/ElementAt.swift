@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Element type T at an index in the collection
+/** Element type T at an index in the collection */
 public final class ElementAt<T> {
 
     private let collection: CollectionScalar<T>

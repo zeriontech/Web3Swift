@@ -11,7 +11,7 @@
 import Foundation
 import SwiftyJSON
 
-//Procedure for sending transaction bytes
+/** Procedure for sending transaction bytes */
 public final class SendRawTransactionProcedure: RemoteProcedure {
 
     private let network: Network

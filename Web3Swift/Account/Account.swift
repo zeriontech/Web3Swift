@@ -10,7 +10,7 @@
 
 import Foundation
 
-//An account that is associated with some private key on the network
+/** An account that is associated with some private key on the network */
 public protocol Account {
 
     /**

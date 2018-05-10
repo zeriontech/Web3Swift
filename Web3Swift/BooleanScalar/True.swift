@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Just a true9 boolean value
+/** Just a true9 boolean value */
 public final class True: BooleanScalar {
 
     /**

@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Bytes concatenated into a single collection
+/** Bytes concatenated into a single collection */
 public final class ConcatenatedBytes: BytesScalar {
 
     private let bytes: CollectionScalar<BytesScalar>

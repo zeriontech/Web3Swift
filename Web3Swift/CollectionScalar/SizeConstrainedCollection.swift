@@ -29,7 +29,7 @@ internal final class IndexOtOfBoundsError: DescribedError {
 
 }
 
-//Collection constrained in its size
+/** Collection constrained in its size */
 public final class SizeConstrainedCollection<T>: CollectionScalar<T> {
 
     private let origin: CollectionScalar<T>

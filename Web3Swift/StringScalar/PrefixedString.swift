@@ -10,7 +10,7 @@
 
 import Foundation
 
-//String that is prefixed
+/** String that is prefixed */
 public final class PrefixedString: StringScalar {
 
     private let origin: StringScalar

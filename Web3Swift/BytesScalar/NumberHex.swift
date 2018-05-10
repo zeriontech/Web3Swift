@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Hex of a Number
+/** Hex of a Number */
 public class NumberHex: BytesScalar {
 
     private let number: NumberScalar

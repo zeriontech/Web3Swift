@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Bytes of the encoded abi tuple
+/** Bytes of the encoded abi tuple */
 public final class EncodedABITuple: BytesScalar {
 
     private let parameters: [ABIEncodedParameter]

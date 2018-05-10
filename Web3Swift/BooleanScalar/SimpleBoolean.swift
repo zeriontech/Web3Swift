@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Anonymous boolean scalar wrapper
+/** Anonymous boolean scalar wrapper */
 public final class SimpleBoolean: BooleanScalar {
 
     private let bool: () throws -> (Bool)

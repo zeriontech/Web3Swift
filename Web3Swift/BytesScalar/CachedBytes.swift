@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Permanently cached bytes
+/** Permanently cached bytes */
 public final class CachedBytes: BytesScalar {
 
     private let stickyValue: StickyComputation<Data>

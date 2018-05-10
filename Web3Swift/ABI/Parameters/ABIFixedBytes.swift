@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Fixed length bytes (up to 32) encoded as an ABI parameter
+/** Fixed length bytes (up to 32) encoded as an ABI parameter */
 public final class ABIFixedBytes: ABIEncodedParameter {
 
     private let origin: BytesScalar

@@ -25,7 +25,7 @@ internal final class IncorrectBytesLengthError: DescribedError {
 
 }
 
-//Bytes with a fixed length
+/** Bytes with a fixed length */
 public final class FixedLengthBytes: BytesScalar {
 
     private let origin: BytesScalar

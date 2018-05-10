@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Gas price computed by the network
+/** Gas price computed by the network */
 public final class EthGasPrice: NumberScalar {
 
     private let value: NumberScalar

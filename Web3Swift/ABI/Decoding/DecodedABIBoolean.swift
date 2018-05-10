@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Boolean decoded from an abi message
+/** Boolean decoded from an abi message */
 public final class DecodedABIBoolean: BooleanScalar {
 
     private let origin: BooleanScalar

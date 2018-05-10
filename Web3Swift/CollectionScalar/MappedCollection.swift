@@ -10,7 +10,7 @@
 
 import Foundation
 
-//A collection of elements mapped from `C` to `T`
+/** A collection of elements mapped from `C` to `T` */
 public final class MappedCollection<C, T>: CollectionScalar<T> {
 
     private let origin: CollectionScalar<C>

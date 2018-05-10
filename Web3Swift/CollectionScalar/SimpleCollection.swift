@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Anonymous collection scalar wrapper
+/** Anonymous collection scalar wrapper */
 public final class SimpleCollection<T>: CollectionScalar<T> {
 
     private let collection: () throws -> (AnyCollection<T>)

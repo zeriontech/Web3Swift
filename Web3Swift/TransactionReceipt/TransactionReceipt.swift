@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Receipt associated with the transaction
+/** Receipt associated with the transaction */
 public protocol TransactionReceipt {
 
     /**

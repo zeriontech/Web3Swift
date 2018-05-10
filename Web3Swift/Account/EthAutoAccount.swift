@@ -11,7 +11,7 @@
 import Foundation
 import SwiftyJSON
 
-//Eth account that asks gas price and gas estimate from the network
+/** Eth account that asks gas price and gas estimate from the network */
 public final class EthAutoAccount: Account {
 
     private let network: Network

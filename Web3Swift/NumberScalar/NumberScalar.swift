@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Just a number
+/** Just a number */
 public protocol NumberScalar {
 
     /**

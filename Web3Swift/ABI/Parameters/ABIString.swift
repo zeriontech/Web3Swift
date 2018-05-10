@@ -10,7 +10,7 @@
 
 import Foundation
 
-//String value encoded as an ABI parameter
+/** String value encoded as an ABI parameter */
 public final class ABIString: ABIEncodedParameter {
 
     private let origin: ABIEncodedParameter

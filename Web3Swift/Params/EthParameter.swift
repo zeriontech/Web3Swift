@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Parameter to be passed to the network
+/** Parameter to be passed to the network */
 public protocol EthParameter {
 
     /**

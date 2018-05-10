@@ -69,7 +69,7 @@ public final class SignatureSerializationError: DescribedError {
 
 }
 
-/// This is an object that represents EC recoverable signature for EC secp256k1.
+/** / This is an object that represents EC recoverable signature for EC secp256k1. */
 public final class SECP256k1Signature: ECRecoverableSignature {
 
     // swiftlint:disable:next large_tuple

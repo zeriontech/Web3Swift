@@ -11,7 +11,7 @@
 import CryptoSwift
 import Foundation
 
-//Bytes from their string representation. The string representation of bytes must not be ambiguous.
+/** Bytes from their string representation. The string representation of bytes must not be ambiguous. */
 public final class BytesFromHexString: BytesScalar {
 
     private let hex: StringScalar

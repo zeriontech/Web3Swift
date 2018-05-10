@@ -10,7 +10,7 @@
 
 import Foundation
 
-//String with trimmed prefix if one exists
+/** String with trimmed prefix if one exists */
 public final class TrimmedPrefixString: StringScalar {
 
     private let string: StringScalar

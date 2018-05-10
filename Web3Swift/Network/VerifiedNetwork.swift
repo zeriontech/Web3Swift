@@ -11,7 +11,7 @@
 import Foundation
 import SwiftyJSON
 
-//Network with an error verified call
+/** Network with an error verified call */
 public final class VerifiedNetwork: Network {
 
     private let origin: Network

@@ -11,7 +11,7 @@
 import CryptoSwift
 import Foundation
 
-//Hex string that is prefixed by "0x"
+/** Hex string that is prefixed by "0x" */
 public final class PrefixedHexString: StringScalar {
 
     private let hex: StringScalar

@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Decoded bytes with fixed length (up to 32)
+/** Decoded bytes with fixed length (up to 32) */
 public final class DecodedABIFixedBytes: BytesScalar {
 
     private let bytes: BytesScalar

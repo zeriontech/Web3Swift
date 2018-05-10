@@ -24,7 +24,7 @@ internal final class NotUTF8BytesError: DescribedError {
 
 }
 
-//utf8 string
+/** utf8 string */
 public final class UTF8String: StringScalar {
 
     private let bytes: BytesScalar

@@ -39,7 +39,7 @@ internal final class IncorrectHexCharacterError: DescribedError {
 
 }
 
-//A string that represents some collection of hexadecimal numbers
+/** A string that represents some collection of hexadecimal numbers */
 public final class HexString: StringScalar {
 
     private let hex: StringScalar

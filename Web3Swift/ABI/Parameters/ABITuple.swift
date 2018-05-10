@@ -10,7 +10,7 @@
 
 import Foundation
 
-//A collection of non dynamic elements of fixed length. Parameters of the ABI function are a dynamically typed tuple. Fixed length ABI arrays are a statically typed flatmapped tuple.
+/** A collection of non dynamic elements of fixed length. Parameters of the ABI function are a dynamically typed tuple. Fixed length ABI arrays are a statically typed flatmapped tuple. */
 public final class ABITuple: ABIEncodedParameter {
 
     private let parameters: [ABIEncodedParameter]

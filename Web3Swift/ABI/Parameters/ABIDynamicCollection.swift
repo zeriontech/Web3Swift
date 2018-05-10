@@ -10,7 +10,7 @@
 
 import Foundation
 
-//A collection of ABI parameters encoded as an ABI parameter
+/** A collection of ABI parameters encoded as an ABI parameter */
 public final class ABIDynamicCollection: ABIEncodedParameter {
 
     private let parameters: [ABIEncodedParameter]

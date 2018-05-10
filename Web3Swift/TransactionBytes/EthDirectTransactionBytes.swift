@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Bytes of a signed transaction to ethereum address
+/** Bytes of a signed transaction to ethereum address */
 public final class EthDirectTransactionBytes: BytesScalar {
 
     private let origin: BytesScalar

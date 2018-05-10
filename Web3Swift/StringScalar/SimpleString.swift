@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Anonymous string scalar wrapper
+/** Anonymous string scalar wrapper */
 public final class SimpleString: StringScalar {
 
     private let computation: () throws -> (String)

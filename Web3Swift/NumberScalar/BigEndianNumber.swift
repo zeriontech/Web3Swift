@@ -26,7 +26,7 @@ internal final class IntegerBytesOverflowError: DescribedError {
 
 }
 
-//Big endian number
+/** Big endian number */
 public final class BigEndianNumber: NumberScalar {
 
     private let bytes: BytesScalar

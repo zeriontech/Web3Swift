@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Hash of a raw transaction data
+/** Hash of a raw transaction data */
 public protocol TransactionHash: BytesScalar {
 
     /**

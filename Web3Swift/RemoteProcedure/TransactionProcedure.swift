@@ -11,7 +11,7 @@
 import Foundation
 import SwiftyJSON
 
-//Procedure for fetching transaction
+/** Procedure for fetching transaction */
 public final class TransactionProcedure: RemoteProcedure {
 
     private let network: Network

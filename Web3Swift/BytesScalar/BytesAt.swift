@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Bytes at a collection of bytes
+/** Bytes at a collection of bytes */
 public final class BytesAt: BytesScalar {
 
     private let element: ElementAt<BytesScalar>

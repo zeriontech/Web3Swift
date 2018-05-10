@@ -10,7 +10,7 @@
 
 import Foundation
 
-//String that is prefixed by 0x
+/** String that is prefixed by 0x */
 public final class HexPrefixedString: StringScalar {
 
     private let origin: StringScalar

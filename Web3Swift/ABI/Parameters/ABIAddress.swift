@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Address encoded as an ABI parameter
+/** Address encoded as an ABI parameter */
 public final class ABIAddress: ABIEncodedParameter {
 
     private let address: ABIEncodedParameter

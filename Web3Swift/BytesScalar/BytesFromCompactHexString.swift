@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Bytes from a compact hex string (without any leading zeroes)
+/** Bytes from a compact hex string (without any leading zeroes) */
 public final class BytesFromCompactHexString: BytesScalar {
 
     private let hex: StringScalar

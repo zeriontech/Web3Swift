@@ -10,7 +10,7 @@
 
 import Foundation
 
-//A transaction from the blockchain
+/** A transaction from the blockchain */
 public final class EthTransaction: Transaction {
 
     private let procedure: RemoteProcedure

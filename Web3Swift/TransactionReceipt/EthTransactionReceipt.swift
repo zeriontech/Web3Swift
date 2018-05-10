@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Receipt returned by network for transaction
+/** Receipt returned by network for transaction */
 public final class EthTransactionReceipt: TransactionReceipt {
 
     private let procedure: RemoteProcedure

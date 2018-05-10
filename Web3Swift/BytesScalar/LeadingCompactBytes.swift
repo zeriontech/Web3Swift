@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Bytes without leading zeroes
+/** Bytes without leading zeroes */
 public final class LeadingCompactBytes: BytesScalar {
 
     private let origin: BytesScalar

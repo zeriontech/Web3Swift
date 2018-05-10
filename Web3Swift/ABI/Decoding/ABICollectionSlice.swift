@@ -10,7 +10,7 @@
 
 import Foundation
 
-//A slice of an non typed abi dynamic collection
+/** A slice of an non typed abi dynamic collection */
 public final class ABICollectionSlice: CollectionScalar<BytesScalar> {
 
     private let abiMessage: CollectionScalar<BytesScalar>

@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Just a Bool
+/** Just a Bool */
 public protocol BooleanScalar {
 
     /**

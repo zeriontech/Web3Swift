@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Just empty bytes
+/** Just empty bytes */
 public final class EmptyBytes: BytesScalar {
 
     /**

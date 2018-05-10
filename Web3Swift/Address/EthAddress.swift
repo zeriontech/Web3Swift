@@ -11,7 +11,7 @@
 import CryptoSwift
 import Foundation
 
-/// Standard 20 bytes ethereum address
+/** Standard 20 bytes ethereum address */
 public final class EthAddress: BytesScalar {
     
     private let bytes: BytesScalar

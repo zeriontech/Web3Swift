@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Ethereum address decoded from an abi message
+/** Ethereum address decoded from an abi message */
 public final class DecodedABIAddress: BytesScalar {
 
     private let origin: BytesScalar

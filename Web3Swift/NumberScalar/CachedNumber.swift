@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Permanently cached number
+/** Permanently cached number */
 public final class CachedNumber: NumberScalar {
 
     private let stickyHex: BytesScalar

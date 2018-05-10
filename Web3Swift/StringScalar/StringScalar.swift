@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Just a string
+/** Just a string */
 public protocol StringScalar {
 
     /**

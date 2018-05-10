@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Bytes of a signed contract deployment transaction
+/** Bytes of a signed contract deployment transaction */
 public final class EthContractCreationBytes: BytesScalar {
 
     private let origin: BytesScalar

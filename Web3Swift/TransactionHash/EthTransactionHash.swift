@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Hash of a raw transaction data
+/** Hash of a raw transaction data */
 public final class EthTransactionHash: TransactionHash {
 
     private let network: Network

@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Just a false boolean value
+/** Just a false boolean value */
 public final class False: BooleanScalar {
 
     /**

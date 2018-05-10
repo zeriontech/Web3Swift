@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Bytes in reversed order
+/** Bytes in reversed order */
 public final class ReversedBytes: BytesScalar {
 
     private let origin: BytesScalar

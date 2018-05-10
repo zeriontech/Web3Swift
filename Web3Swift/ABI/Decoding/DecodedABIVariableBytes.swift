@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Decoded bytes of variable length
+/** Decoded bytes of variable length */
 public final class DecodedABIVariableBytes: BytesScalar {
 
     private let abiMessage: CollectionScalar<BytesScalar>

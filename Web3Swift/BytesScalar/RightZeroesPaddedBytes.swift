@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Pads bytes with zeroes to the right
+/** Pads bytes with zeroes to the right */
 public final class RightZeroesPaddedBytes: BytesScalar {
 
     private let origin: BytesScalar

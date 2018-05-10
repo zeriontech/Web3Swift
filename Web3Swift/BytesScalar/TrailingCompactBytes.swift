@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Bytes without trailing zeroes
+/** Bytes without trailing zeroes */
 public final class TrailingCompactBytes: BytesScalar {
 
     private let compactOrigin: BytesScalar

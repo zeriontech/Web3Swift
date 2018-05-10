@@ -11,7 +11,7 @@
 import CryptoSwift
 import Foundation
 
-//Encoded ABI function call
+/** Encoded ABI function call */
 public final class EncodedABIFunction: BytesScalar {
 
     private let signature: StringScalar

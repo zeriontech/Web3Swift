@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Balance of an address
+/** Balance of an address */
 public final class EthBalance: NumberScalar {
 
     private let origin: NumberScalar

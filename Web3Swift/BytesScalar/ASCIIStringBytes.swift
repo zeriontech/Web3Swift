@@ -23,7 +23,7 @@ internal final class NotAnASCIIScalarError: DescribedError {
 
 }
 
-//Bytes of the string in ascii representation
+/** Bytes of the string in ascii representation */
 public final class ASCIIStringBytes: BytesScalar {
 
     private let string: StringScalar

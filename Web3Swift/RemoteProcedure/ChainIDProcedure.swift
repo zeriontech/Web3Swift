@@ -11,7 +11,7 @@
 import Foundation
 import SwiftyJSON
 
-//Identifier of the network
+/** Identifier of the network */
 public final class ChainIDProcedure: RemoteProcedure {
 
     private let network: Network

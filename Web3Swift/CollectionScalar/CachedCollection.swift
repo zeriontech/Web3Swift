@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Permanently cached collection
+/** Permanently cached collection */
 public final class CachedCollection<T>: CollectionScalar<T> {
 
     private let origin: StickyComputation<[T]>

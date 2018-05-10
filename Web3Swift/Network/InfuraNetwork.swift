@@ -10,7 +10,7 @@
 
 import Foundation
 
-//infura.io network
+/** infura.io network */
 public final class InfuraNetwork: Network {
     
     private let origin: GethNetwork

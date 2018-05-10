@@ -23,7 +23,7 @@ internal final class NotANumericBooleanError: DescribedError {
 
 }
 
-//Boolean from a numeric value of 0 or 1
+/** Boolean from a numeric value of 0 or 1 */
 public final class NumericBoolean: BooleanScalar {
 
     private let bool: NumberScalar

@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Anonymous network
+/** Anonymous network */
 public final class SimpleNetwork: Network {
 
     private let identifier: () throws -> (NumberScalar)

@@ -11,7 +11,7 @@
 import CryptoSwift
 import Foundation
 
-//Anonymous class for evaluating bytes
+/** Anonymous class for evaluating bytes */
 public final class SimpleBytes: BytesScalar {
 
     private let valueComputation: () throws -> (Data)

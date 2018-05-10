@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Decoded number
+/** Decoded number */
 public final class DecodedABINumber: NumberScalar {
 
     private let number: NumberScalar

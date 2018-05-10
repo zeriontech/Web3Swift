@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Suffix (last n elements) of a collection
+/** Suffix (last n elements) of a collection */
 public final class CollectionSuffix<T>: CollectionScalar<T> {
 
     private let origin: CollectionScalar<T>

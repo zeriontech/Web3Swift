@@ -28,7 +28,7 @@ private final class PublicKeySerializationError: DescribedError {
 
 }
 
-//Private key as specified in the ethereum
+/** Private key as specified in the ethereum */
 public final class EthPrivateKey: PrivateKey {
 
     private let bytes: BytesScalar

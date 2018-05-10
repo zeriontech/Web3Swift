@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Just some bytes
+/** Just some bytes */
 public protocol BytesScalar {
 
     /**

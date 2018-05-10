@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Decoded variable bytes interpreted as a utf8 string
+/** Decoded variable bytes interpreted as a utf8 string */
 public final class DecodedABIString: StringScalar {
 
     private let origin: StringScalar

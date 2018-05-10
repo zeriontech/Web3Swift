@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Generated collection
+/** Generated collection */
 public final class GeneratedCollection<T>: CollectionScalar<T> {
 
     private let element: (_ index: UInt) throws -> (T)

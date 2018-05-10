@@ -10,7 +10,7 @@
 
 import Foundation
 
-//A compact big endian number (without leading zeroes)
+/** A compact big endian number (without leading zeroes) */
 public final class BigEndianCompactNumber: NumberScalar {
 
     private let origin: NumberScalar

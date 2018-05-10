@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Encoded initialized contract bytes
+/** Encoded initialized contract bytes */
 public final class EncodedContract: BytesScalar {
 
     private let byteCode: BytesScalar

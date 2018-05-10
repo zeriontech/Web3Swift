@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Decoded typed abi collection
+/** Decoded typed abi collection */
 public final class DecodedABIDynamicCollection<T>: CollectionScalar<T> {
 
     private let abiMessage: CollectionScalar<BytesScalar>

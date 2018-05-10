@@ -11,7 +11,7 @@
 import CryptoSwift
 import Foundation
 
-//Signed transaction bytes
+/** Signed transaction bytes */
 public final class EthTransactionBytes: BytesScalar {
 
     private let networkID: NumberScalar

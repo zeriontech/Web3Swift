@@ -11,7 +11,7 @@
 import Foundation
 import SwiftyJSON
 
-//Procedure for fetching balance at the address
+/** Procedure for fetching balance at the address */
 public final class BalanceProcedure: RemoteProcedure {
 
     private let network: Network

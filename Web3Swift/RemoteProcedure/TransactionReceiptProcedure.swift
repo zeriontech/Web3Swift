@@ -11,7 +11,7 @@
 import Foundation
 import SwiftyJSON
 
-//Procedure for retrieving transaction receipt
+/** Procedure for retrieving transaction receipt */
 public final class TransactionReceiptProcedure: RemoteProcedure {
 
     private let transactionHash: BytesScalar

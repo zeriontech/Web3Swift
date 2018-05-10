@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Elliptic curve recoverable signature
+/** Elliptic curve recoverable signature */
 public protocol ECRecoverableSignature {
 
     /**

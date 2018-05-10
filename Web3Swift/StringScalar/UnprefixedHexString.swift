@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Hex string that is not prefixed by "0x"
+/** Hex string that is not prefixed by "0x" */
 public final class UnprefixedHexString: StringScalar {
 
     private let hex: StringScalar

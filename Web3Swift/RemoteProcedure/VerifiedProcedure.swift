@@ -11,9 +11,9 @@
 import Foundation
 import SwiftyJSON
 
-//swiftlint:disable cyclomatic_complexity
+/** swiftlint:disable cyclomatic_complexity */
 
-//json rpc error code as described in http://www.jsonrpc.org/specification#error_object
+/** json rpc error code as described in http://www.jsonrpc.org/specification#error_object */
 internal final class JSONRPCErrorCode {
 
     private let code: Int
@@ -55,7 +55,7 @@ internal final class JSONRPCErrorCode {
 
 }
 
-//Detailed error of a json rpc response error
+/** Detailed error of a json rpc response error */
 internal final class JSONError: DescribedError {
 
     private let error: JSON
@@ -90,7 +90,7 @@ internal final class JSONError: DescribedError {
 }
 
 //FIXME: This is a temporary workaround to allow throwing errors communicated by network. It is definitely possible to make this check perform only when the "result" was not found by reimplementing JSON.
-//Procedure that throws in case JSON RPC responded with an error
+/** Procedure that throws in case JSON RPC responded with an error */
 public final class VerifiedProcedure: RemoteProcedure {
 
     private let origin: RemoteProcedure

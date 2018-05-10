@@ -11,7 +11,7 @@
 import Foundation
 import SwiftyJSON
 
-//Anonymous procedure
+/** Anonymous procedure */
 public final class SimpleProcedure: RemoteProcedure {
 
     private let json: () throws -> (JSON)

@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Boolean value encoded as an ABI parameter
+/** Boolean value encoded as an ABI parameter */
 public final class ABIBoolean: ABIEncodedParameter {
 
     private let origin: ABIEncodedParameter

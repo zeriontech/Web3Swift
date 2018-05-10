@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Just a hex perfix
+/** Just a hex perfix */
 public final class HexPrefix: StringScalar {
 
     /**

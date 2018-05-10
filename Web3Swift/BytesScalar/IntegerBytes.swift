@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Bytes representation of an integer
+/** Bytes representation of an integer */
 public final class IntegerBytes: BytesScalar {
 
     private let uint: UInt

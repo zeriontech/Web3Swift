@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Unsigned number encoded as an ABI parameter
+/** Unsigned number encoded as an ABI parameter */
 public final class ABIUnsignedNumber: ABIEncodedParameter {
 
     private let origin: ABIEncodedParameter

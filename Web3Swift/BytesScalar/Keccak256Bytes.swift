@@ -11,7 +11,7 @@
 import CryptoSwift
 import Foundation
 
-//Bytes digested by keccak256 algorithm
+/** Bytes digested by keccak256 algorithm */
 public final class Keccak256Bytes: BytesScalar {
 
     private let origin: BytesScalar

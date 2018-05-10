@@ -11,7 +11,7 @@
 import Foundation
 import SwiftyJSON
 
-//A call to the contract function
+/** A call to the contract function */
 final public class ContractCallProcedure: RemoteProcedure {
 
     private let network: Network

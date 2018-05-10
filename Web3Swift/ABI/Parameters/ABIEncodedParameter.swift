@@ -10,7 +10,7 @@
 
 import Foundation
 
-//An encoded ABI parameter
+/** An encoded ABI parameter */
 public protocol ABIEncodedParameter {
 
     /**

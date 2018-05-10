@@ -10,7 +10,7 @@
 
 import Foundation
 
-//First n or less bytes of a bytes sequence
+/** First n or less bytes of a bytes sequence */
 final public class FirstBytes: BytesScalar {
 
     private let origin: BytesScalar

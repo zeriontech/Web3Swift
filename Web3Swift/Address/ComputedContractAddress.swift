@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Computed contract address
+/** Computed contract address */
 public final class ComputedContractAddress: BytesScalar {
 
     private let address: BytesScalar

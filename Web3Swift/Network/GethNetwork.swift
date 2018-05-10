@@ -10,7 +10,7 @@
 
 import Foundation
 
-//A network of go ethereum implementation
+/** A network of go ethereum implementation */
 public final class GethNetwork: Network {
     
     private let origin: EthNetwork

@@ -10,7 +10,7 @@
 
 import Foundation
 
-//Bytes of the string in UTF8 representation
+/** Bytes of the string in UTF8 representation */
 public final class UTF8StringBytes: BytesScalar {
 
     private let string: StringScalar
