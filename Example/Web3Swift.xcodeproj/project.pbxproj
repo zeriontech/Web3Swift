@@ -95,6 +95,7 @@
 		584FAC14A7FB7733155AE533 /* EthTransactionReceiptIT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAD790B58E8D51D497101 /* EthTransactionReceiptIT.swift */; };
 		584FAC63F128D0FD1C832A17 /* EthPrivateKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAFABC7894A1043564BE3 /* EthPrivateKeyTests.swift */; };
 		584FAC87B490AD9C55DBB3AA /* EthRLPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAAFBCBF4F2230595455E /* EthRLPTests.swift */; };
+		584FAC91AB19FCD1E69F519C /* PrivateKeyAddressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA857CE10E309960F859E /* PrivateKeyAddressTests.swift */; };
 		584FACA026F2BF079EB9CB13 /* EthGasEstimateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAC3714986BAFD48E092D /* EthGasEstimateTests.swift */; };
 		584FACBB0C97A24ACF205950 /* ABIDecodingIT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA0EA1744E6FA976A281C /* ABIDecodingIT.swift */; };
 		584FACDDE9E98EDA9C414EF6 /* RandomNonceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAB47440D3CE3C6ED0684 /* RandomNonceTests.swift */; };
@@ -191,6 +192,7 @@
 		584FA82731B90F65C00992E6 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		584FA82FCF5FAF36C735DEA7 /* BytesFromHexStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BytesFromHexStringTests.swift; sourceTree = "<group>"; };
 		584FA84177D99BD8D49055C2 /* LeftZeroesPaddedBytesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftZeroesPaddedBytesTests.swift; sourceTree = "<group>"; };
+		584FA857CE10E309960F859E /* PrivateKeyAddressTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateKeyAddressTests.swift; sourceTree = "<group>"; };
 		584FA86814D69E51BA9A3817 /* TrailingCompactBytesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrailingCompactBytesTests.swift; sourceTree = "<group>"; };
 		584FA888EDFB99F27887D65B /* GanacheLocalNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GanacheLocalNetwork.swift; sourceTree = "<group>"; };
 		584FA8BDDA8B4B1DF68FA7AA /* ChainIDProcedureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainIDProcedureTests.swift; sourceTree = "<group>"; };
@@ -495,6 +497,7 @@
 			isa = PBXGroup;
 			children = (
 				584FAFABC7894A1043564BE3 /* EthPrivateKeyTests.swift */,
+				584FA857CE10E309960F859E /* PrivateKeyAddressTests.swift */,
 			);
 			path = PrivateKey;
 			sourceTree = "<group>";
@@ -1147,6 +1150,7 @@
 				584FA2EEDCFBEE26FA40D5FB /* VerifiedNetworkTests.swift in Sources */,
 				584FA3B3FFB2AC1166B108D7 /* SimpleProcedureTests.swift in Sources */,
 				584FADFBB9C1013680018456 /* SimpleNetworkTests.swift in Sources */,
+				584FAC91AB19FCD1E69F519C /* PrivateKeyAddressTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
