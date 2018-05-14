@@ -11,7 +11,7 @@
 import Foundation
 import SwiftyJSON
 
-/** swiftlint:disable cyclomatic_complexity */
+//swiftlint:disable cyclomatic_complexity
 
 /** json rpc error code as described in http://www.jsonrpc.org/specification#error_object */
 internal final class JSONRPCErrorCode {
