@@ -58,7 +58,7 @@ class InfuraNetworkTests: XCTestCase {
         Array<
             (
                 String,
-                UInt
+                Int
             )
         >(
             [
@@ -70,7 +70,7 @@ class InfuraNetworkTests: XCTestCase {
                 try InfuraNetwork(
                     chain: chain,
                     apiKey: "metamask"
-                ).id().uint()
+                ).id().value()
             }.to(
                 equal(id),
                 description: "Network \(chain) is expected to have id \(id)"

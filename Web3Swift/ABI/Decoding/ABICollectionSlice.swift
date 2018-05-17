@@ -14,7 +14,7 @@ import Foundation
 public final class ABICollectionSlice: CollectionScalar<BytesScalar> {
 
     private let abiMessage: CollectionScalar<BytesScalar>
-    private let index: UInt
+    private let index: Int
 
     /**
     Ctor
@@ -25,7 +25,7 @@ public final class ABICollectionSlice: CollectionScalar<BytesScalar> {
     */
     public init(
         abiMessage: CollectionScalar<BytesScalar>,
-        index: UInt
+        index: Int
     ) {
         self.abiMessage = abiMessage
         self.index = index
@@ -42,13 +42,13 @@ public final class ABICollectionSlice: CollectionScalar<BytesScalar> {
     public override func value() throws -> [BytesScalar] {
         return try CollectionSuffix(
             origin: abiMessage,
-            from: BigEndianNumber(
-                uint: BigEndianNumber(
+            from: EthNaturalNumber(
+                value: EthNaturalNumber(
                     bytes: BytesAt(
                         collection: abiMessage,
                         index: index
                     )
-                ).uint() / 32 + 1
+                ).value() / 32 + 1
             )
         ).value()
     }

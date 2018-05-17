@@ -15,13 +15,13 @@ import Quick
 final class FixedLengthBytesTests: XCTestCase {
 
     func testProperlyFixedLengthBytes() {
-        Array<UInt>([0, 20]).forEach{ length in
+        Array<Int>([0, 20]).forEach{ length in
             expect{
                 try FixedLengthBytes(
                     origin: SimpleBytes(
                         bytes: Array(
                             repeating: 0x00,
-                            count: Int(length)
+                            count: length
                         )
                     ),
                     length: length
@@ -31,7 +31,7 @@ final class FixedLengthBytesTests: XCTestCase {
                     Data(
                         bytes: Array(
                             repeating: 0x00,
-                            count: Int(length)
+                            count: length
                         )
                     )
                 ),
@@ -41,13 +41,13 @@ final class FixedLengthBytesTests: XCTestCase {
     }
 
     func testIncorrectLengthBytes() {
-        Array<UInt>([0, 20]).forEach{ length in
+        Array<Int>([0, 20]).forEach{ length in
             expect{
                 try FixedLengthBytes(
                     origin: SimpleBytes(
                         bytes: Array(
                             repeating: 0x00,
-                            count: Int(length)
+                            count: length
                         )
                     ),
                     length: length + 1

@@ -14,7 +14,7 @@ import Foundation
 public final class SizeBufferedBytes: CollectionScalar<BytesScalar> {
 
     private let origin: BytesScalar
-    private let size: NumberScalar
+    private let size: IntegerScalar
 
     /**
     Ctor
@@ -25,7 +25,7 @@ public final class SizeBufferedBytes: CollectionScalar<BytesScalar> {
     */
     public init(
         origin: BytesScalar,
-        size: NumberScalar
+        size: IntegerScalar
     ) {
         self.origin = origin
         self.size = size
@@ -40,12 +40,12 @@ public final class SizeBufferedBytes: CollectionScalar<BytesScalar> {
     */
     public convenience init(
         origin: BytesScalar,
-        size: UInt
+        size: Int
     ) {
         self.init(
             origin: origin,
-            size: BigEndianNumber(
-                uint: size
+            size: SimpleInteger(
+                integer: size
             )
         )
     }
@@ -60,7 +60,7 @@ public final class SizeBufferedBytes: CollectionScalar<BytesScalar> {
     public override func value() throws -> [BytesScalar] {
         return try Array(self.origin.value().enumerated())
             .splitAt{ index, _ in
-                try (index + 1) % Int(size.uint()) == 0
+                try (index + 1) % Int(size.value()) == 0
             }
             .map{ enumeratedOrigin in
                 SimpleBytes(

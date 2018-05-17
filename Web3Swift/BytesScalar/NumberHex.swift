@@ -13,7 +13,7 @@ import Foundation
 /** Hex of a Number */
 public class NumberHex: BytesScalar {
 
-    private let number: NumberScalar
+    private let number: BytesScalar
 
     /**
     Ctor
@@ -21,7 +21,7 @@ public class NumberHex: BytesScalar {
     - parameters:
         - number: number to take the hex from
     */
-    public init(number: NumberScalar) {
+    public init(number: BytesScalar) {
         self.number = number
     }
 
@@ -30,7 +30,7 @@ public class NumberHex: BytesScalar {
     Hex of the number as `Data`
     */
     public func value() throws -> Data {
-        return try number.hex().value()
+        return try number.value()
     }
 
 }

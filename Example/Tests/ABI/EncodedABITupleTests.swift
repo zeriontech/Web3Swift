@@ -64,8 +64,8 @@ final class EncodedABITupleTests: XCTestCase {
             try EncodedABITuple(
                 parameters: [
                     ABIUnsignedNumber(
-                        origin: BigEndianNumber(
-                            uint: 1
+                        origin: EthNaturalNumber(
+                            value: 1
                         )
                     ),
                     ABIString(
@@ -74,35 +74,35 @@ final class EncodedABITupleTests: XCTestCase {
                         )
                     ),
                     ABIUnsignedNumber(
-                        origin: BigEndianNumber(
-                            uint: 2
+                        origin: EthNaturalNumber(
+                            value: 2
                         )
                     ),
                     ABIUnsignedNumber(
-                        origin: BigEndianNumber(
-                            uint: 3
+                        origin: EthNaturalNumber(
+                            value: 3
                         )
                     ),
                     ABIUnsignedNumber(
-                        origin: BigEndianNumber(
-                            uint: 4
+                        origin: EthNaturalNumber(
+                            value: 4
                         )
                     ),
                     ABIDynamicCollection(
                         parameters: [
                             ABIUnsignedNumber(
-                                origin: BigEndianNumber(
-                                    uint: 5
+                                origin: EthNaturalNumber(
+                                    value: 5
                                 )
                             ),
                             ABIUnsignedNumber(
-                                origin: BigEndianNumber(
-                                    uint: 6
+                                origin: EthNaturalNumber(
+                                    value: 6
                                 )
                             ),
                             ABIUnsignedNumber(
-                                origin: BigEndianNumber(
-                                    uint: 7
+                                origin: EthNaturalNumber(
+                                    value: 7
                                 )
                             )
                         ]
@@ -137,13 +137,13 @@ final class EncodedABITupleTests: XCTestCase {
                     ABIDynamicCollection(
                         parameters: [
                             ABIUnsignedNumber(
-                                origin: BigEndianNumber(
-                                    uint: 1
+                                origin: EthNaturalNumber(
+                                    value: 1
                                 )
                             ),
                             ABIUnsignedNumber(
-                                origin: BigEndianNumber(
-                                    uint: 2
+                                origin: EthNaturalNumber(
+                                    value: 2
                                 )
                             )
                         ]
@@ -151,13 +151,13 @@ final class EncodedABITupleTests: XCTestCase {
                     ABIDynamicCollection(
                         parameters: [
                             ABIUnsignedNumber(
-                                origin: BigEndianNumber(
-                                    uint: 3
+                                origin: EthNaturalNumber(
+                                    value: 3
                                 )
                             ),
                             ABIUnsignedNumber(
-                                origin: BigEndianNumber(
-                                    uint: 4
+                                origin: EthNaturalNumber(
+                                    value: 4
                                 )
                             )
                         ]

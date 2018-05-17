@@ -12,8 +12,8 @@ import Foundation
 
 internal final class NotANumericBooleanError: DescribedError {
 
-    private let number: UInt
-    public init(number: UInt) {
+    private let number: Int
+    public init(number: Int) {
         self.number = number
     }
 
@@ -26,7 +26,7 @@ internal final class NotANumericBooleanError: DescribedError {
 /** Boolean from a numeric value of 0 or 1 */
 public final class NumericBoolean: BooleanScalar {
 
-    private let bool: NumberScalar
+    private let bool: BytesScalar
 
     /**
     Ctor
@@ -34,8 +34,11 @@ public final class NumericBoolean: BooleanScalar {
     - parameters:
         - bool: boolean value represented as a number
     */
-    public init(bool: NumberScalar) {
-        self.bool = bool
+    public init(bool: BytesScalar) {
+        self.bool = FixedLengthBytes(
+            origin: bool,
+            length: 1
+        )
     }
 
     /**
@@ -46,14 +49,16 @@ public final class NumericBoolean: BooleanScalar {
     `DescribedError` if something went wrong. I.e. number was not 1 or 0.
     */
     public func value() throws -> Bool {
-        let value = try bool.uint()
+        let value = try bool.value().single()
         if value == 0 {
             return false
         } else if value == 1 {
             return true
         } else {
             throw NotANumericBooleanError(
-                number: value
+                number: Int(
+                    value
+                )
             )
         }
     }

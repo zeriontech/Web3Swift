@@ -13,8 +13,8 @@ import Foundation
 /** Generated collection */
 public final class GeneratedCollection<T>: CollectionScalar<T> {
 
-    private let element: (_ index: UInt) throws -> (T)
-    private let times: UInt
+    private let element: (_ index: Int) throws -> (T)
+    private let times: Int
 
     /**
     Ctor
@@ -24,8 +24,8 @@ public final class GeneratedCollection<T>: CollectionScalar<T> {
         - times: number of times to call the factory
     */
     public init(
-        element: @escaping (_ index: UInt) throws -> (T),
-        times: UInt
+        element: @escaping (_ index: Int) throws -> (T),
+        times: Int
     ) {
         self.element = element
         self.times = times

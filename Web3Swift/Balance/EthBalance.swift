@@ -11,9 +11,9 @@
 import Foundation
 
 /** Balance of an address */
-public final class EthBalance: NumberScalar {
+public final class EthBalance: BytesScalar {
 
-    private let origin: NumberScalar
+    private let origin: BytesScalar
 
     /**
     Ctor
@@ -26,7 +26,7 @@ public final class EthBalance: NumberScalar {
         network: Network,
         address: BytesScalar
     ) {
-        self.origin = BigEndianCompactNumber(
+        self.origin = EthNaturalNumber(
             hex: SimpleString{
                 try BalanceProcedure(
                     network: network,
@@ -39,24 +39,13 @@ public final class EthBalance: NumberScalar {
 
     /**
     - returns:
-    Balance in `UInt`
-
-    - throws:
-    `DescribedError` if something went wrong
-    */
-    public func uint() throws -> UInt {
-        return try origin.uint()
-    }
-
-    /**
-    - returns:
     Balance in hex
 
     - throws:
     `DescribedError` if something went wrong
     */
-    public func hex() throws -> BytesScalar {
-        return try origin.hex()
+    public func value() throws -> Data {
+        return try origin.value()
     }
 
 }

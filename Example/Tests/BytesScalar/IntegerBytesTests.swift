@@ -14,15 +14,23 @@ import Quick
 
 final class IntegerBytesTests: XCTestCase {
 
+    func testMemory() {
+        expect{
+            MemoryLayout<UInt>.size
+        }.to(
+            equal(8)
+        )
+    }
+
     func testLittleEndianInteger() {
         expect{
             try IntegerBytes(
-                uint: UInt(1).littleEndian
+                value: Int(1).littleEndian
             ).value()
         }.to(
             equal(
                 Data(
-                    bytes: [0x01] + Array(repeating: 0x00, count: MemoryLayout<UInt>.size - 1)
+                    bytes: [0x01] + Array(repeating: 0x00, count: MemoryLayout<Int>.size - 1)
                 )
             ),
             description: "Integer bytes are expected to respect endianness"
@@ -32,12 +40,12 @@ final class IntegerBytesTests: XCTestCase {
     func testBigEndianInteger() {
         expect{
             try IntegerBytes(
-                uint: UInt(1).bigEndian
+                value: Int(1).bigEndian
             ).value()
         }.to(
             equal(
                 Data(
-                    bytes: Array(repeating: 0x00, count: MemoryLayout<UInt>.size - 1) + [0x01]
+                    bytes: Array(repeating: 0x00, count: MemoryLayout<Int>.size - 1) + [0x01]
                 )
 
             ),

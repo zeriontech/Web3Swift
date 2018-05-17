@@ -16,9 +16,11 @@ final class EthGasPriceTests: XCTestCase {
 
     func testNonNegativeGasPrice() {
         expect{
-            try EthGasPrice(
-                network: GanacheLocalNetwork()
-            ).uint()
+            try NaturalInteger(
+                hex: EthGasPrice(
+                    network: GanacheLocalNetwork()
+                )
+            ).value()
         }.to(
             beGreaterThanOrEqualTo(0),
             description: "Value of an gas price reported by network is expected to be non negative"

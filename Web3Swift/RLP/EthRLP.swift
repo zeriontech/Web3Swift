@@ -18,7 +18,7 @@ https://ethereum.stackexchange.com/questions/30518/does-rlp-specify-integer-enco
 */
 public final class EthRLP: RLP {
 
-    private let number: NumberScalar
+    private let number: BytesScalar
 
     /**
     Ctor
@@ -26,7 +26,7 @@ public final class EthRLP: RLP {
     - parameters: 
         - number: number to be encoded
     */
-    public init(number: NumberScalar) {
+    public init(number: BytesScalar) {
         self.number = number
     }
 
@@ -39,7 +39,7 @@ public final class EthRLP: RLP {
     */
     public func value() throws -> Data {
         let encodedNumber = try SimpleRLP(
-            bytes: number.hex()
+            bytes: number.value()
         ).value()
         if encodedNumber == Data(bytes: [0x00]) {
             return try SimpleRLP(

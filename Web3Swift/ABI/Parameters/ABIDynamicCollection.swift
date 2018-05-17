@@ -36,9 +36,9 @@ public final class ABIDynamicCollection: ABIEncodedParameter {
         return [
             LeftZeroesPaddedBytes(
                 origin: SimpleBytes{
-                    try BigEndianNumber(
-                        uint: UInt(offset) * 32
-                    ).hex().value()
+                    try EthNaturalNumber(
+                        value: offset * 32
+                    ).value()
                 },
                 padding: 32
             )
@@ -57,9 +57,9 @@ public final class ABIDynamicCollection: ABIEncodedParameter {
         return try [
             LeftZeroesPaddedBytes(
                 origin: SimpleBytes{
-                    try BigEndianNumber(
-                        uint: UInt(parameters.count)
-                    ).hex().value()
+                    try EthNaturalNumber(
+                        value: parameters.count
+                    ).value()
                 },
                 padding: 32
             )

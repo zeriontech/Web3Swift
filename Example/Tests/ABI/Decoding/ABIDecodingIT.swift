@@ -18,15 +18,15 @@ final class ABIDecodingIT: XCTestCase {
 
     //uint256, string, uint256
     func testIntStringIntIsDecodedCorrectly() {
-        let arguments: (UInt, String, UInt) = (1, "gavofyork", 5)
+        let arguments: (Int, String, Int) = (1, "gavofyork", 5)
         let message = CachedCollection(
             origin: ABIMessage(
                 message: EncodedABITuple(
                     parameters: [
                         ABIUnsignedNumber(
-                            origin: BigEndianCompactNumber(
-                                origin: BigEndianNumber(
-                                    uint: arguments.0
+                            origin: EthNaturalNumber(
+                                origin: EthNaturalNumber(
+                                    value: arguments.0
                                 )
                             )
                         ),
@@ -36,9 +36,9 @@ final class ABIDecodingIT: XCTestCase {
                             )
                         ),
                         ABIUnsignedNumber(
-                            origin: BigEndianCompactNumber(
-                                origin: BigEndianNumber(
-                                    uint: arguments.2
+                            origin: EthNaturalNumber(
+                                origin: EthNaturalNumber(
+                                    value: arguments.2
                                 )
                             )
                         )
@@ -47,10 +47,12 @@ final class ABIDecodingIT: XCTestCase {
             )
         )
         expect{
-            try DecodedABINumber(
-                abiMessage: message,
-                index: 0
-            ).uint()
+            try NaturalInteger(
+                hex: DecodedABINumber(
+                    abiMessage: message,
+                    index: 0
+                )
+            ).value()
         }.to(
             equal(arguments.0),
             description: "Encoded argument \(arguments.0) is expected to persist"
@@ -65,10 +67,12 @@ final class ABIDecodingIT: XCTestCase {
             description: "Encoded argument \(arguments.1) is expected to persist"
         )
         expect{
-            try DecodedABINumber(
-                abiMessage: message,
-                index: 2
-            ).uint()
+            try NaturalInteger(
+                hex: DecodedABINumber(
+                    abiMessage: message,
+                    index: 2
+                )
+            ).value()
         }.to(
             equal(arguments.2),
             description: "Encoded argument \(arguments.2) is expected to persist"

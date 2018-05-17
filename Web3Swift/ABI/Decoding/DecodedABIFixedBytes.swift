@@ -25,8 +25,8 @@ public final class DecodedABIFixedBytes: BytesScalar {
     */
     public init(
         abiMessage: CollectionScalar<BytesScalar>,
-        length: UInt,
-        index: UInt
+        length: Int,
+        index: Int
     ) {
         self.bytes = FirstBytes(
             origin: BytesAt(

@@ -14,7 +14,7 @@ import Foundation
 public final class DecodedABIVariableBytes: BytesScalar {
 
     private let abiMessage: CollectionScalar<BytesScalar>
-    private let index: UInt
+    private let index: Int
 
     /**
     Ctor
@@ -25,7 +25,7 @@ public final class DecodedABIVariableBytes: BytesScalar {
     */
     public init(
         abiMessage: CollectionScalar<BytesScalar>,
-        index: UInt
+        index: Int
     ) {
         self.abiMessage = abiMessage
         self.index = index
@@ -40,18 +40,18 @@ public final class DecodedABIVariableBytes: BytesScalar {
     */
     public func value() throws -> Data {
         let abiTuple = self.abiMessage
-        let offsetsCount = try BigEndianNumber(
+        let offsetsCount: Int = try EthNaturalNumber(
             bytes: BytesAt(
                 collection: abiTuple,
                 index: index
             )
-        ).uint() / 32
-        let bytesLength = try BigEndianNumber(
+        ).value() / 32
+        let bytesLength: Int = try EthNaturalNumber(
             bytes: BytesAt(
                 collection: abiTuple,
                 index: offsetsCount
             )
-        ).uint()
+        ).value()
         return try FirstBytes(
             origin: ConcatenatedBytes(
                 bytes: GeneratedCollection<BytesScalar>(

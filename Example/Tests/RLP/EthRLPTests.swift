@@ -17,9 +17,9 @@ final class EthRLPTests: XCTestCase {
     func testEncodesZeroCorrectly() {
         expect{
             try EthRLP(
-                number: BigEndianCompactNumber(
-                    origin: BigEndianNumber(
-                        uint: 0
+                number: EthNaturalNumber(
+                    origin: EthNaturalNumber(
+                        value: 0
                     )
                 )
             ).value()
@@ -36,7 +36,7 @@ final class EthRLPTests: XCTestCase {
     func testEncodingPersistsForOtherValues() {
         Array<
             (
-                UInt,
+                Int,
                 Array<UInt8>
             )
         >(
@@ -48,9 +48,9 @@ final class EthRLPTests: XCTestCase {
         ).forEach{ value, bytes in
             expect{
                 try EthRLP(
-                    number: BigEndianCompactNumber(
-                        origin: BigEndianNumber(
-                            uint: value
+                    number: EthNaturalNumber(
+                        origin: EthNaturalNumber(
+                            value: value
                         )
                     )
                 ).value()

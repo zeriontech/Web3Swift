@@ -14,8 +14,8 @@ import Foundation
 public final class DecodedABIDynamicCollection<T>: CollectionScalar<T> {
 
     private let abiMessage: CollectionScalar<BytesScalar>
-    private let mapping: ((slice: CollectionScalar<BytesScalar>, index: UInt)) throws -> (T)
-    private let index: UInt
+    private let mapping: ((slice: CollectionScalar<BytesScalar>, index: Int)) throws -> (T)
+    private let index: Int
 
     /**
     Ctor
@@ -27,8 +27,8 @@ public final class DecodedABIDynamicCollection<T>: CollectionScalar<T> {
     */
     public init(
         abiMessage: CollectionScalar<BytesScalar>,
-        mapping: @escaping ((slice: CollectionScalar<BytesScalar>, index: UInt)) throws -> (T),
-        index: UInt
+        mapping: @escaping ((slice: CollectionScalar<BytesScalar>, index: Int)) throws -> (T),
+        index: Int
     ) {
         self.abiMessage = abiMessage
         self.mapping = mapping
@@ -44,17 +44,17 @@ public final class DecodedABIDynamicCollection<T>: CollectionScalar<T> {
     */
     public override func value() throws -> [T] {
         let mapping = self.mapping
-        let elementsCount = try BigEndianNumber(
+        let elementsCount: Int = try EthNaturalNumber(
             bytes: BytesAt(
                 collection: abiMessage,
-                index: try BigEndianNumber(
+                index: try EthNaturalNumber(
                     bytes: BytesAt(
                         collection: abiMessage,
                         index: index
                     )
-                ).uint() / 32
+                ).value() / 32
             )
-        ).uint()
+        ).value()
         let slice = ABICollectionSlice(
             abiMessage: abiMessage,
             index: index

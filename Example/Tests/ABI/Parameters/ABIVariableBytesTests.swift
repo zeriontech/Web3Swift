@@ -44,14 +44,14 @@ final class ABIVariableBytesTests: XCTestCase {
                             "11"
                     )
                 ).tails(offset: 1)
-            ).value()
+            ).value().toHexString()
         }.to(
             equal(
                 Data(
                     hex: "0000000000000000000000000000000000000000000000000000000000000021" +
                         "4d00000000000000000000000000000000000000000000000000000000000012" +
                         "1100000000000000000000000000000000000000000000000000000000000000"
-                )
+                ).toHexString()
             ),
             description: "ABI variable bytes are expected to encode length to tails correctly"
         )

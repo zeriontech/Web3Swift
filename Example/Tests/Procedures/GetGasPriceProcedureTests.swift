@@ -29,11 +29,11 @@ final class GetGasPriceProcedureTests: XCTestCase {
     /// Assert gas price should be number (in hex format) that is greater than 0
     func testValueGreaterThanZero() {
         expect{
-            try BigEndianCompactNumber(
+            try EthNaturalNumber(
                 hex: GetGasPriceProcedure(
                     network: MainnetInfuraMetamaskNetwork()
                 ).call()["result"].string()
-            ).uint()
+            ).value()
         }.to(
             beGreaterThan(0),
             description: "Make sure positive gas price is returned"

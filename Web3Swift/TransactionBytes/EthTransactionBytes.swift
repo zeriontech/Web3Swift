@@ -14,13 +14,13 @@ import Foundation
 /** Signed transaction bytes */
 public final class EthTransactionBytes: BytesScalar {
 
-    private let networkID: NumberScalar
-    private let transactionsCount: NumberScalar
-    private let gasPrice: NumberScalar
-    private let gasEstimate: NumberScalar
+    private let networkID: IntegerScalar
+    private let transactionsCount: BytesScalar
+    private let gasPrice: BytesScalar
+    private let gasEstimate: BytesScalar
     private let senderKey: PrivateKey
     private let recipientAddress: BytesScalar
-    private let weiAmount: NumberScalar
+    private let weiAmount: BytesScalar
     private let contractCall: BytesScalar
 
     /**
@@ -37,13 +37,13 @@ public final class EthTransactionBytes: BytesScalar {
         - contractCall: a bytes representation of the ABI call to the contract
     */
     internal init(
-        networkID: NumberScalar,
-        transactionsCount: NumberScalar,
-        gasPrice: NumberScalar,
-        gasEstimate: NumberScalar,
+        networkID: IntegerScalar,
+        transactionsCount: BytesScalar,
+        gasPrice: BytesScalar,
+        gasEstimate: BytesScalar,
         senderKey: PrivateKey,
         recipientAddress: BytesScalar,
-        weiAmount: NumberScalar,
+        weiAmount: BytesScalar,
         contractCall: BytesScalar
     ) {
         self.networkID = networkID
@@ -89,7 +89,11 @@ public final class EthTransactionBytes: BytesScalar {
             privateKey: senderKey,
             message: SimpleRLP(
                 rlps: transactionParameters + [
-                    EthRLP(number: networkID),
+                    EthRLP(
+                        number: EthNaturalNumber(
+                            value: networkID
+                        )
+                    ),
                     SimpleRLP(bytes: []),
                     SimpleRLP(bytes: [])
                 ]
@@ -99,14 +103,14 @@ public final class EthTransactionBytes: BytesScalar {
         return try SimpleRLP(
             rlps: transactionParameters + [
                 EthRLP(
-                    number: BigEndianCompactNumber(
-                        origin: BigEndianNumber(
-                            uint: networkID.uint() * 2 + 35 + signature.recoverID().uint()
+                    number: EthNaturalNumber(
+                        origin: EthNaturalNumber(
+                            value: networkID.value() * 2 + 35 + signature.recoverID().value()
                         )
                     )
                 ),
-                SimpleRLP(bytes: signature.r().hex()),
-                SimpleRLP(bytes: signature.s().hex())
+                SimpleRLP(bytes: signature.r().value()),
+                SimpleRLP(bytes: signature.s().value())
             ]
         ).value()
     }

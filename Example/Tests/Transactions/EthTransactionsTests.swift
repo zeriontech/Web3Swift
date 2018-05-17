@@ -18,11 +18,13 @@ final class EthTransactionsTests: XCTestCase {
     /// Assert that transaction count returns positive number
     func testTransactionsCount() {
         expect{
-            try EthTransactions(
-                network: GanacheLocalNetwork(),
-                address: Alice().address(),
-                blockChainState: PendingBlockChainState()
-            ).count().uint()
+            try NaturalInteger(
+                hex: EthTransactions(
+                    network: GanacheLocalNetwork(),
+                    address: Alice().address(),
+                    blockChainState: PendingBlockChainState()
+                ).count()
+            ).value()
         }.to(
             beGreaterThanOrEqualTo(0),
             description: "Make sure positive number is returned"

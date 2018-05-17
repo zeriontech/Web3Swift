@@ -11,16 +11,11 @@
 import Foundation
 
 /** Just a number */
-public protocol NumberScalar {
-
-    /**
-    Hexadecimal representation of a number
-    */
-    func hex() throws -> BytesScalar
+public protocol IntegerScalar {
 
     /**
     Integer representation of a number
     */
-    func uint() throws -> UInt
+    func value() throws -> Int
 
 }

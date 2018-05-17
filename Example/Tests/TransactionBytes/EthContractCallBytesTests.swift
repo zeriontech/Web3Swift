@@ -18,23 +18,23 @@ final class EthContractCallBytesTests: XCTestCase {
     func testContractCallIsEncodedCorrectly() {
         expect{
             try EthContractCallBytes(
-                networkID: BigEndianCompactNumber(
+                networkID: EthNaturalNumber(
                     hex: "2a"
                 ),
-                transactionsCount: BigEndianCompactNumber(
+                transactionsCount: EthNaturalNumber(
                     hex: "06"
                 ),
-                gasPrice: BigEndianCompactNumber(
+                gasPrice: EthNaturalNumber(
                     hex: "0x04A817C800"
                 ),
-                gasEstimate: BigEndianCompactNumber(
+                gasEstimate: EthNaturalNumber(
                     hex: "0x0F4240"
                 ),
                 senderKey: Alice().privateKey(),
                 contractAddress: EthAddress(
                     hex: "0x35fb3afcba318f339b1531556bfa14f0ff21df3a"
                 ),
-                weiAmount: BigEndianCompactNumber(
+                weiAmount: EthNaturalNumber(
                     hex: "0x00"
                 ),
                 functionCall: EncodedABIFunction(
@@ -43,7 +43,7 @@ final class EthContractCallBytesTests: XCTestCase {
                     ),
                     parameters: [
                         ABIUnsignedNumber(
-                            origin: BigEndianCompactNumber(
+                            origin: EthNaturalNumber(
                                 hex: "0x04A817C800"
                             )
                         )

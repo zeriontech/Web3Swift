@@ -14,7 +14,7 @@ import Foundation
 public final class LeftZeroesPaddedBytes: BytesScalar {
 
     private let origin: BytesScalar
-    private let padding: UInt
+    private let padding: Int
 
     /**
     Ctor
@@ -25,7 +25,7 @@ public final class LeftZeroesPaddedBytes: BytesScalar {
     */
     public init(
         origin: BytesScalar,
-        padding: UInt
+        padding: Int
     ) {
         self.origin = origin
         self.padding = padding

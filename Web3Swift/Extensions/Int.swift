@@ -10,6 +10,32 @@
 
 import Foundation
 
+internal final class DivisionByZero: DescribedError {
+
+    internal var description: String {
+        return "Division by 0 is undefined"
+    }
+
+}
+
+internal final class IntegerOverflow: DescribedError {
+
+    private let firstTerm: Int
+    private let secondTerm: Int
+    private let operation: String
+
+    internal init(firstTerm: Int, secondTerm: Int, operation: String) {
+        self.firstTerm = firstTerm
+        self.secondTerm = secondTerm
+        self.operation = operation
+    }
+
+    internal var description: String {
+        return "Operations of \(operation) called on \(firstTerm) with \(secondTerm) causes an overflow"
+    }
+
+}
+
 extension Int {
 
     internal func unsignedByteWidth() -> Int {
@@ -24,6 +50,57 @@ extension Int {
     */
     internal func isEven() -> Bool {
         return self % 2 == 0
+    }
+
+    internal func addSafely(with addend: Int) throws -> Int {
+        let sum = self.addingReportingOverflow(addend)
+        guard sum.overflow == false else {
+            throw IntegerOverflow(
+                firstTerm: self,
+                secondTerm: addend,
+                operation: "summation"
+            )
+        }
+        return sum.partialValue
+    }
+
+    internal func subtractSafely(from minuend: Int) throws -> Int {
+        let difference = minuend.subtractingReportingOverflow(self)
+        guard difference.overflow == false else {
+            throw IntegerOverflow(
+                firstTerm: minuend,
+                secondTerm: self,
+                operation: "subtraction"
+            )
+        }
+        return difference.partialValue
+    }
+
+    internal func multiplySafely(by multiplier: Int) throws -> Int {
+        let multiplication = self.multipliedReportingOverflow(by: multiplier)
+        guard multiplication.overflow == false else {
+            throw IntegerOverflow(
+                firstTerm: self,
+                secondTerm: multiplier,
+                operation: "multiplication"
+            )
+        }
+        return multiplication.partialValue
+    }
+
+    internal func divideSafely(by divisor: Int) throws -> Int {
+        guard divisor != 0 else {
+            throw DivisionByZero()
+        }
+        let division = self.dividedReportingOverflow(by: divisor)
+        guard division.overflow == false else {
+            throw IntegerOverflow(
+                firstTerm: self,
+                secondTerm: divisor,
+                operation: "division"
+            )
+        }
+        return division.partialValue
     }
 
 }

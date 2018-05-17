@@ -19,7 +19,7 @@ final class ABIUnsignedNumberTests: XCTestCase {
         expect{
             try ConcatenatedBytes(
                 bytes: ABIUnsignedNumber(
-                    origin: BigEndianNumber(
+                    origin: EthNaturalNumber(
                         bytes: BytesFromHexString(
                             hex: "12345678"
                         )
@@ -39,7 +39,7 @@ final class ABIUnsignedNumberTests: XCTestCase {
     func testEncodesTailsCorrectly() {
         expect{
             try ABIUnsignedNumber(
-                origin: BigEndianNumber(
+                origin: EthNaturalNumber(
                     bytes: BytesFromHexString(
                         hex: "12345678"
                     )

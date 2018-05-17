@@ -25,11 +25,11 @@ final class BigEndianNumberHexTests: XCTestCase {
             ]
         ).forEach{ bytes in
             expect{
-                try BigEndianNumber(
+                try EthNaturalNumber(
                     bytes: SimpleBytes(
                         bytes: bytes
                     )
-                ).hex().value()
+                ).value()
             }.to(
                 equal(
                     Data(
@@ -46,7 +46,7 @@ final class BigEndianNumberHexTests: XCTestCase {
         Array<
             (
                 Array<UInt8>,
-                UInt
+                Int
             )
         >(
             [
@@ -57,9 +57,9 @@ final class BigEndianNumberHexTests: XCTestCase {
         ).forEach{ bytes, uint in
             expect{
                 try Set<UInt8>(
-                    BigEndianNumber(
-                        uint: uint
-                    ).hex().value()
+                    EthNaturalNumber(
+                        value: uint
+                    ).value()
                 ).isSuperset(of: Set<UInt8>(bytes))
             }.to(
                 equal(true),
@@ -82,11 +82,11 @@ final class BigEndianNumberHexTests: XCTestCase {
             ]
         ).forEach{ hex, bytes in
             expect{
-                try BigEndianNumber(
+                try EthNaturalNumber(
                     hex: SimpleString(
                         string: hex
                     )
-                ).hex().value()
+                ).value()
             }.to(
                 equal(
                     Data(

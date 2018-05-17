@@ -12,12 +12,12 @@ import Foundation
 
 internal final class IndexOtOfBoundsError: DescribedError {
 
-    private let collectionSize: UInt
-    private let index: UInt
+    private let collectionSize: Int
+    private let index: Int
 
     public init(
-        collectionSize: UInt,
-        index: UInt
+        collectionSize: Int,
+        index: Int
     ) {
         self.collectionSize = collectionSize
         self.index = index
@@ -33,7 +33,7 @@ internal final class IndexOtOfBoundsError: DescribedError {
 public final class SizeConstrainedCollection<T>: CollectionScalar<T> {
 
     private let origin: CollectionScalar<T>
-    private let minimum: NumberScalar
+    private let minimum: IntegerScalar
 
     /**
     Ctor
@@ -44,7 +44,7 @@ public final class SizeConstrainedCollection<T>: CollectionScalar<T> {
     */
     public init(
         origin: CollectionScalar<T>,
-        minimum: NumberScalar
+        minimum: IntegerScalar
     ) {
         self.origin = origin
         self.minimum = minimum
@@ -59,12 +59,12 @@ public final class SizeConstrainedCollection<T>: CollectionScalar<T> {
     */
     public convenience init(
         origin: CollectionScalar<T>,
-        minimum: UInt
+        minimum: Int
     ) {
         self.init(
             origin: origin,
-            minimum: BigEndianNumber(
-                uint: minimum
+            minimum: SimpleInteger(
+                integer: minimum
             )
         )
     }
@@ -78,10 +78,10 @@ public final class SizeConstrainedCollection<T>: CollectionScalar<T> {
     */
     public override func value() throws -> [T] {
         let origin = try self.origin.value()
-        let minimum = try self.minimum.uint()
+        let minimum = try self.minimum.value()
         guard origin.count >= Int(minimum) else {
             throw IndexOtOfBoundsError(
-                collectionSize: UInt(origin.count),
+                collectionSize: Int(origin.count),
                 index: minimum
             )
         }

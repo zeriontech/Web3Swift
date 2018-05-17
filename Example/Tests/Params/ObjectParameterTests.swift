@@ -27,18 +27,18 @@ class ObjectParameterTests: XCTestCase {
                         bytes: Bob().address()
                     ),
                     "gas": QuantityParameter(
-                        number: BigEndianNumber(
-                            uint: 9000
+                        number: EthNaturalNumber(
+                            value: 9000
                         )
                     ),
                     "gasPrice": QuantityParameter(
-                        number: BigEndianNumber(
-                            uint: UInt(pow(10.0, 9.0))
+                        number: EthNaturalNumber(
+                            value: Int(pow(10.0, 9.0))
                         )
                     ),
                     "value": QuantityParameter(
-                        number: BigEndianNumber(
-                            uint: UInt(pow(10.0, 18.0))
+                        number: EthNaturalNumber(
+                            value: Int(pow(10.0, 18.0))
                         )
                     ),
                     "data": BytesParameter(

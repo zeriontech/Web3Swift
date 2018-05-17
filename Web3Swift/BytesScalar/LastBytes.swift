@@ -14,7 +14,7 @@ import Foundation
 final public class LastBytes: BytesScalar {
 
     private let origin: BytesScalar
-    private let length: NumberScalar
+    private let length: IntegerScalar
 
     /**
     Ctor
@@ -25,7 +25,7 @@ final public class LastBytes: BytesScalar {
     */
     public init(
         origin: BytesScalar,
-        length: NumberScalar
+        length: IntegerScalar
     ) {
         self.origin = origin
         self.length = length
@@ -40,13 +40,11 @@ final public class LastBytes: BytesScalar {
     */
     public convenience init(
         origin: BytesScalar,
-        length: UInt
+        length: Int
     ) {
         self.init(
             origin: origin,
-            length: BigEndianNumber(
-                uint: length
-            )
+            length: SimpleInteger{ length }
         )
     }
 
@@ -62,7 +60,7 @@ final public class LastBytes: BytesScalar {
             .value()
             .suffix(
                 Int(
-                    try length.uint()
+                    try length.value()
                 )
             )
     }

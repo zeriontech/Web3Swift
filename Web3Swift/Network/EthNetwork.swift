@@ -57,7 +57,7 @@ public class EthNetwork: Network {
     - throws:
     `DescribedError` if something went wrong.
     */
-    public func id() throws -> NumberScalar {
+    public func id() throws -> IntegerScalar {
         let result = try ChainIDProcedure(
             network: EthNetwork(
                 session: self.session,
@@ -65,14 +65,14 @@ public class EthNetwork: Network {
                 headers: self.headers
             )
         ).call()["result"].string()
-        guard let id = UInt(result) else {
+        guard let id = Int(result) else {
             throw InvalidIDResponseError(
                 response: result
             )
         }
-        return BigEndianCompactNumber(
-            origin: BigEndianNumber(
-                uint: id
+        return EthNaturalNumber(
+            origin: EthNaturalNumber(
+                value: id
             )
         )
     }

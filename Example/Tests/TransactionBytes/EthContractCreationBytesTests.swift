@@ -18,20 +18,20 @@ final class EthContractCreationBytesTests: XCTestCase {
     func testSampleContractReplicatesCorrectly() {
         expect{
             try EthContractCreationBytes(
-                networkID: BigEndianCompactNumber(
+                networkID: EthNaturalNumber(
                     hex: "0x2a"
                 ),
-                transactionsCount: BigEndianCompactNumber(
+                transactionsCount: EthNaturalNumber(
                     hex: "0x00"
                 ),
-                gasPrice: BigEndianCompactNumber(
+                gasPrice: EthNaturalNumber(
                     hex: "0x04A817C800"
                 ),
-                gasEstimate: BigEndianCompactNumber(
+                gasEstimate: EthNaturalNumber(
                     hex: "0x0F4240"
                 ),
                 senderKey: Alice().privateKey(),
-                weiAmount: BigEndianCompactNumber(
+                weiAmount: EthNaturalNumber(
                     hex: "0x00"
                 ),
                 contractCall: EncodedContract(
@@ -57,7 +57,7 @@ final class EthContractCreationBytesTests: XCTestCase {
                             origin: true
                         ),
                         ABIUnsignedNumber(
-                            origin: BigEndianCompactNumber(
+                            origin: EthNaturalNumber(
                                 hex: "0x04A817C800"
                             )
                         ),

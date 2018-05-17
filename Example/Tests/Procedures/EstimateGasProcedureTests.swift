@@ -37,9 +37,9 @@ final class EstimateGasProcedureTests: XCTestCase {
                         )
                     ),
                     "value" : QuantityParameter(
-                        number: BigEndianCompactNumber(
-                            origin: BigEndianNumber(
-                                uint: 100
+                        number: EthNaturalNumber(
+                            origin: EthNaturalNumber(
+                                value: 100
                             )
                         )
                     )

@@ -17,8 +17,8 @@ final class NumericBooleanTests: XCTestCase {
     func test0ProducesFalseBoolean() {
         expect{
             try NumericBoolean(
-                bool: BigEndianNumber(
-                    uint: 0
+                bool: EthNaturalNumber(
+                    value: 0
                 )
             ).value()
         }.to(
@@ -32,8 +32,8 @@ final class NumericBooleanTests: XCTestCase {
     func test1ProducesTrueBoolean() {
         expect{
             try NumericBoolean(
-                bool: BigEndianNumber(
-                    uint: 1
+                bool: EthNaturalNumber(
+                    value: 1
                 )
             ).value()
         }.to(
@@ -47,8 +47,8 @@ final class NumericBooleanTests: XCTestCase {
     func testOtherNumbersThrowError() {
         expect{
             try NumericBoolean(
-                bool: BigEndianNumber(
-                    uint: 2
+                bool: EthNaturalNumber(
+                    value: 2
                 )
             ).value()
         }.to(

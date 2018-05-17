@@ -13,16 +13,24 @@ import Foundation
 /** Bytes representation of an integer */
 public final class IntegerBytes: BytesScalar {
 
-    private let uint: UInt
+    private let int: IntegerScalar
+
+    public init(value: IntegerScalar) {
+        self.int = value
+    }
+
     /**
     Ctor
 
     - parameters:
-        - uint: an integer for which to get bytes. Endiannes should be specified in advanced.
+        - value: an integer for which to get bytes. Endiannes should be specified in advanced.
     */
-    public init(uint: UInt) {
-        self.uint = uint
+    public convenience init(value: Int) {
+        self.init(
+            value: SimpleInteger{ value }
+        )
     }
+
 
     /**
     - returns:
@@ -32,10 +40,10 @@ public final class IntegerBytes: BytesScalar {
     doesn't throw
     */
     public func value() throws -> Data {
-        var integerCopy = uint
+        var integerCopy = try int.value()
         return Data(
             bytes: &integerCopy,
-            count: MemoryLayout.size(ofValue: integerCopy)
+            count: MemoryLayout<Int>.size(ofValue: integerCopy)
         )
     }
 

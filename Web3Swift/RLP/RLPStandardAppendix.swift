@@ -36,7 +36,7 @@ internal final class RLPStandardAppendix: RLPAppendix {
                 ]
             ) + LeadingCompactBytes(
                 origin: IntegerBytes(
-                    uint: UInt(bytes.count).bigEndian
+                    value: bytes.count.bigEndian
                 )
             ).value() + bytes
         default:

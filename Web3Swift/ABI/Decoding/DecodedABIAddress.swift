@@ -24,7 +24,7 @@ public final class DecodedABIAddress: BytesScalar {
     */
     public init(
         abiMessage: CollectionScalar<BytesScalar>,
-        index: UInt
+        index: Int
     ) {
         self.origin = EthAddress(
             bytes: NumberHex(

@@ -13,13 +13,13 @@ import Quick
 @testable import Web3Swift
 
 //Some number that is random
-fileprivate final class MutableRandomNumber: NumberScalar {
+fileprivate final class MutableRandomNumber: BytesScalar {
 
-    private let origin: NumberScalar = BigEndianNumber(
+    private let origin: BytesScalar = EthNaturalNumber(
         bytes: SimpleBytes{
             try RandomNonce(
-                size: UInt(
-                    MemoryLayout<UInt>.size
+                size: Int(
+                    MemoryLayout<Int>.size
                 )
             ).toData()
         }
@@ -32,21 +32,8 @@ fileprivate final class MutableRandomNumber: NumberScalar {
     - throws:
     `Swift.Error` if something went wrong
     */
-    fileprivate func hex() throws -> BytesScalar {
-        return try origin.hex()
-    }
-
-    /**
-    Will most probably throw if UInt isn't UInt256
-
-    - returns:
-    unsigned integer representation of the number
-
-    - throws:
-    `DescribedError` if something went wrong
-    */
-    fileprivate func uint() throws -> UInt {
-        return try origin.uint()
+    fileprivate func value() throws -> Data {
+        return try origin.value()
     }
 
 }
@@ -58,9 +45,9 @@ final class MutableRandomNumberTests: XCTestCase {
     func testMutableBytesAreMutable() {
         let number = MutableRandomNumber()
         expect{
-            try number.uint()
+            try number.value() as Data
         }.toNot(
-            equal(try! number.uint()),
+            equal(try! number.value() as Data),
             description: "Random number is expected to be different every time"
         )
     }
@@ -70,13 +57,13 @@ final class MutableRandomNumberTests: XCTestCase {
 final class CachedNumberTests: XCTestCase {
 
     func testCachedBytesAreImmutable() {
-        let number = CachedNumber(
+        let number = CachedBytes(
             origin: MutableRandomNumber()
         )
         expect{
-            try number.uint()
+            try number.value() as Data
         }.to(
-            equal(try! number.uint()),
+            equal(try! number.value() as Data),
             description: "Cached number is expected to persist"
         )
     }

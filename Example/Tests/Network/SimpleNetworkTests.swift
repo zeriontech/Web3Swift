@@ -18,18 +18,22 @@ final class SimpleNetworkTests: XCTestCase {
         let id: [UInt8] = [0x2a]
         expect{
             try Array<UInt8>(
-                SimpleNetwork(
-                    id: {
-                        BigEndianNumber(
-                            bytes: SimpleBytes(
-                                bytes: id
-                            )
-                        )
-                    },
-                    call: { _, _ in
-                        fatalError("call is irrelevant for this test")
-                    }
-                ).id().hex().value()
+                [
+                    UInt8(
+                        SimpleNetwork(
+                            id: {
+                                EthNaturalNumber(
+                                    bytes: SimpleBytes(
+                                        bytes: id
+                                    )
+                                )
+                            },
+                            call: { _, _ in
+                                fatalError("call is irrelevant for this test")
+                            }
+                        ).id().value()
+                    )
+                ]
             )
         }.to(
             equal(

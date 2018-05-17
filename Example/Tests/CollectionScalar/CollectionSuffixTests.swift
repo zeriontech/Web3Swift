@@ -22,8 +22,8 @@ final class CollectionSuffixTests: XCTestCase {
                         0, 1, 2, 3, 4, 5
                     ]
                 ),
-                from: BigEndianNumber(
-                    uint: 4
+                from: EthNaturalNumber(
+                    value: 4
                 )
             ).value()
         }.to(
@@ -42,8 +42,8 @@ final class CollectionSuffixTests: XCTestCase {
                         0, 1, 2, 3, 4, 5
                     ]
                 ),
-                from: BigEndianNumber(
-                    uint: 6
+                from: EthNaturalNumber(
+                    value: 6
                 )
             ).value()
         }.to(

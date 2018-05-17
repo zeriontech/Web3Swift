@@ -39,7 +39,7 @@ public final class EthAutoAccount: Account {
     - throws:
     `DescribedError` if something went wrong
     */
-    public func balance() throws -> NumberScalar {
+    public func balance() throws -> BytesScalar {
         return try EthBalance(
             network: network,
             address: privateKey.address()
@@ -60,7 +60,7 @@ public final class EthAutoAccount: Account {
     - throws:
     `DescribedError` if something went wrong
     */
-    public func send(weiAmount: NumberScalar, to recipientAddress: BytesScalar) throws -> TransactionHash {
+    public func send(weiAmount: BytesScalar, to recipientAddress: BytesScalar) throws -> TransactionHash {
         return try EthTransactionHash(
             network: network,
             transactionHash: BytesFromCompactHexString(

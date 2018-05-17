@@ -75,7 +75,7 @@ final class RLPTests: XCTestCase {
             try SimpleRLP(
                 bytes: LeadingCompactBytes(
                     origin: IntegerBytes(
-                        uint: UInt(0).bigEndian
+                        value: Int(0).bigEndian
                     )
                 )
             ).value()
@@ -95,7 +95,7 @@ final class RLPTests: XCTestCase {
             try SimpleRLP(
                 bytes: LeadingCompactBytes(
                     origin: IntegerBytes(
-                        uint: UInt(15).bigEndian
+                        value: Int(15).bigEndian
                     )
                 )
             ).value()
@@ -115,7 +115,7 @@ final class RLPTests: XCTestCase {
             try SimpleRLP(
                 bytes: LeadingCompactBytes(
                     origin: IntegerBytes(
-                        uint: UInt(127).bigEndian
+                        value: Int(127).bigEndian
                     )
                 )
             ).value()
@@ -135,7 +135,7 @@ final class RLPTests: XCTestCase {
             try SimpleRLP(
                 bytes: LeadingCompactBytes(
                     origin: IntegerBytes(
-                        uint: UInt(128).bigEndian
+                        value: Int(128).bigEndian
                     )
                 )
             ).value()
@@ -156,7 +156,7 @@ final class RLPTests: XCTestCase {
             try SimpleRLP(
                 bytes: LeadingCompactBytes(
                     origin: IntegerBytes(
-                        uint: UInt(255).bigEndian
+                        value: Int(255).bigEndian
                     )
                 )
             ).value()
@@ -177,7 +177,7 @@ final class RLPTests: XCTestCase {
             try SimpleRLP(
                 bytes: LeadingCompactBytes(
                     origin: IntegerBytes(
-                        uint: UInt(256).bigEndian
+                        value: Int(256).bigEndian
                     )
                 )
             ).value()
@@ -199,7 +199,7 @@ final class RLPTests: XCTestCase {
             try SimpleRLP(
                 bytes: LeadingCompactBytes(
                     origin: IntegerBytes(
-                        uint: UInt(1024).bigEndian
+                        value: Int(1024).bigEndian
                     )
                 )
             ).value()

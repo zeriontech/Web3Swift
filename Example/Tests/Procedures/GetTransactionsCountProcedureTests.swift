@@ -33,13 +33,13 @@ final class GetTransactionsCountProcedureTests: XCTestCase {
     /// Assert response contains positive value
     func testValueGreaterThanZero() {
         expect{
-            try BigEndianCompactNumber(
+            try EthNaturalNumber(
                 hex: GetTransactionsCountProcedure(
                     network: GanacheLocalNetwork(),
                     address: Alice().address(),
                     blockChainState: LatestBlockChainState()
                 ).call()["result"].string()
-            ).uint()
+            ).value()
         }.to(
             beGreaterThanOrEqualTo(0),
             description: "Make sure positive number is returned"

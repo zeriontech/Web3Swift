@@ -23,7 +23,7 @@ public final class MainnetInfuraMetamaskNetwork: Network {
     - throws:
     `DescribedError` if something went wrong
     */
-    public func id() throws -> NumberScalar {
+    public func id() throws -> IntegerScalar {
         return try origin.id()
     }
 

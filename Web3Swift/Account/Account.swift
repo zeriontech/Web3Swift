@@ -21,7 +21,7 @@ public protocol Account {
     - throws:
     `DescribedError` if something went wrong
     */
-    func balance() throws -> NumberScalar
+    func balance() throws -> BytesScalar
 
     /**
     Send the specified amount to the recipient
@@ -36,6 +36,6 @@ public protocol Account {
     - throws:
     `DescribedError` if something went wrong
     */
-    func send(weiAmount: NumberScalar, to recipientAddress: BytesScalar) throws -> TransactionHash
+    func send(weiAmount: BytesScalar, to recipientAddress: BytesScalar) throws -> TransactionHash
 
 }

@@ -12,7 +12,7 @@ import Foundation
 
 public final class QuantityParameter: EthParameter {
 
-    private let number: NumberScalar
+    private let number: BytesScalar
 
     /**
     Ctor
@@ -20,7 +20,7 @@ public final class QuantityParameter: EthParameter {
     - parameters:
         - number: number to be converted to parameter
     */
-    public init(number: NumberScalar) {
+    public init(number: BytesScalar) {
         self.number = number
     }
 
@@ -37,7 +37,7 @@ public final class QuantityParameter: EthParameter {
                 string: String(
                     UnprefixedHexString(
                         bytes: LeadingCompactBytes(
-                            origin: self.number.hex()
+                            origin: self.number
                         )
                     ).value().drop(while: { $0 == "0" })
                 )

@@ -24,7 +24,7 @@ public final class DecodedABIString: StringScalar {
     */
     public init(
         abiMessage: CollectionScalar<BytesScalar>,
-        index: UInt
+        index: Int
     ) {
         self.origin = UTF8String(
             bytes: DecodedABIVariableBytes(

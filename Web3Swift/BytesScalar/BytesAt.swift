@@ -24,7 +24,7 @@ public final class BytesAt: BytesScalar {
     */
     public init(
         collection: CollectionScalar<BytesScalar>,
-        index: NumberScalar
+        index: IntegerScalar
     ) {
         self.element = ElementAt(
             collection: collection,
@@ -41,12 +41,12 @@ public final class BytesAt: BytesScalar {
     */
     public convenience init(
         collection: CollectionScalar<BytesScalar>,
-        index: UInt
+        index: Int
     ) {
         self.init(
             collection: collection,
-            index: BigEndianNumber(
-                uint: index
+            index: EthNaturalNumber(
+                value: index
             )
         )
     }

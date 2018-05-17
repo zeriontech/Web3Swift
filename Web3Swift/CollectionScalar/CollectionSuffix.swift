@@ -14,7 +14,7 @@ import Foundation
 public final class CollectionSuffix<T>: CollectionScalar<T> {
 
     private let origin: CollectionScalar<T>
-    private let from: NumberScalar
+    private let from: IntegerScalar
 
     /**
     Ctor
@@ -25,7 +25,7 @@ public final class CollectionSuffix<T>: CollectionScalar<T> {
     */
     public init(
         origin: CollectionScalar<T>,
-        from: NumberScalar
+        from: IntegerScalar
     ) {
         self.origin = origin
         self.from = from
@@ -39,7 +39,7 @@ public final class CollectionSuffix<T>: CollectionScalar<T> {
     `DescribedError` if something went wrong
     */
     public override func value() throws -> [T] {
-        let from = try self.from.uint()
+        let from: Int = try self.from.value()
         return try Array(
             SizeConstrainedCollection(
                 origin: origin,

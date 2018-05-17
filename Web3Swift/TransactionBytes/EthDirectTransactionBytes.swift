@@ -28,13 +28,13 @@ public final class EthDirectTransactionBytes: BytesScalar {
         - weiAmount: amount to be sent in wei
     */
     public init(
-        networkID: NumberScalar,
-        transactionsCount: NumberScalar,
-        gasPrice: NumberScalar,
-        gasEstimate: NumberScalar,
+        networkID: IntegerScalar,
+        transactionsCount: BytesScalar,
+        gasPrice: BytesScalar,
+        gasEstimate: BytesScalar,
         senderKey: PrivateKey,
         recipientAddress: BytesScalar,
-        weiAmount: NumberScalar
+        weiAmount: BytesScalar
     ) {
         self.origin = EthTransactionBytes(
             networkID: networkID,
@@ -61,39 +61,37 @@ public final class EthDirectTransactionBytes: BytesScalar {
         network: Network,
         senderKey: PrivateKey,
         recipientAddress: BytesScalar,
-        weiAmount: NumberScalar
+        weiAmount: BytesScalar
     ) {
         let senderAddress = CachedBytes(
             origin: SimpleBytes{
                 try senderKey.address().value()
             }
         )
-        let gasPrice = CachedNumber(
+        let gasPrice = CachedBytes(
             origin: EthGasPrice(
                 network: network
             )
         )
         self.init(
-            networkID: CachedNumber(
-                origin: BigEndianNumber(
-                    bytes: SimpleBytes{
-                        try network.id().hex().value()
-                    }
+            networkID: CachedInteger(
+                origin: NetworkID(
+                    network: network
                 )
             ),
-            transactionsCount: CachedNumber(
-                origin: BigEndianNumber(
+            transactionsCount: CachedBytes(
+                origin: EthNaturalNumber(
                     bytes: SimpleBytes{
                         try EthTransactions(
                             network: network,
                             address: senderAddress,
                             blockChainState: PendingBlockChainState()
-                        ).count().hex().value()
+                        ).count().value()
                     }
                 )
             ),
             gasPrice: gasPrice,
-            gasEstimate: CachedNumber(
+            gasEstimate: CachedBytes(
                 origin: EthGasEstimate(
                     network: network,
                     senderAddress: senderAddress,

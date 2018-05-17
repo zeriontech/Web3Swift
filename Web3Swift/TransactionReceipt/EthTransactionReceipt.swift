@@ -39,8 +39,8 @@ public final class EthTransactionReceipt: TransactionReceipt {
     - throws:
     `DescribedError if something went wrong`
     */
-    public func usedGasAmount() throws -> NumberScalar {
-        return try BigEndianCompactNumber(
+    public func usedGasAmount() throws -> BytesScalar {
+        return try EthNaturalNumber(
             hex: procedure.call()["result"]["gasUsed"].string()
         )
     }

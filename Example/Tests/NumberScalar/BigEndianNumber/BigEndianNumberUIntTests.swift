@@ -15,7 +15,7 @@ import Quick
 final class BigEndianNumberUIntTests: XCTestCase {
 
     func testUIntConversionFromUInt() {
-        Array<UInt>(
+        Array<Int>(
             [
                 1,
                 1023,
@@ -23,7 +23,9 @@ final class BigEndianNumberUIntTests: XCTestCase {
             ]
         ).forEach{ uint in
             expect{
-                try BigEndianNumber(uint: uint).uint()
+                try EthNaturalNumber(
+                    value: uint
+                ).value()
             }.to(
                 equal(uint),
                 description: "Value of a number is expected to persist"
@@ -35,7 +37,7 @@ final class BigEndianNumberUIntTests: XCTestCase {
         Array<
             (
                 String,
-                UInt
+                Int
             )
         >(
             [
@@ -45,11 +47,11 @@ final class BigEndianNumberUIntTests: XCTestCase {
             ]
         ).forEach{ hex, uint in
             expect{
-                try BigEndianNumber(
+                try EthNaturalNumber(
                     hex: SimpleString(
                         string: hex
                     )
-                ).uint()
+                ).value()
             }.to(
                 equal(uint),
                 description: "Value of a number from hex is expected to persist"
@@ -61,7 +63,7 @@ final class BigEndianNumberUIntTests: XCTestCase {
         Array<
             (
                 Array<UInt8>,
-                UInt
+                Int
             )
         >(
             [
@@ -71,11 +73,11 @@ final class BigEndianNumberUIntTests: XCTestCase {
             ]
         ).forEach{ bytes, uint in
             expect{
-                try BigEndianNumber(
+                try EthNaturalNumber(
                     bytes: SimpleBytes(
                         bytes: bytes
                     )
-                ).uint()
+                ).value()
             }.to(
                 equal(uint),
                 description: "Value of a number from bytes is expected to persist"
@@ -85,33 +87,33 @@ final class BigEndianNumberUIntTests: XCTestCase {
 
     func testOverflow() {
         expect{
-            try BigEndianNumber(
+            try EthNaturalNumber(
                 bytes: SimpleBytes(
                     bytes: [0x01] + Array<UInt8>(
                         repeating: 0x00,
-                        count: MemoryLayout<UInt>.size
+                        count: MemoryLayout<Int>.size
                     )
                 )
-            ).uint()
+            ).value() as Int
         }.to(
             throwError(),
-            description: "A number of \(MemoryLayout<UInt>.size + 1) bytes is expected to be considered an overflow"
+            description: "A number of \(MemoryLayout<Int>.size + 1) bytes is expected to be considered an overflow"
         )
     }
 
     func testOverflowCeil() {
         expect{
-            try BigEndianNumber(
+            try EthNaturalNumber(
                 bytes: SimpleBytes(
                     bytes: Array<UInt8>(
                         repeating: 0xff,
-                        count: MemoryLayout<UInt>.size
+                        count: MemoryLayout<Int>.size
                     )
                 )
-            ).uint()
+            ).value() as Int
         }.toNot(
             throwError(),
-            description: "A number of \(MemoryLayout<UInt>.size) 0xff bytes is expected to be the overflow limit"
+            description: "A number of \(MemoryLayout<Int>.size) 0xff bytes is expected to be the overflow limit"
         )
     }
 

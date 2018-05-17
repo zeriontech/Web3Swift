@@ -18,24 +18,24 @@ final class EthTransactionBytesTests: XCTestCase {
     func testStaticParametersAreSignedCorrectly() {
         expect{
             return try EthTransactionBytes(
-                networkID: BigEndianCompactNumber(
-                    origin: BigEndianNumber(
-                        uint: 42
+                networkID: EthNaturalNumber(
+                    origin: EthNaturalNumber(
+                        value: 42
                     )
                 ),
-                transactionsCount: BigEndianCompactNumber(
-                    origin: BigEndianNumber(
-                        uint: 0
+                transactionsCount: EthNaturalNumber(
+                    origin: EthNaturalNumber(
+                        value: 0
                     )
                 ),
-                gasPrice: BigEndianNumber(
+                gasPrice: EthNaturalNumber(
                     hex: SimpleString(
                         string: "0x06FC23AC00"
                     )
                 ),
-                gasEstimate: BigEndianCompactNumber(
-                    origin: BigEndianNumber(
-                        uint: 21000
+                gasEstimate: EthNaturalNumber(
+                    origin: EthNaturalNumber(
+                        value: 21000
                     )
                 ),
                 senderKey: EthPrivateKey(
@@ -46,7 +46,7 @@ final class EthTransactionBytesTests: XCTestCase {
                 recipientAddress: BytesFromHexString(
                     hex: "0xcD8aC90d9cc7e4c03430d58d2f3e87Dae70b807e"
                 ),
-                weiAmount: BigEndianNumber(
+                weiAmount: EthNaturalNumber(
                     hex: SimpleString(
                         string: "0xE8D4A51000"
                     )
@@ -62,29 +62,29 @@ final class EthTransactionBytesTests: XCTestCase {
     func test129thTransactionIsSignedCorrectly() {
         expect{
             return try EthTransactionBytes(
-                networkID: BigEndianCompactNumber(
-                    origin: BigEndianNumber(
-                        uint: 1
+                networkID: EthNaturalNumber(
+                    origin: EthNaturalNumber(
+                        value: 1
                     )
                 ),
-                transactionsCount: BigEndianCompactNumber(
-                    origin: BigEndianNumber(
-                        uint: 128
+                transactionsCount: EthNaturalNumber(
+                    origin: EthNaturalNumber(
+                        value: 128
                     )
                 ),
-                gasPrice: BigEndianNumber(
+                gasPrice: EthNaturalNumber(
                     hex: SimpleString(
                         string: "0x04A817C800"
                     )
                 ),
-                gasEstimate: BigEndianCompactNumber(
-                    origin: BigEndianNumber(
-                        uint: 21000
+                gasEstimate: EthNaturalNumber(
+                    origin: EthNaturalNumber(
+                        value: 21000
                     )
                 ),
                 senderKey: Tim().privateKey(),
                 recipientAddress: Alice().address(),
-                weiAmount: BigEndianNumber(
+                weiAmount: EthNaturalNumber(
                     hex: SimpleString(
                         string: "0x01"
                     )

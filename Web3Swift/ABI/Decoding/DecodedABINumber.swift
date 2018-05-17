@@ -11,9 +11,9 @@
 import Foundation
 
 /** Decoded number */
-public final class DecodedABINumber: NumberScalar {
+public final class DecodedABINumber: BytesScalar {
 
-    private let number: NumberScalar
+    private let number: BytesScalar
 
     /**
     Ctor
@@ -24,10 +24,10 @@ public final class DecodedABINumber: NumberScalar {
     */
     public init(
         abiMessage: CollectionScalar<BytesScalar>,
-        index: UInt
+        index: Int
     ) {
-        self.number = BigEndianCompactNumber(
-            origin: BigEndianNumber(
+        self.number = EthNaturalNumber(
+            origin: EthNaturalNumber(
                 bytes: BytesAt(
                     collection: abiMessage,
                     index: index
@@ -38,24 +38,13 @@ public final class DecodedABINumber: NumberScalar {
 
     /**
     - returns:
-    UInt representation of a decoded number
-
-    - throws:
-    `DescribedError` if something went wrong
-    */
-    public func uint() throws -> UInt {
-        return try number.uint()
-    }
-
-    /**
-    - returns:
     Compact hex representation of a decoded number
 
     - throws:
     `DescribedError` if something went wrong
     */
-    public func hex() throws -> BytesScalar {
-        return try number.hex()
+    public func value() throws -> Data {
+        return try number.value()
     }
 
 }

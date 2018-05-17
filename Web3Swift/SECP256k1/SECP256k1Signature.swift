@@ -139,9 +139,9 @@ public final class SECP256k1Signature: ECRecoverableSignature {
         - throws:
         `DescribedError` if something went wrong
     */
-    public func r() throws -> NumberScalar {
+    public func r() throws -> BytesScalar {
         let stickyComputation = self.stickyComputation
-        return BigEndianNumber(
+        return EthNaturalNumber(
             bytes: SimpleBytes{
                 try stickyComputation.result().r
             }
@@ -157,9 +157,9 @@ public final class SECP256k1Signature: ECRecoverableSignature {
         - throws:
         `DescribedError` if something went wrong
     */
-    public func s() throws -> NumberScalar {
+    public func s() throws -> BytesScalar {
         let stickyComputation = self.stickyComputation
-        return BigEndianNumber(
+        return EthNaturalNumber(
             bytes: SimpleBytes{
                 try stickyComputation.result().s
             }
@@ -176,12 +176,13 @@ public final class SECP256k1Signature: ECRecoverableSignature {
         - throws:
         `DescribedError` if something went wrong
     */
-    public func recoverID() throws -> NumberScalar {
-        return try BigEndianNumber(
-            uint: UInt(
-                stickyComputation.result().recoveryID
+    public func recoverID() throws -> IntegerScalar {
+        let stickyComputation = self.stickyComputation
+        return SimpleInteger{
+            Int(
+                try stickyComputation.result().recoveryID
             )
-        )
+        }
     }
 
 }

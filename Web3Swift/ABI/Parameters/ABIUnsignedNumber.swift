@@ -21,12 +21,10 @@ public final class ABIUnsignedNumber: ABIEncodedParameter {
     - parameters:
         - origin: number to encode
     */
-    public init(origin: NumberScalar) {
+    public init(origin: BytesScalar) {
         self.origin = ABIFixedBytes(
             origin: LeftZeroesPaddedBytes(
-                origin: SimpleBytes{
-                    try origin.hex().value()
-                },
+                origin: origin,
                 padding: 32
             )
         )

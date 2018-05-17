@@ -22,7 +22,7 @@ public protocol ECRecoverableSignature {
         - throws:
         `DescribedError` if something went wrong
     */
-    func r() throws -> NumberScalar
+    func r() throws -> BytesScalar
 
     /**
         S value as defined in ecdsa
@@ -33,7 +33,7 @@ public protocol ECRecoverableSignature {
         - throws:
         `DescribedError` if something went wrong
     */
-    func s() throws -> NumberScalar
+    func s() throws -> BytesScalar
 
     /**
         Recovery id as defined in ecdsa
@@ -44,6 +44,6 @@ public protocol ECRecoverableSignature {
         - throws:
         `DescribedError` if something went wrong
     */
-    func recoverID() throws -> NumberScalar
+    func recoverID() throws -> IntegerScalar
 
 }

@@ -55,9 +55,9 @@ fileprivate final class DeployedGetterContractArgument: BytesScalar {
                 transactionBytes: EthContractCreationBytes(
                     network: network,
                     senderKey: sender.privateKey(),
-                    weiAmount: BigEndianCompactNumber(
-                        origin: BigEndianNumber(
-                            uint: UInt(0)
+                    weiAmount: EthNaturalNumber(
+                        origin: EthNaturalNumber(
+                            value: 0
                         )
                     ),
                     contractCall: EncodedContract(
@@ -76,13 +76,17 @@ fileprivate final class DeployedGetterContractArgument: BytesScalar {
                         network: network,
                         contractAddress: ComputedContractAddress(
                             ownerAddress: sender.address(),
-                            transactionNonce: BigEndianCompactNumber(
-                                origin: BigEndianNumber(
-                                    uint: EthTransactions(
-                                        network: network,
-                                        address: sender.address(),
-                                        blockChainState: PendingBlockChainState()
-                                    ).count().uint() - 1
+                            transactionNonce: EthNaturalNumber(
+                                origin: EthNaturalNumber(
+                                    value: NaturalInteger(
+                                        hex: TransactionsCount(
+                                            transactions: EthTransactions(
+                                                network: network,
+                                                address: sender.address(),
+                                                blockChainState: PendingBlockChainState()
+                                            )
+                                        )
+                                    ).value() - 1
                                 )
                             )
                         ),
@@ -116,8 +120,8 @@ final class ContractDeploymentAndCallIT: XCTestCase {
                     ),
                     arguments: [
                         ABIUnsignedNumber(
-                            origin: BigEndianNumber(
-                                uint: 42
+                            origin: EthNaturalNumber(
+                                value: 42
                             )
                         )
                     ] as [ABIEncodedParameter]

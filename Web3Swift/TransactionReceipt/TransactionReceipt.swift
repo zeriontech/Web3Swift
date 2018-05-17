@@ -20,6 +20,6 @@ public protocol TransactionReceipt {
     - throws:
     `DescribedError if something went wrong`
     */
-    func usedGasAmount() throws -> NumberScalar
+    func usedGasAmount() throws -> BytesScalar
 
 }

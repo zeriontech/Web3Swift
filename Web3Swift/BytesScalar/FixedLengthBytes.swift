@@ -12,9 +12,9 @@ import Foundation
 
 internal final class IncorrectBytesLengthError: DescribedError {
 
-    private let length: UInt
+    private let length: Int
     private let bytes: Data
-    public init(bytes: Data, length: UInt) {
+    public init(bytes: Data, length: Int) {
         self.bytes = bytes
         self.length = length
     }
@@ -29,7 +29,7 @@ internal final class IncorrectBytesLengthError: DescribedError {
 public final class FixedLengthBytes: BytesScalar {
 
     private let origin: BytesScalar
-    private let length: UInt
+    private let length: Int
 
     /**
     Ctor
@@ -38,7 +38,7 @@ public final class FixedLengthBytes: BytesScalar {
         - origin: bytes to be evaluated
         - length: expected length
     */
-    public init(origin: BytesScalar, length: UInt) {
+    public init(origin: BytesScalar, length: Int) {
         self.origin = origin
         self.length = length
     }

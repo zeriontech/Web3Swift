@@ -24,7 +24,7 @@ public final class DecodedABIBoolean: BooleanScalar {
     */
     public init(
         abiMessage: CollectionScalar<BytesScalar>,
-        index: UInt
+        index: Int
     ) {
         self.origin = NumericBoolean(
             bool: DecodedABINumber(

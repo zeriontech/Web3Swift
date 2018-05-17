@@ -20,6 +20,6 @@ public protocol Transaction {
     - throws:
     `DescribedError` if something went wrong
     */
-    func nonce() throws -> NumberScalar
+    func nonce() throws -> BytesScalar
 
 }

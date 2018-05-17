@@ -19,7 +19,7 @@ public protocol Network {
     - throws:
     `DescribedError` if something went wrong
     */
-    func id() throws -> NumberScalar
+    func id() throws -> IntegerScalar
 
     /**
     - returns:

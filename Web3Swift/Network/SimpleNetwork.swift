@@ -13,7 +13,7 @@ import Foundation
 /** Anonymous network */
 public final class SimpleNetwork: Network {
 
-    private let identifier: () throws -> (NumberScalar)
+    private let identifier: () throws -> (IntegerScalar)
     private let response: (String, [EthParameter]) throws -> (Data)
 
     /**
@@ -24,7 +24,7 @@ public final class SimpleNetwork: Network {
         - call: closure representation of the call response
     */
     public init(
-        id: @escaping () throws -> (NumberScalar),
+        id: @escaping () throws -> (IntegerScalar),
         call: @escaping (String, [EthParameter]) throws -> (Data)
     ) {
         self.identifier = id
@@ -38,7 +38,7 @@ public final class SimpleNetwork: Network {
     - throws:
     `DescribedError` if something went wrong
     */
-    public func id() throws -> NumberScalar {
+    public func id() throws -> IntegerScalar {
         return try self.identifier()
     }
 

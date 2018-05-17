@@ -34,16 +34,18 @@ final class EthAutoAccountIT: XCTestCase {
             privateKey: recipientKey
         )
         expect{
-            try recipient.balance().uint()
+            try NaturalInteger(
+                hex: recipient.balance()
+            ).value()
         }.to(
             equal(0),
             description: "Recipient address is expected to be empty at the start"
         )
         expect{
             try sender.send(
-                weiAmount: BigEndianCompactNumber(
-                    origin: BigEndianNumber(
-                        uint: 100
+                weiAmount: EthNaturalNumber(
+                    origin: EthNaturalNumber(
+                        value: 100
                     )
                 ),
                 to: recipientKey.address()
@@ -53,7 +55,9 @@ final class EthAutoAccountIT: XCTestCase {
             description: "Transaction sending is not expected to throw"
         )
         expect{
-            try recipient.balance().uint()
+            try NaturalInteger(
+                hex: recipient.balance()
+            ).value()
         }.to(
             equal(100),
             description: "Recipient address is expected to be topped up to 100 wei"

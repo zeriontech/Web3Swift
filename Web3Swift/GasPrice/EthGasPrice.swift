@@ -11,9 +11,9 @@
 import Foundation
 
 /** Gas price computed by the network */
-public final class EthGasPrice: NumberScalar {
+public final class EthGasPrice: BytesScalar {
 
-    private let value: NumberScalar
+    private let price: BytesScalar
 
     /**
     Ctor
@@ -22,7 +22,7 @@ public final class EthGasPrice: NumberScalar {
         - network: network to ask for gas price
     */
     public init(network: Network) {
-        self.value = BigEndianCompactNumber(
+        self.price = EthNaturalNumber(
             hex: SimpleString{
                 try GetGasPriceProcedure(
                     network: network
@@ -38,19 +38,8 @@ public final class EthGasPrice: NumberScalar {
     - throws:
     `DescribedError` if something goes wrong
     */
-    public func hex() throws -> BytesScalar {
-        return try value.hex()
-    }
-
-    /**
-    - returns:
-    Integer representation of a gas price
-
-    - throws:
-    `DescribedError` if something went wrong
-    */
-    public func uint() throws -> UInt {
-        return try value.uint()
+    public func value() throws -> Data {
+        return try price.value()
     }
 
 }

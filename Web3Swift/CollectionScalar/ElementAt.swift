@@ -14,7 +14,7 @@ import Foundation
 public final class ElementAt<T> {
 
     private let collection: CollectionScalar<T>
-    private let index: NumberScalar
+    private let index: IntegerScalar
 
     /**
     Ctor
@@ -25,7 +25,7 @@ public final class ElementAt<T> {
     */
     public init(
         collection: CollectionScalar<T>,
-        index: NumberScalar
+        index: IntegerScalar
     ) {
         self.collection = collection
         self.index = index
@@ -40,12 +40,12 @@ public final class ElementAt<T> {
     */
     public convenience init(
         collection: CollectionScalar<T>,
-        index: UInt
+        index: Int
     ) {
         self.init(
             collection: collection,
-            index: BigEndianNumber(
-                uint: index
+            index: EthNaturalNumber(
+                value: index
             )
         )
     }
@@ -58,7 +58,7 @@ public final class ElementAt<T> {
     `DescribedError` if something went wrong. I.e. index was out of bounds
     */
     public func value() throws -> T {
-        let index = try self.index.uint()
+        let index = try self.index.value()
         return try SizeConstrainedCollection(
             origin: self.collection,
             minimum: index + 1

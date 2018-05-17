@@ -39,8 +39,8 @@ public final class EthTransaction: Transaction {
     - throws:
     `DescribedError` if something went wrong
     */
-    public func nonce() throws -> NumberScalar {
-        return try BigEndianCompactNumber(
+    public func nonce() throws -> BytesScalar {
+        return try EthNaturalNumber(
             hex: procedure.call()["result"]["nonce"].string()
         )
     }

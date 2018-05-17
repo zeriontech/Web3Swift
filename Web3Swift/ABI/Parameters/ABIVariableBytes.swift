@@ -35,9 +35,9 @@ public final class ABIVariableBytes: ABIEncodedParameter {
         return [
             LeftZeroesPaddedBytes(
                 origin: SimpleBytes{
-                    try BigEndianNumber(
-                        uint: UInt(offset) * 32
-                    ).hex().value()
+                    try EthNaturalNumber(
+                        value: offset * 32
+                    ).value()
                 },
                 padding: 32
             )
@@ -53,17 +53,15 @@ public final class ABIVariableBytes: ABIEncodedParameter {
     A collection with bytes count followed by the bytes
     */
     public func tails(offset: Int) throws -> [BytesScalar] {
-        let value = try origin.value()
-        return try [
+        let origin = try self.origin.value()
+        return [
             LeftZeroesPaddedBytes(
-                origin: BigEndianNumber(
-                    uint: UInt(
-                        value.count
-                    )
-                ).hex(),
+                origin: EthNaturalNumber(
+                    value: origin.count
+                ),
                 padding: 32
             )
-        ] + Array(value.enumerated())
+        ] + Array(origin.enumerated())
             .splitAt{ index, _ in
                 (index + 1) % 32 == 0
             }

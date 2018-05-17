@@ -19,8 +19,8 @@ class QuantityParameterTests: XCTestCase {
     func testQuantityParameterToString() {
         expect{
             try QuantityParameter(
-                number: BigEndianNumber(
-                    uint: 1
+                number: EthNaturalNumber(
+                    value: 1
                 )
             ).value() as? String
         }.to(

@@ -22,9 +22,9 @@ public final class EthTransactions: Transactions {
         )
     }
 
-    public func count() throws -> NumberScalar {
+    public func count() throws -> BytesScalar {
         let transactionsCountProcedure = self.procedure
-        return BigEndianCompactNumber(
+        return EthNaturalNumber(
             hex: SimpleString{
                 try transactionsCountProcedure.call()["result"].string()
             }

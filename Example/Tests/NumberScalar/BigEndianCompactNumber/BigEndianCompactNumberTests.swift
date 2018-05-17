@@ -29,11 +29,11 @@ final class BigEndianCompactNumberTests: XCTestCase {
             ]
         ).forEach{ hex, bytes in
             expect{
-                try BigEndianCompactNumber(
+                try EthNaturalNumber(
                     hex: SimpleString(
                         string: hex
                     )
-                ).hex().value()
+                ).value()
             }.to(
                 equal(
                     Data(

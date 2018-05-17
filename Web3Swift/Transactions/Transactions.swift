@@ -12,6 +12,6 @@ import Foundation
 
 public protocol Transactions {
 
-    func count() throws -> NumberScalar
+    func count() throws -> BytesScalar
 
 }

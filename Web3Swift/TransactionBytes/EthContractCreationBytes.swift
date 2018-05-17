@@ -28,12 +28,12 @@ public final class EthContractCreationBytes: BytesScalar {
         - contractCall: encoded contract ctor call
     */
     public init(
-        networkID: NumberScalar,
-        transactionsCount: NumberScalar,
-        gasPrice: NumberScalar,
-        gasEstimate: NumberScalar,
+        networkID: IntegerScalar,
+        transactionsCount: BytesScalar,
+        gasPrice: BytesScalar,
+        gasEstimate: BytesScalar,
         senderKey: PrivateKey,
-        weiAmount: NumberScalar,
+        weiAmount: BytesScalar,
         contractCall: BytesScalar
     ) {
         self.origin = EthTransactionBytes(
@@ -60,7 +60,7 @@ public final class EthContractCreationBytes: BytesScalar {
     public convenience init(
         network: Network,
         senderKey: PrivateKey,
-        weiAmount: NumberScalar,
+        weiAmount: BytesScalar,
         contractCall: BytesScalar
     ) {
         let senderAddress = CachedBytes(
@@ -68,7 +68,7 @@ public final class EthContractCreationBytes: BytesScalar {
                 try senderKey.address().value()
             }
         )
-        let gasPrice = CachedNumber(
+        let gasPrice = CachedBytes(
             origin: EthGasPrice(
                 network: network
             )
@@ -77,26 +77,24 @@ public final class EthContractCreationBytes: BytesScalar {
             origin: contractCall
         )
         self.init(
-            networkID: CachedNumber(
-                origin: BigEndianNumber(
-                    bytes: SimpleBytes{
-                        try network.id().hex().value()
-                    }
+            networkID: CachedInteger(
+                origin: NetworkID(
+                    network: network
                 )
             ),
-            transactionsCount: CachedNumber(
-                origin: BigEndianNumber(
+            transactionsCount: CachedBytes(
+                origin: EthNaturalNumber(
                     bytes: SimpleBytes{
                         try EthTransactions(
                             network: network,
                             address: senderAddress,
                             blockChainState: PendingBlockChainState()
-                        ).count().hex().value()
+                        ).count().value()
                     }
                 )
             ),
             gasPrice: gasPrice,
-            gasEstimate: CachedNumber(
+            gasEstimate: CachedBytes(
                 origin: EthGasEstimate(
                     network: network,
                     senderAddress: senderAddress,

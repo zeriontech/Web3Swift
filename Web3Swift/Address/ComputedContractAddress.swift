@@ -24,7 +24,7 @@ public final class ComputedContractAddress: BytesScalar {
     */
     public init(
         ownerAddress: BytesScalar,
-        transactionNonce: NumberScalar
+        transactionNonce: BytesScalar
     ) {
         self.address = EthAddress(
             bytes: LastBytes(
