@@ -31,9 +31,7 @@ final class EthGasEstimateTests: XCTestCase {
                         network: network
                     ),
                     weiAmount: EthNaturalNumber(
-                        origin: EthNaturalNumber(
-                            value: 100
-                        )
+                        value: 100
                     )
                 )
             ).value()

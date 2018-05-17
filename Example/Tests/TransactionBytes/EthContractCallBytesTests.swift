@@ -18,8 +18,8 @@ final class EthContractCallBytesTests: XCTestCase {
     func testContractCallIsEncodedCorrectly() {
         expect{
             try EthContractCallBytes(
-                networkID: EthNaturalNumber(
-                    hex: "2a"
+                networkID: SimpleInteger(
+                    integer: 0x2a
                 ),
                 transactionsCount: EthNaturalNumber(
                     hex: "06"

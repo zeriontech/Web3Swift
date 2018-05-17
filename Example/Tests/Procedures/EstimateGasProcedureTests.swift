@@ -38,9 +38,7 @@ final class EstimateGasProcedureTests: XCTestCase {
                     ),
                     "value" : QuantityParameter(
                         number: EthNaturalNumber(
-                            origin: EthNaturalNumber(
-                                value: 100
-                            )
+                            value: 100
                         )
                     )
                 ]

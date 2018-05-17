@@ -25,9 +25,7 @@ final class ABIDecodingIT: XCTestCase {
                     parameters: [
                         ABIUnsignedNumber(
                             origin: EthNaturalNumber(
-                                origin: EthNaturalNumber(
-                                    value: arguments.0
-                                )
+                                value: arguments.0
                             )
                         ),
                         ABIString(
@@ -37,9 +35,7 @@ final class ABIDecodingIT: XCTestCase {
                         ),
                         ABIUnsignedNumber(
                             origin: EthNaturalNumber(
-                                origin: EthNaturalNumber(
-                                    value: arguments.2
-                                )
+                                value: arguments.2
                             )
                         )
                     ]

@@ -14,7 +14,15 @@ import Foundation
 public final class DecodedABIVariableBytes: BytesScalar {
 
     private let abiMessage: CollectionScalar<BytesScalar>
-    private let index: Int
+    private let index: IntegerScalar
+
+    public init(
+        abiMessage: CollectionScalar<BytesScalar>,
+        index: IntegerScalar
+    ) {
+        self.abiMessage = abiMessage
+        self.index = index
+    }
 
     /**
     Ctor
@@ -23,12 +31,16 @@ public final class DecodedABIVariableBytes: BytesScalar {
         - abiMessage: message where bytes are located
         - index: position of the bytes
     */
-    public init(
+    public convenience init(
         abiMessage: CollectionScalar<BytesScalar>,
         index: Int
     ) {
-        self.abiMessage = abiMessage
-        self.index = index
+        self.init(
+            abiMessage: abiMessage,
+            index: SimpleInteger(
+                integer: index
+            )
+        )
     }
 
     /**
@@ -40,28 +52,52 @@ public final class DecodedABIVariableBytes: BytesScalar {
     */
     public func value() throws -> Data {
         let abiTuple = self.abiMessage
-        let offsetsCount: Int = try EthNaturalNumber(
-            bytes: BytesAt(
-                collection: abiTuple,
-                index: index
+        let offsetsCount: IntegerScalar = IntegersQuotient(
+            dividend: NaturalInteger(
+                hex: BytesAt(
+                    collection: abiTuple,
+                    index: index
+                )
+            ),
+            divisor: SimpleInteger(
+                integer: 32
             )
-        ).value() / 32
-        let bytesLength: Int = try EthNaturalNumber(
-            bytes: BytesAt(
+        )
+        let bytesLength: IntegerScalar = NaturalInteger(
+            hex: BytesAt(
                 collection: abiTuple,
                 index: offsetsCount
             )
-        ).value()
+        )
         return try FirstBytes(
             origin: ConcatenatedBytes(
                 bytes: GeneratedCollection<BytesScalar>(
                     element: { index in
                         BytesAt(
                             collection: abiTuple,
-                            index: index + offsetsCount + 1
+                            index: IntegersSum(
+                                terms: [
+                                    SimpleInteger(
+                                        integer: index + 1
+                                    ),
+                                    offsetsCount
+                                ]
+                            )
                         )
                     },
-                    times: ((bytesLength + 31) / 32)
+                    times: IntegersQuotient(
+                        dividend: IntegersSum(
+                            terms: [
+                                bytesLength,
+                                SimpleInteger(
+                                    integer: 31
+                                )
+                            ]
+                        ),
+                        divisor: SimpleInteger(
+                            integer: 32
+                        )
+                    )
                 )
             ),
             length: bytesLength

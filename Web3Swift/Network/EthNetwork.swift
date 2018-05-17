@@ -70,10 +70,8 @@ public class EthNetwork: Network {
                 response: result
             )
         }
-        return EthNaturalNumber(
-            origin: EthNaturalNumber(
-                value: id
-            )
+        return SimpleInteger(
+            integer: id
         )
     }
 

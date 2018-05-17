@@ -21,13 +21,13 @@ final class BigEndianNumberUIntTests: XCTestCase {
                 1023,
                 4294967295
             ]
-        ).forEach{ uint in
+        ).forEach{ value in
             expect{
-                try EthNaturalNumber(
-                    value: uint
+                try SimpleInteger(
+                    integer: value
                 ).value()
             }.to(
-                equal(uint),
+                equal(value),
                 description: "Value of a number is expected to persist"
             )
         }
@@ -45,15 +45,15 @@ final class BigEndianNumberUIntTests: XCTestCase {
                 ("0x03ff", 1023),
                 ("0xffffffff", 4294967295)
             ]
-        ).forEach{ hex, uint in
+        ).forEach{ hex, value in
             expect{
-                try EthNaturalNumber(
+                try NaturalInteger(
                     hex: SimpleString(
                         string: hex
                     )
                 ).value()
             }.to(
-                equal(uint),
+                equal(value),
                 description: "Value of a number from hex is expected to persist"
             )
         }
@@ -73,8 +73,8 @@ final class BigEndianNumberUIntTests: XCTestCase {
             ]
         ).forEach{ bytes, uint in
             expect{
-                try EthNaturalNumber(
-                    bytes: SimpleBytes(
+                try NaturalInteger(
+                    hex: SimpleBytes(
                         bytes: bytes
                     )
                 ).value()
@@ -87,14 +87,14 @@ final class BigEndianNumberUIntTests: XCTestCase {
 
     func testOverflow() {
         expect{
-            try EthNaturalNumber(
-                bytes: SimpleBytes(
+            try NaturalInteger(
+                hex: SimpleBytes(
                     bytes: [0x01] + Array<UInt8>(
                         repeating: 0x00,
                         count: MemoryLayout<Int>.size
                     )
                 )
-            ).value() as Int
+            ).value()
         }.to(
             throwError(),
             description: "A number of \(MemoryLayout<Int>.size + 1) bytes is expected to be considered an overflow"
@@ -103,14 +103,14 @@ final class BigEndianNumberUIntTests: XCTestCase {
 
     func testOverflowCeil() {
         expect{
-            try EthNaturalNumber(
-                bytes: SimpleBytes(
+            try NaturalInteger(
+                hex: SimpleBytes(
                     bytes: Array<UInt8>(
                         repeating: 0xff,
                         count: MemoryLayout<Int>.size
                     )
                 )
-            ).value() as Int
+            ).value()
         }.toNot(
             throwError(),
             description: "A number of \(MemoryLayout<Int>.size) 0xff bytes is expected to be the overflow limit"

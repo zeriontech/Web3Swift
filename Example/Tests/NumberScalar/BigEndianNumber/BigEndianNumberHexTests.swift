@@ -26,7 +26,7 @@ final class BigEndianNumberHexTests: XCTestCase {
         ).forEach{ bytes in
             expect{
                 try EthNaturalNumber(
-                    bytes: SimpleBytes(
+                    hex: SimpleBytes(
                         bytes: bytes
                     )
                 ).value()

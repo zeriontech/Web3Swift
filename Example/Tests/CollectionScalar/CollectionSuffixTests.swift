@@ -22,8 +22,8 @@ final class CollectionSuffixTests: XCTestCase {
                         0, 1, 2, 3, 4, 5
                     ]
                 ),
-                from: EthNaturalNumber(
-                    value: 4
+                from: SimpleInteger(
+                    integer: 4
                 )
             ).value()
         }.to(
@@ -42,8 +42,8 @@ final class CollectionSuffixTests: XCTestCase {
                         0, 1, 2, 3, 4, 5
                     ]
                 ),
-                from: EthNaturalNumber(
-                    value: 6
+                from: SimpleInteger(
+                    integer: 6
                 )
             ).value()
         }.to(

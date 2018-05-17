@@ -44,8 +44,8 @@ public final class ElementAt<T> {
     ) {
         self.init(
             collection: collection,
-            index: EthNaturalNumber(
-                value: index
+            index: SimpleInteger(
+                integer: index
             )
         )
     }

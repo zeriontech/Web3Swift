@@ -44,8 +44,8 @@ final public class FirstBytes: BytesScalar {
     ) {
         self.init(
             origin: origin,
-            length: EthNaturalNumber(
-                value: length
+            length: SimpleInteger(
+                integer: length
             )
         )
     }

@@ -42,13 +42,23 @@ public final class ABICollectionSlice: CollectionScalar<BytesScalar> {
     public override func value() throws -> [BytesScalar] {
         return try CollectionSuffix(
             origin: abiMessage,
-            from: EthNaturalNumber(
-                value: EthNaturalNumber(
-                    bytes: BytesAt(
-                        collection: abiMessage,
-                        index: index
+            from: IntegersSum(
+                terms: [
+                    IntegersQuotient(
+                        dividend: NaturalInteger(
+                            hex: BytesAt(
+                                collection: abiMessage,
+                                index: index
+                            )
+                        ),
+                        divisor: SimpleInteger(
+                            integer: 32
+                        )
+                    ),
+                    SimpleInteger(
+                        integer: 1
                     )
-                ).value() / 32 + 1
+                ]
             )
         ).value()
     }

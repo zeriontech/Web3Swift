@@ -56,9 +56,7 @@ fileprivate final class DeployedGetterContractArgument: BytesScalar {
                     network: network,
                     senderKey: sender.privateKey(),
                     weiAmount: EthNaturalNumber(
-                        origin: EthNaturalNumber(
-                            value: 0
-                        )
+                        value: 0
                     ),
                     contractCall: EncodedContract(
                         byteCode: contractCode,
@@ -77,8 +75,8 @@ fileprivate final class DeployedGetterContractArgument: BytesScalar {
                         contractAddress: ComputedContractAddress(
                             ownerAddress: sender.address(),
                             transactionNonce: EthNaturalNumber(
-                                origin: EthNaturalNumber(
-                                    value: NaturalInteger(
+                                value: IntegersDifference(
+                                    minuend: NaturalInteger(
                                         hex: TransactionsCount(
                                             transactions: EthTransactions(
                                                 network: network,
@@ -86,7 +84,10 @@ fileprivate final class DeployedGetterContractArgument: BytesScalar {
                                                 blockChainState: PendingBlockChainState()
                                             )
                                         )
-                                    ).value() - 1
+                                    ),
+                                    subtrahend: SimpleInteger(
+                                        integer: 1
+                                    )
                                 )
                             )
                         ),

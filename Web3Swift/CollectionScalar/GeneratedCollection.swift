@@ -14,7 +14,7 @@ import Foundation
 public final class GeneratedCollection<T>: CollectionScalar<T> {
 
     private let element: (_ index: Int) throws -> (T)
-    private let times: Int
+    private let times: IntegerScalar
 
     /**
     Ctor
@@ -25,10 +25,22 @@ public final class GeneratedCollection<T>: CollectionScalar<T> {
     */
     public init(
         element: @escaping (_ index: Int) throws -> (T),
-        times: Int
+        times: IntegerScalar
     ) {
         self.element = element
         self.times = times
+    }
+
+    public convenience init(
+        element: @escaping (_ index: Int) throws -> (T),
+        times: Int
+    ) {
+        self.init(
+            element: element,
+            times: SimpleInteger(
+                integer: times
+            )
+        )
     }
 
     /**
@@ -39,7 +51,7 @@ public final class GeneratedCollection<T>: CollectionScalar<T> {
     `DescribedError` if something went wrong
     */
     public override func value() throws -> [T] {
-        return try (0..<times).map{ index in
+        return try (0..<times.value()).map{ index in
             try element(index)
         }
     }

@@ -54,9 +54,7 @@ final class GanacheLocalNetworkTests: XCTestCase {
                         network: network
                     ),
                     weiAmount: EthNaturalNumber(
-                        origin: EthNaturalNumber(
-                            value: 100
-                        )
+                        value: 100
                     )
                 )
             ).value()

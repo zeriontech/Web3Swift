@@ -84,7 +84,7 @@ public final class EthContractCreationBytes: BytesScalar {
             ),
             transactionsCount: CachedBytes(
                 origin: EthNaturalNumber(
-                    bytes: SimpleBytes{
+                    hex: SimpleBytes{
                         try EthTransactions(
                             network: network,
                             address: senderAddress,

@@ -20,6 +20,22 @@ public final class NaturalInteger: IntegerScalar {
         )
     }
 
+    public convenience init(hex: StringScalar) {
+        self.init(
+            hex: BytesFromCompactHexString(
+                hex: hex
+            )
+        )
+    }
+
+    public convenience init(hex: String) {
+        self.init(
+            hex: SimpleString(
+                string: hex
+            )
+        )
+    }
+
     public func value() throws -> Int {
         let bytes = try hex.value()
         guard bytes.count <= MemoryLayout<Int>.size else {

@@ -27,11 +27,9 @@ public final class DecodedABINumber: BytesScalar {
         index: Int
     ) {
         self.number = EthNaturalNumber(
-            origin: EthNaturalNumber(
-                bytes: BytesAt(
-                    collection: abiMessage,
-                    index: index
-                )
+            hex: BytesAt(
+                collection: abiMessage,
+                index: index
             )
         )
     }

@@ -22,8 +22,8 @@ final class SimpleNetworkTests: XCTestCase {
                     UInt8(
                         SimpleNetwork(
                             id: {
-                                EthNaturalNumber(
-                                    bytes: SimpleBytes(
+                                NaturalInteger(
+                                    hex: SimpleBytes(
                                         bytes: id
                                     )
                                 )

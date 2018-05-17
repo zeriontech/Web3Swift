@@ -44,9 +44,7 @@ final class EthAutoAccountIT: XCTestCase {
         expect{
             try sender.send(
                 weiAmount: EthNaturalNumber(
-                    origin: EthNaturalNumber(
-                        value: 100
-                    )
+                    value: 100
                 ),
                 to: recipientKey.address()
             )

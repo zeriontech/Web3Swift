@@ -21,17 +21,15 @@ public final class IntegersSum: IntegerScalar {
         )
     }
 
-    public convenience init(terms: IntegerScalar...) {
+    public convenience init(terms: [IntegerScalar]) {
         self.init(
             terms: SimpleCollection<IntegerScalar>(
-                collection: Array(
-                    terms
-                )
+                collection: terms
             )
         )
     }
 
-    public convenience init(terms: Int...) {
+    public convenience init(terms: [Int]) {
         self.init(
             terms: MappedCollection(
                 origin: SimpleCollection(

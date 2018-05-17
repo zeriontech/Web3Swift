@@ -20,7 +20,7 @@ final class ABIUnsignedNumberTests: XCTestCase {
             try ConcatenatedBytes(
                 bytes: ABIUnsignedNumber(
                     origin: EthNaturalNumber(
-                        bytes: BytesFromHexString(
+                        hex: BytesFromHexString(
                             hex: "12345678"
                         )
                     )
@@ -40,7 +40,7 @@ final class ABIUnsignedNumberTests: XCTestCase {
         expect{
             try ABIUnsignedNumber(
                 origin: EthNaturalNumber(
-                    bytes: BytesFromHexString(
+                    hex: BytesFromHexString(
                         hex: "12345678"
                     )
                 )

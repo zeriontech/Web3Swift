@@ -16,7 +16,7 @@ import Quick
 fileprivate final class MutableRandomNumber: BytesScalar {
 
     private let origin: BytesScalar = EthNaturalNumber(
-        bytes: SimpleBytes{
+        hex: SimpleBytes{
             try RandomNonce(
                 size: Int(
                     MemoryLayout<Int>.size

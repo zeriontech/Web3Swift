@@ -28,9 +28,7 @@ final class EthDirectTransactionBytesTests: XCTestCase {
                      hex: "0xcD8aC90d9cc7e4c03430d58d2f3e87Dae70b807e"
                 ),
                 weiAmount: EthNaturalNumber(
-                    origin: EthNaturalNumber(
-                        value: 100
-                    )
+                    value: 100
                 )
             ).value().toHexString()
         }.to(

@@ -18,9 +18,7 @@ final class EthRLPTests: XCTestCase {
         expect{
             try EthRLP(
                 number: EthNaturalNumber(
-                    origin: EthNaturalNumber(
-                        value: 0
-                    )
+                    value: 0
                 )
             ).value()
         }.to(
@@ -49,9 +47,7 @@ final class EthRLPTests: XCTestCase {
             expect{
                 try EthRLP(
                     number: EthNaturalNumber(
-                        origin: EthNaturalNumber(
-                            value: value
-                        )
+                        value: value
                     )
                 ).value()
             }.to(

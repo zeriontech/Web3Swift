@@ -18,15 +18,11 @@ final class EthTransactionBytesTests: XCTestCase {
     func testStaticParametersAreSignedCorrectly() {
         expect{
             return try EthTransactionBytes(
-                networkID: EthNaturalNumber(
-                    origin: EthNaturalNumber(
-                        value: 42
-                    )
+                networkID: SimpleInteger(
+                    integer: 42
                 ),
                 transactionsCount: EthNaturalNumber(
-                    origin: EthNaturalNumber(
-                        value: 0
-                    )
+                    value: 0
                 ),
                 gasPrice: EthNaturalNumber(
                     hex: SimpleString(
@@ -34,9 +30,7 @@ final class EthTransactionBytesTests: XCTestCase {
                     )
                 ),
                 gasEstimate: EthNaturalNumber(
-                    origin: EthNaturalNumber(
-                        value: 21000
-                    )
+                    value: 21000
                 ),
                 senderKey: EthPrivateKey(
                     bytes: BytesFromHexString(
@@ -62,15 +56,11 @@ final class EthTransactionBytesTests: XCTestCase {
     func test129thTransactionIsSignedCorrectly() {
         expect{
             return try EthTransactionBytes(
-                networkID: EthNaturalNumber(
-                    origin: EthNaturalNumber(
-                        value: 1
-                    )
+                networkID: SimpleInteger(
+                    integer: 1
                 ),
                 transactionsCount: EthNaturalNumber(
-                    origin: EthNaturalNumber(
-                        value: 128
-                    )
+                    value: 128
                 ),
                 gasPrice: EthNaturalNumber(
                     hex: SimpleString(
@@ -78,9 +68,7 @@ final class EthTransactionBytesTests: XCTestCase {
                     )
                 ),
                 gasEstimate: EthNaturalNumber(
-                    origin: EthNaturalNumber(
-                        value: 21000
-                    )
+                    value: 21000
                 ),
                 senderKey: Tim().privateKey(),
                 recipientAddress: Alice().address(),

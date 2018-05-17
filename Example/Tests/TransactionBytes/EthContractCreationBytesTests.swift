@@ -18,8 +18,8 @@ final class EthContractCreationBytesTests: XCTestCase {
     func testSampleContractReplicatesCorrectly() {
         expect{
             try EthContractCreationBytes(
-                networkID: EthNaturalNumber(
-                    hex: "0x2a"
+                networkID: SimpleInteger(
+                    integer: 42
                 ),
                 transactionsCount: EthNaturalNumber(
                     hex: "0x00"

@@ -142,7 +142,7 @@ public final class SECP256k1Signature: ECRecoverableSignature {
     public func r() throws -> BytesScalar {
         let stickyComputation = self.stickyComputation
         return EthNaturalNumber(
-            bytes: SimpleBytes{
+            hex: SimpleBytes{
                 try stickyComputation.result().r
             }
         )
@@ -160,7 +160,7 @@ public final class SECP256k1Signature: ECRecoverableSignature {
     public func s() throws -> BytesScalar {
         let stickyComputation = self.stickyComputation
         return EthNaturalNumber(
-            bytes: SimpleBytes{
+            hex: SimpleBytes{
                 try stickyComputation.result().s
             }
         )

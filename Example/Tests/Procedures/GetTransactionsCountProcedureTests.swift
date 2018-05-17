@@ -33,7 +33,7 @@ final class GetTransactionsCountProcedureTests: XCTestCase {
     /// Assert response contains positive value
     func testValueGreaterThanZero() {
         expect{
-            try EthNaturalNumber(
+            try NaturalInteger(
                 hex: GetTransactionsCountProcedure(
                     network: GanacheLocalNetwork(),
                     address: Alice().address(),

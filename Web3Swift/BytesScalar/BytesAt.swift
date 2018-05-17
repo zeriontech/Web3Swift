@@ -45,8 +45,8 @@ public final class BytesAt: BytesScalar {
     ) {
         self.init(
             collection: collection,
-            index: EthNaturalNumber(
-                value: index
+            index: SimpleInteger(
+                integer: index
             )
         )
     }

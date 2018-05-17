@@ -25,11 +25,11 @@ final class MutableCollectionOfBytes: CollectionScalar<BytesScalar> {
                     bytes: RandomNonce(size: 1).toData()
                 )
             },
-            times: EthNaturalNumber(
-                bytes: SimpleBytes(
+            times: NaturalInteger(
+                hex: SimpleBytes(
                     bytes: RandomNonce(size: 1).toData()
                 )
-            ).value()
+            )
         ).value()
     }
 

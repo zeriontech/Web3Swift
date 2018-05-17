@@ -104,8 +104,25 @@ public final class EthTransactionBytes: BytesScalar {
             rlps: transactionParameters + [
                 EthRLP(
                     number: EthNaturalNumber(
-                        origin: EthNaturalNumber(
-                            value: networkID.value() * 2 + 35 + signature.recoverID().value()
+                        value: IntegersSum(
+                            terms: SimpleCollection<IntegerScalar>(
+                                collection: [
+                                    IntegersProduct(
+                                        terms: SimpleCollection(
+                                            collection: [
+                                                networkID,
+                                                SimpleInteger(
+                                                    integer: 2
+                                                )
+                                            ]
+                                        )
+                                    ),
+                                    SimpleInteger(
+                                        integer: 35
+                                    ),
+                                    signature.recoverID()
+                                ]
+                            )
                         )
                     )
                 ),
