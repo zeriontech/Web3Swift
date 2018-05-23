@@ -36,33 +36,4 @@ final class ContractCallProcedureTests: XCTestCase {
         )
     }
 
-    //FIXME: We should deploy an erc20 static wallet on the kovan to be able to rely on in tests
-    func testEOSDumpAddressBalance() {
-        expect{
-            try ContractCallProcedure(
-                network: MainnetInfuraMetamaskNetwork(),
-                contractAddress: EthAddress(
-                    hex: "0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0"
-                ),
-                functionCall: EncodedABIFunction(
-                    signature: SimpleString(
-                        string: "balanceOf(address)"
-                    ),
-                    parameters: [
-                        ABIAddress(
-                            address: EthAddress(
-                                hex: "0x00000000000000000000000000000000000000b1"
-                            )
-                        )
-                    ]
-                )
-            ).call()["result"].string()
-        }.to(
-            equal(
-                "0x00000000000000000000000000000000000000000052b7d2dcc80cd2e4000000"
-            ),
-            description: "This dump account is expected to hold 100,000,000 EOS"
-        )
-    }
-
 }
