@@ -31,6 +31,13 @@ public final class GeneratedCollection<T>: CollectionScalar<T> {
         self.times = times
     }
 
+    /**
+    Ctor
+
+    - parameters:
+        - element: indexed element factory called up to `times` times
+        - times: number of times to call the factory
+    */
     public convenience init(
         element: @escaping (_ index: Int) throws -> (T),
         times: Int
@@ -40,6 +47,23 @@ public final class GeneratedCollection<T>: CollectionScalar<T> {
             times: SimpleInteger(
                 integer: times
             )
+        )
+    }
+
+    /**
+    Ctor
+
+    - parameters:
+        - element: just an element that will be repeated
+        - times: number of times to call the factory
+    */
+    public convenience init(
+        element: T,
+        times: Int
+    ) {
+        self.init(
+            element: { _ in element },
+            times: times
         )
     }
 

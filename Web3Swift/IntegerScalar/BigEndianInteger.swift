@@ -10,13 +10,25 @@
 
 import Foundation
 
+/** Big endian representation of an integer */
 public final class BigEndianInteger: IntegerScalar {
 
     private let origin: IntegerScalar
+
+    /**
+    Ctor
+
+    - parameters:
+        - origin: origin to take big endian representation from
+    */
     public init(origin: IntegerScalar) {
         self.origin = origin
     }
 
+    /**
+    - returns:
+    Integer with a big endian binary representation. On a little endian platform it will be an integer with its bytes reversed.
+    */
     public func value() throws -> Int {
         return try origin.value().bigEndian
     }

@@ -90,7 +90,7 @@ public final class EthContractCallBytes: BytesScalar {
                 )
             ),
             transactionsCount: CachedBytes(
-                origin: EthNaturalNumber(
+                origin: EthNumber(
                     hex: SimpleBytes{
                         try EthTransactions(
                             network: network,

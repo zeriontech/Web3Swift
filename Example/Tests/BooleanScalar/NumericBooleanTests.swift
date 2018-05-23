@@ -17,7 +17,7 @@ final class NumericBooleanTests: XCTestCase {
     func test0ProducesFalseBoolean() {
         expect{
             try NumericBoolean(
-                bool: EthNaturalNumber(
+                bool: EthNumber(
                     value: 0
                 )
             ).value()
@@ -32,7 +32,7 @@ final class NumericBooleanTests: XCTestCase {
     func test1ProducesTrueBoolean() {
         expect{
             try NumericBoolean(
-                bool: EthNaturalNumber(
+                bool: EthNumber(
                     value: 1
                 )
             ).value()
@@ -47,7 +47,7 @@ final class NumericBooleanTests: XCTestCase {
     func testOtherNumbersThrowError() {
         expect{
             try NumericBoolean(
-                bool: EthNaturalNumber(
+                bool: EthNumber(
                     value: 2
                 )
             ).value()

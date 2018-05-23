@@ -5,51 +5,39 @@
 //
 // NaturalInteger.swift
 //
-// Created by Timofey Solonin on 16/05/2018
+// Created by Timofey Solonin on 22/05/2018
 //
 
 import Foundation
 
+/** Integer from 0 to Int.max */
 public final class NaturalInteger: IntegerScalar {
 
-    private let hex: BytesScalar
+    private let origin: IntegerScalar
 
-    public init(hex: BytesScalar) {
-        self.hex = LeadingCompactBytes(
-            origin: hex
+    /**
+    Ctor
+
+    - parameters:
+        - origin: integer to constraint to a natural set
+    */
+    public init(origin: IntegerScalar) {
+        self.origin = RangeConstrainedInteger(
+            origin: origin,
+            minimum: 0,
+            maximum: Int.max
         )
     }
 
-    public convenience init(hex: StringScalar) {
-        self.init(
-            hex: BytesFromCompactHexString(
-                hex: hex
-            )
-        )
-    }
+    /**
+    - returns:
+    Integer that is between 0 and Int.max
 
-    public convenience init(hex: String) {
-        self.init(
-            hex: SimpleString(
-                string: hex
-            )
-        )
-    }
-
+    - throws:
+    `DescribedError` if something went wrong. I.e. if value was not in a natural set.
+    */
     public func value() throws -> Int {
-        let bytes = try hex.value()
-        guard bytes.count <= MemoryLayout<Int>.size else {
-            throw IntegerBytesOverflowError(
-                bytes: bytes,
-                sizeLimit: MemoryLayout<Int>.size
-            )
-        }
-        var integer = Int(0).bigEndian
-        bytes.forEach{ byte in
-            integer = integer << 8
-            integer = integer | Int(byte)
-        }
-        return integer
+        return try origin.value()
     }
 
 }

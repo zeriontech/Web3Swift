@@ -44,7 +44,7 @@ final class LeftZeroesPaddedBytesTests: XCTestCase {
                     origin: SimpleBytes(
                         bytes: initialBytes
                     ),
-                    padding: 32
+                    length: 32
                 ).value()
             }.to(
                 equal(paddedBytes)
@@ -64,7 +64,7 @@ final class LeftZeroesPaddedBytesTests: XCTestCase {
                 try String(
                     bytes: LeftZeroesPaddedBytes(
                         origin: UTF8StringBytes(string: suffix),
-                        padding: 32
+                        length: 32
                     ).value(),
                     encoding: .utf8
                 )

@@ -14,7 +14,6 @@ import Foundation
 public final class LeftZeroesPaddedBytes: BytesScalar {
 
     private let origin: BytesScalar
-    private let padding: Int
 
     /**
     Ctor
@@ -25,10 +24,17 @@ public final class LeftZeroesPaddedBytes: BytesScalar {
     */
     public init(
         origin: BytesScalar,
-        padding: Int
+        length: Int
     ) {
-        self.origin = origin
-        self.padding = padding
+        self.origin = LeftPaddedBytes(
+            origin: origin,
+            element: SimpleInteger(
+                integer: 0x00
+            ),
+            length: SimpleInteger(
+                integer: length
+            )
+        )
     }
 
     /**
@@ -39,21 +45,7 @@ public final class LeftZeroesPaddedBytes: BytesScalar {
     `DescribedError` if something went wrong
     */
     public func value() throws -> Data {
-        let origin = try self.origin.value()
-        let padding = Int(self.padding)
-        return try ConcatenatedBytes(
-            bytes: [
-                SimpleBytes(
-                    bytes: Data(
-                        repeating: 0x00,
-                        count: (padding - (origin.count % padding)) % padding
-                    )
-                ),
-                SimpleBytes(
-                    bytes: origin
-                )
-            ]
-        ).value()
+        return try origin.value()
     }
 
 }

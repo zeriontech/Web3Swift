@@ -34,7 +34,7 @@ final class EthAutoAccountIT: XCTestCase {
             privateKey: recipientKey
         )
         expect{
-            try NaturalInteger(
+            try EthInteger(
                 hex: recipient.balance()
             ).value()
         }.to(
@@ -43,7 +43,7 @@ final class EthAutoAccountIT: XCTestCase {
         )
         expect{
             try sender.send(
-                weiAmount: EthNaturalNumber(
+                weiAmount: EthNumber(
                     value: 100
                 ),
                 to: recipientKey.address()
@@ -53,7 +53,7 @@ final class EthAutoAccountIT: XCTestCase {
             description: "Transaction sending is not expected to throw"
         )
         expect{
-            try NaturalInteger(
+            try EthInteger(
                 hex: recipient.balance()
             ).value()
         }.to(

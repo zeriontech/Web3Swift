@@ -90,7 +90,7 @@ public final class EthTransactionBytes: BytesScalar {
             message: SimpleRLP(
                 rlps: transactionParameters + [
                     EthRLP(
-                        number: EthNaturalNumber(
+                        number: EthNumber(
                             value: networkID
                         )
                     ),
@@ -103,7 +103,7 @@ public final class EthTransactionBytes: BytesScalar {
         return try SimpleRLP(
             rlps: transactionParameters + [
                 EthRLP(
-                    number: EthNaturalNumber(
+                    number: EthNumber(
                         value: IntegersSum(
                             terms: SimpleCollection<IntegerScalar>(
                                 collection: [

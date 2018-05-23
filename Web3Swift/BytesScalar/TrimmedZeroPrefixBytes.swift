@@ -3,7 +3,7 @@
 // Copyright 2018 The Web3Swift Authors
 // Licensed under Apache License v2.0
 //
-// LeadingCompactBytes.swift
+// TrimmedZeroPrefixBytes.swift
 //
 // Created by Timofey Solonin on 10/05/2018
 //
@@ -11,17 +11,22 @@
 import Foundation
 
 /** Bytes without leading zeroes */
-public final class LeadingCompactBytes: BytesScalar {
+public final class TrimmedZeroPrefixBytes: BytesScalar {
 
     private let origin: BytesScalar
     /**
     Ctor
 
     - parameters:
-        - origin: bytes to be compacted
+        - origin: bytes to trim
     */
     public init(origin: BytesScalar) {
-        self.origin = origin
+        self.origin = TrimmedPrefixBytes(
+            origin: origin,
+            prefix: SimpleInteger(
+                integer: 0
+            )
+        )
     }
 
     /**
@@ -32,8 +37,7 @@ public final class LeadingCompactBytes: BytesScalar {
     `DescribedError` if something went wrong
     */
     public func value() throws -> Data {
-        let bytes = try origin.value()
-        return bytes.dropLast().drop(while: { $0 == 0 }) + [bytes.last].compactMap{ $0 }
+        return try origin.value()
     }
 
 }

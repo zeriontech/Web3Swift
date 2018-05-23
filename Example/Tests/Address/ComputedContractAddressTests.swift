@@ -41,7 +41,7 @@ final class ComputedContractAddressTests: XCTestCase {
             expect{
                 try ComputedContractAddress(
                     ownerAddress: owner.address(),
-                    transactionNonce: EthNaturalNumber(
+                    transactionNonce: EthNumber(
                         hex: nonce
                     )
                 ).value().toHexString()

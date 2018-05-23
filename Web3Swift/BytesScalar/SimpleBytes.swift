@@ -14,7 +14,7 @@ import Foundation
 /** Anonymous class for evaluating bytes */
 public final class SimpleBytes: BytesScalar {
 
-    private let valueComputation: () throws -> (Data)
+    private let bytes: () throws -> (Data)
 
     /**
     Ctor
@@ -22,8 +22,8 @@ public final class SimpleBytes: BytesScalar {
     - parameters:
         - valueComputation: closure which returns bytes as `Data`
     */
-    public init(valueComputation: @escaping () throws -> (Data)) {
-        self.valueComputation = valueComputation
+    public init(bytes: @escaping () throws -> (Data)) {
+        self.bytes = bytes
     }
 
     /**
@@ -33,17 +33,31 @@ public final class SimpleBytes: BytesScalar {
         - bytes: bytes as `Data` to be wrapped into scalar
     */
     public convenience init(bytes: Data) {
-        self.init(valueComputation: { bytes })
+        self.init(bytes: { bytes })
+    }
+
+    public convenience init(bytes: CollectionScalar<UInt8>) {
+        self.init(
+            bytes: {
+                try Data(
+                    bytes: bytes.value()
+                )
+            }
+        )
     }
 
     /**
     Ctor
 
     - parameters:
-        - bytes: bytes as `Array<UInt8>` to be wrapped into scalar
+        - bytes: bytes as `[UInt8]` to be wrapped into scalar
     */
-    public convenience init(bytes: Array<UInt8>) {
-        self.init(valueComputation: { Data(bytes: bytes) })
+    public convenience init(bytes: [UInt8]) {
+        self.init(
+            bytes: SimpleCollection(
+                collection: bytes
+            )
+        )
     }
 
     /**
@@ -54,7 +68,7 @@ public final class SimpleBytes: BytesScalar {
     `DescribedError` if something goes wrong.
     */
     public func value() throws -> Data {
-        return try valueComputation()
+        return try bytes()
     }
 
 }

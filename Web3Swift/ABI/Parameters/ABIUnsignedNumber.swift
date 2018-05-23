@@ -25,7 +25,7 @@ public final class ABIUnsignedNumber: ABIEncodedParameter {
         self.origin = ABIFixedBytes(
             origin: LeftZeroesPaddedBytes(
                 origin: origin,
-                padding: 32
+                length: 32
             )
         )
     }

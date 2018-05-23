@@ -13,14 +13,12 @@ import Quick
 @testable import Web3Swift
 
 //Some number that is random
-fileprivate final class MutableRandomNumber: BytesScalar {
+fileprivate final class MutableRandomInteger: IntegerScalar {
 
-    private let origin: BytesScalar = EthNaturalNumber(
+    private let origin: IntegerScalar = EthInteger(
         hex: SimpleBytes{
             try RandomNonce(
-                size: Int(
-                    MemoryLayout<Int>.size
-                )
+                size: MemoryLayout<Int>.size - 1
             ).toData()
         }
     )
@@ -32,7 +30,7 @@ fileprivate final class MutableRandomNumber: BytesScalar {
     - throws:
     `Swift.Error` if something went wrong
     */
-    fileprivate func value() throws -> Data {
+    fileprivate func value() throws -> Int {
         return try origin.value()
     }
 
@@ -43,11 +41,11 @@ fileprivate final class MutableRandomNumber: BytesScalar {
 final class MutableRandomNumberTests: XCTestCase {
 
     func testMutableBytesAreMutable() {
-        let number = MutableRandomNumber()
+        let number = MutableRandomInteger()
         expect{
-            try number.value() as Data
+            try number.value()
         }.toNot(
-            equal(try! number.value() as Data),
+            equal(try! number.value()),
             description: "Random number is expected to be different every time"
         )
     }
@@ -57,13 +55,13 @@ final class MutableRandomNumberTests: XCTestCase {
 final class CachedNumberTests: XCTestCase {
 
     func testCachedBytesAreImmutable() {
-        let number = CachedBytes(
-            origin: MutableRandomNumber()
+        let number = CachedInteger(
+            origin: MutableRandomInteger()
         )
         expect{
-            try number.value() as Data
+            try number.value()
         }.to(
-            equal(try! number.value() as Data),
+            equal(try! number.value()),
             description: "Cached number is expected to persist"
         )
     }

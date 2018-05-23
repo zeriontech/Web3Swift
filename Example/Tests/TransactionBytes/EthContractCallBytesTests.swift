@@ -21,20 +21,20 @@ final class EthContractCallBytesTests: XCTestCase {
                 networkID: SimpleInteger(
                     integer: 0x2a
                 ),
-                transactionsCount: EthNaturalNumber(
+                transactionsCount: EthNumber(
                     hex: "06"
                 ),
-                gasPrice: EthNaturalNumber(
+                gasPrice: EthNumber(
                     hex: "0x04A817C800"
                 ),
-                gasEstimate: EthNaturalNumber(
+                gasEstimate: EthNumber(
                     hex: "0x0F4240"
                 ),
                 senderKey: Alice().privateKey(),
                 contractAddress: EthAddress(
                     hex: "0x35fb3afcba318f339b1531556bfa14f0ff21df3a"
                 ),
-                weiAmount: EthNaturalNumber(
+                weiAmount: EthNumber(
                     hex: "0x00"
                 ),
                 functionCall: EncodedABIFunction(
@@ -43,7 +43,7 @@ final class EthContractCallBytesTests: XCTestCase {
                     ),
                     parameters: [
                         ABIUnsignedNumber(
-                            origin: EthNaturalNumber(
+                            origin: EthNumber(
                                 hex: "0x04A817C800"
                             )
                         )

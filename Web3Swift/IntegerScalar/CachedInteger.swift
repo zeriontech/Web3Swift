@@ -10,14 +10,14 @@
 
 import Foundation
 
-/** Permanently cached number */
+/** Permanently cached integer */
 public final class CachedInteger: IntegerScalar {
 
     private let stickyInt: StickyComputation<Int>
 
     /**
     - parameters:
-        - origin: number to cache
+        - origin: integer to cache
     */
     public init(origin: IntegerScalar) {
         self.stickyInt = StickyComputation<Int>{

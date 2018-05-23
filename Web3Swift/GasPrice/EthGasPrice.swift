@@ -22,7 +22,7 @@ public final class EthGasPrice: BytesScalar {
         - network: network to ask for gas price
     */
     public init(network: Network) {
-        self.price = EthNaturalNumber(
+        self.price = EthNumber(
             hex: SimpleString{
                 try GetGasPriceProcedure(
                     network: network

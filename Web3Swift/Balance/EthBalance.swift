@@ -26,7 +26,7 @@ public final class EthBalance: BytesScalar {
         network: Network,
         address: BytesScalar
     ) {
-        self.origin = EthNaturalNumber(
+        self.origin = EthNumber(
             hex: SimpleString{
                 try BalanceProcedure(
                     network: network,

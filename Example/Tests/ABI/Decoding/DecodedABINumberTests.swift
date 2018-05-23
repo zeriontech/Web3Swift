@@ -16,7 +16,7 @@ final class DecodedABINumberTests: XCTestCase {
 
     func testPlainNumberIsDecodedCorrectly() {
         expect{
-            try NaturalInteger(
+            try EthInteger(
                 hex: DecodedABINumber(
                     abiMessage: ABIMessage(
                         message: "000000000000000000000000000000000000000000000000000000000000002a"
@@ -34,7 +34,7 @@ final class DecodedABINumberTests: XCTestCase {
 
     func testNumberAtSecondPositionIsDecodedCorrectly() {
         expect{
-            try NaturalInteger(
+            try EthInteger(
                 hex: DecodedABINumber(
                     abiMessage: ABIMessage(
                         message: [

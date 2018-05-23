@@ -40,7 +40,7 @@ public final class EthTransactionReceipt: TransactionReceipt {
     `DescribedError if something went wrong`
     */
     public func usedGasAmount() throws -> BytesScalar {
-        return try EthNaturalNumber(
+        return try EthNumber(
             hex: procedure.call()["result"]["gasUsed"].string()
         )
     }

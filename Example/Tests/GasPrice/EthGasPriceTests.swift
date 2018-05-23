@@ -16,7 +16,7 @@ final class EthGasPriceTests: XCTestCase {
 
     func testNonNegativeGasPrice() {
         expect{
-            try NaturalInteger(
+            try EthInteger(
                 hex: EthGasPrice(
                     network: GanacheLocalNetwork()
                 )

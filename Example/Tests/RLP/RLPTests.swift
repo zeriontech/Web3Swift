@@ -73,7 +73,7 @@ final class RLPTests: XCTestCase {
     func test0() {
         expect{
             try SimpleRLP(
-                bytes: LeadingCompactBytes(
+                bytes: TrimmedZeroPrefixBytes(
                     origin: IntegerBytes(
                         value: Int(0).bigEndian
                     )
@@ -93,7 +93,7 @@ final class RLPTests: XCTestCase {
     func test15() {
         expect{
             try SimpleRLP(
-                bytes: LeadingCompactBytes(
+                bytes: TrimmedZeroPrefixBytes(
                     origin: IntegerBytes(
                         value: Int(15).bigEndian
                     )
@@ -113,7 +113,7 @@ final class RLPTests: XCTestCase {
     func test127() {
         expect{
             try SimpleRLP(
-                bytes: LeadingCompactBytes(
+                bytes: TrimmedZeroPrefixBytes(
                     origin: IntegerBytes(
                         value: Int(127).bigEndian
                     )
@@ -133,7 +133,7 @@ final class RLPTests: XCTestCase {
     func test128() {
         expect{
             try SimpleRLP(
-                bytes: LeadingCompactBytes(
+                bytes: TrimmedZeroPrefixBytes(
                     origin: IntegerBytes(
                         value: Int(128).bigEndian
                     )
@@ -154,7 +154,7 @@ final class RLPTests: XCTestCase {
     func test255() {
         expect{
             try SimpleRLP(
-                bytes: LeadingCompactBytes(
+                bytes: TrimmedZeroPrefixBytes(
                     origin: IntegerBytes(
                         value: Int(255).bigEndian
                     )
@@ -175,7 +175,7 @@ final class RLPTests: XCTestCase {
     func test256() {
         expect{
             try SimpleRLP(
-                bytes: LeadingCompactBytes(
+                bytes: TrimmedZeroPrefixBytes(
                     origin: IntegerBytes(
                         value: Int(256).bigEndian
                     )
@@ -197,7 +197,7 @@ final class RLPTests: XCTestCase {
     func test1024() {
         expect{
             try SimpleRLP(
-                bytes: LeadingCompactBytes(
+                bytes: TrimmedZeroPrefixBytes(
                     origin: IntegerBytes(
                         value: Int(1024).bigEndian
                     )

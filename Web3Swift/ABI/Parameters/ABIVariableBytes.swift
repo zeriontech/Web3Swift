@@ -35,11 +35,11 @@ public final class ABIVariableBytes: ABIEncodedParameter {
         return [
             LeftZeroesPaddedBytes(
                 origin: SimpleBytes{
-                    try EthNaturalNumber(
+                    try EthNumber(
                         value: offset * 32
                     ).value()
                 },
-                padding: 32
+                length: 32
             )
         ]
     }
@@ -56,10 +56,10 @@ public final class ABIVariableBytes: ABIEncodedParameter {
         let origin = try self.origin.value()
         return [
             LeftZeroesPaddedBytes(
-                origin: EthNaturalNumber(
+                origin: EthNumber(
                     value: origin.count
                 ),
-                padding: 32
+                length: 32
             )
         ] + Array(origin.enumerated())
             .splitAt{ index, _ in

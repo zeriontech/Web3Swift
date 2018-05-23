@@ -45,7 +45,7 @@ public final class ABICollectionSlice: CollectionScalar<BytesScalar> {
             from: IntegersSum(
                 terms: [
                     IntegersQuotient(
-                        dividend: NaturalInteger(
+                        dividend: EthInteger(
                             hex: BytesAt(
                                 collection: abiMessage,
                                 index: index

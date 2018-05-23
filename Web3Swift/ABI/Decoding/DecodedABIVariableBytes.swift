@@ -53,7 +53,7 @@ public final class DecodedABIVariableBytes: BytesScalar {
     public func value() throws -> Data {
         let abiTuple = self.abiMessage
         let offsetsCount: IntegerScalar = IntegersQuotient(
-            dividend: NaturalInteger(
+            dividend: EthInteger(
                 hex: BytesAt(
                     collection: abiTuple,
                     index: index
@@ -63,7 +63,7 @@ public final class DecodedABIVariableBytes: BytesScalar {
                 integer: 32
             )
         )
-        let bytesLength: IntegerScalar = NaturalInteger(
+        let bytesLength: IntegerScalar = EthInteger(
             hex: BytesAt(
                 collection: abiTuple,
                 index: offsetsCount

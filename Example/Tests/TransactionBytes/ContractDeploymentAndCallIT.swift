@@ -55,7 +55,7 @@ fileprivate final class DeployedGetterContractArgument: BytesScalar {
                 transactionBytes: EthContractCreationBytes(
                     network: network,
                     senderKey: sender.privateKey(),
-                    weiAmount: EthNaturalNumber(
+                    weiAmount: EthNumber(
                         value: 0
                     ),
                     contractCall: EncodedContract(
@@ -74,9 +74,9 @@ fileprivate final class DeployedGetterContractArgument: BytesScalar {
                         network: network,
                         contractAddress: ComputedContractAddress(
                             ownerAddress: sender.address(),
-                            transactionNonce: EthNaturalNumber(
+                            transactionNonce: EthNumber(
                                 value: IntegersDifference(
-                                    minuend: NaturalInteger(
+                                    minuend: EthInteger(
                                         hex: TransactionsCount(
                                             transactions: EthTransactions(
                                                 network: network,
@@ -121,7 +121,7 @@ final class ContractDeploymentAndCallIT: XCTestCase {
                     ),
                     arguments: [
                         ABIUnsignedNumber(
-                            origin: EthNaturalNumber(
+                            origin: EthNumber(
                                 value: 42
                             )
                         )

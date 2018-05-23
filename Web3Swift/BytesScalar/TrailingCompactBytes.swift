@@ -22,7 +22,7 @@ public final class TrailingCompactBytes: BytesScalar {
     */
     public init(origin: BytesScalar) {
         self.compactOrigin = ReversedBytes(
-            origin: LeadingCompactBytes(
+            origin: TrimmedZeroPrefixBytes(
                 origin: ReversedBytes(
                     origin: origin
                 )

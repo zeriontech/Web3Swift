@@ -17,7 +17,7 @@ final class EthRLPTests: XCTestCase {
     func testEncodesZeroCorrectly() {
         expect{
             try EthRLP(
-                number: EthNaturalNumber(
+                number: EthNumber(
                     value: 0
                 )
             ).value()
@@ -46,7 +46,7 @@ final class EthRLPTests: XCTestCase {
         ).forEach{ value, bytes in
             expect{
                 try EthRLP(
-                    number: EthNaturalNumber(
+                    number: EthNumber(
                         value: value
                     )
                 ).value()

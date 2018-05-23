@@ -40,10 +40,10 @@ public final class IntegerBytes: BytesScalar {
     doesn't throw
     */
     public func value() throws -> Data {
-        var integerCopy = try int.value()
+        var int = try self.int.value()
         return Data(
-            bytes: &integerCopy,
-            count: MemoryLayout<Int>.size(ofValue: integerCopy)
+            bytes: &int,
+            count: MemoryLayout<Int>.size(ofValue: int)
         )
     }
 

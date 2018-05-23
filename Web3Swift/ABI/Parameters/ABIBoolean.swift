@@ -35,7 +35,7 @@ public final class ABIBoolean: ABIEncodedParameter {
                         )
                     }
                 },
-                padding: 32
+                length: 32
             )
         )
     }

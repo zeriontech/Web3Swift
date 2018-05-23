@@ -44,11 +44,11 @@ public final class DecodedABIDynamicCollection<T>: CollectionScalar<T> {
     */
     public override func value() throws -> [T] {
         let mapping = self.mapping
-        let elementsCount: Int = try NaturalInteger(
+        let elementsCount: Int = try EthInteger(
             hex: BytesAt(
                 collection: abiMessage,
                 index: IntegersQuotient(
-                    dividend: NaturalInteger(
+                    dividend: EthInteger(
                         hex: BytesAt(
                             collection: abiMessage,
                             index: index

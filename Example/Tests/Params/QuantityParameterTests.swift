@@ -19,7 +19,7 @@ class QuantityParameterTests: XCTestCase {
     func testQuantityParameterToString() {
         expect{
             try QuantityParameter(
-                number: EthNaturalNumber(
+                number: EthNumber(
                     value: 1
                 )
             ).value() as? String

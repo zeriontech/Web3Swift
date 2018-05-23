@@ -21,17 +21,17 @@ final class EthContractCreationBytesTests: XCTestCase {
                 networkID: SimpleInteger(
                     integer: 42
                 ),
-                transactionsCount: EthNaturalNumber(
+                transactionsCount: EthNumber(
                     hex: "0x00"
                 ),
-                gasPrice: EthNaturalNumber(
+                gasPrice: EthNumber(
                     hex: "0x04A817C800"
                 ),
-                gasEstimate: EthNaturalNumber(
+                gasEstimate: EthNumber(
                     hex: "0x0F4240"
                 ),
                 senderKey: Alice().privateKey(),
-                weiAmount: EthNaturalNumber(
+                weiAmount: EthNumber(
                     hex: "0x00"
                 ),
                 contractCall: EncodedContract(
@@ -57,7 +57,7 @@ final class EthContractCreationBytesTests: XCTestCase {
                             origin: true
                         ),
                         ABIUnsignedNumber(
-                            origin: EthNaturalNumber(
+                            origin: EthNumber(
                                 hex: "0x04A817C800"
                             )
                         ),

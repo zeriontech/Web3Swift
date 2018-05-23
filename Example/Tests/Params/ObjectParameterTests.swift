@@ -27,17 +27,17 @@ class ObjectParameterTests: XCTestCase {
                         bytes: Bob().address()
                     ),
                     "gas": QuantityParameter(
-                        number: EthNaturalNumber(
+                        number: EthNumber(
                             value: 9000
                         )
                     ),
                     "gasPrice": QuantityParameter(
-                        number: EthNaturalNumber(
+                        number: EthNumber(
                             value: Int(pow(10.0, 9.0))
                         )
                     ),
                     "value": QuantityParameter(
-                        number: EthNaturalNumber(
+                        number: EthNumber(
                             value: Int(pow(10.0, 18.0))
                         )
                     ),

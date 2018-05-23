@@ -22,7 +22,7 @@ final class SimpleNetworkTests: XCTestCase {
                     UInt8(
                         SimpleNetwork(
                             id: {
-                                NaturalInteger(
+                                EthInteger(
                                     hex: SimpleBytes(
                                         bytes: id
                                     )

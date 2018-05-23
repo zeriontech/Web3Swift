@@ -80,7 +80,7 @@ public final class EthDirectTransactionBytes: BytesScalar {
                 )
             ),
             transactionsCount: CachedBytes(
-                origin: EthNaturalNumber(
+                origin: EthNumber(
                     hex: SimpleBytes{
                         try EthTransactions(
                             network: network,

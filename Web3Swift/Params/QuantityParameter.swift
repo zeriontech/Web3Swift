@@ -36,7 +36,7 @@ public final class QuantityParameter: EthParameter {
             origin: SimpleString(
                 string: String(
                     UnprefixedHexString(
-                        bytes: LeadingCompactBytes(
+                        bytes: TrimmedZeroPrefixBytes(
                             origin: self.number
                         )
                     ).value().drop(while: { $0 == "0" })

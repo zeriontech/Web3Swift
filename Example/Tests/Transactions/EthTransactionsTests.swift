@@ -18,7 +18,7 @@ final class EthTransactionsTests: XCTestCase {
     /// Assert that transaction count returns positive number
     func testTransactionsCount() {
         expect{
-            try NaturalInteger(
+            try EthInteger(
                 hex: EthTransactions(
                     network: GanacheLocalNetwork(),
                     address: Alice().address(),

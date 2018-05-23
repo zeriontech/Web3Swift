@@ -378,7 +378,7 @@ final class EncodedABIFunctionTests: XCTestCase {
                 ),
                 parameters: [
                     ABIUnsignedNumber(
-                        origin: EthNaturalNumber(
+                        origin: EthNumber(
                             value: 5
                         )
                     ),
@@ -388,7 +388,7 @@ final class EncodedABIFunctionTests: XCTestCase {
                         )
                     ),
                     ABIUnsignedNumber(
-                        origin: EthNaturalNumber(
+                        origin: EthNumber(
                             value: 3
                         )
                     ),
@@ -427,7 +427,7 @@ final class EncodedABIFunctionTests: XCTestCase {
                 ),
                 parameters: [
                     ABIUnsignedNumber(
-                        origin: EthNaturalNumber(
+                        origin: EthNumber(
                             value: 1
                         )
                     ),
@@ -437,34 +437,34 @@ final class EncodedABIFunctionTests: XCTestCase {
                         )
                     ),
                     ABIUnsignedNumber(
-                        origin: EthNaturalNumber(
+                        origin: EthNumber(
                             value: 2
                         )
                     ),
                     ABIUnsignedNumber(
-                        origin: EthNaturalNumber(
+                        origin: EthNumber(
                             value: 3
                         )
                     ),
                     ABIUnsignedNumber(
-                        origin: EthNaturalNumber(
+                        origin: EthNumber(
                             value: 4
                         )
                     ),
                     ABIDynamicCollection(
                         parameters: [
                             ABIUnsignedNumber(
-                                origin: EthNaturalNumber(
+                                origin: EthNumber(
                                     value: 5
                                 )
                             ),
                             ABIUnsignedNumber(
-                                origin: EthNaturalNumber(
+                                origin: EthNumber(
                                     value: 6
                                 )
                             ),
                             ABIUnsignedNumber(
-                                origin: EthNaturalNumber(
+                                origin: EthNumber(
                                     value: 7
                                 )
                             )
@@ -504,12 +504,12 @@ final class EncodedABIFunctionTests: XCTestCase {
                     ABIDynamicCollection(
                         parameters: [
                             ABIUnsignedNumber(
-                                origin: EthNaturalNumber(
+                                origin: EthNumber(
                                     value: 1
                                 )
                             ),
                             ABIUnsignedNumber(
-                                origin: EthNaturalNumber(
+                                origin: EthNumber(
                                     value: 2
                                 )
                             )
@@ -518,12 +518,12 @@ final class EncodedABIFunctionTests: XCTestCase {
                     ABIDynamicCollection(
                         parameters: [
                             ABIUnsignedNumber(
-                                origin: EthNaturalNumber(
+                                origin: EthNumber(
                                     value: 3
                                 )
                             ),
                             ABIUnsignedNumber(
-                                origin: EthNaturalNumber(
+                                origin: EthNumber(
                                     value: 4
                                 )
                             )

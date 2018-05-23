@@ -10,17 +10,38 @@
 
 import Foundation
 
+/** Anonymous integer implementation */
 public final class SimpleInteger: IntegerScalar {
 
     private let integer: () throws -> (Int)
+
+    /**
+    Ctor
+
+    - parameters:
+        - integer: closure representation of an integer
+    */
     public init(integer: @escaping () throws -> (Int)) {
         self.integer = integer
     }
 
+    /**
+    Ctor
+
+    - parameters:
+        - integer: just an integer
+    */
     public convenience init(integer: Int) {
         self.init(integer: { integer })
     }
 
+    /**
+    - returns:
+    Integer represented by the computation
+
+    - throws:
+    `DescribedError` if something went wrong
+    */
     public func value() throws -> Int {
         return try integer()
     }

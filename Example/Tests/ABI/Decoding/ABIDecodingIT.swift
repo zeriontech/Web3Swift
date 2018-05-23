@@ -24,7 +24,7 @@ final class ABIDecodingIT: XCTestCase {
                 message: EncodedABITuple(
                     parameters: [
                         ABIUnsignedNumber(
-                            origin: EthNaturalNumber(
+                            origin: EthNumber(
                                 value: arguments.0
                             )
                         ),
@@ -34,7 +34,7 @@ final class ABIDecodingIT: XCTestCase {
                             )
                         ),
                         ABIUnsignedNumber(
-                            origin: EthNaturalNumber(
+                            origin: EthNumber(
                                 value: arguments.2
                             )
                         )
@@ -43,7 +43,7 @@ final class ABIDecodingIT: XCTestCase {
             )
         )
         expect{
-            try NaturalInteger(
+            try EthInteger(
                 hex: DecodedABINumber(
                     abiMessage: message,
                     index: 0
@@ -63,7 +63,7 @@ final class ABIDecodingIT: XCTestCase {
             description: "Encoded argument \(arguments.1) is expected to persist"
         )
         expect{
-            try NaturalInteger(
+            try EthInteger(
                 hex: DecodedABINumber(
                     abiMessage: message,
                     index: 2

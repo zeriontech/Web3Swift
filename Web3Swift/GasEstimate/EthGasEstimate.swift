@@ -23,7 +23,7 @@ public final class EthGasEstimate: BytesScalar {
     public init(
         estimationProcedure: RemoteProcedure
     ) {
-        self.estimate = EthNaturalNumber(
+        self.estimate = EthNumber(
             hex: SimpleString{
                 try estimationProcedure.call()["result"].string()
             }

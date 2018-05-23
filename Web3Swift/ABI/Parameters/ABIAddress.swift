@@ -29,7 +29,7 @@ public final class ABIAddress: ABIEncodedParameter {
                     origin: EthAddress(
                         bytes: address
                     ),
-                    padding: 32
+                    length: 32
                 ),
                 length: 32
             )

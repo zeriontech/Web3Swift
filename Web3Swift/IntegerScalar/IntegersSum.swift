@@ -10,10 +10,17 @@
 
 import Foundation
 
+/** Sum of integers */
 public final class IntegersSum: IntegerScalar {
 
     private let terms: CollectionScalar<Int>
 
+    /**
+    Ctor
+
+    - parameters:
+        - terms: terms to sum
+    */
     public init(terms: CollectionScalar<IntegerScalar>) {
         self.terms = MappedCollection(
             origin: terms,
@@ -21,6 +28,12 @@ public final class IntegersSum: IntegerScalar {
         )
     }
 
+    /**
+    Ctor
+
+    - parameters:
+        - terms: terms to sum
+    */
     public convenience init(terms: [IntegerScalar]) {
         self.init(
             terms: SimpleCollection<IntegerScalar>(
@@ -29,6 +42,12 @@ public final class IntegersSum: IntegerScalar {
         )
     }
 
+    /**
+    Ctor
+
+    - parameters:
+        - terms: terms to sum
+    */
     public convenience init(terms: [Int]) {
         self.init(
             terms: MappedCollection(
@@ -42,6 +61,13 @@ public final class IntegersSum: IntegerScalar {
         )
     }
 
+    /**
+    - returns:
+    Sum of terms T as (T1 + T2 + T3 ... + Tn)
+    
+    - throws:
+    `DescribedError` if something went wrong. I.e. if any partial sum resulted in an overflow even if the overall terms sum was a fitting integer value.
+    */
     public func value() throws -> Int {
         return try terms.value().reduce(Int(0)) { token, value in
             try token.addSafely(with: value)

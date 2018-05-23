@@ -21,15 +21,15 @@ final class EthTransactionBytesTests: XCTestCase {
                 networkID: SimpleInteger(
                     integer: 42
                 ),
-                transactionsCount: EthNaturalNumber(
+                transactionsCount: EthNumber(
                     value: 0
                 ),
-                gasPrice: EthNaturalNumber(
+                gasPrice: EthNumber(
                     hex: SimpleString(
                         string: "0x06FC23AC00"
                     )
                 ),
-                gasEstimate: EthNaturalNumber(
+                gasEstimate: EthNumber(
                     value: 21000
                 ),
                 senderKey: EthPrivateKey(
@@ -40,7 +40,7 @@ final class EthTransactionBytesTests: XCTestCase {
                 recipientAddress: BytesFromHexString(
                     hex: "0xcD8aC90d9cc7e4c03430d58d2f3e87Dae70b807e"
                 ),
-                weiAmount: EthNaturalNumber(
+                weiAmount: EthNumber(
                     hex: SimpleString(
                         string: "0xE8D4A51000"
                     )
@@ -59,20 +59,20 @@ final class EthTransactionBytesTests: XCTestCase {
                 networkID: SimpleInteger(
                     integer: 1
                 ),
-                transactionsCount: EthNaturalNumber(
+                transactionsCount: EthNumber(
                     value: 128
                 ),
-                gasPrice: EthNaturalNumber(
+                gasPrice: EthNumber(
                     hex: SimpleString(
                         string: "0x04A817C800"
                     )
                 ),
-                gasEstimate: EthNaturalNumber(
+                gasEstimate: EthNumber(
                     value: 21000
                 ),
                 senderKey: Tim().privateKey(),
                 recipientAddress: Alice().address(),
-                weiAmount: EthNaturalNumber(
+                weiAmount: EthNumber(
                     hex: SimpleString(
                         string: "0x01"
                     )

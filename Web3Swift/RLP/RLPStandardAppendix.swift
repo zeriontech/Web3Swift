@@ -34,7 +34,7 @@ internal final class RLPStandardAppendix: RLPAppendix {
                 bytes: [
                     UInt8(bytes.count.unsignedByteWidth() + Int(offset) + 55)
                 ]
-            ) + LeadingCompactBytes(
+            ) + TrimmedZeroPrefixBytes(
                 origin: IntegerBytes(
                     value: bytes.count.bigEndian
                 )

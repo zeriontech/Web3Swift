@@ -23,7 +23,7 @@ final class EncodedContractTests: XCTestCase {
                 ),
                 arguments: [
                     ABIUnsignedNumber(
-                        origin: EthNaturalNumber(
+                        origin: EthNumber(
                             value: 1
                         )
                     )
@@ -49,22 +49,22 @@ final class EncodedContractTests: XCTestCase {
                     ABIDynamicCollection(
                         parameters: [
                             ABIUnsignedNumber(
-                                origin: EthNaturalNumber(
+                                origin: EthNumber(
                                     value: 1
                                 )
                             ),
                             ABIUnsignedNumber(
-                                origin: EthNaturalNumber(
+                                origin: EthNumber(
                                     value: 2
                                 )
                             ),
                             ABIUnsignedNumber(
-                                origin: EthNaturalNumber(
+                                origin: EthNumber(
                                     value: 3
                                 )
                             ),
                             ABIUnsignedNumber(
-                                origin: EthNaturalNumber(
+                                origin: EthNumber(
                                     value: 4
                                 )
                             )

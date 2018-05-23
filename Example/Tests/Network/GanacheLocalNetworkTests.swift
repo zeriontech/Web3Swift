@@ -41,7 +41,7 @@ final class GanacheLocalNetworkTests: XCTestCase {
     func testGasEstimate() {
         let network = GanacheLocalNetwork()
         expect{
-            try NaturalInteger(
+            try EthInteger(
                 hex: EthGasEstimate(
                     network: network,
                     senderAddress: BytesFromHexString(
@@ -53,7 +53,7 @@ final class GanacheLocalNetworkTests: XCTestCase {
                     gasPrice: EthGasPrice(
                         network: network
                     ),
-                    weiAmount: EthNaturalNumber(
+                    weiAmount: EthNumber(
                         value: 100
                     )
                 )

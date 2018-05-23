@@ -36,11 +36,11 @@ public final class ABIDynamicCollection: ABIEncodedParameter {
         return [
             LeftZeroesPaddedBytes(
                 origin: SimpleBytes{
-                    try EthNaturalNumber(
+                    try EthNumber(
                         value: offset * 32
                     ).value()
                 },
-                padding: 32
+                length: 32
             )
         ]
     }
@@ -57,11 +57,11 @@ public final class ABIDynamicCollection: ABIEncodedParameter {
         return try [
             LeftZeroesPaddedBytes(
                 origin: SimpleBytes{
-                    try EthNaturalNumber(
+                    try EthNumber(
                         value: parameters.count
                     ).value()
                 },
-                padding: 32
+                length: 32
             )
         ] + ABITuple(
             parameters: parameters

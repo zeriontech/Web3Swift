@@ -40,7 +40,7 @@ public final class EthTransaction: Transaction {
     `DescribedError` if something went wrong
     */
     public func nonce() throws -> BytesScalar {
-        return try EthNaturalNumber(
+        return try EthNumber(
             hex: procedure.call()["result"]["nonce"].string()
         )
     }

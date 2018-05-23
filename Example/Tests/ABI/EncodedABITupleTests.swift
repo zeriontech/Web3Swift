@@ -64,7 +64,7 @@ final class EncodedABITupleTests: XCTestCase {
             try EncodedABITuple(
                 parameters: [
                     ABIUnsignedNumber(
-                        origin: EthNaturalNumber(
+                        origin: EthNumber(
                             value: 1
                         )
                     ),
@@ -74,34 +74,34 @@ final class EncodedABITupleTests: XCTestCase {
                         )
                     ),
                     ABIUnsignedNumber(
-                        origin: EthNaturalNumber(
+                        origin: EthNumber(
                             value: 2
                         )
                     ),
                     ABIUnsignedNumber(
-                        origin: EthNaturalNumber(
+                        origin: EthNumber(
                             value: 3
                         )
                     ),
                     ABIUnsignedNumber(
-                        origin: EthNaturalNumber(
+                        origin: EthNumber(
                             value: 4
                         )
                     ),
                     ABIDynamicCollection(
                         parameters: [
                             ABIUnsignedNumber(
-                                origin: EthNaturalNumber(
+                                origin: EthNumber(
                                     value: 5
                                 )
                             ),
                             ABIUnsignedNumber(
-                                origin: EthNaturalNumber(
+                                origin: EthNumber(
                                     value: 6
                                 )
                             ),
                             ABIUnsignedNumber(
-                                origin: EthNaturalNumber(
+                                origin: EthNumber(
                                     value: 7
                                 )
                             )
@@ -137,12 +137,12 @@ final class EncodedABITupleTests: XCTestCase {
                     ABIDynamicCollection(
                         parameters: [
                             ABIUnsignedNumber(
-                                origin: EthNaturalNumber(
+                                origin: EthNumber(
                                     value: 1
                                 )
                             ),
                             ABIUnsignedNumber(
-                                origin: EthNaturalNumber(
+                                origin: EthNumber(
                                     value: 2
                                 )
                             )
@@ -151,12 +151,12 @@ final class EncodedABITupleTests: XCTestCase {
                     ABIDynamicCollection(
                         parameters: [
                             ABIUnsignedNumber(
-                                origin: EthNaturalNumber(
+                                origin: EthNumber(
                                     value: 3
                                 )
                             ),
                             ABIUnsignedNumber(
-                                origin: EthNaturalNumber(
+                                origin: EthNumber(
                                     value: 4
                                 )
                             )

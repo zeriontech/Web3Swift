@@ -25,7 +25,7 @@ final class MutableCollectionOfBytes: CollectionScalar<BytesScalar> {
                     bytes: RandomNonce(size: 1).toData()
                 )
             },
-            times: NaturalInteger(
+            times: EthInteger(
                 hex: SimpleBytes(
                     bytes: RandomNonce(size: 1).toData()
                 )

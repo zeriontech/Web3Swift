@@ -24,7 +24,7 @@ public final class EthTransactions: Transactions {
 
     public func count() throws -> BytesScalar {
         let transactionsCountProcedure = self.procedure
-        return EthNaturalNumber(
+        return EthNumber(
             hex: SimpleString{
                 try transactionsCountProcedure.call()["result"].string()
             }
