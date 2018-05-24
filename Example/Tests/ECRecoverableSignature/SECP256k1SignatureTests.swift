@@ -29,29 +29,22 @@ final class SECP256k1SignatureTests: XCTestCase {
         )
     }()
 
-    func testIncorrectHashingFunction() {
-        expect(
-            try SECP256k1Signature(
-                privateKey: self.validPrivateKey,
-                message: UTF8StringBytes(string: "Hello world"),
-                hashFunction: SHA3(variant: .keccak224).calculate
-            ).r().value()
-        ).to(
-            throwError(errorType: IncorrectHashLengthError.self),
-            description: "Incorrect hash length must result in the IncorrectHashLengthError to be thrown"
-        )
-    }
-
     func testEqualSignatures() {
         let firstSignature = SECP256k1Signature(
-            privateKey: self.validPrivateKey,
-            message: UTF8StringBytes(string: "Hello world"),
-            hashFunction: SHA3(variant: .keccak256).calculate
+            digest: Keccak256Bytes(
+                origin: UTF8StringBytes(
+                    string: "Hello world"
+                )
+            ),
+            privateKey: self.validPrivateKey
         )
         let secondSignature = SECP256k1Signature(
-            privateKey: self.validPrivateKey,
-            message: UTF8StringBytes(string: "Hello world"),
-            hashFunction: SHA3(variant: .keccak256).calculate
+            digest: Keccak256Bytes(
+                origin: UTF8StringBytes(
+                    string: "Hello world"
+                )
+            ),
+            privateKey: self.validPrivateKey
         )
         expect{
             expect(
@@ -87,14 +80,20 @@ final class SECP256k1SignatureTests: XCTestCase {
 
     func testDifferentMessages() {
         let firstSignature = SECP256k1Signature(
-            privateKey: self.validPrivateKey,
-            message: UTF8StringBytes(string: "Hello world"),
-            hashFunction: SHA3(variant: .keccak256).calculate
+            digest: Keccak256Bytes(
+                origin: UTF8StringBytes(
+                    string: "Hello world"
+                )
+            ),
+            privateKey: self.validPrivateKey
         )
         let secondSignature = SECP256k1Signature(
-            privateKey: self.validPrivateKey,
-            message: UTF8StringBytes(string: "Hello worlds"),
-            hashFunction: SHA3(variant: .keccak256).calculate
+            digest: Keccak256Bytes(
+                origin: UTF8StringBytes(
+                    string: "Hello worlds"
+                )
+            ),
+            privateKey: self.validPrivateKey
         )
         expect{
             try firstSignature.r().value() == secondSignature.r().value()
@@ -109,13 +108,16 @@ final class SECP256k1SignatureTests: XCTestCase {
     /// Assert example from EIP-155 matches SECP256k1Signature implementation
     func testOneRawMessage() {
         let signature = SECP256k1Signature(
+            digest: Keccak256Bytes(
+                origin: BytesFromHexString(
+                    hex: "0xec098504a817c800825208943535353535353535353535353535353535353535880de0b6b3a764000080018080"
+                )
+            ),
             privateKey: EthPrivateKey(
                 bytes: BytesFromHexString(
                     hex: "0x4646464646464646464646464646464646464646464646464646464646464646"
                 )
-            ),
-            message: BytesFromHexString(hex: "0xec098504a817c800825208943535353535353535353535353535353535353535880de0b6b3a764000080018080"),
-            hashFunction: SHA3(variant: .keccak256).calculate
+            )
         )
         expect{
             try signature.r().value()
@@ -138,55 +140,56 @@ final class SECP256k1SignatureTests: XCTestCase {
     /// Assert example from EIP-155 matches SECP256k1Signature implementation dependent upon SimpleRLP implementation
     func testOneRLP() {
         let signature = SECP256k1Signature(
+            digest: Keccak256Bytes(
+                origin: SimpleRLP(
+                    rlps: [
+                        SimpleRLP(
+                            bytes: Data(
+                                hex: "0x09" //nonce
+                            )
+                        ),
+                        SimpleRLP(
+                            bytes: Data(
+                                hex: "0x04a817c800" //gas price
+                            )
+                        ),
+                        SimpleRLP(
+                            bytes: Data(
+                                hex: "0x5208" //start gas
+                            )
+                        ),
+                        SimpleRLP(
+                            bytes: Data(
+                                hex: "0x3535353535353535353535353535353535353535" //to
+                            )
+                        ),
+                        SimpleRLP(
+                            bytes: Data(
+                                hex: "0x0de0b6b3a7640000" //value
+                            )
+                        ),
+                        SimpleRLP(
+                            bytes: Data() //data
+                        ),
+                        SimpleRLP(
+                            bytes: Data(
+                                hex: "0x01" //chain id (mainnet in this case)
+                            )
+                        ),
+                        SimpleRLP(
+                            bytes: Data() //stubbed r according to EIP-155
+                        ),
+                        SimpleRLP(
+                            bytes: Data() //stubbed s according to EIP-155
+                        ),
+                    ]
+                )
+            ),
             privateKey: EthPrivateKey(
                 bytes: BytesFromHexString(
                     hex: "0x4646464646464646464646464646464646464646464646464646464646464646"
                 )
-            ),
-            message: SimpleRLP(
-                rlps: [
-                    SimpleRLP(
-                        bytes: Data(
-                            hex: "0x09" //nonce
-                        )
-                    ),
-                    SimpleRLP(
-                        bytes: Data(
-                            hex: "0x04a817c800" //gas price
-                        )
-                    ),
-                    SimpleRLP(
-                        bytes: Data(
-                            hex: "0x5208" //start gas
-                        )
-                    ),
-                    SimpleRLP(
-                        bytes: Data(
-                            hex: "0x3535353535353535353535353535353535353535" //to
-                        )
-                    ),
-                    SimpleRLP(
-                        bytes: Data(
-                            hex: "0x0de0b6b3a7640000" //value
-                        )
-                    ),
-                    SimpleRLP(
-                        bytes: Data() //data
-                    ),
-                    SimpleRLP(
-                        bytes: Data(
-                            hex: "0x01" //chain id (mainnet in this case)
-                        )
-                    ),
-                    SimpleRLP(
-                        bytes: Data() //stubbed r according to EIP-155
-                    ),
-                    SimpleRLP(
-                        bytes: Data() //stubbed s according to EIP-155
-                    ),
-                ]
-            ),
-            hashFunction: SHA3(variant: .keccak256).calculate
+            )
         )
         expect{
             try signature.r().value()

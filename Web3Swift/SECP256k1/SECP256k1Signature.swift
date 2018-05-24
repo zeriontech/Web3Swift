@@ -12,19 +12,6 @@ import CryptoSwift
 import Foundation
 import secp256k1_ios
 
-public final class IncorrectHashLengthError: DescribedError {
-
-    private let length: Int
-    public init(length: Int) {
-        self.length = length
-    }
-
-    public var description: String {
-        return "Hashing function produced digest of length \(self.length) when 32 was expected"
-    }
-
-}
-
 public final class SigningError: DescribedError {
 
     private let hash: Array<UInt8>
@@ -75,38 +62,34 @@ public final class SECP256k1Signature: ECRecoverableSignature {
     // swiftlint:disable:next large_tuple
     private let stickyComputation: StickyComputation<(r: Data, s: Data, recoveryID: UInt8)>
 
-    //FIXME: Design is bad. There is no need to pass message and hashFunction at the same time.
     /**
-        ctor
+    Ctor
 
-        - parameters:
-            - privateKey: private key as defined in ecdsa
-            - message: message as fined in ecdsa
-            - hashFunction: hashing function that is used to compute message hash
+    - parameters:
+        - digest: 32 bytes digest of the message to sign
+        - privateKey: value of the private key
     */
     public init(
-        privateKey: PrivateKey,
-        message: BytesScalar,
-        hashFunction: @escaping (Array<UInt8>) -> (Array<UInt8>)
+        digest: BytesScalar,
+        privateKey: BytesScalar
     ) {
+        let digest = FixedLengthBytes(
+            origin: digest,
+            length: 32
+        )
         stickyComputation = StickyComputation{
-            var hash = try hashFunction(
-                Array(
-                    message.value()
-                )
-            )
-            guard hash.count == 32 else { throw IncorrectHashLengthError(length: hash.count) }
+            var digest = try Array(digest.value())
             var signature: secp256k1_ecdsa_recoverable_signature = secp256k1_ecdsa_recoverable_signature()
             var privateKey = try Array(privateKey.value())
             guard secp256k1_ecdsa_sign_recoverable(
                 secp256k1_context_create(UInt32(SECP256K1_CONTEXT_SIGN | SECP256K1_CONTEXT_VERIFY)),
                 &signature,
-                &hash,
+                &digest,
                 &privateKey,
                 nil,
                 nil
             ) == 1 else {
-                throw SigningError(hash: hash)
+                throw SigningError(hash: digest)
             }
             var rs: Array<UInt8> = Array<UInt8>(repeating: 0, count: 64)
             var recoveryID: Int32 = -1
@@ -128,6 +111,33 @@ public final class SECP256k1Signature: ECRecoverableSignature {
                 recoveryID: UInt8(recoveryID)
             )
         }
+    }
+
+    /**
+        ctor
+
+        - parameters:
+            - privateKey: private key as defined in ecdsa
+            - message: message as fined in ecdsa
+            - hashFunction: hashing function that is used to compute message hash
+    */
+    public convenience init(
+        privateKey: PrivateKey,
+        message: BytesScalar,
+        hashFunction: @escaping (Array<UInt8>) -> (Array<UInt8>)
+    ) {
+        self.init(
+            digest: SimpleBytes{
+                try Data(
+                    bytes: hashFunction(
+                        Array<UInt8>(
+                            message.value()
+                        )
+                    )
+                )
+            },
+            privateKey: privateKey
+        )
     }
 
     /**

@@ -86,19 +86,20 @@ public final class EthTransactionBytes: BytesScalar {
             SimpleRLP(bytes: contractCall)
         ]
         let signature = SECP256k1Signature(
-            privateKey: senderKey,
-            message: SimpleRLP(
-                rlps: transactionParameters + [
-                    EthRLP(
-                        number: EthNumber(
-                            value: networkID
-                        )
-                    ),
-                    SimpleRLP(bytes: []),
-                    SimpleRLP(bytes: [])
-                ]
+            digest: Keccak256Bytes(
+                origin: SimpleRLP(
+                    rlps: transactionParameters + [
+                        EthRLP(
+                            number: EthNumber(
+                                value: networkID
+                            )
+                        ),
+                        SimpleRLP(bytes: []),
+                        SimpleRLP(bytes: [])
+                    ]
+                )
             ),
-            hashFunction: SHA3(variant: .keccak256).calculate
+            privateKey: senderKey
         )
         return try SimpleRLP(
             rlps: transactionParameters + [
