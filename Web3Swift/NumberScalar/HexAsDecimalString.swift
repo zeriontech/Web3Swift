@@ -22,7 +22,7 @@ public final class HexAsDecimalString: StringScalar {
     - parameters:
         - hex: hexadecimal representation of a number
     */
-    init(
+    public init(
         hex: BytesScalar
     ) {
         self.hex = hex
