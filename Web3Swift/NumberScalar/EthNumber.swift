@@ -39,12 +39,8 @@ public final class EthNumber: BytesScalar {
                 value: BigEndianInteger(
                     origin: RangeConstrainedInteger(
                         origin: value,
-                        minimum: SimpleInteger(
-                            integer: 0
-                        ),
-                        maximum: SimpleInteger(
-                            integer: Int.max
-                        )
+                        minimum: 0,
+                        maximum: Int.max
                     )
                 )
             )
