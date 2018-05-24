@@ -28,7 +28,7 @@ final class ABIMessageTests: XCTestCase {
                 )
             ).value()
         }.to(
-            throwError(errorType: IndexOtOfBoundsError.self),
+            throwError(errorType: IndexOutOfBoundsError.self),
             description: "Valid abi message may not be empty"
         )
     }
@@ -36,8 +36,10 @@ final class ABIMessageTests: XCTestCase {
     func testIncorrectMessageElementsThrow() {
         expect{
             try ABIMessage(
-                message: "3078343037643733643861343965656238356433326366343635353037646437" +
+                message: [
+                    "3078343037643733643861343965656238356433326366343635353037646437",
                     "31643530373130306334000000000000000000000000000000000000000000"
+                ].reduce("", +)
             ).value()[1].value()
         }.to(
             throwError(errorType: IncorrectBytesLengthError.self),

@@ -20,7 +20,12 @@ import Foundation
 public final class DecodedABIDynamicCollection<T>: CollectionScalar<T> {
 
     private let abiMessage: CollectionScalar<BytesScalar>
-    private let mapping: ((slice: CollectionScalar<BytesScalar>, index: UInt)) throws -> (T)
+    private let mapping: (
+        (
+            slice: CollectionScalar<BytesScalar>,
+            index: UInt
+        )
+    ) throws -> (T)
     private let index: UInt
 
     /**
@@ -33,7 +38,12 @@ public final class DecodedABIDynamicCollection<T>: CollectionScalar<T> {
     */
     public init(
         abiMessage: CollectionScalar<BytesScalar>,
-        mapping: @escaping ((slice: CollectionScalar<BytesScalar>, index: UInt)) throws -> (T),
+        mapping: @escaping (
+            (
+                slice: CollectionScalar<BytesScalar>,
+                index: UInt
+            )
+        ) throws -> (T),
         index: UInt
     ) {
         self.abiMessage = abiMessage
