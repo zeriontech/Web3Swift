@@ -32,14 +32,15 @@ public final class QuantityParameter: EthParameter {
     `DescribedError` is something went wrong
     */
     public func value() throws -> Any {
+        let number = try UnprefixedHexString(
+            bytes: TrimmedZeroPrefixBytes(
+                origin: self.number
+            )
+        ).value()
         return try HexPrefixedString(
             origin: SimpleString(
                 string: String(
-                    UnprefixedHexString(
-                        bytes: TrimmedZeroPrefixBytes(
-                            origin: self.number
-                        )
-                    ).value().drop(while: { $0 == "0" })
+                    number.dropLast().drop(while: { $0 == "0" }) + [number.last].compactMap{ $0 }
                 )
             )
         ).value()

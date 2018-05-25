@@ -29,4 +29,19 @@ class QuantityParameterTests: XCTestCase {
         )
     }
 
+    func testZeroIsEncodedCorrectly() {
+        expect{
+            try QuantityParameter(
+                number: EthNumber(
+                    value: 0
+                )
+            ).value() as? String
+        }.to(
+            equal(
+                "0x0"
+            ),
+            description: "Zero is expected to represented correctly"
+        )
+    }
+
 }
