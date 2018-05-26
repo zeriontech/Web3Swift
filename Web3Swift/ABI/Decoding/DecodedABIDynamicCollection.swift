@@ -14,8 +14,13 @@ import Foundation
 public final class DecodedABIDynamicCollection<T>: CollectionScalar<T> {
 
     private let abiMessage: CollectionScalar<BytesScalar>
-    private let mapping: ((slice: CollectionScalar<BytesScalar>, index: Int)) throws -> (T)
-    private let index: Int
+    private let mapping: (
+        (
+            slice: CollectionScalar<BytesScalar>,
+            index: UInt
+        )
+    ) throws -> (T)
+    private let index: UInt
 
     /**
     Ctor
@@ -27,8 +32,13 @@ public final class DecodedABIDynamicCollection<T>: CollectionScalar<T> {
     */
     public init(
         abiMessage: CollectionScalar<BytesScalar>,
-        mapping: @escaping ((slice: CollectionScalar<BytesScalar>, index: Int)) throws -> (T),
-        index: Int
+        mapping: @escaping (
+            (
+                slice: CollectionScalar<BytesScalar>,
+                index: UInt
+            )
+        ) throws -> (T),
+        index: UInt
     ) {
         self.abiMessage = abiMessage
         self.mapping = mapping

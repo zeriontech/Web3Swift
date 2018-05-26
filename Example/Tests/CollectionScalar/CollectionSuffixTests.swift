@@ -47,7 +47,7 @@ final class CollectionSuffixTests: XCTestCase {
                 )
             ).value()
         }.to(
-            throwError(errorType: IndexOtOfBoundsError.self),
+            throwError(errorType: IndexOutOfBoundsError.self),
             description: "Suffix from an incorrect index is expected to throw"
         )
     }

@@ -26,5 +26,5 @@ before_install:
   --gasPrice="20000000000" --networkId="1" &
 script:
 - pod lib lint --allow-warnings
-- set -o pipefail && xcodebuild clean test -enableCodeCoverage YES -workspace Example/Web3Swift.xcworkspace -scheme All-Tests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.3' ONLY_ACTIVE_ARCH=NO | xcpretty
+- set -o pipefail && xcodebuild clean test -enableCodeCoverage YES -workspace Example/Web3Swift.xcworkspace -scheme All-Tests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.3' ONLY_ACTIVE_ARCH=YES | xcpretty
 - bash <(curl -s https://codecov.io/bash) -t 475c7b5c-1657-4aa3-bd40-c699b20e518d

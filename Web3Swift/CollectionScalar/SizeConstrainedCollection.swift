@@ -10,7 +10,7 @@
 
 import Foundation
 
-internal final class IndexOtOfBoundsError: DescribedError {
+internal final class IndexOutOfBoundsError: DescribedError {
 
     private let collectionSize: Int
     private let index: Int
@@ -80,7 +80,7 @@ public final class SizeConstrainedCollection<T>: CollectionScalar<T> {
         let origin = try self.origin.value()
         let minimum = try self.minimum.value()
         guard origin.count >= Int(minimum) else {
-            throw IndexOtOfBoundsError(
+            throw IndexOutOfBoundsError(
                 collectionSize: Int(origin.count),
                 index: minimum
             )

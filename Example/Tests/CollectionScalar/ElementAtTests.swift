@@ -41,7 +41,7 @@ final class ElementAtTests: XCTestCase {
                 index: 5
             ).value()
         }.to(
-            throwError(errorType: IndexOtOfBoundsError.self),
+            throwError(errorType: IndexOutOfBoundsError.self),
             description: "Element at an out of bounds index is expected to throw"
         )
     }

@@ -25,7 +25,7 @@ final class SizeConstrainedCollectionTests: XCTestCase {
                 minimum: 4
             ).value()
         }.to(
-            throwError(errorType: IndexOtOfBoundsError.self),
+            throwError(errorType: IndexOutOfBoundsError.self),
             description: "Underflow is expected to error out"
         )
     }

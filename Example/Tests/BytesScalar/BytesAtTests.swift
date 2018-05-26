@@ -64,7 +64,7 @@ final class BytesAtTests: XCTestCase {
                 index: 3
             ).value()
         }.to(
-            throwError(errorType: IndexOtOfBoundsError.self),
+            throwError(errorType: IndexOutOfBoundsError.self),
             description: "Underflow is expected to throw"
         )
     }

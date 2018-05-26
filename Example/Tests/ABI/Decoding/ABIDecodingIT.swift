@@ -76,7 +76,7 @@ final class ABIDecodingIT: XCTestCase {
     }
 
     //address[], bool, string[]
-    func testDynamicCollectionOfAddressesBoolDynamicCollectionOfStringsIsDecodedCorrectly() {
+    func testComplexDynamicCollectionIsDecodedCorrectly() {
         let arguments: (Array<String>, Bool, Array<String>) = (
             [
                 "cd8ac90d9cc7e4c03430d58d2f3e87dae70b807e",
@@ -170,7 +170,7 @@ final class ABIDecodingIT: XCTestCase {
         )
     }
 
-    //TODO: This is not possible to decode right now. A non elegant solution would be to introduce an dependency "width" for DecodedABIDynamicCollection which would be 1 for every element except for ABITuple.
+    //TODO: This is not possible to decode right now. See #119
     //string, address[2][]
 //    func testStringDynamicCollectionOfTuplesOfAddressesIsDecodedCorrectly() {
 //        let arguments: (String, Array<Array<String>>) = (

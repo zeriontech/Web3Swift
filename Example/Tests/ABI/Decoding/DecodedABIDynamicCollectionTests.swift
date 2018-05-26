@@ -56,7 +56,11 @@ final class DecodedABIDynamicCollectionTests: XCTestCase {
 
     func testTwoDimensionalCollectionOfAddressesAtSecondPositionIsDecodedCorrectly() {
         expect{
-            try DecodedABIDynamicCollection<CollectionScalar<BytesScalar>>(
+            try DecodedABIDynamicCollection<
+                CollectionScalar<
+                    BytesScalar
+                >
+            >(
                 abiMessage: ABIMessage(
                     message: [
                         "0000000000000000000000000000000000000000000000000000000000000001",

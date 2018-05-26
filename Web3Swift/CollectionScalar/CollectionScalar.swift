@@ -10,7 +10,11 @@
 
 import Foundation
 
-//TODO: I don't think introducing type erasure is a good idea. Lets stick with abstract class for now but move to proper interface if they will ever be introduced to Swift.
+/**
+    I don't think introducing type erasure is a good idea. Lets stick with
+    abstract class for now but move to proper interface if they will ever
+    be introduced to Swift.
+*/
 /** Just a collection containing values of type T. All subclasses of this abstract class must be final. */
 public class CollectionScalar<T> {
 

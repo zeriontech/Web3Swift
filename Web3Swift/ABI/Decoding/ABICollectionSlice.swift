@@ -31,7 +31,12 @@ public final class ABICollectionSlice: CollectionScalar<BytesScalar> {
         self.index = index
     }
 
-    //TODO: Right now collection slice grabs everything after the length of the dynamic collection which means that it grabs every parameter encoded into a message after itself. This is irrelevant when decoding but may be a problem in the future.
+    /**
+        Right now collection slice grabs everything after the length of the
+        dynamic collection which means that it grabs every parameter encoded
+        into a message after itself. This is irrelevant when decoding but may
+        be a problem in the future.
+    */
     /**
     - returns:
     Non typed content of the collection.
