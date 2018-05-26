@@ -20,7 +20,8 @@ final class EthPrivateKeyTests: XCTestCase {
         }.to(
             equal(
                 Data(hex: "0xcD8aC90d9cc7e4c03430d58d2f3e87Dae70b807e")
-            )
+            ),
+            description: "Private key from bytes should compute correct public address"
         )
     }
     
@@ -34,7 +35,8 @@ final class EthPrivateKeyTests: XCTestCase {
         }.to(
             equal(
                 Data(hex: "0xcD8aC90d9cc7e4c03430d58d2f3e87Dae70b807e")
-            )
+            ),
+            description: "Private key from hex string should compute correct public address"
         )
     }
     
@@ -46,7 +48,8 @@ final class EthPrivateKeyTests: XCTestCase {
         }.to(
             equal(
                 Data(hex: "0xcD8aC90d9cc7e4c03430d58d2f3e87Dae70b807e")
-            )
+            ),
+            description: "Private key from hex should compute correct public address"
         )
     }
 
