@@ -22,7 +22,7 @@ class QuantityParameterTests: XCTestCase {
                 number: BigEndianNumber(
                     uint: 1
                 )
-            ).value() as! String // swiftlint:disable:this force_cast
+            ).value() as? String
         }.to(
             equal("0x1"),
             description: "Make sure that correct hex string is returned"

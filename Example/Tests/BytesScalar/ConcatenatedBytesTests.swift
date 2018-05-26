@@ -49,4 +49,48 @@ final class ConcatenatedBytesTests: XCTestCase {
         }
     }
 
+    func testBytesFromACollectionScalarAreConcatenatedCorrectly() {
+        Array<
+            (
+                CollectionScalar<BytesScalar>,
+                Array<UInt8>
+            )
+        >(
+            [
+                (
+                    SimpleCollection<BytesScalar>(
+                        collection: []
+                    ) as CollectionScalar<BytesScalar>,
+                    [UInt8]()
+                ),
+                (
+                    SimpleCollection<BytesScalar>(
+                        collection: [
+                            SimpleBytes(bytes: [0x01, 0x02]),
+                            SimpleBytes(bytes: [0x03]),
+                            SimpleBytes(bytes: [0x04])
+                        ]
+                    ) as CollectionScalar<BytesScalar>,
+                    [
+                        0x01,
+                        0x02,
+                        0x03,
+                        0x04
+                    ]
+                )
+            ]
+        ).forEach{ scalars, bytes in
+            expect{
+                try ConcatenatedBytes(
+                    bytes: scalars
+                ).value()
+            }.to(
+                equal(
+                    Data(bytes: bytes)
+                ),
+                description: "Concatenated bytes are expected to match their Data representation"
+            )
+        }
+    }
+
 }

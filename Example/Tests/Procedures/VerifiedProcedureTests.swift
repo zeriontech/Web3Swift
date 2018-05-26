@@ -19,14 +19,14 @@ import Quick
 import SwiftyJSON
 @testable import Web3Swift
 
-fileprivate final class FakeProcedure: RemoteProcedure {
+final class FakeProcedure: RemoteProcedure {
 
     private let response: JSON
     init(response: JSON) {
         self.response = response
     }
 
-    fileprivate func call() throws -> JSON {
+    func call() throws -> JSON {
         return response
     }
 

@@ -27,7 +27,7 @@ public final class LeadingCompactBytes: BytesScalar {
     */
     public func value() throws -> Data {
         let bytes = try origin.value()
-        return bytes.dropLast().drop(while: { $0 == 0 }) + [bytes.last].flatMap{ $0 }
+        return bytes.dropLast().drop(while: { $0 == 0 }) + [bytes.last].compactMap{ $0 }
     }
 
 }

@@ -72,7 +72,7 @@ public final class ABIDynamicCollection: ABIEncodedParameter {
         ] + ABITuple(
             parameters: parameters
         ).heads(
-            offset: offset + 1
+            offset: 0
         )
     }
 

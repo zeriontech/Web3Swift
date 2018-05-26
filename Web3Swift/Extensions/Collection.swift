@@ -48,7 +48,7 @@ public extension Collection {
     */
     public func splitAt(sequencingStrategy: (Self.Element) throws -> Bool) rethrows -> [SubSequence] {
         var currentIndex = self.startIndex
-        var result: [SubSequence] = try self.indices.flatMap { i in
+        var result: [SubSequence] = try self.indices.compactMap { i in
             guard try sequencingStrategy(self[i]) else {
                 return nil
             }

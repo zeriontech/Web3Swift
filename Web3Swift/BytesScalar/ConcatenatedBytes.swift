@@ -7,7 +7,7 @@ import Foundation
 //Bytes concatenated into a single collection
 public final class ConcatenatedBytes: BytesScalar {
 
-    private let bytes: [BytesScalar]
+    private let bytes: CollectionScalar<BytesScalar>
 
     /**
     Ctor
@@ -15,8 +15,18 @@ public final class ConcatenatedBytes: BytesScalar {
     - parameters
         - bytes: a collection of bytes to be concatenated
     */
-    init(bytes: [BytesScalar]) {
+    init(bytes: CollectionScalar<BytesScalar>) {
         self.bytes = bytes
+    }
+
+    /**
+    Ctor
+
+    - parameters
+        - bytes: a collection of bytes to be concatenated
+    */
+    convenience init(bytes: [BytesScalar]) {
+        self.init(bytes: SimpleCollection(collection: bytes))
     }
 
     /**
@@ -27,7 +37,7 @@ public final class ConcatenatedBytes: BytesScalar {
     `DescribedError` if something went wrong
     */
     public func value() throws -> Data {
-        return try bytes.reduce(Data()) {
+        return try bytes.value().reduce(Data()) {
             try $0 + $1.value()
         }
     }
