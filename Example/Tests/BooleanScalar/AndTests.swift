@@ -75,7 +75,7 @@ final class AndTests: XCTestCase {
             ).value()
         }.to(
             throwError(
-                errorType: IndexOtOfBoundsError.self
+                errorType: IndexOutOfBoundsError.self
             ),
             description: "At least two conditions are expected for a valid and"
         )
@@ -88,7 +88,7 @@ final class AndTests: XCTestCase {
             ).value()
         }.to(
             throwError(
-                errorType: IndexOtOfBoundsError.self
+                errorType: IndexOutOfBoundsError.self
             ),
             description: "At least two conditions are expected for a valid and"
         )

@@ -17,10 +17,10 @@ public final class DecodedABIDynamicCollection<T>: CollectionScalar<T> {
     private let mapping: (
         (
             slice: CollectionScalar<BytesScalar>,
-            index: UInt
+            index: Int
         )
     ) throws -> (T)
-    private let index: UInt
+    private let index: Int
 
     /**
     Ctor
@@ -35,10 +35,10 @@ public final class DecodedABIDynamicCollection<T>: CollectionScalar<T> {
         mapping: @escaping (
             (
                 slice: CollectionScalar<BytesScalar>,
-                index: UInt
+                index: Int
             )
         ) throws -> (T),
-        index: UInt
+        index: Int
     ) {
         self.abiMessage = abiMessage
         self.mapping = mapping

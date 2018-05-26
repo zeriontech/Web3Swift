@@ -38,7 +38,7 @@ final class FirstByteTests: XCTestCase {
             ).value()
         }.to(
             throwError(
-                errorType: IndexOtOfBoundsError.self
+                errorType: IndexOutOfBoundsError.self
             ),
             description: "Empty collection is expected to throw"
         )
