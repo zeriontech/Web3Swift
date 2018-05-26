@@ -18,15 +18,21 @@ final class ContractCallProcedureTests: XCTestCase {
         expect{
             try ContractCallProcedure(
                 network: MainnetInfuraMetamaskNetwork(),
-                contractAddress: EthAddress(
-                    hex: "0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0"
-                ),
-                functionCall: EncodedABIFunction(
-                    signature: SimpleString(
-                        string: "totalSupply()"
+                parameters: [
+                    "to" : BytesParameter(
+                        bytes: EthAddress(
+                            hex: "0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0"
+                        )
                     ),
-                    parameters: []
-                )
+                    "data" : BytesParameter(
+                        bytes: EncodedABIFunction(
+                            signature: SimpleString(
+                                string: "totalSupply()"
+                            ),
+                            parameters: []
+                        )
+                    )
+                ]
             ).call()["result"].string()
         }.to(
             equal(

@@ -15,25 +15,21 @@ import SwiftyJSON
 final public class ContractCallProcedure: RemoteProcedure {
 
     private let network: Network
-    private let contractAddress: BytesScalar
-    private let functionCall: BytesScalar
+    private let parameters: [String: EthParameter]
 
     /**
     Ctor
 
     - parameters:
         - network: network to call
-        - contractAddress: address of the contract
-        - functionCall: encoded call the contract function
+        - parameters: parameters of the contract call
     */
     public init(
         network: Network,
-        contractAddress: BytesScalar,
-        functionCall: BytesScalar
+        parameters: [String: EthParameter]
     ) {
         self.network = network
-        self.contractAddress = contractAddress
-        self.functionCall = functionCall
+        self.parameters = parameters
     }
 
     /**
@@ -49,14 +45,7 @@ final public class ContractCallProcedure: RemoteProcedure {
                 method: "eth_call",
                 params: [
                     ObjectParameter(
-                        dictionary: [
-                            "to" : BytesParameter(
-                                bytes: contractAddress
-                            ),
-                            "data" : BytesParameter(
-                                bytes: functionCall
-                            )
-                        ]
+                        dictionary: parameters
                     ),
                     TagParameter(
                         state: PendingBlockChainState()
