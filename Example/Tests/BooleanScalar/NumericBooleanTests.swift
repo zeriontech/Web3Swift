@@ -58,7 +58,9 @@ final class NumericBooleanTests: XCTestCase {
                 )
             ).value()
         }.to(
-            throwError(errorType: NotANumericBooleanError.self),
+            throwError(
+                errorType: NotANumericBooleanError.self
+            ),
             description: "Numbers other than 0 or 1 are considered to be an error"
         )
     }

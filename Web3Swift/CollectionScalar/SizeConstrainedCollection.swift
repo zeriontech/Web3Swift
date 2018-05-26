@@ -16,7 +16,7 @@ limitations under the License.
 
 import Foundation
 
-internal final class IndexOtOfBoundsError: DescribedError {
+internal final class IndexOutOfBoundsError: DescribedError {
 
     private let collectionSize: UInt
     private let index: UInt
@@ -86,7 +86,7 @@ public final class SizeConstrainedCollection<T>: CollectionScalar<T> {
         let origin = try self.origin.value()
         let minimum = try self.minimum.uint()
         guard origin.count >= Int(minimum) else {
-            throw IndexOtOfBoundsError(
+            throw IndexOutOfBoundsError(
                 collectionSize: UInt(origin.count),
                 index: minimum
             )

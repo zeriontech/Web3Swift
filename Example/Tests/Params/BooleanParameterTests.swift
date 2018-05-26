@@ -21,7 +21,7 @@ class BooleanParameterTests: XCTestCase {
         expect{
             try BooleanParameter(
                 value: true
-                ).value() as! Bool // swiftlint:disable:this force_cast
+            ).value() as? Bool
         }.to(
             equal(true),
             description: "Make sure that same state is returned"
@@ -35,7 +35,7 @@ class BooleanParameterTests: XCTestCase {
         expect{
             try BooleanParameter(
                 value: false
-                ).value() as! Bool // swiftlint:disable:this force_cast
+            ).value() as? Bool
         }.to(
             equal(false),
             description: "Make sure that same state is returned"
@@ -49,7 +49,7 @@ class BooleanParameterTests: XCTestCase {
         expect{
             try BooleanParameter(
                 value: true
-                ).value() as! Bool // swiftlint:disable:this force_cast
+            ).value() as? Bool
         }.notTo(
             equal(false),
             description: "Make sure that same state is returned"

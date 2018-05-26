@@ -14,7 +14,7 @@ private final class InvalidPrivateKeyError: DescribedError {
 
 }
 
-private final class UnableToSerializePublicKeyError: DescribedError {
+private final class PublicKeySerializationError: DescribedError {
 
     var description: String {
         return "Could not serialize public key for unknown reason"
@@ -106,7 +106,7 @@ public final class EthPrivateKey: PrivateKey {
                 &publicKeyStructure,
                 UInt32(SECP256K1_EC_UNCOMPRESSED)
             ) == 1 else {
-                throw UnableToSerializePublicKeyError()
+                throw PublicKeySerializationError()
             }
             return Data(
                 bytes: publicKey.dropFirst()

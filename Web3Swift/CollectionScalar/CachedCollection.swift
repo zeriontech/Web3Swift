@@ -16,23 +16,32 @@ limitations under the License.
 
 import Foundation
 
-/**
-    I don't think introducing type erasure is a good idea. Lets stick with
-    abstract class for now but move to proper interface if they will ever
-    be introduced to Swift.
-*/
-//Just a collection containing values of type T. All subclasses of this abstract class must be final.
-public class CollectionScalar<T> {
+//Permanently cached collection
+public final class CachedCollection<T>: CollectionScalar<T> {
+
+    private let origin: StickyComputation<[T]>
+
+    /**
+    Ctor
+
+    - parameters:
+        - origin: origin to cache
+    */
+    public init(
+        origin: CollectionScalar<T>
+    ) {
+        self.origin = StickyComputation{ try origin.value() }
+    }
 
     /**
     - returns:
-    An `Array` representation of a collection
+    Cached collection as `Array` of `T`
 
     - throws:
-    Doesn't throw. Always errors out if super is called by the subclass.
+    `DescribedError` if something went wrong
     */
-    public func value() throws -> [T] {
-        fatalError("CollectionScalar is an abstract class. Implement value() method and don't call super")
+    public override func value() throws -> [T] {
+        return try origin.result()
     }
 
 }

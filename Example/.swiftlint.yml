@@ -7,7 +7,7 @@ whitelist_rules:
   - closure_end_indentation
   - closure_parameter_position
   - closure_spacing
-  - colon
+  # - colon
   - comma
   - compiler_protocol_init
   - contains_over_first_not_nil
@@ -30,7 +30,7 @@ whitelist_rules:
   - force_cast
   - force_try
   - force_unwrapping
-  - function_body_length
+  # - function_body_length
   - function_parameter_count
   - generic_type_name
   - identifier_name
