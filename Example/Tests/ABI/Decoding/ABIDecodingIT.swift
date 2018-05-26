@@ -82,7 +82,7 @@ final class ABIDecodingIT: XCTestCase {
     }
 
     //address[], bool, string[]
-    func testDynamicCollectionOfAddressesBoolDynamicCollectionOfStringsIsDecodedCorrectly() {
+    func testComplexDynamicCollectionIsDecodedCorrectly() {
         let arguments: (Array<String>, Bool, Array<String>) = (
             [
                 "cd8ac90d9cc7e4c03430d58d2f3e87dae70b807e",
