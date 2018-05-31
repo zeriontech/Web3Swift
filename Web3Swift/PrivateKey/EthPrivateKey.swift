@@ -44,7 +44,7 @@ public final class EthPrivateKey: PrivateKey {
      Ctor
      
      - parameters:
-     - hex: `StringScalar` representing bytes of the address in hex format
+        - hex: `StringScalar` representing bytes of the address in hex format
      */
     convenience init(hex: StringScalar) {
         self.init(
@@ -58,7 +58,7 @@ public final class EthPrivateKey: PrivateKey {
      Ctor
      
      - parameters:
-     - hex: `String` representing bytes of the address in hex format
+        - hex: `String` representing bytes of the address in hex format
      */
     convenience init(hex: String) {
         self.init(

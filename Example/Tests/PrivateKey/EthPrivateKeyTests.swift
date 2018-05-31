@@ -31,7 +31,7 @@ final class EthPrivateKeyTests: XCTestCase {
                 hex: SimpleString{
                     "0x1636e10756e62baabddd4364010444205f1216bdb1644ff8f776f6e2982aa9f5"
                 }
-                ).address().value()
+            ).address().value()
         }.to(
             equal(
                 Data(hex: "0xcD8aC90d9cc7e4c03430d58d2f3e87Dae70b807e")
@@ -44,7 +44,7 @@ final class EthPrivateKeyTests: XCTestCase {
         expect{
             try EthPrivateKey(
                 hex: "0x1636e10756e62baabddd4364010444205f1216bdb1644ff8f776f6e2982aa9f5"
-                ).address().value()
+            ).address().value()
         }.to(
             equal(
                 Data(hex: "0xcD8aC90d9cc7e4c03430d58d2f3e87Dae70b807e")
