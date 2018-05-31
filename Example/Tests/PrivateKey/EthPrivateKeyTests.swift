@@ -20,7 +20,36 @@ final class EthPrivateKeyTests: XCTestCase {
         }.to(
             equal(
                 Data(hex: "0xcD8aC90d9cc7e4c03430d58d2f3e87Dae70b807e")
-            )
+            ),
+            description: "Private key from bytes should compute correct public address"
+        )
+    }
+    
+    func testValidStringScalarPrivateKey() {
+        expect{
+            try EthPrivateKey(
+                hex: SimpleString{
+                    "0x1636e10756e62baabddd4364010444205f1216bdb1644ff8f776f6e2982aa9f5"
+                }
+            ).address().value()
+        }.to(
+            equal(
+                Data(hex: "0xcD8aC90d9cc7e4c03430d58d2f3e87Dae70b807e")
+            ),
+            description: "Private key from hex string should compute correct public address"
+        )
+    }
+    
+    func testValidStringPrivateKey() {
+        expect{
+            try EthPrivateKey(
+                hex: "0x1636e10756e62baabddd4364010444205f1216bdb1644ff8f776f6e2982aa9f5"
+            ).address().value()
+        }.to(
+            equal(
+                Data(hex: "0xcD8aC90d9cc7e4c03430d58d2f3e87Dae70b807e")
+            ),
+            description: "Private key from hex should compute correct public address"
         )
     }
 
