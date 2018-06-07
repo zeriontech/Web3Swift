@@ -94,4 +94,55 @@ final class AndTests: XCTestCase {
         )
     }
 
+    func testTrueLhsAndRhsAreTrue() {
+        expect{
+            try And(
+                lhs: true,
+                rhs: true
+            ).value()
+        }.to(
+            equal(
+                true
+            ),
+            description: "If lhs and rhs is true than And is expected to be true"
+        )
+    }
+
+    func testOtherLhsAndRhsAreFalse() {
+        Array
+        <
+            (
+                Bool,
+                Bool
+            )
+        >(
+            [
+                (
+                    true,
+                    false
+                ),
+                (
+                    false,
+                    true
+                ),
+                (
+                    false,
+                    false
+                )
+            ]
+        ).forEach{ lhs, rhs in
+            expect{
+                try And(
+                    lhs: lhs,
+                    rhs: rhs
+                ).value()
+            }.to(
+                equal(
+                    false
+                ),
+                description: "If lhs and rhs are not equal to true than And is expected to be false"
+            )
+        }
+    }
+
 }
