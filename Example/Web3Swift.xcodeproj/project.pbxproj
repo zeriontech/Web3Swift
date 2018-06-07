@@ -81,6 +81,7 @@
 		584FA950690658F8974C969F /* ABIMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA204FED0ECB6AE43AC04 /* ABIMessageTests.swift */; };
 		584FA951AD3FAB9C359A90EF /* GanacheLocalNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA10372E81BD021BBE091 /* GanacheLocalNetworkTests.swift */; };
 		584FA95B7E702F1E022F5954 /* DecodedABIVariableBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA19692BA662CAC978BF9 /* DecodedABIVariableBytesTests.swift */; };
+		584FA9958A514A58DF0BD029 /* StatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA9C0E212B75D9FFEE329 /* StatesTests.swift */; };
 		584FA9C3714F513ECEEF42B6 /* UTF8StringBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAABDE4B44E4D79747126 /* UTF8StringBytesTests.swift */; };
 		584FA9DBA01B7EAE9EC1021B /* EthTransactionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAE325995A0ABA7A8A643 /* EthTransactionsTests.swift */; };
 		584FAA0481F45F0A2E89D7BD /* ReversedBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAA70A0FB10C86546A2CB /* ReversedBytesTests.swift */; };
@@ -242,6 +243,7 @@
 		584FA948FF859D87B7C76350 /* IntegersEqualityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegersEqualityTests.swift; sourceTree = "<group>"; };
 		584FA96619CA02E8C6019B56 /* ABICollectionSliceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABICollectionSliceTests.swift; sourceTree = "<group>"; };
 		584FA9721120A205A9959167 /* HexStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexStringTests.swift; sourceTree = "<group>"; };
+		584FA9C0E212B75D9FFEE329 /* StatesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatesTests.swift; sourceTree = "<group>"; };
 		584FA9D0D639D3F5E5025055 /* ContractDeploymentAndCallIT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractDeploymentAndCallIT.swift; sourceTree = "<group>"; };
 		584FAA2AA63184DE9EC11F74 /* EthContractCallTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthContractCallTests.swift; sourceTree = "<group>"; };
 		584FAA3DAF64A2A798B424AC /* DecodedABIDynamicCollectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecodedABIDynamicCollectionTests.swift; sourceTree = "<group>"; };
@@ -715,6 +717,14 @@
 			path = NumberScalar;
 			sourceTree = "<group>";
 		};
+		584FAF8EC8B24C8B35979008 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				584FA9C0E212B75D9FFEE329 /* StatesTests.swift */,
+			);
+			path = States;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -794,6 +804,7 @@
 				584FA94478A0DA7CAB67A26C /* CollectionScalar */,
 				584FAA0C2ADDF752BB076F50 /* IntegerScalar */,
 				584FA864E058455DD284B5C1 /* ContractCall */,
+				584FAF8EC8B24C8B35979008 /* States */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1255,6 +1266,7 @@
 				584FA240FAED0AEA7E128A2B /* HexAsDecimalStringTests.swift in Sources */,
 				584FA5AC71FE3208939495C3 /* EthContractCallTests.swift in Sources */,
 				584FAA6740136B110E21E620 /* JSONResultStringTests.swift in Sources */,
+				584FA9958A514A58DF0BD029 /* StatesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
