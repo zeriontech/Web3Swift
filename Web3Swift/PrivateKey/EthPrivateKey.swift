@@ -52,7 +52,7 @@ public final class EthPrivateKey: PrivateKey {
      - parameters:
         - hex: `StringScalar` representing bytes of the address in hex format
      */
-    convenience init(hex: StringScalar) {
+    public convenience init(hex: StringScalar) {
         self.init(
             bytes: BytesFromHexString(
                 hex: hex
@@ -66,7 +66,7 @@ public final class EthPrivateKey: PrivateKey {
      - parameters:
         - hex: `String` representing bytes of the address in hex format
      */
-    convenience init(hex: String) {
+    public convenience init(hex: String) {
         self.init(
             hex: SimpleString{
                 hex
