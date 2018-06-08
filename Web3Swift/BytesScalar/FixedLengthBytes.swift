@@ -1,14 +1,20 @@
 //
-// Created by Timofey on 3/7/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// FixedLengthBytes.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Foundation
 
 internal final class IncorrectBytesLengthError: DescribedError {
 
-    private let length: UInt
+    private let length: Int
     private let bytes: Data
-    public init(bytes: Data, length: UInt) {
+    public init(bytes: Data, length: Int) {
         self.bytes = bytes
         self.length = length
     }
@@ -19,11 +25,11 @@ internal final class IncorrectBytesLengthError: DescribedError {
 
 }
 
-//Bytes with a fixed length
+/** Bytes with a fixed length */
 public final class FixedLengthBytes: BytesScalar {
 
     private let origin: BytesScalar
-    private let length: UInt
+    private let length: Int
 
     /**
     Ctor
@@ -32,7 +38,7 @@ public final class FixedLengthBytes: BytesScalar {
         - origin: bytes to be evaluated
         - length: expected length
     */
-    init(origin: BytesScalar, length: UInt) {
+    public init(origin: BytesScalar, length: Int) {
         self.origin = origin
         self.length = length
     }

@@ -1,16 +1,26 @@
+//
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// GethNetwork.swift
+//
+// Created by Timofey Solonin on 10/05/2018
+//
+
 import Foundation
 
-//A network of go ethereum implementation
+/** A network of go ethereum implementation */
 public final class GethNetwork: Network {
     
-    private let origin: SimpleNetwork
+    private let origin: EthNetwork
 
     /**
     - parameters:
         - url: url for accessing JSON RPC
     */
-    init(url: String) {
-        self.origin = SimpleNetwork(
+    public init(url: String) {
+        self.origin = EthNetwork(
             session: URLSession(configuration: URLSessionConfiguration.default),
             url: url,
             headers: [
@@ -27,7 +37,7 @@ public final class GethNetwork: Network {
     - throws:
     `DescribedError` if something went wrong
     */
-    public func id() throws -> NumberScalar {
+    public func id() throws -> IntegerScalar {
         return try origin.id()
     }
 

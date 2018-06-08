@@ -1,6 +1,11 @@
 //
-// Created by Timofey on 1/29/18.
-// Copyright (c) 2018 CocoaPods. All rights reserved.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// RLPTests.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Nimble
@@ -68,9 +73,9 @@ final class RLPTests: XCTestCase {
     func test0() {
         expect{
             try SimpleRLP(
-                bytes: LeadingCompactBytes(
+                bytes: TrimmedZeroPrefixBytes(
                     origin: IntegerBytes(
-                        uint: UInt(0).bigEndian
+                        value: Int(0).bigEndian
                     )
                 )
             ).value()
@@ -88,9 +93,9 @@ final class RLPTests: XCTestCase {
     func test15() {
         expect{
             try SimpleRLP(
-                bytes: LeadingCompactBytes(
+                bytes: TrimmedZeroPrefixBytes(
                     origin: IntegerBytes(
-                        uint: UInt(15).bigEndian
+                        value: Int(15).bigEndian
                     )
                 )
             ).value()
@@ -108,9 +113,9 @@ final class RLPTests: XCTestCase {
     func test127() {
         expect{
             try SimpleRLP(
-                bytes: LeadingCompactBytes(
+                bytes: TrimmedZeroPrefixBytes(
                     origin: IntegerBytes(
-                        uint: UInt(127).bigEndian
+                        value: Int(127).bigEndian
                     )
                 )
             ).value()
@@ -128,9 +133,9 @@ final class RLPTests: XCTestCase {
     func test128() {
         expect{
             try SimpleRLP(
-                bytes: LeadingCompactBytes(
+                bytes: TrimmedZeroPrefixBytes(
                     origin: IntegerBytes(
-                        uint: UInt(128).bigEndian
+                        value: Int(128).bigEndian
                     )
                 )
             ).value()
@@ -149,9 +154,9 @@ final class RLPTests: XCTestCase {
     func test255() {
         expect{
             try SimpleRLP(
-                bytes: LeadingCompactBytes(
+                bytes: TrimmedZeroPrefixBytes(
                     origin: IntegerBytes(
-                        uint: UInt(255).bigEndian
+                        value: Int(255).bigEndian
                     )
                 )
             ).value()
@@ -170,9 +175,9 @@ final class RLPTests: XCTestCase {
     func test256() {
         expect{
             try SimpleRLP(
-                bytes: LeadingCompactBytes(
+                bytes: TrimmedZeroPrefixBytes(
                     origin: IntegerBytes(
-                        uint: UInt(256).bigEndian
+                        value: Int(256).bigEndian
                     )
                 )
             ).value()
@@ -192,9 +197,9 @@ final class RLPTests: XCTestCase {
     func test1024() {
         expect{
             try SimpleRLP(
-                bytes: LeadingCompactBytes(
+                bytes: TrimmedZeroPrefixBytes(
                     origin: IntegerBytes(
-                        uint: UInt(1024).bigEndian
+                        value: Int(1024).bigEndian
                     )
                 )
             ).value()

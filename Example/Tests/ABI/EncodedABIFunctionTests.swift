@@ -1,18 +1,12 @@
-/**
-Copyright 2018 Timofey Solonin
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
+//
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// EncodedABIFunctionTests.swift
+//
+// Created by Timofey Solonin on 10/05/2018
+//
 
 import CryptoSwift
 import Nimble
@@ -361,7 +355,7 @@ final class EncodedABIFunctionTests: XCTestCase {
                         )
                     )
                 ]
-            ).value()
+            ).value().toHexString()
         }.to(
             equal(
                 Data(
@@ -370,7 +364,7 @@ final class EncodedABIFunctionTests: XCTestCase {
                         "0000000000000000000000000000000000000000000000000000000000000040" +
                         "0000000000000000000000000000000000000000000000000000000000000020" +
                         "4d00000000000000000000000000000000000000000000000000000000000012"
-                )
+                ).toHexString()
             ),
             description: "Selector + bytes3, bytes is expected to be encoded correctly"
         )
@@ -384,8 +378,8 @@ final class EncodedABIFunctionTests: XCTestCase {
                 ),
                 parameters: [
                     ABIUnsignedNumber(
-                        origin: BigEndianNumber(
-                            uint: 5
+                        origin: EthNumber(
+                            value: 5
                         )
                     ),
                     ABIVariableBytes(
@@ -394,8 +388,8 @@ final class EncodedABIFunctionTests: XCTestCase {
                         )
                     ),
                     ABIUnsignedNumber(
-                        origin: BigEndianNumber(
-                            uint: 3
+                        origin: EthNumber(
+                            value: 3
                         )
                     ),
                     ABIVariableBytes(
@@ -433,8 +427,8 @@ final class EncodedABIFunctionTests: XCTestCase {
                 ),
                 parameters: [
                     ABIUnsignedNumber(
-                        origin: BigEndianNumber(
-                            uint: 1
+                        origin: EthNumber(
+                            value: 1
                         )
                     ),
                     ABIString(
@@ -443,35 +437,35 @@ final class EncodedABIFunctionTests: XCTestCase {
                         )
                     ),
                     ABIUnsignedNumber(
-                        origin: BigEndianNumber(
-                            uint: 2
+                        origin: EthNumber(
+                            value: 2
                         )
                     ),
                     ABIUnsignedNumber(
-                        origin: BigEndianNumber(
-                            uint: 3
+                        origin: EthNumber(
+                            value: 3
                         )
                     ),
                     ABIUnsignedNumber(
-                        origin: BigEndianNumber(
-                            uint: 4
+                        origin: EthNumber(
+                            value: 4
                         )
                     ),
                     ABIDynamicCollection(
                         parameters: [
                             ABIUnsignedNumber(
-                                origin: BigEndianNumber(
-                                    uint: 5
+                                origin: EthNumber(
+                                    value: 5
                                 )
                             ),
                             ABIUnsignedNumber(
-                                origin: BigEndianNumber(
-                                    uint: 6
+                                origin: EthNumber(
+                                    value: 6
                                 )
                             ),
                             ABIUnsignedNumber(
-                                origin: BigEndianNumber(
-                                    uint: 7
+                                origin: EthNumber(
+                                    value: 7
                                 )
                             )
                         ]
@@ -510,13 +504,13 @@ final class EncodedABIFunctionTests: XCTestCase {
                     ABIDynamicCollection(
                         parameters: [
                             ABIUnsignedNumber(
-                                origin: BigEndianNumber(
-                                    uint: 1
+                                origin: EthNumber(
+                                    value: 1
                                 )
                             ),
                             ABIUnsignedNumber(
-                                origin: BigEndianNumber(
-                                    uint: 2
+                                origin: EthNumber(
+                                    value: 2
                                 )
                             )
                         ]
@@ -524,13 +518,13 @@ final class EncodedABIFunctionTests: XCTestCase {
                     ABIDynamicCollection(
                         parameters: [
                             ABIUnsignedNumber(
-                                origin: BigEndianNumber(
-                                    uint: 3
+                                origin: EthNumber(
+                                    value: 3
                                 )
                             ),
                             ABIUnsignedNumber(
-                                origin: BigEndianNumber(
-                                    uint: 4
+                                origin: EthNumber(
+                                    value: 4
                                 )
                             )
                         ]

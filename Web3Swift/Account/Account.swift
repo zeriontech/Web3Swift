@@ -1,10 +1,16 @@
 //
-// Created by Timofey on 3/19/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// Account.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Foundation
 
-//An account that is associated with some private key on the network
+/** An account that is associated with some private key on the network */
 public protocol Account {
 
     /**
@@ -15,7 +21,7 @@ public protocol Account {
     - throws:
     `DescribedError` if something went wrong
     */
-    func balance() throws -> NumberScalar
+    func balance() throws -> BytesScalar
 
     /**
     Send the specified amount to the recipient
@@ -30,6 +36,6 @@ public protocol Account {
     - throws:
     `DescribedError` if something went wrong
     */
-    func send(weiAmount: NumberScalar, to recipientAddress: BytesScalar) throws -> TransactionHash
+    func send(weiAmount: BytesScalar, to recipientAddress: BytesScalar) throws -> TransactionHash
 
 }

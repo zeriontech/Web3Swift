@@ -1,12 +1,18 @@
 //
-// Created by Timofey on 1/27/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// Int.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Foundation
 
 extension Int {
 
-    func unsignedByteWidth() -> Int {
+    internal func unsignedByteWidth() -> Int {
         return (self.bitWidth - self.leadingZeroBitCount - 1).unsafeDivided(by: 8) + 1
     }
 
@@ -16,7 +22,7 @@ extension Int {
     - returns:
     true if even, false if odd
     */
-    func isEven() -> Bool {
+    internal func isEven() -> Bool {
         return self % 2 == 0
     }
 

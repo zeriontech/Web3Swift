@@ -1,23 +1,16 @@
 //
-// Created by Timofey on 2/3/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// SECP256k1Signature.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import CryptoSwift
 import Foundation
 import secp256k1_ios
-
-public final class IncorrectHashLengthError: DescribedError {
-
-    private let length: Int
-    public init(length: Int) {
-        self.length = length
-    }
-
-    public var description: String {
-        return "Hashing function produced digest of length \(self.length) when 32 was expected"
-    }
-
-}
 
 public final class SigningError: DescribedError {
 
@@ -63,44 +56,40 @@ public final class SignatureSerializationError: DescribedError {
 
 }
 
-/// This is an object that represents EC recoverable signature for EC secp256k1.
+/** / This is an object that represents EC recoverable signature for EC secp256k1. */
 public final class SECP256k1Signature: ECRecoverableSignature {
 
     // swiftlint:disable:next large_tuple
     private let stickyComputation: StickyComputation<(r: Data, s: Data, recoveryID: UInt8)>
 
-    //FIXME: Design is bad. There is no need to pass message and hashFunction at the same time.
     /**
-        ctor
+    Ctor
 
-        - parameters:
-            - privateKey: private key as defined in ecdsa
-            - message: message as fined in ecdsa
-            - hashFunction: hashing function that is used to compute message hash
+    - parameters:
+        - digest: 32 bytes digest of the message to sign
+        - privateKey: value of the private key
     */
-    init(
-        privateKey: PrivateKey,
-        message: BytesScalar,
-        hashFunction: @escaping (Array<UInt8>) -> (Array<UInt8>)
+    public init(
+        digest: BytesScalar,
+        privateKey: BytesScalar
     ) {
+        let digest = FixedLengthBytes(
+            origin: digest,
+            length: 32
+        )
         stickyComputation = StickyComputation{
-            var hash = try hashFunction(
-                Array(
-                    message.value()
-                )
-            )
-            guard hash.count == 32 else { throw IncorrectHashLengthError(length: hash.count) }
+            var digest = try Array(digest.value())
             var signature: secp256k1_ecdsa_recoverable_signature = secp256k1_ecdsa_recoverable_signature()
             var privateKey = try Array(privateKey.value())
             guard secp256k1_ecdsa_sign_recoverable(
                 secp256k1_context_create(UInt32(SECP256K1_CONTEXT_SIGN | SECP256K1_CONTEXT_VERIFY)),
                 &signature,
-                &hash,
+                &digest,
                 &privateKey,
                 nil,
                 nil
             ) == 1 else {
-                throw SigningError(hash: hash)
+                throw SigningError(hash: digest)
             }
             var rs: Array<UInt8> = Array<UInt8>(repeating: 0, count: 64)
             var recoveryID: Int32 = -1
@@ -125,6 +114,33 @@ public final class SECP256k1Signature: ECRecoverableSignature {
     }
 
     /**
+        ctor
+
+        - parameters:
+            - privateKey: private key as defined in ecdsa
+            - message: message as fined in ecdsa
+            - hashFunction: hashing function that is used to compute message hash
+    */
+    public convenience init(
+        privateKey: PrivateKey,
+        message: BytesScalar,
+        hashFunction: @escaping (Array<UInt8>) -> (Array<UInt8>)
+    ) {
+        self.init(
+            digest: SimpleBytes{
+                try Data(
+                    bytes: hashFunction(
+                        Array<UInt8>(
+                            message.value()
+                        )
+                    )
+                )
+            },
+            privateKey: privateKey
+        )
+    }
+
+    /**
         R point as defined in ecdsa
 
         - returns:
@@ -133,10 +149,10 @@ public final class SECP256k1Signature: ECRecoverableSignature {
         - throws:
         `DescribedError` if something went wrong
     */
-    public func r() throws -> NumberScalar {
+    public func r() throws -> BytesScalar {
         let stickyComputation = self.stickyComputation
-        return BigEndianNumber(
-            bytes: SimpleBytes{
+        return EthNumber(
+            hex: SimpleBytes{
                 try stickyComputation.result().r
             }
         )
@@ -151,10 +167,10 @@ public final class SECP256k1Signature: ECRecoverableSignature {
         - throws:
         `DescribedError` if something went wrong
     */
-    public func s() throws -> NumberScalar {
+    public func s() throws -> BytesScalar {
         let stickyComputation = self.stickyComputation
-        return BigEndianNumber(
-            bytes: SimpleBytes{
+        return EthNumber(
+            hex: SimpleBytes{
                 try stickyComputation.result().s
             }
         )
@@ -170,12 +186,13 @@ public final class SECP256k1Signature: ECRecoverableSignature {
         - throws:
         `DescribedError` if something went wrong
     */
-    public func recoverID() throws -> NumberScalar {
-        return try BigEndianNumber(
-            uint: UInt(
-                stickyComputation.result().recoveryID
+    public func recoverID() throws -> IntegerScalar {
+        let stickyComputation = self.stickyComputation
+        return SimpleInteger{
+            Int(
+                try stickyComputation.result().recoveryID
             )
-        )
+        }
     }
 
 }

@@ -1,9 +1,11 @@
 //
-//  ViewController.swift
-//  Web3Swift
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
 //
-//  Created by biboran on 01/21/2018.
-//  Copyright (c) 2018 biboran. All rights reserved.
+// ViewController.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import UIKit

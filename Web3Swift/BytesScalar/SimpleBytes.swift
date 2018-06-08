@@ -1,14 +1,20 @@
 //
-// Created by Timofey on 3/6/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// SimpleBytes.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import CryptoSwift
 import Foundation
 
-//Anonymous class for evaluating bytes
+/** Anonymous class for evaluating bytes */
 public final class SimpleBytes: BytesScalar {
 
-    private let valueComputation: () throws -> (Data)
+    private let bytes: () throws -> (Data)
 
     /**
     Ctor
@@ -16,8 +22,8 @@ public final class SimpleBytes: BytesScalar {
     - parameters:
         - valueComputation: closure which returns bytes as `Data`
     */
-    init(valueComputation: @escaping () throws -> (Data)) {
-        self.valueComputation = valueComputation
+    public init(bytes: @escaping () throws -> (Data)) {
+        self.bytes = bytes
     }
 
     /**
@@ -26,18 +32,32 @@ public final class SimpleBytes: BytesScalar {
     - parameters:
         - bytes: bytes as `Data` to be wrapped into scalar
     */
-    convenience init(bytes: Data) {
-        self.init(valueComputation: { bytes })
+    public convenience init(bytes: Data) {
+        self.init(bytes: { bytes })
+    }
+
+    public convenience init(bytes: CollectionScalar<UInt8>) {
+        self.init(
+            bytes: {
+                try Data(
+                    bytes: bytes.value()
+                )
+            }
+        )
     }
 
     /**
     Ctor
 
     - parameters:
-        - bytes: bytes as `Array<UInt8>` to be wrapped into scalar
+        - bytes: bytes as `[UInt8]` to be wrapped into scalar
     */
-    convenience init(bytes: Array<UInt8>) {
-        self.init(valueComputation: { Data(bytes: bytes) })
+    public convenience init(bytes: [UInt8]) {
+        self.init(
+            bytes: SimpleCollection(
+                collection: bytes
+            )
+        )
     }
 
     /**
@@ -48,7 +68,7 @@ public final class SimpleBytes: BytesScalar {
     `DescribedError` if something goes wrong.
     */
     public func value() throws -> Data {
-        return try valueComputation()
+        return try bytes()
     }
 
 }

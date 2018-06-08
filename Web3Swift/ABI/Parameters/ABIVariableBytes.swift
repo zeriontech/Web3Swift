@@ -1,18 +1,12 @@
-/**
-Copyright 2018 Timofey Solonin
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
+//
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// ABIVariableBytes.swift
+//
+// Created by Timofey Solonin on 10/05/2018
+//
 
 import Foundation
 
@@ -26,7 +20,7 @@ public final class ABIVariableBytes: ABIEncodedParameter {
     - parameters:
         - origin: bytes to be encoded
     */
-    init(origin: BytesScalar) {
+    public init(origin: BytesScalar) {
         self.origin = origin
     }
 
@@ -41,11 +35,11 @@ public final class ABIVariableBytes: ABIEncodedParameter {
         return [
             LeftZeroesPaddedBytes(
                 origin: SimpleBytes{
-                    try BigEndianNumber(
-                        uint: UInt(offset) * 32
-                    ).hex().value()
+                    try EthNumber(
+                        value: offset * 32
+                    ).value()
                 },
-                padding: 32
+                length: 32
             )
         ]
     }
@@ -59,17 +53,15 @@ public final class ABIVariableBytes: ABIEncodedParameter {
     A collection with bytes count followed by the bytes
     */
     public func tails(offset: Int) throws -> [BytesScalar] {
-        let value = try origin.value()
-        return try [
+        let origin = try self.origin.value()
+        return [
             LeftZeroesPaddedBytes(
-                origin: BigEndianNumber(
-                    uint: UInt(
-                        value.count
-                    )
-                ).hex(),
-                padding: 32
+                origin: EthNumber(
+                    value: origin.count
+                ),
+                length: 32
             )
-        ] + Array(value.enumerated())
+        ] + Array(origin.enumerated())
             .splitAt{ index, _ in
                 (index + 1) % 32 == 0
             }

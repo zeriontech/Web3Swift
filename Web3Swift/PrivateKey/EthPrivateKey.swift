@@ -1,5 +1,11 @@
 //
-// Created by Timofey on 3/7/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// EthPrivateKey.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import CryptoSwift
@@ -8,7 +14,7 @@ import secp256k1_ios
 
 private final class InvalidPrivateKeyError: DescribedError {
 
-    var description: String {
+    internal var description: String {
         return "Private key was incorrect"
     }
 
@@ -16,13 +22,13 @@ private final class InvalidPrivateKeyError: DescribedError {
 
 private final class PublicKeySerializationError: DescribedError {
 
-    var description: String {
+    internal var description: String {
         return "Could not serialize public key for unknown reason"
     }
 
 }
 
-//Private key as specified in the ethereum
+/** Private key as specified in the ethereum */
 public final class EthPrivateKey: PrivateKey {
 
     private let bytes: BytesScalar
@@ -33,7 +39,7 @@ public final class EthPrivateKey: PrivateKey {
     - parameters:
         - bytes: 32 bytes representation of the private key
     */
-    init(bytes: BytesScalar) {
+    public init(bytes: BytesScalar) {
         self.bytes = FixedLengthBytes(
             origin: bytes,
             length: 32
@@ -46,7 +52,7 @@ public final class EthPrivateKey: PrivateKey {
      - parameters:
         - hex: `StringScalar` representing bytes of the address in hex format
      */
-    convenience init(hex: StringScalar) {
+    public convenience init(hex: StringScalar) {
         self.init(
             bytes: BytesFromHexString(
                 hex: hex
@@ -60,7 +66,7 @@ public final class EthPrivateKey: PrivateKey {
      - parameters:
         - hex: `String` representing bytes of the address in hex format
      */
-    convenience init(hex: String) {
+    public convenience init(hex: String) {
         self.init(
             hex: SimpleString{
                 hex

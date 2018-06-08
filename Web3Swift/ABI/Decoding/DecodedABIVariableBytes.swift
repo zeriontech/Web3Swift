@@ -1,26 +1,28 @@
-/**
-Copyright 2018 Timofey Solonin
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
+//
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// DecodedABIVariableBytes.swift
+//
+// Created by Timofey Solonin on 10/05/2018
+//
 
 import Foundation
 
-//Decoded bytes of variable length
+/** Decoded bytes of variable length */
 public final class DecodedABIVariableBytes: BytesScalar {
 
     private let abiMessage: CollectionScalar<BytesScalar>
-    private let index: UInt
+    private let index: IntegerScalar
+
+    public init(
+        abiMessage: CollectionScalar<BytesScalar>,
+        index: IntegerScalar
+    ) {
+        self.abiMessage = abiMessage
+        self.index = index
+    }
 
     /**
     Ctor
@@ -29,12 +31,16 @@ public final class DecodedABIVariableBytes: BytesScalar {
         - abiMessage: message where bytes are located
         - index: position of the bytes
     */
-    public init(
+    public convenience init(
         abiMessage: CollectionScalar<BytesScalar>,
-        index: UInt
+        index: Int
     ) {
-        self.abiMessage = abiMessage
-        self.index = index
+        self.init(
+            abiMessage: abiMessage,
+            index: SimpleInteger(
+                integer: index
+            )
+        )
     }
 
     /**
@@ -46,28 +52,52 @@ public final class DecodedABIVariableBytes: BytesScalar {
     */
     public func value() throws -> Data {
         let abiTuple = self.abiMessage
-        let offsetsCount = try BigEndianNumber(
-            bytes: BytesAt(
-                collection: abiTuple,
-                index: index
+        let offsetsCount: IntegerScalar = IntegersQuotient(
+            dividend: EthInteger(
+                hex: BytesAt(
+                    collection: abiTuple,
+                    index: index
+                )
+            ),
+            divisor: SimpleInteger(
+                integer: 32
             )
-        ).uint() / 32
-        let bytesLength = try BigEndianNumber(
-            bytes: BytesAt(
+        )
+        let bytesLength: IntegerScalar = EthInteger(
+            hex: BytesAt(
                 collection: abiTuple,
                 index: offsetsCount
             )
-        ).uint()
+        )
         return try FirstBytes(
             origin: ConcatenatedBytes(
                 bytes: GeneratedCollection<BytesScalar>(
                     element: { index in
                         BytesAt(
                             collection: abiTuple,
-                            index: index + offsetsCount + 1
+                            index: IntegersSum(
+                                terms: [
+                                    SimpleInteger(
+                                        integer: index + 1
+                                    ),
+                                    offsetsCount
+                                ]
+                            )
                         )
                     },
-                    times: ((bytesLength + 31) / 32)
+                    times: IntegersQuotient(
+                        dividend: IntegersSum(
+                            terms: [
+                                bytesLength,
+                                SimpleInteger(
+                                    integer: 31
+                                )
+                            ]
+                        ),
+                        divisor: SimpleInteger(
+                            integer: 32
+                        )
+                    )
                 )
             ),
             length: bytesLength

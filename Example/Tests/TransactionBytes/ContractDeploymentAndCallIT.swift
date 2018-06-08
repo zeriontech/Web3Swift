@@ -1,18 +1,12 @@
-/**
-Copyright 2018 Timofey Solonin
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
+//
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// ContractDeploymentAndCallIT.swift
+//
+// Created by Timofey Solonin on 10/05/2018
+//
 
 import CryptoSwift
 import Nimble
@@ -55,51 +49,49 @@ fileprivate final class DeployedGetterContractArgument: BytesScalar {
     data() method call from a deployed contract
     */
     func value() throws -> Data {
-        guard try VerifiedProcedure(
-            origin: SendRawTransactionProcedure(
+        guard try SendRawTransactionProcedure(
+            network: network,
+            transactionBytes: EthContractCreationBytes(
                 network: network,
-                transactionBytes: EthContractCreationBytes(
-                    network: network,
-                    senderKey: sender.privateKey(),
-                    weiAmount: BigEndianCompactNumber(
-                        origin: BigEndianNumber(
-                            uint: UInt(0)
-                        )
-                    ),
-                    contractCall: EncodedContract(
-                        byteCode: contractCode,
-                        arguments: arguments
-                    )
+                senderKey: sender.privateKey(),
+                weiAmount: EthNumber(
+                    value: 0
+                ),
+                contractCall: EncodedContract(
+                    byteCode: contractCode,
+                    arguments: arguments
                 )
             )
         ).call()["result"].string().isEmpty == false else {
             fatalError("Contract could not be deployed")
         }
-        return try BytesFromCompactHexString(
-            hex: SimpleString(
-                string: VerifiedProcedure(
-                    origin: ContractCallProcedure(
-                        network: network,
-                        contractAddress: ComputedContractAddress(
-                            ownerAddress: sender.address(),
-                            transactionNonce: BigEndianCompactNumber(
-                                origin: BigEndianNumber(
-                                    uint: EthTransactions(
-                                        network: network,
-                                        address: sender.address(),
-                                        blockChainState: PendingBlockChainState()
-                                    ).count().uint() - 1
+        return try EthContractCall(
+            network: network,
+            senderAddress: sender.address(),
+            contractAddress: ComputedContractAddress(
+                ownerAddress: sender.address(),
+                transactionNonce: EthNumber(
+                    value: IntegersDifference(
+                        minuend: EthInteger(
+                            hex: TransactionsCount(
+                                transactions: EthTransactions(
+                                    network: network,
+                                    address: sender.address(),
+                                    blockChainState: PendingBlockChainState()
                                 )
                             )
                         ),
-                        functionCall: EncodedABIFunction(
-                            signature: SimpleString(
-                                string: "data()"
-                            ),
-                            parameters: []
+                        subtrahend: SimpleInteger(
+                            integer: 1
                         )
                     )
-                ).call()["result"].string()
+                )
+            ),
+            functionCall: EncodedABIFunction(
+                signature: SimpleString(
+                    string: "data()"
+                ),
+                parameters: []
             )
         ).value()
     }
@@ -122,8 +114,8 @@ final class ContractDeploymentAndCallIT: XCTestCase {
                     ),
                     arguments: [
                         ABIUnsignedNumber(
-                            origin: BigEndianNumber(
-                                uint: 42
+                            origin: EthNumber(
+                                value: 42
                             )
                         )
                     ] as [ABIEncodedParameter]
@@ -327,6 +319,32 @@ final class ContractDeploymentAndCallIT: XCTestCase {
                 description: "Arguments encoding is not expected to throw"
             )
         }
+    }
+
+    func testSenderIsReturnedCorrectly() {
+        let sender = Tim()
+        expect{
+            try PrefixedHexString(
+                bytes: DecodedABIAddress(
+                    abiMessage: ABIMessage(
+                        message: DeployedGetterContractArgument(
+                            network: GanacheLocalNetwork(),
+                            sender: sender,
+                            contractCode: BytesFromHexString(
+                                hex: "608060405234801561001057600080fd5b5060cc8061001f6000396000f300608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806373d4a13a146044575b600080fd5b348015604f57600080fd5b5060566098565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000339050905600a165627a7a72305820b69fbf1242960573780bb5951aaedbfb2373afad805ccdd56cadda3cc9a910dc0029"
+                            ),
+                            arguments: []
+                        )
+                    ),
+                    index: 0
+                )
+            ).value()
+        }.to(
+            equal(
+                sender.rawAddress()
+            ),
+            description: "Above contract is expected to return the callers address"
+        )
     }
 
 }

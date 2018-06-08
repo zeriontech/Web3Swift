@@ -1,38 +1,32 @@
-/**
-Copyright 2018 Timofey Solonin
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
+//
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// NumericBoolean.swift
+//
+// Created by Timofey Solonin on 10/05/2018
+//
 
 import Foundation
 
 internal final class NotANumericBooleanError: DescribedError {
 
-    private let number: UInt
-    init(number: UInt) {
+    private let number: Int
+    public init(number: Int) {
         self.number = number
     }
 
-    var description: String {
+    internal var description: String {
         return "Numeric value \(number) does not represent a boolean. 0 or 1 was expected."
     }
 
 }
 
-//Boolean from a numeric value of 0 or 1
+/** Boolean from a numeric value of 0 or 1 */
 public final class NumericBoolean: BooleanScalar {
 
-    private let bool: NumberScalar
+    private let bool: BytesScalar
 
     /**
     Ctor
@@ -40,8 +34,11 @@ public final class NumericBoolean: BooleanScalar {
     - parameters:
         - bool: boolean value represented as a number
     */
-    public init(bool: NumberScalar) {
-        self.bool = bool
+    public init(bool: BytesScalar) {
+        self.bool = FixedLengthBytes(
+            origin: bool,
+            length: 1
+        )
     }
 
     /**
@@ -52,14 +49,16 @@ public final class NumericBoolean: BooleanScalar {
     `DescribedError` if something went wrong. I.e. number was not 1 or 0.
     */
     public func value() throws -> Bool {
-        let value = try bool.uint()
+        let value = try bool.value().single()
         if value == 0 {
             return false
         } else if value == 1 {
             return true
         } else {
             throw NotANumericBooleanError(
-                number: value
+                number: Int(
+                    value
+                )
             )
         }
     }

@@ -1,20 +1,26 @@
 //
-// Created by Timofey on 3/15/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// EthTransactionBytes.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import CryptoSwift
 import Foundation
 
-//Signed transaction bytes
+/** Signed transaction bytes */
 public final class EthTransactionBytes: BytesScalar {
 
-    private let networkID: NumberScalar
-    private let transactionsCount: NumberScalar
-    private let gasPrice: NumberScalar
-    private let gasEstimate: NumberScalar
+    private let networkID: IntegerScalar
+    private let transactionsCount: BytesScalar
+    private let gasPrice: BytesScalar
+    private let gasEstimate: BytesScalar
     private let senderKey: PrivateKey
     private let recipientAddress: BytesScalar
-    private let weiAmount: NumberScalar
+    private let weiAmount: BytesScalar
     private let contractCall: BytesScalar
 
     /**
@@ -31,13 +37,13 @@ public final class EthTransactionBytes: BytesScalar {
         - contractCall: a bytes representation of the ABI call to the contract
     */
     internal init(
-        networkID: NumberScalar,
-        transactionsCount: NumberScalar,
-        gasPrice: NumberScalar,
-        gasEstimate: NumberScalar,
+        networkID: IntegerScalar,
+        transactionsCount: BytesScalar,
+        gasPrice: BytesScalar,
+        gasEstimate: BytesScalar,
         senderKey: PrivateKey,
         recipientAddress: BytesScalar,
-        weiAmount: NumberScalar,
+        weiAmount: BytesScalar,
         contractCall: BytesScalar
     ) {
         self.networkID = networkID
@@ -80,27 +86,49 @@ public final class EthTransactionBytes: BytesScalar {
             SimpleRLP(bytes: contractCall)
         ]
         let signature = SECP256k1Signature(
-            privateKey: senderKey,
-            message: SimpleRLP(
-                rlps: transactionParameters + [
-                    EthRLP(number: networkID),
-                    SimpleRLP(bytes: []),
-                    SimpleRLP(bytes: [])
-                ]
+            digest: Keccak256Bytes(
+                origin: SimpleRLP(
+                    rlps: transactionParameters + [
+                        EthRLP(
+                            number: EthNumber(
+                                value: networkID
+                            )
+                        ),
+                        SimpleRLP(bytes: []),
+                        SimpleRLP(bytes: [])
+                    ]
+                )
             ),
-            hashFunction: SHA3(variant: .keccak256).calculate
+            privateKey: senderKey
         )
         return try SimpleRLP(
             rlps: transactionParameters + [
                 EthRLP(
-                    number: BigEndianCompactNumber(
-                        origin: BigEndianNumber(
-                            uint: networkID.uint() * 2 + 35 + signature.recoverID().uint()
+                    number: EthNumber(
+                        value: IntegersSum(
+                            terms: SimpleCollection<IntegerScalar>(
+                                collection: [
+                                    IntegersProduct(
+                                        terms: SimpleCollection(
+                                            collection: [
+                                                networkID,
+                                                SimpleInteger(
+                                                    integer: 2
+                                                )
+                                            ]
+                                        )
+                                    ),
+                                    SimpleInteger(
+                                        integer: 35
+                                    ),
+                                    signature.recoverID()
+                                ]
+                            )
                         )
                     )
                 ),
-                SimpleRLP(bytes: signature.r().hex()),
-                SimpleRLP(bytes: signature.s().hex())
+                SimpleRLP(bytes: signature.r().value()),
+                SimpleRLP(bytes: signature.s().value())
             ]
         ).value()
     }

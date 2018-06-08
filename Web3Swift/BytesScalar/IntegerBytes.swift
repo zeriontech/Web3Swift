@@ -1,22 +1,36 @@
 //
-// Created by Timofey on 3/7/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// IntegerBytes.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Foundation
 
-//Bytes representation of an integer
+/** Bytes representation of an integer */
 public final class IntegerBytes: BytesScalar {
 
-    private let uint: UInt
+    private let int: IntegerScalar
+
+    public init(value: IntegerScalar) {
+        self.int = value
+    }
+
     /**
     Ctor
 
     - parameters:
-        - uint: an integer for which to get bytes. Endiannes should be specified in advanced.
+        - value: an integer for which to get bytes. Endiannes should be specified in advanced.
     */
-    init(uint: UInt) {
-        self.uint = uint
+    public convenience init(value: Int) {
+        self.init(
+            value: SimpleInteger{ value }
+        )
     }
+
 
     /**
     - returns:
@@ -26,10 +40,10 @@ public final class IntegerBytes: BytesScalar {
     doesn't throw
     */
     public func value() throws -> Data {
-        var integerCopy = uint
+        var int = try self.int.value()
         return Data(
-            bytes: &integerCopy,
-            count: MemoryLayout.size(ofValue: integerCopy)
+            bytes: &int,
+            count: MemoryLayout<Int>.size(ofValue: int)
         )
     }
 

@@ -1,10 +1,16 @@
 //
-// Created by Timofey on 3/13/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// PrefixedString.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Foundation
 
-//String that is prefixed
+/** String that is prefixed */
 public final class PrefixedString: StringScalar {
 
     private let origin: StringScalar
@@ -17,7 +23,7 @@ public final class PrefixedString: StringScalar {
         - origin: origin to be prefixed
         - prefix: prefix to persist
     */
-    init(
+    public init(
         origin: StringScalar,
         prefix: StringScalar
     ) {

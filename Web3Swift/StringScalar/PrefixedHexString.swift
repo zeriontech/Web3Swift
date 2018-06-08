@@ -1,11 +1,17 @@
 //
-// Created by Timofey on 3/7/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// PrefixedHexString.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import CryptoSwift
 import Foundation
 
-//Hex string that is prefixed by "0x"
+/** Hex string that is prefixed by "0x" */
 public final class PrefixedHexString: StringScalar {
 
     private let hex: StringScalar
@@ -16,7 +22,7 @@ public final class PrefixedHexString: StringScalar {
     - parameters:
         - hex: a string describing a hexadecimal
     */
-    init(hex: StringScalar) {
+    public init(hex: StringScalar) {
         self.hex = HexPrefixedString(
             origin: HexString(
                 hex: hex
@@ -30,7 +36,7 @@ public final class PrefixedHexString: StringScalar {
     - parameters:
         - bytes: bytes of a hexadecimal
     */
-    convenience init(bytes: BytesScalar) {
+    public convenience init(bytes: BytesScalar) {
         self.init(
             hex: SimpleString{
                 try bytes.value().toHexString()

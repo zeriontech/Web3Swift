@@ -1,18 +1,12 @@
-/**
-Copyright 2018 Timofey Solonin
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
+//
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// EthContractCallBytesTests.swift
+//
+// Created by Timofey Solonin on 10/05/2018
+//
 
 import CryptoSwift
 import Nimble
@@ -24,23 +18,23 @@ final class EthContractCallBytesTests: XCTestCase {
     func testContractCallIsEncodedCorrectly() {
         expect{
             try EthContractCallBytes(
-                networkID: BigEndianCompactNumber(
-                    hex: "2a"
+                networkID: SimpleInteger(
+                    integer: 0x2a
                 ),
-                transactionsCount: BigEndianCompactNumber(
+                transactionsCount: EthNumber(
                     hex: "06"
                 ),
-                gasPrice: BigEndianCompactNumber(
+                gasPrice: EthNumber(
                     hex: "0x04A817C800"
                 ),
-                gasEstimate: BigEndianCompactNumber(
+                gasEstimate: EthNumber(
                     hex: "0x0F4240"
                 ),
                 senderKey: Alice().privateKey(),
                 contractAddress: EthAddress(
                     hex: "0x35fb3afcba318f339b1531556bfa14f0ff21df3a"
                 ),
-                weiAmount: BigEndianCompactNumber(
+                weiAmount: EthNumber(
                     hex: "0x00"
                 ),
                 functionCall: EncodedABIFunction(
@@ -49,7 +43,7 @@ final class EthContractCallBytesTests: XCTestCase {
                     ),
                     parameters: [
                         ABIUnsignedNumber(
-                            origin: BigEndianCompactNumber(
+                            origin: EthNumber(
                                 hex: "0x04A817C800"
                             )
                         )

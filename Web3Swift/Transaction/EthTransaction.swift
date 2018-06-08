@@ -1,10 +1,16 @@
 //
-// Created by Timofey on 3/19/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// EthTransaction.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Foundation
 
-//A transaction from the blockchain
+/** A transaction from the blockchain */
 public final class EthTransaction: Transaction {
 
     private let procedure: RemoteProcedure
@@ -33,8 +39,8 @@ public final class EthTransaction: Transaction {
     - throws:
     `DescribedError` if something went wrong
     */
-    public func nonce() throws -> NumberScalar {
-        return try BigEndianCompactNumber(
+    public func nonce() throws -> BytesScalar {
+        return try EthNumber(
             hex: procedure.call()["result"]["nonce"].string()
         )
     }

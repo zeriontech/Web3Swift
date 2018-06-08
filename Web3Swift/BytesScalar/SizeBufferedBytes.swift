@@ -1,26 +1,20 @@
-/**
-Copyright 2018 Timofey Solonin
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
+//
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// SizeBufferedBytes.swift
+//
+// Created by Timofey Solonin on 10/05/2018
+//
 
 import Foundation
 
-//Bytes buffered into collection elements by a size predicate
+/** Bytes buffered into collection elements by a size predicate */
 public final class SizeBufferedBytes: CollectionScalar<BytesScalar> {
 
     private let origin: BytesScalar
-    private let size: NumberScalar
+    private let size: IntegerScalar
 
     /**
     Ctor
@@ -31,7 +25,7 @@ public final class SizeBufferedBytes: CollectionScalar<BytesScalar> {
     */
     public init(
         origin: BytesScalar,
-        size: NumberScalar
+        size: IntegerScalar
     ) {
         self.origin = origin
         self.size = size
@@ -44,14 +38,14 @@ public final class SizeBufferedBytes: CollectionScalar<BytesScalar> {
         - origin: origin to buffer
         - size: maximum size of each element
     */
-    convenience init(
+    public convenience init(
         origin: BytesScalar,
-        size: UInt
+        size: Int
     ) {
         self.init(
             origin: origin,
-            size: BigEndianNumber(
-                uint: size
+            size: SimpleInteger(
+                integer: size
             )
         )
     }
@@ -66,7 +60,7 @@ public final class SizeBufferedBytes: CollectionScalar<BytesScalar> {
     public override func value() throws -> [BytesScalar] {
         return try Array(self.origin.value().enumerated())
             .splitAt{ index, _ in
-                try (index + 1) % Int(size.uint()) == 0
+                try (index + 1) % Int(size.value()) == 0
             }
             .map{ enumeratedOrigin in
                 SimpleBytes(

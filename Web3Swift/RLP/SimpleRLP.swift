@@ -1,5 +1,11 @@
 //
-// Created by Timofey on 1/28/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// SimpleRLP.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Foundation
@@ -14,14 +20,14 @@ public final class SimpleRLP: RLP {
         self.appendix = appendix
     }
 
-    convenience init(bytes: BytesScalar) {
+    public convenience init(bytes: BytesScalar) {
         self.init(
             bytes: bytes,
             appendix: RLPBytesAppendix()
         )
     }
 
-    convenience init(bytes: Data) {
+    public convenience init(bytes: Data) {
         self.init(
             bytes: SimpleBytes(
                 bytes: bytes
@@ -29,7 +35,7 @@ public final class SimpleRLP: RLP {
         )
     }
 
-    convenience init(bytes: Array<UInt8>) {
+    public convenience init(bytes: Array<UInt8>) {
         self.init(
             bytes: SimpleBytes(
                 bytes: bytes
@@ -37,7 +43,7 @@ public final class SimpleRLP: RLP {
         )
     }
 
-    convenience init(rlps: [RLP]) {
+    public convenience init(rlps: [RLP]) {
         self.init(
             bytes: ConcatenatedBytes(bytes: rlps),
             appendix: RLPCollectionAppendix()

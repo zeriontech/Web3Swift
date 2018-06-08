@@ -1,10 +1,16 @@
 //
-// Created by Timofey on 3/7/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// TrimmedPrefixString.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Foundation
 
-//String with trimmed prefix if one exists
+/** String with trimmed prefix if one exists */
 public final class TrimmedPrefixString: StringScalar {
 
     private let string: StringScalar
@@ -17,7 +23,7 @@ public final class TrimmedPrefixString: StringScalar {
         - string: string to trim
         - prefix: prefix to search and trim
     */
-    init(string: StringScalar, prefix: StringScalar) {
+    public init(string: StringScalar, prefix: StringScalar) {
         self.string = string
         self.prefix = prefix
     }

@@ -1,18 +1,12 @@
-/**
-Copyright 2018 Timofey Solonin
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
+//
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// EthContractCreationBytesTests.swift
+//
+// Created by Timofey Solonin on 10/05/2018
+//
 
 import CryptoSwift
 import Nimble
@@ -24,20 +18,20 @@ final class EthContractCreationBytesTests: XCTestCase {
     func testSampleContractReplicatesCorrectly() {
         expect{
             try EthContractCreationBytes(
-                networkID: BigEndianCompactNumber(
-                    hex: "0x2a"
+                networkID: SimpleInteger(
+                    integer: 42
                 ),
-                transactionsCount: BigEndianCompactNumber(
+                transactionsCount: EthNumber(
                     hex: "0x00"
                 ),
-                gasPrice: BigEndianCompactNumber(
+                gasPrice: EthNumber(
                     hex: "0x04A817C800"
                 ),
-                gasEstimate: BigEndianCompactNumber(
+                gasEstimate: EthNumber(
                     hex: "0x0F4240"
                 ),
                 senderKey: Alice().privateKey(),
-                weiAmount: BigEndianCompactNumber(
+                weiAmount: EthNumber(
                     hex: "0x00"
                 ),
                 contractCall: EncodedContract(
@@ -63,7 +57,7 @@ final class EthContractCreationBytesTests: XCTestCase {
                             origin: true
                         ),
                         ABIUnsignedNumber(
-                            origin: BigEndianCompactNumber(
+                            origin: EthNumber(
                                 hex: "0x04A817C800"
                             )
                         ),

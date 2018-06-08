@@ -1,11 +1,17 @@
 //
-// Created by Timofey on 3/19/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// TransactionProcedure.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Foundation
 import SwiftyJSON
 
-//Procedure for fetching transaction
+/** Procedure for fetching transaction */
 public final class TransactionProcedure: RemoteProcedure {
 
     private let network: Network
@@ -18,7 +24,7 @@ public final class TransactionProcedure: RemoteProcedure {
         - network: network to ask for transaction
         - transactionHash: hash of the raw transaction
     */
-    init(
+    public init(
         network: Network,
         transactionHash: BytesScalar
     ) {

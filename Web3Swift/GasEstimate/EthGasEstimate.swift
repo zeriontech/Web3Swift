@@ -1,12 +1,18 @@
 //
-// Created by Timofey on 3/14/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// EthGasEstimate.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Foundation
 
-public final class EthGasEstimate: NumberScalar {
+public final class EthGasEstimate: BytesScalar {
 
-    private let estimate: NumberScalar
+    private let estimate: BytesScalar
 
     /**
     Ctor
@@ -17,7 +23,7 @@ public final class EthGasEstimate: NumberScalar {
     public init(
         estimationProcedure: RemoteProcedure
     ) {
-        self.estimate = BigEndianCompactNumber(
+        self.estimate = EthNumber(
             hex: SimpleString{
                 try estimationProcedure.call()["result"].string()
             }
@@ -37,8 +43,8 @@ public final class EthGasEstimate: NumberScalar {
     public convenience init(
         network: Network,
         senderAddress: BytesScalar,
-        gasPrice: NumberScalar,
-        weiAmount: NumberScalar,
+        gasPrice: BytesScalar,
+        weiAmount: BytesScalar,
         contractCall: BytesScalar
     ) {
         self.init(
@@ -76,8 +82,8 @@ public final class EthGasEstimate: NumberScalar {
         network: Network,
         senderAddress: BytesScalar,
         recipientAddress: BytesScalar,
-        gasPrice: NumberScalar,
-        weiAmount: NumberScalar
+        gasPrice: BytesScalar,
+        weiAmount: BytesScalar
     ) {
         self.init(
             estimationProcedure: EstimateGasProcedure(
@@ -115,8 +121,8 @@ public final class EthGasEstimate: NumberScalar {
         network: Network,
         senderAddress: BytesScalar,
         recipientAddress: BytesScalar,
-        gasPrice: NumberScalar,
-        weiAmount: NumberScalar,
+        gasPrice: BytesScalar,
+        weiAmount: BytesScalar,
         contractCall: BytesScalar
     ) {
         self.init(
@@ -157,9 +163,9 @@ public final class EthGasEstimate: NumberScalar {
     public convenience init(
         network: Network,
         senderAddress: BytesScalar,
-        gasEstimate: NumberScalar,
-        gasPrice: NumberScalar,
-        weiAmount: NumberScalar,
+        gasEstimate: BytesScalar,
+        gasPrice: BytesScalar,
+        weiAmount: BytesScalar,
         contractCall: BytesScalar
     ) {
         self.init(
@@ -202,9 +208,9 @@ public final class EthGasEstimate: NumberScalar {
         network: Network,
         senderAddress: BytesScalar,
         recipientAddress: BytesScalar,
-        gasEstimate: NumberScalar,
-        gasPrice: NumberScalar,
-        weiAmount: NumberScalar,
+        gasEstimate: BytesScalar,
+        gasPrice: BytesScalar,
+        weiAmount: BytesScalar,
         contractCall: BytesScalar
     ) {
         self.init(
@@ -232,18 +238,6 @@ public final class EthGasEstimate: NumberScalar {
                 ]
             )
         )
-    }
-
-
-    /**
-    - returns:
-    Integer value for the estimate
-
-    - throws:
-    `DescribedError` if something went wrong
-    */
-    public func uint() throws -> UInt {
-        return try estimate.uint()
     }
 
     /**
@@ -253,8 +247,8 @@ public final class EthGasEstimate: NumberScalar {
     - throws:
     `DescribedError` if something went wrong
     */
-    public func hex() throws -> BytesScalar {
-        return try estimate.hex()
+    public func value() throws -> Data {
+        return try estimate.value()
     }
 
 }

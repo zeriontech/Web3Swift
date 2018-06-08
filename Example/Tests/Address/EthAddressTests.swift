@@ -69,5 +69,22 @@ final class EthAddressTests: XCTestCase {
             description: "Make sure correct bytes representation is returned"
         )
     }
+
+    func testAddressFromStringScalarIsValid() {
+        expect{
+            try PrefixedHexString(
+                bytes: EthAddress(
+                    hex: SimpleString(
+                        string: "0xcD8aC90d9cc7e4c03430d58d2f3e87Dae70b807e"
+                    )
+                )
+            ).value()
+        }.to(
+            equal(
+                "0xcD8aC90d9cc7e4c03430d58d2f3e87Dae70b807e".lowercased()
+            ),
+            description: "Address is expected to persist"
+        )
+    }
     
 }

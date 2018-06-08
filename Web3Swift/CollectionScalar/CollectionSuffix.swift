@@ -1,26 +1,20 @@
-/**
-Copyright 2018 Timofey Solonin
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
+//
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// CollectionSuffix.swift
+//
+// Created by Timofey Solonin on 10/05/2018
+//
 
 import Foundation
 
-//Suffix (last n elements) of a collection
+/** Suffix (last n elements) of a collection */
 public final class CollectionSuffix<T>: CollectionScalar<T> {
 
     private let origin: CollectionScalar<T>
-    private let from: NumberScalar
+    private let from: IntegerScalar
 
     /**
     Ctor
@@ -31,7 +25,7 @@ public final class CollectionSuffix<T>: CollectionScalar<T> {
     */
     public init(
         origin: CollectionScalar<T>,
-        from: NumberScalar
+        from: IntegerScalar
     ) {
         self.origin = origin
         self.from = from
@@ -45,7 +39,7 @@ public final class CollectionSuffix<T>: CollectionScalar<T> {
     `DescribedError` if something went wrong
     */
     public override func value() throws -> [T] {
-        let from = try self.from.uint()
+        let from: Int = try self.from.value()
         return try Array(
             SizeConstrainedCollection(
                 origin: origin,

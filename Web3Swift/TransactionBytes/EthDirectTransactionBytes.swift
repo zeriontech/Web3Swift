@@ -1,22 +1,16 @@
-/**
-Copyright 2018 Timofey Solonin
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
+//
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// EthDirectTransactionBytes.swift
+//
+// Created by Timofey Solonin on 10/05/2018
+//
 
 import Foundation
 
-//Bytes of a signed transaction to ethereum address
+/** Bytes of a signed transaction to ethereum address */
 public final class EthDirectTransactionBytes: BytesScalar {
 
     private let origin: BytesScalar
@@ -34,13 +28,13 @@ public final class EthDirectTransactionBytes: BytesScalar {
         - weiAmount: amount to be sent in wei
     */
     public init(
-        networkID: NumberScalar,
-        transactionsCount: NumberScalar,
-        gasPrice: NumberScalar,
-        gasEstimate: NumberScalar,
+        networkID: IntegerScalar,
+        transactionsCount: BytesScalar,
+        gasPrice: BytesScalar,
+        gasEstimate: BytesScalar,
         senderKey: PrivateKey,
         recipientAddress: BytesScalar,
-        weiAmount: NumberScalar
+        weiAmount: BytesScalar
     ) {
         self.origin = EthTransactionBytes(
             networkID: networkID,
@@ -67,39 +61,37 @@ public final class EthDirectTransactionBytes: BytesScalar {
         network: Network,
         senderKey: PrivateKey,
         recipientAddress: BytesScalar,
-        weiAmount: NumberScalar
+        weiAmount: BytesScalar
     ) {
         let senderAddress = CachedBytes(
             origin: SimpleBytes{
                 try senderKey.address().value()
             }
         )
-        let gasPrice = CachedNumber(
+        let gasPrice = CachedBytes(
             origin: EthGasPrice(
                 network: network
             )
         )
         self.init(
-            networkID: CachedNumber(
-                origin: BigEndianNumber(
-                    bytes: SimpleBytes{
-                        try network.id().hex().value()
-                    }
+            networkID: CachedInteger(
+                origin: NetworkID(
+                    network: network
                 )
             ),
-            transactionsCount: CachedNumber(
-                origin: BigEndianNumber(
-                    bytes: SimpleBytes{
+            transactionsCount: CachedBytes(
+                origin: EthNumber(
+                    hex: SimpleBytes{
                         try EthTransactions(
                             network: network,
                             address: senderAddress,
                             blockChainState: PendingBlockChainState()
-                        ).count().hex().value()
+                        ).count().value()
                     }
                 )
             ),
             gasPrice: gasPrice,
-            gasEstimate: CachedNumber(
+            gasEstimate: CachedBytes(
                 origin: EthGasEstimate(
                     network: network,
                     senderAddress: senderAddress,

@@ -1,6 +1,11 @@
 //
-// Created by Timofey on 3/13/18.
-// Copyright (c) 2018 CocoaPods. All rights reserved.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// EthRLPTests.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Nimble
@@ -12,10 +17,8 @@ final class EthRLPTests: XCTestCase {
     func testEncodesZeroCorrectly() {
         expect{
             try EthRLP(
-                number: BigEndianCompactNumber(
-                    origin: BigEndianNumber(
-                        uint: 0
-                    )
+                number: EthNumber(
+                    value: 0
                 )
             ).value()
         }.to(
@@ -31,7 +34,7 @@ final class EthRLPTests: XCTestCase {
     func testEncodingPersistsForOtherValues() {
         Array<
             (
-                UInt,
+                Int,
                 Array<UInt8>
             )
         >(
@@ -43,10 +46,8 @@ final class EthRLPTests: XCTestCase {
         ).forEach{ value, bytes in
             expect{
                 try EthRLP(
-                    number: BigEndianCompactNumber(
-                        origin: BigEndianNumber(
-                            uint: value
-                        )
+                    number: EthNumber(
+                        value: value
                     )
                 ).value()
             }.to(

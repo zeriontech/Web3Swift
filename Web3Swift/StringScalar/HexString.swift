@@ -1,5 +1,11 @@
 //
-// Created by Timofey on 3/7/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// HexString.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import CryptoSwift
@@ -8,11 +14,11 @@ import Foundation
 internal final class AmbiguousHexStringError: DescribedError {
 
     private let hex: String
-    init(hex: String) {
+    public init(hex: String) {
         self.hex = hex
     }
 
-    var description: String {
+    internal var description: String {
         return "Hex string \(hex) length \(hex.count) is not even"
     }
 
@@ -33,7 +39,7 @@ internal final class IncorrectHexCharacterError: DescribedError {
 
 }
 
-//A string that represents some collection of hexadecimal numbers
+/** A string that represents some collection of hexadecimal numbers */
 public final class HexString: StringScalar {
 
     private let hex: StringScalar
@@ -44,7 +50,7 @@ public final class HexString: StringScalar {
     - parameters:
         - hex: a string describing a hexadecimal
     */
-    init(hex: StringScalar) {
+    public init(hex: StringScalar) {
         self.hex = hex
     }
 
@@ -54,7 +60,7 @@ public final class HexString: StringScalar {
     - parameters:
         - hex: a string describing a hexadecimal
     */
-    convenience init(hex: String) {
+    public convenience init(hex: String) {
         self.init(
             hex: SimpleString(
                 string: hex

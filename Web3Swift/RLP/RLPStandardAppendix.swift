@@ -1,5 +1,11 @@
 //
-// Created by Timofey on 1/29/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// RLPStandardAppendix.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Foundation
@@ -9,11 +15,11 @@ public final class BytesLengthOverflow: Swift.Error { }
 internal final class RLPStandardAppendix: RLPAppendix {
 
     private let offset: UInt8
-    init(offset: UInt8) {
+    public init(offset: UInt8) {
         self.offset = offset
     }
 
-    func applying(to bytes: Data) throws -> Data {
+    internal func applying(to bytes: Data) throws -> Data {
         switch bytes.count {
         case 0...55:
             return Data(
@@ -28,9 +34,9 @@ internal final class RLPStandardAppendix: RLPAppendix {
                 bytes: [
                     UInt8(bytes.count.unsignedByteWidth() + Int(offset) + 55)
                 ]
-            ) + LeadingCompactBytes(
+            ) + TrimmedZeroPrefixBytes(
                 origin: IntegerBytes(
-                    uint: UInt(bytes.count).bigEndian
+                    value: bytes.count.bigEndian
                 )
             ).value() + bytes
         default:

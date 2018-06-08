@@ -1,18 +1,12 @@
-/**
-Copyright 2018 Timofey Solonin
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
+//
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// ABIDecodingIT.swift
+//
+// Created by Timofey Solonin on 10/05/2018
+//
 
 import Nimble
 import Quick
@@ -24,16 +18,14 @@ final class ABIDecodingIT: XCTestCase {
 
     //uint256, string, uint256
     func testIntStringIntIsDecodedCorrectly() {
-        let arguments: (UInt, String, UInt) = (1, "gavofyork", 5)
+        let arguments: (Int, String, Int) = (1, "gavofyork", 5)
         let message = CachedCollection(
             origin: ABIMessage(
                 message: EncodedABITuple(
                     parameters: [
                         ABIUnsignedNumber(
-                            origin: BigEndianCompactNumber(
-                                origin: BigEndianNumber(
-                                    uint: arguments.0
-                                )
+                            origin: EthNumber(
+                                value: arguments.0
                             )
                         ),
                         ABIString(
@@ -42,10 +34,8 @@ final class ABIDecodingIT: XCTestCase {
                             )
                         ),
                         ABIUnsignedNumber(
-                            origin: BigEndianCompactNumber(
-                                origin: BigEndianNumber(
-                                    uint: arguments.2
-                                )
+                            origin: EthNumber(
+                                value: arguments.2
                             )
                         )
                     ]
@@ -53,10 +43,12 @@ final class ABIDecodingIT: XCTestCase {
             )
         )
         expect{
-            try DecodedABINumber(
-                abiMessage: message,
-                index: 0
-            ).uint()
+            try EthInteger(
+                hex: DecodedABINumber(
+                    abiMessage: message,
+                    index: 0
+                )
+            ).value()
         }.to(
             equal(arguments.0),
             description: "Encoded argument \(arguments.0) is expected to persist"
@@ -71,10 +63,12 @@ final class ABIDecodingIT: XCTestCase {
             description: "Encoded argument \(arguments.1) is expected to persist"
         )
         expect{
-            try DecodedABINumber(
-                abiMessage: message,
-                index: 2
-            ).uint()
+            try EthInteger(
+                hex: DecodedABINumber(
+                    abiMessage: message,
+                    index: 2
+                )
+            ).value()
         }.to(
             equal(arguments.2),
             description: "Encoded argument \(arguments.2) is expected to persist"

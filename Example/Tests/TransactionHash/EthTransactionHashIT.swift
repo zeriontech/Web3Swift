@@ -1,6 +1,11 @@
 //
-// Created by Timofey on 3/20/18.
-// Copyright (c) 2018 CocoaPods. All rights reserved.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// EthTransactionHashIT.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import CryptoSwift
@@ -17,9 +22,11 @@ final class EthTransactionHashIT: XCTestCase {
                 transactionHash: BytesFromHexString(
                     hex: "0xd84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"
                 )
-            ).receipt().usedGasAmount().uint()
+            ).receipt().usedGasAmount().value().toHexString()
         }.to(
-            equal(21000),
+            equal(
+                "5208"
+            ),
             description: "This transaction from mainnet used up 21000 gas"
         )
     }
@@ -31,9 +38,11 @@ final class EthTransactionHashIT: XCTestCase {
                 transactionHash: BytesFromHexString(
                     hex: "0xd84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"
                 )
-            ).transaction().nonce().uint()
+            ).transaction().nonce().value().toHexString()
         }.to(
-            equal(5),
+            equal(
+                "05"
+            ),
             description: "This transaction from mainnet had a nonce of 5"
         )
     }

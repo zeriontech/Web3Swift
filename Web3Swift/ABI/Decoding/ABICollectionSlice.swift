@@ -1,26 +1,20 @@
-/**
-Copyright 2018 Timofey Solonin
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
+//
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// ABICollectionSlice.swift
+//
+// Created by Timofey Solonin on 10/05/2018
+//
 
 import Foundation
 
-//A slice of an non typed abi dynamic collection
+/** A slice of an non typed abi dynamic collection */
 public final class ABICollectionSlice: CollectionScalar<BytesScalar> {
 
     private let abiMessage: CollectionScalar<BytesScalar>
-    private let index: UInt
+    private let index: Int
 
     /**
     Ctor
@@ -31,7 +25,7 @@ public final class ABICollectionSlice: CollectionScalar<BytesScalar> {
     */
     public init(
         abiMessage: CollectionScalar<BytesScalar>,
-        index: UInt
+        index: Int
     ) {
         self.abiMessage = abiMessage
         self.index = index
@@ -53,13 +47,23 @@ public final class ABICollectionSlice: CollectionScalar<BytesScalar> {
     public override func value() throws -> [BytesScalar] {
         return try CollectionSuffix(
             origin: abiMessage,
-            from: BigEndianNumber(
-                uint: BigEndianNumber(
-                    bytes: BytesAt(
-                        collection: abiMessage,
-                        index: index
+            from: IntegersSum(
+                terms: [
+                    IntegersQuotient(
+                        dividend: EthInteger(
+                            hex: BytesAt(
+                                collection: abiMessage,
+                                index: index
+                            )
+                        ),
+                        divisor: SimpleInteger(
+                            integer: 32
+                        )
+                    ),
+                    SimpleInteger(
+                        integer: 1
                     )
-                ).uint() / 32 + 1
+                ]
             )
         ).value()
     }

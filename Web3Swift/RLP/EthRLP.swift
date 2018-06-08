@@ -1,5 +1,11 @@
 //
-// Created by Timofey on 3/13/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// EthRLP.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Foundation
@@ -12,7 +18,7 @@ https://ethereum.stackexchange.com/questions/30518/does-rlp-specify-integer-enco
 */
 public final class EthRLP: RLP {
 
-    private let number: NumberScalar
+    private let number: BytesScalar
 
     /**
     Ctor
@@ -20,7 +26,7 @@ public final class EthRLP: RLP {
     - parameters: 
         - number: number to be encoded
     */
-    init(number: NumberScalar) {
+    public init(number: BytesScalar) {
         self.number = number
     }
 
@@ -33,7 +39,7 @@ public final class EthRLP: RLP {
     */
     public func value() throws -> Data {
         let encodedNumber = try SimpleRLP(
-            bytes: number.hex()
+            bytes: number.value()
         ).value()
         if encodedNumber == Data(bytes: [0x00]) {
             return try SimpleRLP(

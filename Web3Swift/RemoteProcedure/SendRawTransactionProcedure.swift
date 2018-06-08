@@ -1,11 +1,17 @@
 //
-// Created by Timofey on 3/20/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// SendRawTransactionProcedure.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Foundation
 import SwiftyJSON
 
-//Procedure for sending transaction bytes
+/** Procedure for sending transaction bytes */
 public final class SendRawTransactionProcedure: RemoteProcedure {
 
     private let network: Network
@@ -18,7 +24,7 @@ public final class SendRawTransactionProcedure: RemoteProcedure {
         - network: network where to deploy transaction
         - transactionBytes: bytes of the transaction to be deployed
     */
-    init(
+    public init(
         network: Network,
         transactionBytes: BytesScalar
     ) {

@@ -1,6 +1,11 @@
 //
-// Created by Timofey on 3/20/18.
-// Copyright (c) 2018 CocoaPods. All rights reserved.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// EthAutoAccountIT.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Nimble
@@ -29,17 +34,17 @@ final class EthAutoAccountIT: XCTestCase {
             privateKey: recipientKey
         )
         expect{
-            try recipient.balance().uint()
+            try EthInteger(
+                hex: recipient.balance()
+            ).value()
         }.to(
             equal(0),
             description: "Recipient address is expected to be empty at the start"
         )
         expect{
             try sender.send(
-                weiAmount: BigEndianCompactNumber(
-                    origin: BigEndianNumber(
-                        uint: 100
-                    )
+                weiAmount: EthNumber(
+                    value: 100
                 ),
                 to: recipientKey.address()
             )
@@ -48,7 +53,9 @@ final class EthAutoAccountIT: XCTestCase {
             description: "Transaction sending is not expected to throw"
         )
         expect{
-            try recipient.balance().uint()
+            try EthInteger(
+                hex: recipient.balance()
+            ).value()
         }.to(
             equal(100),
             description: "Recipient address is expected to be topped up to 100 wei"

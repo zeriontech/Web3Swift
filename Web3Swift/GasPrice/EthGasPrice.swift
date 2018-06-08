@@ -1,13 +1,19 @@
 //
-// Created by Timofey on 3/14/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// EthGasPrice.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Foundation
 
-//Gas price computed by the network
-public final class EthGasPrice: NumberScalar {
+/** Gas price computed by the network */
+public final class EthGasPrice: BytesScalar {
 
-    private let value: NumberScalar
+    private let price: BytesScalar
 
     /**
     Ctor
@@ -15,8 +21,8 @@ public final class EthGasPrice: NumberScalar {
     - parameters:
         - network: network to ask for gas price
     */
-    init(network: Network) {
-        self.value = BigEndianCompactNumber(
+    public init(network: Network) {
+        self.price = EthNumber(
             hex: SimpleString{
                 try GetGasPriceProcedure(
                     network: network
@@ -32,19 +38,8 @@ public final class EthGasPrice: NumberScalar {
     - throws:
     `DescribedError` if something goes wrong
     */
-    public func hex() throws -> BytesScalar {
-        return try value.hex()
-    }
-
-    /**
-    - returns:
-    Integer representation of a gas price
-
-    - throws:
-    `DescribedError` if something went wrong
-    */
-    public func uint() throws -> UInt {
-        return try value.uint()
+    public func value() throws -> Data {
+        return try price.value()
     }
 
 }

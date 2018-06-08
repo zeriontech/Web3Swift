@@ -19,13 +19,28 @@ class QuantityParameterTests: XCTestCase {
     func testQuantityParameterToString() {
         expect{
             try QuantityParameter(
-                number: BigEndianNumber(
-                    uint: 1
+                number: EthNumber(
+                    value: 1
                 )
             ).value() as? String
         }.to(
             equal("0x1"),
             description: "Make sure that correct hex string is returned"
+        )
+    }
+
+    func testZeroIsEncodedCorrectly() {
+        expect{
+            try QuantityParameter(
+                number: EthNumber(
+                    value: 0
+                )
+            ).value() as? String
+        }.to(
+            equal(
+                "0x0"
+            ),
+            description: "Zero is expected to represented correctly"
         )
     }
 

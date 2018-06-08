@@ -1,13 +1,18 @@
 //
-// Created by Timofey on 3/12/18.
-// Copyright (c) 2018 CocoaPods. All rights reserved.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// TrimmedZeroPrefixBytesTests.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Nimble
 import Quick
 @testable import Web3Swift
 
-final class LeadingCompactBytesTests: XCTestCase {
+final class TrimmedZeroPrefixBytesTests: XCTestCase {
 
     //swiftlint:disable operator_usage_whitespace
     func testPersistsCompactBytes() {
@@ -24,7 +29,7 @@ final class LeadingCompactBytesTests: XCTestCase {
             ]
         ).forEach{ scalar, bytes in
             expect{
-                try LeadingCompactBytes(
+                try TrimmedZeroPrefixBytes(
                     origin: scalar
                 ).value()
             }.to(
@@ -50,7 +55,7 @@ final class LeadingCompactBytesTests: XCTestCase {
             ]
         ).forEach{ scalar, bytes in
             expect{
-                try LeadingCompactBytes(
+                try TrimmedZeroPrefixBytes(
                     origin: scalar
                 ).value()
             }.to(

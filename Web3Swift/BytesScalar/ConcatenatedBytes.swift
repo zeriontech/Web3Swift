@@ -1,10 +1,16 @@
 //
-// Created by Timofey on 3/7/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// ConcatenatedBytes.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Foundation
 
-//Bytes concatenated into a single collection
+/** Bytes concatenated into a single collection */
 public final class ConcatenatedBytes: BytesScalar {
 
     private let bytes: CollectionScalar<BytesScalar>
@@ -15,7 +21,7 @@ public final class ConcatenatedBytes: BytesScalar {
     - parameters
         - bytes: a collection of bytes to be concatenated
     */
-    init(bytes: CollectionScalar<BytesScalar>) {
+    public init(bytes: CollectionScalar<BytesScalar>) {
         self.bytes = bytes
     }
 
@@ -25,7 +31,7 @@ public final class ConcatenatedBytes: BytesScalar {
     - parameters
         - bytes: a collection of bytes to be concatenated
     */
-    convenience init(bytes: [BytesScalar]) {
+    public convenience init(bytes: [BytesScalar]) {
         self.init(bytes: SimpleCollection(collection: bytes))
     }
 

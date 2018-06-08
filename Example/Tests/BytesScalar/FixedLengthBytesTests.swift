@@ -1,6 +1,11 @@
 //
-// Created by Timofey on 3/12/18.
-// Copyright (c) 2018 CocoaPods. All rights reserved.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// FixedLengthBytesTests.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Nimble
@@ -10,13 +15,13 @@ import Quick
 final class FixedLengthBytesTests: XCTestCase {
 
     func testProperlyFixedLengthBytes() {
-        Array<UInt>([0, 20]).forEach{ length in
+        Array<Int>([0, 20]).forEach{ length in
             expect{
                 try FixedLengthBytes(
                     origin: SimpleBytes(
                         bytes: Array(
                             repeating: 0x00,
-                            count: Int(length)
+                            count: length
                         )
                     ),
                     length: length
@@ -26,7 +31,7 @@ final class FixedLengthBytesTests: XCTestCase {
                     Data(
                         bytes: Array(
                             repeating: 0x00,
-                            count: Int(length)
+                            count: length
                         )
                     )
                 ),
@@ -36,13 +41,13 @@ final class FixedLengthBytesTests: XCTestCase {
     }
 
     func testIncorrectLengthBytes() {
-        Array<UInt>([0, 20]).forEach{ length in
+        Array<Int>([0, 20]).forEach{ length in
             expect{
                 try FixedLengthBytes(
                     origin: SimpleBytes(
                         bytes: Array(
                             repeating: 0x00,
-                            count: Int(length)
+                            count: length
                         )
                     ),
                     length: length + 1

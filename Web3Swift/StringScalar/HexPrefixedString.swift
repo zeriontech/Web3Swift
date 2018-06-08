@@ -1,10 +1,16 @@
 //
-// Created by Timofey on 3/13/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// HexPrefixedString.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Foundation
 
-//String that is prefixed by 0x
+/** String that is prefixed by 0x */
 public final class HexPrefixedString: StringScalar {
 
     private let origin: StringScalar
@@ -15,7 +21,7 @@ public final class HexPrefixedString: StringScalar {
     - parameters:
         - origin: string to be prefixed
     */
-    init(origin: StringScalar) {
+    public init(origin: StringScalar) {
         self.origin = PrefixedString(
             origin: origin,
             prefix: HexPrefix()

@@ -1,11 +1,17 @@
 //
-// Created by Timofey on 3/7/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// BytesFromHexString.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import CryptoSwift
 import Foundation
 
-//Bytes from their string representation. The string representation of bytes must not be ambiguous.
+/** Bytes from their string representation. The string representation of bytes must not be ambiguous. */
 public final class BytesFromHexString: BytesScalar {
 
     private let hex: StringScalar
@@ -16,7 +22,7 @@ public final class BytesFromHexString: BytesScalar {
     - parameters:
         - hex: `StringScalar` representing bytes in hex format
     */
-    init(hex: StringScalar) {
+    public init(hex: StringScalar) {
         self.hex = HexString(hex: hex)
     }
 
@@ -26,7 +32,7 @@ public final class BytesFromHexString: BytesScalar {
     - parameters:
         - hex: `String` representing bytes in hex format
     */
-    convenience init(hex: String) {
+    public convenience init(hex: String) {
         self.init(
             hex: SimpleString(
                 string: hex

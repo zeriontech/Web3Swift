@@ -1,26 +1,20 @@
-/**
-Copyright 2018 Timofey Solonin
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
+//
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// ElementAt.swift
+//
+// Created by Timofey Solonin on 10/05/2018
+//
 
 import Foundation
 
-//Element type T at an index in the collection
+/** Element type T at an index in the collection */
 public final class ElementAt<T> {
 
     private let collection: CollectionScalar<T>
-    private let index: NumberScalar
+    private let index: IntegerScalar
 
     /**
     Ctor
@@ -31,7 +25,7 @@ public final class ElementAt<T> {
     */
     public init(
         collection: CollectionScalar<T>,
-        index: NumberScalar
+        index: IntegerScalar
     ) {
         self.collection = collection
         self.index = index
@@ -46,12 +40,12 @@ public final class ElementAt<T> {
     */
     public convenience init(
         collection: CollectionScalar<T>,
-        index: UInt
+        index: Int
     ) {
         self.init(
             collection: collection,
-            index: BigEndianNumber(
-                uint: index
+            index: SimpleInteger(
+                integer: index
             )
         )
     }
@@ -64,7 +58,7 @@ public final class ElementAt<T> {
     `DescribedError` if something went wrong. I.e. index was out of bounds
     */
     public func value() throws -> T {
-        let index = try self.index.uint()
+        let index = try self.index.value()
         return try SizeConstrainedCollection(
             origin: self.collection,
             minimum: index + 1

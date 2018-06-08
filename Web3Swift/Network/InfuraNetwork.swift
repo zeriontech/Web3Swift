@@ -1,6 +1,16 @@
+//
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// InfuraNetwork.swift
+//
+// Created by Timofey Solonin on 10/05/2018
+//
+
 import Foundation
 
-//infura.io network
+/** infura.io network */
 public final class InfuraNetwork: Network {
     
     private let origin: GethNetwork
@@ -23,7 +33,7 @@ public final class InfuraNetwork: Network {
     - throws:
     `DescribedError` if something went wrong
     */
-    public func id() throws -> NumberScalar {
+    public func id() throws -> IntegerScalar {
         return try origin.id()
     }
 

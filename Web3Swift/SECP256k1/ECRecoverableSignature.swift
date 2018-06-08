@@ -1,10 +1,16 @@
 //
-// Created by Timofey on 2/3/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// ECRecoverableSignature.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Foundation
 
-//Elliptic curve recoverable signature
+/** Elliptic curve recoverable signature */
 public protocol ECRecoverableSignature {
 
     /**
@@ -16,7 +22,7 @@ public protocol ECRecoverableSignature {
         - throws:
         `DescribedError` if something went wrong
     */
-    func r() throws -> NumberScalar
+    func r() throws -> BytesScalar
 
     /**
         S value as defined in ecdsa
@@ -27,7 +33,7 @@ public protocol ECRecoverableSignature {
         - throws:
         `DescribedError` if something went wrong
     */
-    func s() throws -> NumberScalar
+    func s() throws -> BytesScalar
 
     /**
         Recovery id as defined in ecdsa
@@ -38,6 +44,6 @@ public protocol ECRecoverableSignature {
         - throws:
         `DescribedError` if something went wrong
     */
-    func recoverID() throws -> NumberScalar
+    func recoverID() throws -> IntegerScalar
 
 }

@@ -1,19 +1,25 @@
 //
-// Created by Timofey on 2/9/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// StickyComputation.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Foundation
 
-internal final class StickyComputation<ReturnType> {
+public final class StickyComputation<ReturnType> {
 
     private let computation: () throws -> (ReturnType)
-    init(computation: @escaping () throws -> (ReturnType)) {
+    public init(computation: @escaping () throws -> (ReturnType)) {
         self.computation = computation
     }
 
     private var computationResult: ReturnType?
     private var error: Swift.Error?
-    func result() throws -> ReturnType {
+    public func result() throws -> ReturnType {
         if let computationResult = self.computationResult {
             return computationResult
         } else if let error = self.error {

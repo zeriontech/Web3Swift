@@ -1,29 +1,23 @@
-/**
-Copyright 2018 Timofey Solonin
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
+//
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// SizeConstrainedCollection.swift
+//
+// Created by Timofey Solonin on 10/05/2018
+//
 
 import Foundation
 
 internal final class IndexOutOfBoundsError: DescribedError {
 
-    private let collectionSize: UInt
-    private let index: UInt
+    private let collectionSize: Int
+    private let index: Int
 
-    init(
-        collectionSize: UInt,
-        index: UInt
+    public init(
+        collectionSize: Int,
+        index: Int
     ) {
         self.collectionSize = collectionSize
         self.index = index
@@ -35,11 +29,11 @@ internal final class IndexOutOfBoundsError: DescribedError {
 
 }
 
-//Collection constrained in its size
+/** Collection constrained in its size */
 public final class SizeConstrainedCollection<T>: CollectionScalar<T> {
 
     private let origin: CollectionScalar<T>
-    private let minimum: NumberScalar
+    private let minimum: IntegerScalar
 
     /**
     Ctor
@@ -50,7 +44,7 @@ public final class SizeConstrainedCollection<T>: CollectionScalar<T> {
     */
     public init(
         origin: CollectionScalar<T>,
-        minimum: NumberScalar
+        minimum: IntegerScalar
     ) {
         self.origin = origin
         self.minimum = minimum
@@ -65,12 +59,12 @@ public final class SizeConstrainedCollection<T>: CollectionScalar<T> {
     */
     public convenience init(
         origin: CollectionScalar<T>,
-        minimum: UInt
+        minimum: Int
     ) {
         self.init(
             origin: origin,
-            minimum: BigEndianNumber(
-                uint: minimum
+            minimum: SimpleInteger(
+                integer: minimum
             )
         )
     }
@@ -84,10 +78,10 @@ public final class SizeConstrainedCollection<T>: CollectionScalar<T> {
     */
     public override func value() throws -> [T] {
         let origin = try self.origin.value()
-        let minimum = try self.minimum.uint()
+        let minimum = try self.minimum.value()
         guard origin.count >= Int(minimum) else {
             throw IndexOutOfBoundsError(
-                collectionSize: UInt(origin.count),
+                collectionSize: Int(origin.count),
                 index: minimum
             )
         }

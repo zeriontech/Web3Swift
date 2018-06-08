@@ -1,11 +1,17 @@
 //
-// Created by Timofey on 3/19/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// EthAutoAccount.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Foundation
 import SwiftyJSON
 
-//Eth account that asks gas price and gas estimate from the network
+/** Eth account that asks gas price and gas estimate from the network */
 public final class EthAutoAccount: Account {
 
     private let network: Network
@@ -18,7 +24,7 @@ public final class EthAutoAccount: Account {
         - network: network to work with
         - privateKey: private key associated with the account
     */
-    init(
+    public init(
         network: Network,
         privateKey: PrivateKey
     ) {
@@ -33,7 +39,7 @@ public final class EthAutoAccount: Account {
     - throws:
     `DescribedError` if something went wrong
     */
-    public func balance() throws -> NumberScalar {
+    public func balance() throws -> BytesScalar {
         return try EthBalance(
             network: network,
             address: privateKey.address()
@@ -54,7 +60,7 @@ public final class EthAutoAccount: Account {
     - throws:
     `DescribedError` if something went wrong
     */
-    public func send(weiAmount: NumberScalar, to recipientAddress: BytesScalar) throws -> TransactionHash {
+    public func send(weiAmount: BytesScalar, to recipientAddress: BytesScalar) throws -> TransactionHash {
         return try EthTransactionHash(
             network: network,
             transactionHash: BytesFromCompactHexString(

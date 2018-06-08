@@ -1,26 +1,20 @@
-/**
-Copyright 2018 Timofey Solonin
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
+//
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// LastBytes.swift
+//
+// Created by Timofey Solonin on 10/05/2018
+//
 
 import Foundation
 
-//Last n or less bytes of a bytes sequence
+/** Last n or less bytes of a bytes sequence */
 final public class LastBytes: BytesScalar {
 
     private let origin: BytesScalar
-    private let length: NumberScalar
+    private let length: IntegerScalar
 
     /**
     Ctor
@@ -31,7 +25,7 @@ final public class LastBytes: BytesScalar {
     */
     public init(
         origin: BytesScalar,
-        length: NumberScalar
+        length: IntegerScalar
     ) {
         self.origin = origin
         self.length = length
@@ -44,15 +38,13 @@ final public class LastBytes: BytesScalar {
         - origin: bytes to take suffix of
         - length: maximum length of the suffix
     */
-    convenience init(
+    public convenience init(
         origin: BytesScalar,
-        length: UInt
+        length: Int
     ) {
         self.init(
             origin: origin,
-            length: BigEndianNumber(
-                uint: length
-            )
+            length: SimpleInteger{ length }
         )
     }
 
@@ -68,7 +60,7 @@ final public class LastBytes: BytesScalar {
             .value()
             .suffix(
                 Int(
-                    try length.uint()
+                    try length.value()
                 )
             )
     }
