@@ -13,20 +13,22 @@ import Foundation
 /** A network of go ethereum implementation */
 public final class GethNetwork: Network {
     
-    private let origin: EthNetwork
+    private let origin: Network
 
     /**
     - parameters:
         - url: url for accessing JSON RPC
     */
     public init(url: String) {
-        self.origin = EthNetwork(
-            session: URLSession(configuration: URLSessionConfiguration.default),
-            url: url,
-            headers: [
-                "Accept": "application/json",
-                "Content-Type": "application/json"
-            ]
+        self.origin = VerifiedNetwork(
+            origin: EthNetwork(
+                session: URLSession(configuration: URLSessionConfiguration.default),
+                url: url,
+                headers: [
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                ]
+            )
         )
     }
 
