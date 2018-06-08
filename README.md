@@ -15,7 +15,7 @@ pod 'Web3Swift', :git => 'https://github.com/BlockStoreApp/Web3Swift.git'
 
 ## Sending ether
 
-To send some wei from an account with private key `0x1636e10756e62baabddd4364010444205f1216bdb1644ff8f776f6e2982aa9f5` to an account with an address `0x79d2c50Ba0cA4a2C6F8D65eBa1358bEfc1cFD403`:
+To send some wei from an account with a private key `0x1636e10756e62baabddd4364010444205f1216bdb1644ff8f776f6e2982aa9f5` to an account with an address `0x79d2c50Ba0cA4a2C6F8D65eBa1358bEfc1cFD403` on a mainnet:
 
 ```swift
 import Web3Swift
@@ -41,6 +41,18 @@ func send(weiAmount: Int) throws {
 ```
 
 If you want to specify gas price or gas amount take a look at [`EthDirectTransactionBytes.swift`](https://github.com/BlockStoreApp/Web3Swift/blob/develop/Web3Swift/TransactionBytes/EthDirectTransactionBytes.swift).
+
+To send ether instead of wei:
+
+```swift
+func send(ethAmount: Int) throws {
+	...
+	_ = try SendRawTransactionProcedure(
+		..., 
+		weiAmount: EthToWei(amount: ethAmount)
+	).call()
+}
+```
 
 ## Author
 
