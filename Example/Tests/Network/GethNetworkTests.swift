@@ -36,5 +36,21 @@ class GethNetworkTests: XCTestCase {
             description: "Make sure network can not be initialised with correct url"
         )
     }
+
+    func testGethNetworkThrowsRPCErrors() {
+        expect{
+            try GethNetwork(
+                url: "http://127.0.0.1:8545"
+            ).call(
+                method: "eth_call",
+                params: []
+            )
+        }.to(
+            throwError(
+                errorType: JSONError.self
+            ),
+            description: "Eth_call without parameters is expected to fail as a JSONError"
+        )
+    }
     
 }
