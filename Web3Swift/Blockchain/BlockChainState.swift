@@ -12,6 +12,6 @@ import Foundation
 
 public protocol BlockChainState {
 
-    func toString() -> String
+    func toString() throws -> String
     
 }

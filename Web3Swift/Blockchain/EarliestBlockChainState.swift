@@ -14,7 +14,7 @@ public final class EarliestBlockChainState: BlockChainState {
     
     public init() { }
 
-    public func toString() -> String {
+    public func toString() throws -> String {
         return "earliest"
     }
     

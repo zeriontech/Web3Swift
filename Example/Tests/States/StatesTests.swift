@@ -16,7 +16,7 @@ final class StatesTests: XCTestCase {
 
     func testEarliestStateIsValid() {
         expect{
-            EarliestBlockChainState().toString()
+            try EarliestBlockChainState().toString()
         }.to(
             equal(
                 "earliest"
@@ -27,7 +27,7 @@ final class StatesTests: XCTestCase {
 
     func testLatestStateIsValid() {
         expect{
-            LatestBlockChainState().toString()
+            try LatestBlockChainState().toString()
         }.to(
             equal(
                 "latest"
@@ -38,12 +38,55 @@ final class StatesTests: XCTestCase {
 
     func testPendingStateIsValid() {
         expect{
-            PendingBlockChainState().toString()
+            try PendingBlockChainState().toString()
         }.to(
             equal(
                 "pending"
             ),
             description: "Pending state is expected to be valid"
+        )
+    }
+    
+    func testExactStateBytesIsValid() {
+        expect{
+            try ExactBlockChainState(
+                number: BytesFromHexString(
+                    hex: "0x57d034"
+                )
+            ).toString()
+        }.to(
+            equal(
+                "0x57d034"
+            ),
+            description: "Exact state is expected to be valid"
+        )
+    }
+    
+    func testExactStateStringScalarIsValid() {
+        expect{
+            try ExactBlockChainState(
+                hex: SimpleString{
+                    "0x57d034"
+                }
+            ).toString()
+        }.to(
+            equal(
+                "0x57d034"
+            ),
+            description: "Exact state is expected to be valid"
+        )
+    }
+    
+    func testExactStateStringIsValid() {
+        expect{
+            try ExactBlockChainState(
+                hex: "0x57d034"
+            ).toString()
+        }.to(
+            equal(
+                "0x57d034"
+            ),
+            description: "Exact state is expected to be valid"
         )
     }
 

@@ -19,7 +19,7 @@ public final class TagParameter: EthParameter {
     }
 
     public func value() throws -> Any {
-        return state.toString()
+        return try state.toString()
     }
     
 }
