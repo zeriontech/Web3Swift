@@ -12,6 +12,8 @@ import Foundation
 
 public final class PendingBlockChainState: BlockChainState {
 
+    public init() { }
+    
     public func toString() -> String {
         return "pending"
     }
