@@ -89,5 +89,18 @@ final class StatesTests: XCTestCase {
             description: "Exact state is expected to be valid"
         )
     }
+    
+    func testExactStateIntIsValid() {
+        expect{
+            try ExactBlockChainState(
+                number: 5754932
+            ).toString()
+        }.to(
+            equal(
+                "0x57d034"
+            ),
+            description: "Exact state is expected to be valid"
+        )
+    }
 
 }

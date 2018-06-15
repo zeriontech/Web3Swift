@@ -24,6 +24,21 @@ public final class ExactBlockChainState: BlockChainState {
         self.number = number
     }
     
+    
+    /**
+     Ctor
+     
+     - parameters:
+        - number: `Int` representing number of the block
+     */
+    public convenience init(number: Int) {
+        self.init(
+            number: EthNumber(
+                value: number
+            )
+        )
+    }
+    
     /**
      Ctor
      
@@ -52,12 +67,19 @@ public final class ExactBlockChainState: BlockChainState {
         )
     }
     
+    /**
+     - returns:
+     Prefixed hexed `String` representation of a block number
+     
+     - throws:
+     `DescribedError` if something went wrong
+     */
     public func toString() throws -> String {
         let number = try UnprefixedHexString(
             bytes: TrimmedZeroPrefixBytes(
                 origin: self.number
             )
-            ).value()
+        ).value()
         return try HexPrefixedString(
             origin: SimpleString(
                 string: String(
