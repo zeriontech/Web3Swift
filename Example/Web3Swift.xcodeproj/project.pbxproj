@@ -868,7 +868,6 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				EBB6B6BA4C731E232BDF097E /* [CP] Embed Pods Frameworks */,
-				03DF536FB09CC228AFF589E8 /* [CP] Copy Pods Resources */,
 				96C55DCE203C61A300F7B8B3 /* ShellScript */,
 			);
 			buildRules = (
@@ -889,7 +888,6 @@
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
 				6614058F101887C8832107D8 /* [CP] Embed Pods Frameworks */,
-				55BC1A45B4B811FB26B4C303 /* [CP] Copy Pods Resources */,
 				96C55DCF203C64CF00F7B8B3 /* ShellScript */,
 			);
 			buildRules = (
@@ -963,36 +961,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		03DF536FB09CC228AFF589E8 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Web3Swift_Example/Pods-Web3Swift_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		55BC1A45B4B811FB26B4C303 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Web3Swift_Tests/Pods-Web3Swift_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6614058F101887C8832107D8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
