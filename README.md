@@ -10,14 +10,14 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-Web3Swift is not yet available through [CocoaPods](http://cocoapods.org).
-<!-- To install
-it, simply add the following line to your Podfile:
+### CocoaPods
+
+Web3 is available through [CocoaPods](https://cocoapods.org/pods/Web3Sw1ft). To install
+it, simply add the following line to your `Podfile`:
 
 ```ruby
-pod 'Web3Swift'
+pod 'Web3Sw1ft'
 ```
- -->
 
 ## Author
 
