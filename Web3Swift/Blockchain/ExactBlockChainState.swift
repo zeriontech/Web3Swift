@@ -75,16 +75,9 @@ public final class ExactBlockChainState: BlockChainState {
      `DescribedError` if something went wrong
      */
     public func toString() throws -> String {
-        let number = try UnprefixedHexString(
-            bytes: TrimmedZeroPrefixBytes(
-                origin: self.number
-            )
-        ).value()
         return try HexPrefixedString(
-            origin: SimpleString(
-                string: String(
-                    number.dropLast().drop(while: { $0 == "0" }) + [number.last].compactMap{ $0 }
-                )
+            origin: CompactHexString(
+                bytes: number
             )
         ).value()
     }
