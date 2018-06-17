@@ -22,8 +22,13 @@ public final class CompactHexString: StringScalar {
         - hex: a string describing a hexadecimal
      */
     public init(hex: StringScalar) {
-        self.hex = UnprefixedHexString(
-            hex: hex
+        self.hex = TrimmedPrefixString(
+            string: UnprefixedHexString(
+                hex: hex
+            ),
+            prefix: SimpleString(
+                string: "0"
+            )
         )
     }
     
@@ -49,12 +54,7 @@ public final class CompactHexString: StringScalar {
      `DescribedError` if something went wrong
      */
     public func value() throws -> String {
-        let compactHex = try hex.value()
-        return try SimpleString(
-                string: String(
-                    compactHex.dropLast().drop(while: { $0 == "0" }) + [compactHex.last].compactMap{ $0 }
-                )
-        ).value().lowercased()
+        return try hex.value().lowercased()
     }
     
 }
