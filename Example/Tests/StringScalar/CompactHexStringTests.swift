@@ -62,7 +62,7 @@ class CompactHexStringTests: XCTestCase {
             ).value()
         }.to(
             equal("0"),
-            description: "String is expected to be compactly represented"
+            description: "Zero shoud not be represented as an empty string"
         )
     }
     

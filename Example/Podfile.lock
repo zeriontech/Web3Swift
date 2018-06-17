@@ -18,11 +18,20 @@ DEPENDENCIES:
   - SwiftLint (from `https://github.com/Web3Swift/SwiftLint.git`)
   - Web3Swift (from `../`)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - BigInt.swift
+    - CryptoSwift
+    - Nimble
+    - Quick
+    - secp256k1_ios
+    - SwiftyJSON
+
 EXTERNAL SOURCES:
   SwiftLint:
     :git: https://github.com/Web3Swift/SwiftLint.git
   Web3Swift:
-    :path: ../
+    :path: "../"
 
 CHECKOUT OPTIONS:
   SwiftLint:
@@ -41,4 +50,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: f035427524c4ba267264535e6a7b0cd6736d6b4b
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

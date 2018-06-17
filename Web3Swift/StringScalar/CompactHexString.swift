@@ -35,11 +35,9 @@ public final class CompactHexString: StringScalar {
      */
     public convenience init(bytes: BytesScalar) {
         self.init(
-            hex: SimpleString{
-                try TrimmedZeroPrefixBytes(
-                        origin: bytes
-                ).value().toHexString()
-            }
+            hex: UnprefixedHexString(
+                bytes: bytes
+            )
         )
     }
     
