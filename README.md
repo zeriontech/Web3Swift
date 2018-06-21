@@ -12,69 +12,10 @@ Web3 is available through [CocoaPods](https://cocoapods.org/pods/Web3Sw1ft). To 
 it, simply add the following line to your `Podfile`:
 
 ```ruby
-pod 'Web3Swift', :git => 'https://github.com/BlockStoreApp/Web3Swift.git'
+pod 'Web3Sw1ft'
 ```
 
-## Signing
-
-```swift
-import CryptoSwift
-
-// Add your private key
-let privateKey = EthPrivateKey(
-        hex: "YOUR_PRIVATE_KEY"
-)
-
-// Form the bytes for your message
-// In our example we sign null Ethereum address
-let messageBytes = try! EthAddress(
-        hex: "0x0000000000000000000000000000000000000000"
-).value().bytes
-
-// Create a message
-// Don't forget that some services may expect
-// a message with Ethereum prefix as here
-let message = ConcatenatedBytes(
-        bytes: [
-            //Ethereum prefix
-            UTF8StringBytes(
-                    string: SimpleString(
-                            string: "\u{19}Ethereum Signed Message:\n32"
-                    )
-            ),
-            //message
-            Keccak256Bytes(
-                    origin: SimpleBytes(
-                            bytes:
-                    )
-            )
-        ]
-)
-
-// Use your custom hash function if needed
-let hashFunction = SHA3(variant: .keccak256).calculate
-
-// Create the signature
-// Calculations are performed in a lazy way
-// so you don't have to worry about performance
-let signature = SECP256k1Signature(
-        privateKey: privateKey,
-        message: message,
-        hashFunction: hashFunction
-)
-
-// Now you can retrieve all the parameters
-// of the signature or use it for the signing with web3
-let r = PrefixedHexString(
-        bytes: try! signature.r()
-)
-let s = PrefixedHexString(
-        bytes: try! signature.s()
-)
-let v = try! signature.recoverID().value() + 27
-```
-
-## Sending ether
+## Sending ethers
 
 To send some wei from an account with a private key `0x1636e10756e62baabddd4364010444205f1216bdb1644ff8f776f6e2982aa9f5` to an account with an address `0x79d2c50Ba0cA4a2C6F8D65eBa1358bEfc1cFD403` on a mainnet:
 
@@ -113,8 +54,6 @@ func send(ethAmount: Int) throws {
 		weiAmount: EthToWei(amount: ethAmount)
 	).call()
 }
-```
-pod 'Web3Sw1ft'
 ```
 
 ## Dealing with ERC-20 tokens
@@ -237,6 +176,65 @@ let balance = try HexAsDecimalString(
 ).value()
 
 print(balance) // 13098857909137917398909558 is 13 098 857.909137917398909558 OMG tokens
+```
+
+## Signing
+
+```swift
+import CryptoSwift
+
+// Add your private key
+let privateKey = EthPrivateKey(
+        hex: "YOUR_PRIVATE_KEY"
+)
+
+// Form the bytes for your message
+// In our example we sign null Ethereum address
+let messageBytes = try! EthAddress(
+        hex: "0x0000000000000000000000000000000000000000"
+).value().bytes
+
+// Create a message
+// Don't forget that some services may expect
+// a message with Ethereum prefix as here
+let message = ConcatenatedBytes(
+        bytes: [
+            //Ethereum prefix
+            UTF8StringBytes(
+                    string: SimpleString(
+                            string: "\u{19}Ethereum Signed Message:\n32"
+                    )
+            ),
+            //message
+            Keccak256Bytes(
+                    origin: SimpleBytes(
+                            bytes:
+                    )
+            )
+        ]
+)
+
+// Use your custom hash function if needed
+let hashFunction = SHA3(variant: .keccak256).calculate
+
+// Create the signature
+// Calculations are performed in a lazy way
+// so you don't have to worry about performance
+let signature = SECP256k1Signature(
+        privateKey: privateKey,
+        message: message,
+        hashFunction: hashFunction
+)
+
+// Now you can retrieve all the parameters
+// of the signature or use it for the signing with web3
+let r = PrefixedHexString(
+        bytes: try! signature.r()
+)
+let s = PrefixedHexString(
+        bytes: try! signature.s()
+)
+let v = try! signature.recoverID().value() + 27
 ```
 
 ## Author
