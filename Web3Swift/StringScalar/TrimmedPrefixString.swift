@@ -42,7 +42,10 @@ public final class TrimmedPrefixString: StringScalar {
         let prefix = try self.prefix.value()
         guard let range = string.range(of: "^(\(prefix)){1,}", options: [.regularExpression]) else { return string }
         let trimmed = String(string[range.upperBound...])
-        return (!trimmed.isEmpty) ? trimmed : prefix
+        if (trimmed.isEmpty) {
+            return prefix
+        }
+        return trimmed
     }
 
 }
