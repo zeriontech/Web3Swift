@@ -29,7 +29,7 @@ public final class TrimmedPrefixString: StringScalar {
     }
     
     /**
-     TODO: There should be a solution to exclude prefix from the computed range in case it is suffix
+     TODO: There should be a solution to exclude the prefix from the computed range in case it is a suffix
      
     - returns:
     `String` representation of a string without the specified prefix
