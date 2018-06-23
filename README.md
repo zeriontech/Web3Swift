@@ -237,8 +237,8 @@ let s = PrefixedHexString(
 let v = try! signature.recoverID().value() + 27
 ```
 
-## Parsing transactions
-### Fetching information about transactions
+## Getting information about transactions
+### Fetching information
 Getting results of the recent or previous transaction is one of the most common tasks during developing interactions with DApps. There are two JSON-RPC methods for getting basic and additional transaction info. The first one is `eth_getTransactionByHash` ([example](https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_gettransactionbyhash)) and the second one is `eth_getTransactionReceipt`([example](https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_gettransactionreceipt)). You could use next library example to get needed information from the Ethereum blockchain.
 ```swift
 import Web3Swift
@@ -318,6 +318,114 @@ print(advancedInfo["result"].dictionary ?? "Something went wrong")
 */
 ```
 **NOTE:** Library is still in development. Domain level objects for all RPC structures are on the roadmap.
+
+### Parsing transaction
+After fetching the information you could transparently convert it to suitable objects.
+
+```swift
+// Get the number of the block in which the transaction occurred
+let block = try HexAsDecimalString(
+        hex: EthNumber(
+        hex: basicInfo["result"]["blockNumber"].stringValue
+    )   
+).value()
+
+print(block)
+// 1664614
+
+// Get the recipient of the transaction
+let recipient = try EthAddress(
+    hex: basicInfo["result"]["to"].stringValue
+).value().toHexString()
+
+print(recipient)
+// bb9bc244d798123fde783fcc1c72d3bb8c189413
+
+// Get the transaction fee in WEI
+let gasPrice = EthNumber(
+    hex: basicInfo["result"]["gasPrice"].stringValue
+)
+
+let gasUsed = EthNumber(
+    hex: advancedInfo["result"]["gasUsed"].stringValue
+)
+
+let fee = try HexAsDecimalString(
+    hex: gasPrice * gasUsed
+).value()
+
+print(fee)
+// 4247860000000000 WEI = 0,00424786 ETH
+```
+
+### Parsing transaction's input data
+You could easily parse any transaction's input by knowing it's ABI or types the data passed into it.
+
+```swift
+// Parse the transaction input parameters
+/*
+    newProposal(
+        [0] address _recipient,
+        [1] uint256 _amount,
+        [2] string _description,
+        [3] bytes _transactionData,
+        [4] uint256 _debatingPeriod,
+        [5] bool _newCurator
+    )
+*/
+
+// Prepare the transaction's input for parsing - trim the hex prefix and the signature of the executed function
+let input = ABIMessage(
+    message: UnprefixedHexString(
+        hex: TrimmedPrefixString(
+            string: SimpleString{
+                basicInfo["result"]["input"].stringValue
+            },
+            prefix: SimpleString{
+                "0x612e45a3"
+            }
+        )
+    )
+)
+
+// Get the recipient's address
+let abiRecipient = try DecodedABIAddress(
+    abiMessage: input,
+    index: 0
+).value().toHexString()
+
+print(abiRecipient)
+// b656b2a9c3b2416437a811e07466ca712f5a5b5a
+
+// Get the description string
+let description = try DecodedABIString(
+    abiMessage: input,
+    index: 2
+).value()
+
+print(description)
+// lonely, so lonely
+
+// Get the debating period number
+let debatingPeriod = try HexAsDecimalString(
+    hex: DecodedABINumber(
+        abiMessage: input,
+        index: 4
+    )
+).value()
+
+print(debatingPeriod)
+// 604800
+
+// Get the boolean flag
+let flag = try DecodedABIBoolean(
+    abiMessage: input,
+    index: 5
+).value()
+
+print(flag)
+// true
+```
 
 ## Author
 
