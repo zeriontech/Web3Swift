@@ -17,9 +17,9 @@ final class TrimmedPrefixStringTests: XCTestCase {
     func testTrimsExistentPrefix() {
         Array<
             (
-                String, //Full string
-                String, //Prefix
-                String  //Trimmed string
+                String,
+                String,
+                String
             )
         >(
             [
