@@ -18,28 +18,33 @@ final class TrimmedPrefixStringTests: XCTestCase {
         Array<
             (
                 String,
+                String,
                 String
             )
         >(
             [
-                ("hello", "llo"),
-                ("he", ""),
-                ("he is", " is"),
-                ("hehe", "he")
+                ("hello", "he", "llo"),
+                ("he", "he", "he"),
+                ("he is", "he", " is"),
+                ("hehe", "he", "he"),
+                ("0x0x1234", "0x", "1234"),
+                ("0x0x0x", "0x", "0x"),
+                ("0x0x0x0", "0x", "0"),
+                ("abc", "abc", "abc")
             ]
-        ).forEach{ initial, trimmed in
+        ).forEach{ initial, prefix, trimmed in
             expect{
                 try TrimmedPrefixString(
                     string: SimpleString(
                         string: initial
                     ),
                     prefix: SimpleString(
-                        string: "he"
+                        string: prefix
                     )
                 ).value()
             }.to(
                 equal(trimmed),
-                description: "String \(initial) is expected to be trimmed to \(trimmed)"
+                description: "String \(initial) is expected to be trimmed to \(trimmed) by removing \(prefix)"
             )
         }
     }
