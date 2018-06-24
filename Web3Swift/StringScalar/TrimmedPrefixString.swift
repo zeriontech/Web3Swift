@@ -27,8 +27,10 @@ public final class TrimmedPrefixString: StringScalar {
         self.string = string
         self.prefix = prefix
     }
-
+    
     /**
+     TODO: There should be a solution to exclude the prefix from the computed range in case it is a suffix
+     
     - returns:
     `String` representation of a string without the specified prefix
 
@@ -38,15 +40,17 @@ public final class TrimmedPrefixString: StringScalar {
     public func value() throws -> String {
         let string = try self.string.value()
         let prefix = try self.prefix.value()
-        if string.hasPrefix(prefix) {
-            return String(
-                string.dropFirst(
-                    Int(prefix.count)
-                )
-            )
-        } else {
+        guard let range = string.range(
+            of: "^(\(prefix)){1,}",
+            options: [.regularExpression]
+        ) else {
             return string
         }
+        let trimmed = String(string[range.upperBound...])
+        if trimmed.isEmpty {
+            return prefix
+        }
+        return trimmed
     }
 
 }
