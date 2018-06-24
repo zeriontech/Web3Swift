@@ -2,12 +2,12 @@ platform :ios, '10.0'
 use_frameworks!
 
 target 'Web3Swift_Example' do
-  pod 'Web3Sw1ft', :path => '../'
+  pod 'Web3Swift.io', :path => '../'
   pod 'SwiftLint', :git => 'https://github.com/Web3Swift/SwiftLint.git'
 end
 
 target 'Web3Swift_Tests' do
-  pod 'Web3Sw1ft', :path => '../'
+  pod 'Web3Swift.io', :path => '../'
   pod 'SwiftLint', :git => 'https://github.com/Web3Swift/SwiftLint.git'
   pod 'Quick', '~> 1.2'
   pod 'Nimble', '~> 7.0'
