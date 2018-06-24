@@ -54,7 +54,7 @@ public final class CompactHexString: StringScalar {
      `DescribedError` if something went wrong
      */
     public func value() throws -> String {
-        return try hex.value().lowercased()
+        return try hex.value()
     }
     
 }

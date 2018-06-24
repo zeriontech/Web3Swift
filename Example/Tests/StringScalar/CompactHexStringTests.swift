@@ -18,7 +18,7 @@ class CompactHexStringTests: XCTestCase {
         expect{
             try CompactHexString(
                 hex: SimpleString{
-                    "0x00Deadbeaf"
+                    "0x00deadbeaf"
                 }
             ).value()
         }.to(
@@ -31,7 +31,7 @@ class CompactHexStringTests: XCTestCase {
         expect{
             try CompactHexString(
                 bytes: BytesFromHexString(
-                    hex: "0x00Deadbeaf"
+                    hex: "0x00deadbeaf"
                 )
             ).value()
         }.to(
