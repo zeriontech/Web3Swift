@@ -237,6 +237,194 @@ let s = PrefixedHexString(
 let v = try! signature.recoverID().value() + 27
 ```
 
+## Getting information about transactions
+### Fetching information
+Getting results of the recent or previous transaction is one of the most common tasks during developing interactions with DApps. There are two JSON-RPC methods for getting basic and additional transaction info. The first one is `eth_getTransactionByHash` ([example](https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_gettransactionbyhash)) and the second one is `eth_getTransactionReceipt`([example](https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_gettransactionreceipt)). You could use next library example to get needed information from the Ethereum blockchain.
+```swift
+import Web3Swift
+import CryptoSwift
+
+let transactionHash = BytesFromHexString(
+    hex: "0x5798fbc45e3b63832abc4984b0f3574a13545f415dd672cd8540cd71f735db56"
+)
+
+let network = InfuraNetwork(
+    chain: "mainnet",
+    apiKey: "metamask"
+)
+
+let basicInfo: JSON = try TransactionProcedure(
+    network: network,
+    transactionHash: transactionHash
+).call()
+
+let advancedInfo: JSON = try TransactionReceiptProcedure(
+    network: network,
+    transactionHash: transactionHash
+).call()
+
+print(basicInfo["result"].dictionary ?? "Something went wrong")
+/**
+[
+    "blockNumber": 0x196666,
+    "value": 0x0,
+    "v": 0x1b,
+    "input":0x612e45a3000000000000000000000000b656b2a9c3b2416437a811e07466ca712f5a5b5a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000093a80000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000116c6f6e656c792c20736f206c6f6e656c7900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+    "hash": 0x5798fbc45e3b63832abc4984b0f3574a13545f415dd672cd8540cd71f735db56,
+    "to": 0xbb9bc244d798123fde783fcc1c72d3bb8c189413,
+    "transactionIndex": 0x7,
+    "gasPrice": 0x4a817c800,
+    "r": 0xd92d67e4a982c45c78c1260fc2f644ed78483e2bf7d6151aab9ea40a8e172472,
+    "nonce": 0x0,
+    "blockHash": 0x1f716531f40858da4d4b08269f571f9f22c7b8bd921764e8bdf9cb2e0508efa1,
+    "from": 0xb656b2a9c3b2416437a811e07466ca712f5a5b5a,
+    "s": 0x6ee7e259e4f13378cf167bb980659520a7e5897643a2642586f246c6de5367d6,
+    "gas": 0x4c449
+]
+*/
+
+print(advancedInfo["result"].dictionary ?? "Something went wrong")
+
+/**
+[
+    "root": 0xee69c77c73cd53b90e928e786b1c7f5b743a36dccd877128cf1dce7b46980a97,
+    "blockNumber": 0x196666,
+    "transactionIndex": 0x7,
+    "transactionHash": 0x5798fbc45e3b63832abc4984b0f3574a13545f415dd672cd8540cd71f735db56,
+    "blockHash": 0x1f716531f40858da4d4b08269f571f9f22c7b8bd921764e8bdf9cb2e0508efa1,
+    "from": 0xb656b2a9c3b2416437a811e07466ca712f5a5b5a,
+    "contractAddress": null,
+    "logsBloom": 0x00000000000000020000000000020000000000000000000000000000000000000000000000000000000000000000000000000000000000800000000000080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000000000000000200000000000000000000800000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000000000000,
+    "to": 0xbb9bc244d798123fde783fcc1c72d3bb8c189413,
+    "logs": [
+        {
+            "blockNumber" : "0x196666",
+            "topics" : [
+                "0x5790de2c279e58269b93b12828f56fd5f2bc8ad15e61ce08572585c81a38756f",
+                "0x000000000000000000000000000000000000000000000000000000000000003b"
+            ],
+            "data" : "0x000000000000000000000000b656b2a9c3b2416437a811e07466ca712f5a5b5a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000116c6f6e656c792c20736f206c6f6e656c79000000000000000000000000000000",
+            "logIndex" : "0x5",
+            "transactionHash" : "0x5798fbc45e3b63832abc4984b0f3574a13545f415dd672cd8540cd71f735db56",
+            "removed" : false,
+            "address" : "0xbb9bc244d798123fde783fcc1c72d3bb8c189413",
+            "blockHash" : "0x1f716531f40858da4d4b08269f571f9f22c7b8bd921764e8bdf9cb2e0508efa1",
+            "transactionIndex" : "0x7"
+        }
+    ],
+    "gasUsed": 0x33da9,
+    "cumulativeGasUsed": 0xf98e3
+]
+*/
+```
+**NOTE:** Library is still in development. Domain level objects for all RPC structures are on the roadmap.
+
+### Parsing transaction
+After fetching the information you could transparently convert it to suitable objects.
+
+```swift
+// Get the number of the block in which the transaction occurred
+let block = try HexAsDecimalString(
+        hex: EthNumber(
+        hex: basicInfo["result"]["blockNumber"].stringValue
+    )   
+).value()
+
+print(block)
+// 1664614
+
+// Get the recipient of the transaction
+let recipient = try EthAddress(
+    hex: basicInfo["result"]["to"].stringValue
+).value().toHexString()
+
+print(recipient)
+// bb9bc244d798123fde783fcc1c72d3bb8c189413
+
+// Get the transaction fee in WEI
+let gasPrice = EthNumber(
+    hex: basicInfo["result"]["gasPrice"].stringValue
+)
+
+let gasUsed = EthNumber(
+    hex: advancedInfo["result"]["gasUsed"].stringValue
+)
+
+let fee = try HexAsDecimalString(
+    hex: gasPrice * gasUsed
+).value()
+
+print(fee)
+// 4247860000000000 WEI = 0,00424786 ETH
+```
+
+### Parsing transaction's input data
+You could easily parse any transaction's input by knowing it's ABI or types the data passed into it.
+
+```swift
+// Parse the transaction input parameters
+/*
+    newProposal(
+        [0] address _recipient,
+        [1] uint256 _amount,
+        [2] string _description,
+        [3] bytes _transactionData,
+        [4] uint256 _debatingPeriod,
+        [5] bool _newCurator
+    )
+*/
+
+// Prepare the transaction's input for parsing - trim the signature of the executed function
+let input = ABIMessage(
+    message: TrimmedPrefixString(
+        string: SimpleString{
+            basicInfo["result"]["input"].stringValue
+        },
+        prefix: SimpleString{
+            "0x612e45a3"
+        }
+    )
+)
+
+// Get the recipient's address
+let abiRecipient = try DecodedABIAddress(
+    abiMessage: input,
+    index: 0
+).value().toHexString()
+
+print(abiRecipient)
+// b656b2a9c3b2416437a811e07466ca712f5a5b5a
+
+// Get the description string
+let description = try DecodedABIString(
+    abiMessage: input,
+    index: 2
+).value()
+
+print(description)
+// lonely, so lonely
+
+// Get the debating period number
+let debatingPeriod = try HexAsDecimalString(
+    hex: DecodedABINumber(
+        abiMessage: input,
+        index: 4
+    )
+).value()
+
+print(debatingPeriod)
+// 604800
+
+// Get the boolean flag
+let flag = try DecodedABIBoolean(
+    abiMessage: input,
+    index: 5
+).value()
+
+print(flag)
+// true
+```
+
 ## Author
 
 - Timofey Solonin [@biboran](https://github.com/biboran), abdulowork@gmail.com
