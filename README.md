@@ -374,17 +374,15 @@ You could easily parse any transaction's input by knowing it's ABI or types the 
     )
 */
 
-// Prepare the transaction's input for parsing - trim the hex prefix and the signature of the executed function
+// Prepare the transaction's input for parsing - trim the signature of the executed function
 let input = ABIMessage(
-    message: UnprefixedHexString(
-        hex: TrimmedPrefixString(
-            string: SimpleString{
-                basicInfo["result"]["input"].stringValue
-            },
-            prefix: SimpleString{
-                "0x612e45a3"
-            }
-        )
+    message: TrimmedPrefixString(
+        string: SimpleString{
+            basicInfo["result"]["input"].stringValue
+        },
+        prefix: SimpleString{
+            "0x612e45a3"
+        }
     )
 )
 
