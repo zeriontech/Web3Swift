@@ -14,7 +14,7 @@ public final class PendingBlockChainState: BlockChainState {
 
     public init() { }
     
-    public func toString() -> String {
+    public func toString() throws -> String {
         return "pending"
     }
     
