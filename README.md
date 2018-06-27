@@ -8,11 +8,11 @@
 
 ### CocoaPods
 
-Web3 is available through [CocoaPods](https://cocoapods.org/pods/Web3Sw1ft). To install
+Web3 is available through [CocoaPods](https://cocoapods.org/pods/Web3Swift.io). To install
 it, simply add the following line to your `Podfile`:
 
 ```ruby
-pod 'Web3Sw1ft'
+pod 'Web3Swift.io'
 ```
 
 ## Sending ethers
@@ -22,24 +22,37 @@ To send some wei from an account with a private key `0x1636e10756e62baabddd43640
 ```swift
 import Web3Swift
 
-func send(weiAmount: Int) throws {
-    let sender: PrivateKey = EthPrivateKey(
-        hex: "0x1636e10756e62baabddd4364010444205f1216bdb1644ff8f776f6e2982aa9f5"
-    )
-    let recipient: BytesScalar = EthAddress(
-        hex: "0x79d2c50Ba0cA4a2C6F8D65eBa1358bEfc1cFD403"
-    )
-    let network = InfuraNetwork(chain: "mainnet", apiKey: "metamask")
-    _ = try SendRawTransactionProcedure(
+let sender: PrivateKey = EthPrivateKey(
+    hex: "0x1636e10756e62baabddd4364010444205f1216bdb1644ff8f776f6e2982aa9f5"
+)
+    
+let recipient: BytesScalar = EthAddress(
+    hex: "0x79d2c50Ba0cA4a2C6F8D65eBa1358bEfc1cFD403"
+)
+    
+let network: Network = InfuraNetwork(
+    chain: "mainnet", 
+    apiKey: "metamask"
+)
+
+let amount: BytesScalar = EthNumber(
+    hex: "0xde0b6b3a7640000" // 10^18 in hex that represents 1 ETH
+)
+
+let response = try SendRawTransactionProcedure(
+    network: network,
+    transactionBytes: EthDirectTransactionBytes(
         network: network,
-        transactionBytes: EthDirectTransactionBytes(
-            network: network,
-            senderKey: sender,
-            recipientAddress: recipient,
-            weiAmount: EthNumber(value: weiAmount)
+        senderKey: sender,
+        recipientAddress: recipient,
+        weiAmount: EthNumber(
+            value: amount
         )
-    ).call()
-}
+    )
+).call()
+
+//If Ethereum network accepts the transaction, you could get transaction hash from the response. Otherwise, library will throw `DescribedError`
+print(response["result"].string ?? "Something went wrong")
 ```
 
 If you want to specify gas price or gas amount take a look at [`EthDirectTransactionBytes.swift`](https://github.com/BlockStoreApp/Web3Swift/blob/develop/Web3Swift/TransactionBytes/EthDirectTransactionBytes.swift).
@@ -47,13 +60,14 @@ If you want to specify gas price or gas amount take a look at [`EthDirectTransac
 To send ether instead of wei:
 
 ```swift
-func send(ethAmount: Int) throws {
-	...
-	_ = try SendRawTransactionProcedure(
-		...,
-		weiAmount: EthToWei(amount: ethAmount)
-	).call()
-}
+let ethAmount = 1.1
+
+try SendRawTransactionProcedure(
+    ...,
+    weiAmount: EthToWei(
+        amount: ethAmount
+    )
+).call()
 ```
 
 ## Dealing with ERC-20 tokens
@@ -242,7 +256,7 @@ let v = try! signature.recoverID().value() + 27
 Getting results of the recent or previous transaction is one of the most common tasks during developing interactions with DApps. There are two JSON-RPC methods for getting basic and additional transaction info. The first one is `eth_getTransactionByHash` ([example](https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_gettransactionbyhash)) and the second one is `eth_getTransactionReceipt`([example](https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_gettransactionreceipt)). You could use next library example to get needed information from the Ethereum blockchain.
 ```swift
 import Web3Swift
-import CryptoSwift
+import SwiftyJSON
 
 let transactionHash = BytesFromHexString(
     hex: "0x5798fbc45e3b63832abc4984b0f3574a13545f415dd672cd8540cd71f735db56"
