@@ -154,6 +154,7 @@
 		8C77B9F3203DC77A0097DE61 /* BytesParameterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9F2203DC77A0097DE61 /* BytesParameterTests.swift */; };
 		8C77B9F5203DC9340097DE61 /* BooleanParameterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9F4203DC9340097DE61 /* BooleanParameterTests.swift */; };
 		8C77B9F9203DCA220097DE61 /* QuantityParameterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9F8203DCA220097DE61 /* QuantityParameterTests.swift */; };
+		8CA4CB6220D6CA6F009AAFA8 /* CompactHexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA4CB6120D6CA6F009AAFA8 /* CompactHexStringTests.swift */; };
 		94831128426593F56EE4BCAF /* Pods_Web3Swift_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31007316603078343330134 /* Pods_Web3Swift_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -322,6 +323,7 @@
 		8C77B9F2203DC77A0097DE61 /* BytesParameterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BytesParameterTests.swift; sourceTree = "<group>"; };
 		8C77B9F4203DC9340097DE61 /* BooleanParameterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooleanParameterTests.swift; sourceTree = "<group>"; };
 		8C77B9F8203DCA220097DE61 /* QuantityParameterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityParameterTests.swift; sourceTree = "<group>"; };
+		8CA4CB6120D6CA6F009AAFA8 /* CompactHexStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactHexStringTests.swift; sourceTree = "<group>"; };
 		8D3D6BEF8030D59C6F4A15FB /* Pods_Web3Swift_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Web3Swift_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D1308587140D3019CBC0F5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		EF31EFC3250D5A7EF77E859E /* Pods-Web3Swift_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Web3Swift_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Web3Swift_Example/Pods-Web3Swift_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -525,6 +527,7 @@
 				584FAE5CF87E621257F15405 /* HexPrefixedStringTests.swift */,
 				584FA1322EE0360321406074 /* PrefixedStringTests.swift */,
 				584FA6FABD0BC6711F3EE057 /* UTF8StringTests.swift */,
+				8CA4CB6120D6CA6F009AAFA8 /* CompactHexStringTests.swift */,
 			);
 			path = StringScalar;
 			sourceTree = "<group>";
@@ -871,8 +874,8 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				EBB6B6BA4C731E232BDF097E /* [CP] Embed Pods Frameworks */,
-				03DF536FB09CC228AFF589E8 /* [CP] Copy Pods Resources */,
 				96C55DCE203C61A300F7B8B3 /* ShellScript */,
+				91D0BE6005155AEE45F3403C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -892,8 +895,8 @@
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
 				6614058F101887C8832107D8 /* [CP] Embed Pods Frameworks */,
-				55BC1A45B4B811FB26B4C303 /* [CP] Copy Pods Resources */,
 				96C55DCF203C64CF00F7B8B3 /* ShellScript */,
+				00A6FE7CAB021D6BF234D2EE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -966,22 +969,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		03DF536FB09CC228AFF589E8 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Web3Swift_Example/Pods-Web3Swift_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		55BC1A45B4B811FB26B4C303 /* [CP] Copy Pods Resources */ = {
+		00A6FE7CAB021D6BF234D2EE /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1006,7 +994,7 @@
 				"${BUILT_PRODUCTS_DIR}/BigInt.swift/BigInt.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/Web3Swift/Web3Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/Web3Swift.io/Web3Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/secp256k1_ios/secp256k1_ios.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
@@ -1042,6 +1030,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91D0BE6005155AEE45F3403C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Web3Swift_Example/Pods-Web3Swift_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		96C55DCE203C61A300F7B8B3 /* ShellScript */ = {
@@ -1098,7 +1101,7 @@
 				"${BUILT_PRODUCTS_DIR}/BigInt.swift/BigInt.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/Web3Swift/Web3Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/Web3Swift.io/Web3Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/secp256k1_ios/secp256k1_ios.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1194,6 +1197,7 @@
 				584FA85C619D278B919E8583 /* ABIVariableBytesTests.swift in Sources */,
 				584FA57AE4696ABCE69EF251 /* ABIAddressTests.swift in Sources */,
 				584FA37814121039A14D60A8 /* ABIUnsignedNumberTests.swift in Sources */,
+				8CA4CB6220D6CA6F009AAFA8 /* CompactHexStringTests.swift in Sources */,
 				584FAA8C1856FBC6D0B6C832 /* ABIBooleanTests.swift in Sources */,
 				584FAFBE8C15F8AE72AC55BF /* ABIStringTests.swift in Sources */,
 				584FA2DB083CFB2D961D9F7B /* EncodedABITupleTests.swift in Sources */,
