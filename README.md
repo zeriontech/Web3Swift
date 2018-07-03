@@ -357,7 +357,7 @@ After fetching the information you could transparently convert it to suitable ob
 ```swift
 // Get the number of the block in which the transaction occurred
 let block = try HexAsDecimalString(
-        hex: EthNumber(
+    hex: EthNumber(
         hex: basicInfo["result"]["blockNumber"].stringValue
     )   
 ).value()
