@@ -1,8 +1,10 @@
-<a href="https://web3swift.io?utm_source=github">
-    <img src="https://s3.eu-west-3.amazonaws.com/files.web3swift.io/web3swift_logo.svg" width="40%" height="128">
-</a>
+<p align="center">
+    <a href="https://web3swift.io?utm_source=github">
+        <img src="https://s3.eu-west-3.amazonaws.com/files.web3swift.io/web3swift_logo.svg" width="60%" height="100">
+        </a>
+</p>
 
-<p align="left">
+<p align="center">
     <a href="https://codecov.io/gh/zeriontech/Web3Swift">
         <img src="https://codecov.io/gh/zeriontech/Web3Swift/branch/develop/graph/badge.svg" alt="Code coverage" />
     </a>
