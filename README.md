@@ -12,8 +12,8 @@
     <a href="https://t.me/joinchat/AAiU-kcI09OSTb2y2GsJ_w">  
         <img src="https://img.shields.io/badge/chat-on%20telegram-blue.svg?longCache=true&style=flat" alt="Join Telegram">
     </a>
-    <a href="http://cocoapods.org/pods/Web3">
-        <img src="https://img.shields.io/cocoapods/v/Web3.svg?style=flat" alt="Version">
+    <a href="https://cocoapods.org/pods/Web3Swift.io">
+        <img src="https://img.shields.io/cocoapods/v/Web3Swift.io.svg?style=flat" alt="Version">
     </a>
     <a href="https://opensource.org/licenses/Apache-2.0">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License">
