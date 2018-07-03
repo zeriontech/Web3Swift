@@ -4,19 +4,23 @@
 
 <p align="left">
     <a href="https://codecov.io/gh/zeriontech/Web3Swift">
-        <img src="https://codecov.io/gh/zeriontech/Web3Swift/branch/develop/graph/badge.svg" />
+        <img src="https://codecov.io/gh/zeriontech/Web3Swift/branch/develop/graph/badge.svg" alt="Code coverage" />
     </a>
     <a href="https://travis-ci.org/zeriontech/Web3Swift">
         <img src="https://travis-ci.org/zeriontech/Web3Swift.svg?branch=develop" alt="CI Status">
     </a>
     <a href="https://t.me/joinchat/AAiU-kcI09OSTb2y2GsJ_w">  
-        <img src="https://img.shields.io/badge/chat-on%20telegram-blue.svg?longCache=true&style=flat" alt="Telegram">
+        <img src="https://img.shields.io/badge/chat-on%20telegram-blue.svg?longCache=true&style=flat" alt="Join Telegram">
     </a>
     <a href="http://cocoapods.org/pods/Web3">
         <img src="https://img.shields.io/cocoapods/v/Web3.svg?style=flat" alt="Version">
     </a>
     <a href="https://opensource.org/licenses/Apache-2.0">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License">
+    </a>
+    <a href="https://twitter.com/intent/follow?screen_name=web3swift">
+        <img src="https://img.shields.io/twitter/follow/web3swift.svg?style=flat&logo=twitter"
+    alt="Follow on Twitter">
     </a>
 </p>
 
