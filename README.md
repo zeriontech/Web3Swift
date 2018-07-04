@@ -1,8 +1,30 @@
-# Web3Swift
+<p align="center">
+    <a href="https://web3swift.io?utm_source=github">
+        <img src="https://s3.eu-west-3.amazonaws.com/files.web3swift.io/web3swift_logo.svg" width="60%" height="100">
+        </a>
+</p>
 
-[![CI Status](http://img.shields.io/travis/BlockStoreApp/Web3Swift.svg?style=flat)](https://travis-ci.org/BlockStoreApp/Web3Swift)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![codecov](https://codecov.io/gh/BlockStoreApp/Web3Swift/branch/develop/graph/badge.svg?token=SY7mpMQbGs)](https://codecov.io/gh/BlockStoreApp/Web3Swift)
+<p align="center">
+    <a href="https://codecov.io/gh/zeriontech/Web3Swift">
+        <img src="https://codecov.io/gh/zeriontech/Web3Swift/branch/develop/graph/badge.svg" alt="Code coverage" />
+    </a>
+    <a href="https://travis-ci.org/zeriontech/Web3Swift">
+        <img src="https://travis-ci.org/zeriontech/Web3Swift.svg?branch=develop" alt="CI Status">
+    </a>
+    <a href="https://t.me/joinchat/AAiU-kcI09OSTb2y2GsJ_w">  
+        <img src="https://img.shields.io/badge/chat-on%20telegram-blue.svg?longCache=true&style=flat" alt="Join Telegram">
+    </a>
+    <a href="https://cocoapods.org/pods/Web3Swift.io">
+        <img src="https://img.shields.io/cocoapods/v/Web3Swift.io.svg?style=flat" alt="Version">
+    </a>
+    <a href="https://opensource.org/licenses/Apache-2.0">
+        <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License">
+    </a>
+    <a href="https://twitter.com/intent/follow?screen_name=web3swift">
+        <img src="https://img.shields.io/twitter/follow/web3swift.svg?style=flat&logo=twitter"
+    alt="Follow on Twitter">
+    </a>
+</p>
 
 ## Installation
 
@@ -45,9 +67,7 @@ let response = try SendRawTransactionProcedure(
         network: network,
         senderKey: sender,
         recipientAddress: recipient,
-        weiAmount: EthNumber(
-            value: amount
-        )
+        weiAmount: amount
     )
 ).call()
 
@@ -339,7 +359,7 @@ After fetching the information you could transparently convert it to suitable ob
 ```swift
 // Get the number of the block in which the transaction occurred
 let block = try HexAsDecimalString(
-        hex: EthNumber(
+    hex: EthNumber(
         hex: basicInfo["result"]["blockNumber"].stringValue
     )   
 ).value()
