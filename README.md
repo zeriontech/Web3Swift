@@ -11,6 +11,7 @@
     <a href="https://travis-ci.org/zeriontech/Web3Swift">
         <img src="https://travis-ci.org/zeriontech/Web3Swift.svg?branch=develop" alt="CI Status">
     </a>
+<a href="https://app.fossa.io/projects/git%2Bgithub.com%2Fzeriontech%2FWeb3Swift?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fzeriontech%2FWeb3Swift.svg?type=shield"/></a>
     <a href="https://t.me/joinchat/AAiU-kcI09OSTb2y2GsJ_w">  
         <img src="https://img.shields.io/badge/chat-on%20telegram-blue.svg?longCache=true&style=flat" alt="Join Telegram">
     </a>
@@ -25,6 +26,9 @@
     alt="Follow on Twitter">
     </a>
 </p>
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fzeriontech%2FWeb3Swift.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fzeriontech%2FWeb3Swift?ref=badge_large)
 
 ## Installation
 
