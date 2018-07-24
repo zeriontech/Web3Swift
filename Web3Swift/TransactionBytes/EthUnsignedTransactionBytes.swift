@@ -33,7 +33,7 @@ public final class EthUnsignedTransactionBytes: BytesScalar {
      - weiAmount: amount to be sent in wei
      - contractCall: a bytes representation of the ABI call to the contract
      */
-    init(
+    public init(
         networkID: IntegerScalar,
         transactionsCount: BytesScalar,
         gasPrice: BytesScalar,
@@ -53,8 +53,6 @@ public final class EthUnsignedTransactionBytes: BytesScalar {
     
     
     /**
-     It should be noted that 35 is the magic number suggested by EIP155 https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md
-     
      - returns:
      unsigned transaction as `Data`
      

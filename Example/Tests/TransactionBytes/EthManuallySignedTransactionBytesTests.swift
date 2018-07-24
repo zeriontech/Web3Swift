@@ -14,7 +14,7 @@ import Quick
 
 class EthManuallySignedTransactionBytesTests: XCTestCase {
     
-    func testStaticParametersEncodedCorrectly() {
+    func testSignedTransactionIsEncodedCorrectly() {
         
         expect{
             return try EthManuallyTransactionBytes(

@@ -40,7 +40,7 @@ public final class EthManuallyTransactionBytes: BytesScalar {
      - v: bytes describe recovery point as defined in ecdsa and EIP-155
      - r: bytes describe R point as defined in ecdsa
      */
-    internal init(
+    public init(
         networkID: IntegerScalar,
         transactionsCount: BytesScalar,
         gasPrice: BytesScalar,
