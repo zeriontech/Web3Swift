@@ -153,6 +153,8 @@
 		8C77B9F3203DC77A0097DE61 /* BytesParameterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9F2203DC77A0097DE61 /* BytesParameterTests.swift */; };
 		8C77B9F5203DC9340097DE61 /* BooleanParameterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9F4203DC9340097DE61 /* BooleanParameterTests.swift */; };
 		8C77B9F9203DCA220097DE61 /* QuantityParameterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9F8203DCA220097DE61 /* QuantityParameterTests.swift */; };
+		8C8B79012107B99000F6EC2C /* EthUnsignedTransactionBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8B79002107B99000F6EC2C /* EthUnsignedTransactionBytesTests.swift */; };
+		8C8B79052107C01400F6EC2C /* EthManuallySignedTransactionBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8B79042107C01400F6EC2C /* EthManuallySignedTransactionBytesTests.swift */; };
 		8CA4CB6220D6CA6F009AAFA8 /* CompactHexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA4CB6120D6CA6F009AAFA8 /* CompactHexStringTests.swift */; };
 		94831128426593F56EE4BCAF /* Pods_Web3Swift_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31007316603078343330134 /* Pods_Web3Swift_Example.framework */; };
 /* End PBXBuildFile section */
@@ -321,6 +323,8 @@
 		8C77B9F2203DC77A0097DE61 /* BytesParameterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BytesParameterTests.swift; sourceTree = "<group>"; };
 		8C77B9F4203DC9340097DE61 /* BooleanParameterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooleanParameterTests.swift; sourceTree = "<group>"; };
 		8C77B9F8203DCA220097DE61 /* QuantityParameterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityParameterTests.swift; sourceTree = "<group>"; };
+		8C8B79002107B99000F6EC2C /* EthUnsignedTransactionBytesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthUnsignedTransactionBytesTests.swift; sourceTree = "<group>"; };
+		8C8B79042107C01400F6EC2C /* EthManuallySignedTransactionBytesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthManuallySignedTransactionBytesTests.swift; sourceTree = "<group>"; };
 		8CA4CB6120D6CA6F009AAFA8 /* CompactHexStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactHexStringTests.swift; sourceTree = "<group>"; };
 		8D3D6BEF8030D59C6F4A15FB /* Pods_Web3Swift_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Web3Swift_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D1308587140D3019CBC0F5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -398,6 +402,8 @@
 				584FADA6E364EE1FB2ACF6D5 /* EthContractCreationBytesTests.swift */,
 				584FA9D0D639D3F5E5025055 /* ContractDeploymentAndCallIT.swift */,
 				584FA6D971EE16C708F599D9 /* EthContractCallBytesTests.swift */,
+				8C8B79002107B99000F6EC2C /* EthUnsignedTransactionBytesTests.swift */,
+				8C8B79042107C01400F6EC2C /* EthManuallySignedTransactionBytesTests.swift */,
 			);
 			path = TransactionBytes;
 			sourceTree = "<group>";
@@ -872,7 +878,6 @@
 				607FACCE1AFB9204008FA782 /* Resources */,
 				EBB6B6BA4C731E232BDF097E /* [CP] Embed Pods Frameworks */,
 				96C55DCE203C61A300F7B8B3 /* ShellScript */,
-				91D0BE6005155AEE45F3403C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -893,7 +898,6 @@
 				607FACE31AFB9204008FA782 /* Resources */,
 				6614058F101887C8832107D8 /* [CP] Embed Pods Frameworks */,
 				96C55DCF203C64CF00F7B8B3 /* ShellScript */,
-				00A6FE7CAB021D6BF234D2EE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -966,21 +970,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		00A6FE7CAB021D6BF234D2EE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Web3Swift_Tests/Pods-Web3Swift_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6614058F101887C8832107D8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1027,21 +1016,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		91D0BE6005155AEE45F3403C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Web3Swift_Example/Pods-Web3Swift_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		96C55DCE203C61A300F7B8B3 /* ShellScript */ = {
@@ -1148,6 +1122,7 @@
 				584FA538B1B4B38D0AD9D0C9 /* SECP256k1SignatureTests.swift in Sources */,
 				584FACEC7F5AD9060590ED93 /* URL.swift in Sources */,
 				584FAC63F128D0FD1C832A17 /* EthPrivateKeyTests.swift in Sources */,
+				8C8B79052107C01400F6EC2C /* EthManuallySignedTransactionBytesTests.swift in Sources */,
 				584FA1A012191D2A54C91613 /* BytesFromCompactHexStringTests.swift in Sources */,
 				584FA7EFE57C0E816D2A22FE /* BytesFromHexStringTests.swift in Sources */,
 				584FAED8755DD6F0E88C6D04 /* ConcatenatedBytesTests.swift in Sources */,
@@ -1201,6 +1176,7 @@
 				584FA5983BEADC204550D6B2 /* EncodedContractTests.swift in Sources */,
 				584FAA11B99158E23C19D72D /* EthContractCreationBytesTests.swift in Sources */,
 				584FA7C41200ACF7635B34F4 /* Tim.swift in Sources */,
+				8C8B79012107B99000F6EC2C /* EthUnsignedTransactionBytesTests.swift in Sources */,
 				584FAFDCB05D1C67298CA74A /* SimpleActor.swift in Sources */,
 				584FA659D7E3D235F107B30A /* ContractDeploymentAndCallIT.swift in Sources */,
 				584FA224DD79A59F68AFCD3E /* ComputedContractAddressTests.swift in Sources */,
