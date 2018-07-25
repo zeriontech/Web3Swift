@@ -42,6 +42,5 @@ class EthUnsignedTransactionBytesTests: XCTestCase {
             ),
             description: "Transaction parameters expected to encoded correctly"
         )
-        
     }
 }

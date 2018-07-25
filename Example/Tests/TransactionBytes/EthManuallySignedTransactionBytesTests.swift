@@ -35,9 +35,9 @@ class EthManuallySignedTransactionBytesTests: XCTestCase {
                     value: 1
                 ),
                 contractCall: EmptyBytes(),
+                r: BytesFromHexString(hex: "4566e88fcc334ce45530cd443177fc943573ef2234188df7e5fb58c93f9f1359"),
                 s: BytesFromHexString(hex: "13d42bc12afce56c22b16d5208209e20dd3825bb9f4b706d080ac565597063bf"),
-                v: BytesFromHexString(hex: "26"),
-                r: BytesFromHexString(hex: "4566e88fcc334ce45530cd443177fc943573ef2234188df7e5fb58c93f9f1359")
+                v: BytesFromHexString(hex: "26")
             ).value().toHexString()
             
         }.to(

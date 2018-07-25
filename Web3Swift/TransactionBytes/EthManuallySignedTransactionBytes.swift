@@ -11,7 +11,7 @@
 import CryptoSwift
 import Foundation
 
-/** Signed transaction bytes */
+/** Remotly signed transaction bytes */
 public final class EthManuallyTransactionBytes: BytesScalar {
     
     private let networkID: IntegerScalar
@@ -21,9 +21,9 @@ public final class EthManuallyTransactionBytes: BytesScalar {
     private let recipientAddress: BytesScalar
     private let weiAmount: BytesScalar
     private let contractCall: BytesScalar
+    private let r: BytesScalar
     private let s: BytesScalar
     private let v: BytesScalar
-    private let r: BytesScalar
     
     /**
      Ctor
@@ -36,9 +36,9 @@ public final class EthManuallyTransactionBytes: BytesScalar {
      - recipientAddress: address of a recipient
      - weiAmount: amount to be sent in wei
      - contractCall: a bytes representation of the ABI call to the contract
+     - r: bytes describe R point as defined in ecdsa
      - s: bytes describe S point as defined in ecdsa
      - v: bytes describe recovery point as defined in ecdsa and EIP-155
-     - r: bytes describe R point as defined in ecdsa
      */
     public init(
         networkID: IntegerScalar,
@@ -48,9 +48,9 @@ public final class EthManuallyTransactionBytes: BytesScalar {
         recipientAddress: BytesScalar,
         weiAmount: BytesScalar,
         contractCall: BytesScalar,
+        r: BytesScalar,
         s: BytesScalar,
-        v: BytesScalar,
-        r: BytesScalar
+        v: BytesScalar
     ) {
         self.networkID = networkID
         self.transactionsCount = transactionsCount
@@ -59,9 +59,9 @@ public final class EthManuallyTransactionBytes: BytesScalar {
         self.recipientAddress = recipientAddress
         self.weiAmount = weiAmount
         self.contractCall = contractCall
+        self.r = r
         self.s = s
         self.v = v
-        self.r = r
     }
     
     /**
