@@ -57,17 +57,6 @@ public final class EthTransactionBytes: BytesScalar {
     }
 
     /**
-    Ctor
-
-    - parameters:
-        - network: Network where transaction is to be deployed
-        - senderKey: private key of a sender
-        - recipientAddress: address of a recipient
-        - weiAmount: amount to be sent in wei
-        - contractCall: a bytes representation of the ABI call to the contract
-    */
-
-    /**
     It should be noted that 35 is the magic number suggested by EIP155 https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md
 
     - returns:
