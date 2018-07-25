@@ -15,7 +15,6 @@ import Quick
 class EthUnsignedTransactionBytesTests: XCTestCase {
     
     func testStaticParametersEncodedCorrectly() {
-        
         expect{
             return try EthUnsignedTransactionBytes(
                 networkID: SimpleInteger(

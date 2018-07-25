@@ -15,7 +15,6 @@ import Quick
 class EthManuallySignedTransactionBytesTests: XCTestCase {
     
     func testSignedTransactionIsEncodedCorrectly() {
-        
         expect{
             return try EthManuallyTransactionBytes(
                 networkID: SimpleInteger(
@@ -46,6 +45,5 @@ class EthManuallySignedTransactionBytesTests: XCTestCase {
             ),
             description: "The above transaction with a nonce of 130 signed with Bob's key on external device is expected to be correctly signed"
         )
-        
     }
 }
