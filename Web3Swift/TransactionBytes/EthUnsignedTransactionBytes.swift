@@ -13,13 +13,7 @@ import Foundation
 /** Unsigned transaction bytes */
 public final class EthUnsignedTransactionBytes: BytesScalar {
     
-    private let networkID: IntegerScalar
-    private let transactionsCount: BytesScalar
-    private let gasPrice: BytesScalar
-    private let gasEstimate: BytesScalar
-    private let recipientAddress: BytesScalar
-    private let weiAmount: BytesScalar
-    private let contractCall: BytesScalar
+    private let origin: BytesScalar
     
     /**
      Ctor
@@ -42,13 +36,18 @@ public final class EthUnsignedTransactionBytes: BytesScalar {
         weiAmount: BytesScalar,
         contractCall: BytesScalar
     ) {
-        self.networkID = networkID
-        self.transactionsCount = transactionsCount
-        self.gasPrice = gasPrice
-        self.gasEstimate = gasEstimate
-        self.recipientAddress = recipientAddress
-        self.weiAmount = weiAmount
-        self.contractCall = contractCall
+        self.origin = EthManuallyTransactionBytes(
+            networkID: networkID,
+            transactionsCount: transactionsCount,
+            gasPrice: gasPrice,
+            gasEstimate: gasEstimate,
+            recipientAddress: recipientAddress,
+            weiAmount: weiAmount,
+            contractCall: contractCall,
+            r: EmptyBytes(),
+            s: EmptyBytes(),
+            v: EthNumber(value: networkID)
+        )
     }
     
     
@@ -60,21 +59,7 @@ public final class EthUnsignedTransactionBytes: BytesScalar {
      `DescribedError` if something went wrong
      */
     public func value() throws -> Data {
-        return try SimpleRLP(
-            rlps: [
-                EthRLP(number: transactionsCount),
-                EthRLP(number: gasPrice),
-                EthRLP(number: gasEstimate),
-                SimpleRLP(bytes: recipientAddress),
-                EthRLP(number: weiAmount),
-                SimpleRLP(bytes: contractCall),
-                EthRLP(
-                    number: EthNumber(value: networkID)
-                ),
-                SimpleRLP(bytes: []),
-                SimpleRLP(bytes: [])
-            ]
-        ).value()
+        return try origin.value()
     }
     
 }
