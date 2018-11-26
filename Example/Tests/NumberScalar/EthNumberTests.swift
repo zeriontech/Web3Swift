@@ -65,6 +65,34 @@ final class EthNumberTests: XCTestCase {
             )
         }
     }
+    
+    func testNumberFromDecimalIsComputedCorrectly() {
+        expect{
+            try EthNumber(
+                decimal: "18446744073709551616"
+            ).value()
+        }.to(
+            equal(
+                Data(
+                    bytes: [0x01] + Array<UInt8>(repeating: 0x00, count: 8)
+                )
+            ),
+            description: "EthNumber is expected to be a big endian representation of a decimal"
+        )
+    }
+    
+    func testInvalidDecimalToNumberConversionThrows() {
+        expect{
+            try EthNumber(
+                decimal: "NaN"
+            ).value()
+        }.to(
+            throwError(
+                errorType: DecimalToHexConversionError.self
+            ),
+            description: "Attempting to create EthInteger from an invalid decimal string representation is expected to throw"
+        )
+    }
 
     func testNumbersExceedingIntMaxAreAllowed() {
         expect{
