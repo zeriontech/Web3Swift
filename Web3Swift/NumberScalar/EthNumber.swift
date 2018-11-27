@@ -8,7 +8,22 @@
 // Created by Timofey Solonin on 14/05/2018
 //
 
+import BigInt
 import Foundation
+
+public final class DecimalToHexConversionError: DescribedError {
+    
+    private let decimal: String
+    
+    init(decimal: String) {
+        self.decimal = decimal
+    }
+    
+    public var description: String {
+        return "Unable to convert decimal string \"\(decimal)\" to hex"
+    }
+    
+}
 
 /** Unsigned big endian number without leading zeroes */
 public final class EthNumber: BytesScalar {
@@ -84,6 +99,41 @@ public final class EthNumber: BytesScalar {
     public convenience init(hex: String) {
         self.init(
             hex: SimpleString{ hex }
+        )
+    }
+    
+    /**
+     Ctor
+     
+     - parameters:
+         - decimal: decimal string representation of the number
+     */
+    public convenience init(decimal: StringScalar) {
+        self.init(
+            hex: SimpleBytes{
+                let decimal = try decimal.value()
+                guard let hex = BigUInt(
+                    decimal,
+                    radix: 10
+                )?.serialize() else {
+                    throw DecimalToHexConversionError(decimal: decimal)
+                }
+                return hex
+            }
+        )
+    }
+
+    /**
+     Ctor
+     
+     - parameters:
+         - decimal: decimal string representation of the number
+     */
+    public convenience init(decimal: String) {
+        self.init(
+            decimal: SimpleString(
+                string: decimal
+            )
         )
     }
 
