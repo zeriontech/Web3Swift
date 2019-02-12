@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.source_files = 'Web3Swift/**/*'
   s.dependency 'SwiftyJSON', '= 4.1.0'
   s.dependency 'secp256k1_ios', '= 0.1.1'
-  s.dependency 'CryptoSwift', '= 0.9.0'
+  s.dependency 'CryptoSwift', '= 0.14.0'
   s.dependency 'BigInt.swift', '= 1.0.0'
 
 end

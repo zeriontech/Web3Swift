@@ -976,7 +976,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Web3Swift_Tests/Pods-Web3Swift_Tests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Web3Swift_Tests/Pods-Web3Swift_Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BigInt.swift/BigInt.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -997,7 +997,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Web3Swift_Tests/Pods-Web3Swift_Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Web3Swift_Tests/Pods-Web3Swift_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7D2C3471C79726BC75FFBF08 /* [CP] Check Pods Manifest.lock */ = {
@@ -1068,7 +1068,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Web3Swift_Example/Pods-Web3Swift_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Web3Swift_Example/Pods-Web3Swift_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BigInt.swift/BigInt.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -1085,7 +1085,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Web3Swift_Example/Pods-Web3Swift_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Web3Swift_Example/Pods-Web3Swift_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
