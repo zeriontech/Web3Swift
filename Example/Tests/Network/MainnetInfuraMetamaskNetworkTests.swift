@@ -17,7 +17,7 @@ final class MainnetInfuraMetamaskNetworkTests: XCTestCase {
 
     func testMainnetID() {
         expect{
-            try MainnetInfuraMetamaskNetwork().id().value()
+            try MainnetInfuraNetwork().id().value()
         }.to(
             equal(1),
             description: "Mainnet is expected to have an id of 1"
@@ -27,7 +27,7 @@ final class MainnetInfuraMetamaskNetworkTests: XCTestCase {
     func testMainnetCall() {
         expect{
             try JSON(
-                data: MainnetInfuraMetamaskNetwork().call(
+                data: MainnetInfuraNetwork().call(
                     method: "net_version",
                     params: []
                 )

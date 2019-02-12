@@ -18,7 +18,7 @@ class InfuraNetworkTests: XCTestCase {
     /// Assert network call does not throw an error on valid params
     func testValidCall() {
         expect{
-            try MainnetInfuraMetamaskNetwork().call(
+            try MainnetInfuraNetwork().call(
                 method: "web3_sha3",
                 params: [
                     BytesParameter(
@@ -38,7 +38,7 @@ class InfuraNetworkTests: XCTestCase {
     /// Assert network call throws an error on invalid method
     func testInValidCall() {
         expect{
-            try MainnetInfuraMetamaskNetwork().call(
+            try MainnetInfuraNetwork().call(
                 method: "web4_sha4",
                 params: [
                     BytesParameter(

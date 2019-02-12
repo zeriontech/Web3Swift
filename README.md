@@ -58,7 +58,7 @@ let recipient: BytesScalar = EthAddress(
     
 let network: Network = InfuraNetwork(
     chain: "mainnet", 
-    apiKey: "metamask"
+    apiKey: "0c4d6dc730244b4185a6bde26f981bff"
 )
 
 let amount: BytesScalar = EthNumber(
@@ -106,7 +106,7 @@ In this example we send token from an account with a private key `0x1636e10756e6
 import Web3Swift
 
 let network: Network = InfuraNetwork(
-    chain: "mainnet", apiKey: "metamask"
+    chain: "mainnet", apiKey: "0c4d6dc730244b4185a6bde26f981bff"
 )
 
 let sender: PrivateKey = EthPrivateKey(
@@ -193,7 +193,7 @@ You do not need to send transaction for reading data from a smart contract. Here
 let balance = try HexAsDecimalString(
     hex: EthContractCall(
         network: InfuraNetwork(
-            chain: "mainnet", apiKey: "metamask"
+            chain: "mainnet", apiKey: "0c4d6dc730244b4185a6bde26f981bff"
         ),
         contractAddress: EthAddress(
             hex: "0xd26114cd6EE289AccF82350c8d8487fedB8A0C07" //OmiseGO token contract
@@ -288,7 +288,7 @@ let transactionHash = BytesFromHexString(
 
 let network = InfuraNetwork(
     chain: "mainnet",
-    apiKey: "metamask"
+    apiKey: "0c4d6dc730244b4185a6bde26f981bff"
 )
 
 let basicInfo: JSON = try TransactionProcedure(

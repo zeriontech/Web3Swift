@@ -19,7 +19,7 @@ final class GetGasPriceProcedureTests: XCTestCase {
     func testNotEmptyData() {
         expect{
             try GetGasPriceProcedure(
-                network: MainnetInfuraMetamaskNetwork()
+                network: MainnetInfuraNetwork()
                 ).call()
         }.toNot(
             beEmpty()
@@ -31,7 +31,7 @@ final class GetGasPriceProcedureTests: XCTestCase {
         expect{
             try EthInteger(
                 hex: GetGasPriceProcedure(
-                    network: MainnetInfuraMetamaskNetwork()
+                    network: MainnetInfuraNetwork()
                 ).call()["result"].string()
             ).value()
         }.to(
