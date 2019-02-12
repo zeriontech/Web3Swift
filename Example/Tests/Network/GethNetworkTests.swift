@@ -19,7 +19,7 @@ class GethNetworkTests: XCTestCase {
     func testValidUrl()
     {
         expect{
-            try GethNetwork(url: "https://mainnet.infura.io/metamask").id()
+            try GethNetwork(url: "https://mainnet.infura.io/v3/0c4d6dc730244b4185a6bde26f981bff").id()
         }.notTo(
             throwError(),
             description: "Make sure network can be initialised with correct url"

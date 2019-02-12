@@ -51,7 +51,7 @@
 		584FA54170EC3B410EB45541 /* UnsignedNumbersEqualityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAD5469609B4042202A1B /* UnsignedNumbersEqualityTests.swift */; };
 		584FA5454BF97F71DB6896B7 /* UnsignedNumbersDifferenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA0DEB973D0359E359B3B /* UnsignedNumbersDifferenceTests.swift */; };
 		584FA57AE4696ABCE69EF251 /* ABIAddressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAF93BD185C4B03317BD5 /* ABIAddressTests.swift */; };
-		584FA57D105290DBCD21DCD7 /* MainnetInfuraMetamaskNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA742AE71D7A00EE214B0 /* MainnetInfuraMetamaskNetwork.swift */; };
+		584FA57D105290DBCD21DCD7 /* MainnetMetamaskNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA742AE71D7A00EE214B0 /* MainnetMetamaskNetwork.swift */; };
 		584FA5983BEADC204550D6B2 /* EncodedContractTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA3A32F07F98B84AEC25E /* EncodedContractTests.swift */; };
 		584FA5AC71FE3208939495C3 /* EthContractCallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FAA2AA63184DE9EC11F74 /* EthContractCallTests.swift */; };
 		584FA5C085BF5892631B17AF /* LeftZeroesPaddedBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA84177D99BD8D49055C2 /* LeftZeroesPaddedBytesTests.swift */; };
@@ -226,7 +226,7 @@
 		584FA6FABD0BC6711F3EE057 /* UTF8StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UTF8StringTests.swift; sourceTree = "<group>"; };
 		584FA71F89C717A8F84D4EE0 /* MappedCollectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappedCollectionTests.swift; sourceTree = "<group>"; };
 		584FA7297F773191C9C38F22 /* LastBytesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastBytesTests.swift; sourceTree = "<group>"; };
-		584FA742AE71D7A00EE214B0 /* MainnetInfuraMetamaskNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainnetInfuraMetamaskNetwork.swift; sourceTree = "<group>"; };
+		584FA742AE71D7A00EE214B0 /* MainnetMetamaskNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainnetMetamaskNetwork.swift; sourceTree = "<group>"; };
 		584FA7F0A2C068EA931B3E40 /* EncodedABITupleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodedABITupleTests.swift; sourceTree = "<group>"; };
 		584FA7F7CE27DE3BEFB66E6C /* ContractCallProcedureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractCallProcedureTests.swift; sourceTree = "<group>"; };
 		584FA7FA6D0FD49178343F1E /* TernaryIntegerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TernaryIntegerTests.swift; sourceTree = "<group>"; };
@@ -483,7 +483,7 @@
 			isa = PBXGroup;
 			children = (
 				584FA888EDFB99F27887D65B /* GanacheLocalNetwork.swift */,
-				584FA742AE71D7A00EE214B0 /* MainnetInfuraMetamaskNetwork.swift */,
+				584FA742AE71D7A00EE214B0 /* MainnetMetamaskNetwork.swift */,
 			);
 			path = Networks;
 			sourceTree = "<group>";
@@ -976,7 +976,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Web3Swift_Tests/Pods-Web3Swift_Tests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Web3Swift_Tests/Pods-Web3Swift_Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BigInt.swift/BigInt.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -997,7 +997,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Web3Swift_Tests/Pods-Web3Swift_Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Web3Swift_Tests/Pods-Web3Swift_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7D2C3471C79726BC75FFBF08 /* [CP] Check Pods Manifest.lock */ = {
@@ -1068,7 +1068,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Web3Swift_Example/Pods-Web3Swift_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Web3Swift_Example/Pods-Web3Swift_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BigInt.swift/BigInt.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -1085,7 +1085,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Web3Swift_Example/Pods-Web3Swift_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Web3Swift_Example/Pods-Web3Swift_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1153,7 +1153,7 @@
 				584FA294E0F5E5F8CDB33E28 /* Bob.swift in Sources */,
 				584FA951AD3FAB9C359A90EF /* GanacheLocalNetworkTests.swift in Sources */,
 				584FA0C5E8ED7728A2AAD364 /* GanacheLocalNetwork.swift in Sources */,
-				584FA57D105290DBCD21DCD7 /* MainnetInfuraMetamaskNetwork.swift in Sources */,
+				584FA57D105290DBCD21DCD7 /* MainnetMetamaskNetwork.swift in Sources */,
 				584FA8DB9AC9BD077D9315A5 /* MainnetInfuraMetamaskNetworkTests.swift in Sources */,
 				584FA7F17D3B2B2F38437B3B /* RightZeroesPaddedBytesTests.swift in Sources */,
 				584FA5C085BF5892631B17AF /* LeftZeroesPaddedBytesTests.swift in Sources */,
