@@ -17,7 +17,7 @@ final class ContractCallProcedureTests: XCTestCase {
     func testEOSSupply() {
         expect{
             try ContractCallProcedure(
-                network: MainnetInfuraMetamaskNetwork(),
+                network: MainnetInfuraNetwork(),
                 parameters: [
                     "to" : BytesParameter(
                         bytes: EthAddress(

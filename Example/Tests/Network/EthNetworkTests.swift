@@ -20,7 +20,7 @@ class EthNetworkTests: XCTestCase {
         expect{
             try EthNetwork(
                 session: URLSession(configuration: URLSessionConfiguration.default),
-                url: "https://mainnet.infura.io/metamask",
+                url: "https://mainnet.infura.io/v3/0c4d6dc730244b4185a6bde26f981bff",
                 headers: [
                     "Accept": "application/json",
                     "Content-Type": "application/json"
@@ -38,32 +38,6 @@ class EthNetworkTests: XCTestCase {
         }.notTo(
             throwError(),
             description: "Make sure network call executed succesfully"
-        )
-    }
-    
-    /// Assert network call throws an error on invalid method
-    func testInValidCall() {
-        expect{
-            return try EthNetwork(
-                session: URLSession(configuration: URLSessionConfiguration.default),
-                url: "https://mainnet.infura.io/metamask",
-                headers: [
-                    "Accept": "application/json",
-                    "Content-Type": "application/json"
-                ]
-            ).call(
-                method: "web4_sha4",
-                params: [
-                    BytesParameter(
-                        bytes: UTF8StringBytes(
-                            string: "web3swift"
-                        )
-                    )
-                ]
-            )
-        }.to(
-            throwError(),
-            description: "Make sure network call execution fails"
         )
     }
     

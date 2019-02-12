@@ -18,7 +18,7 @@ final class EthTransactionReceiptIT: XCTestCase {
     func testExistingTransactionReceipt() {
         expect{
             try EthTransactionReceipt(
-                network: MainnetInfuraMetamaskNetwork(),
+                network: MainnetInfuraNetwork(),
                 transactionHash: BytesFromHexString(
                     hex: "0xd84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"
                 )
