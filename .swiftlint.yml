@@ -1,0 +1,290 @@
+whitelist_rules:
+  - array_init
+  - attributes
+  - block_based_kvo
+  - class_delegate_protocol
+  - closing_brace
+  - closure_end_indentation
+  - closure_parameter_position
+  - closure_spacing
+  # - colon
+  - comma
+  - compiler_protocol_init
+  - contains_over_first_not_nil
+  - control_statement
+  - custom_rules
+  - cyclomatic_complexity
+  - discouraged_optional_boolean
+  - empty_count
+  - empty_enum_arguments
+  - empty_parameters
+  - empty_parentheses_with_trailing_closure
+  - explicit_acl
+  - explicit_init
+  - explicit_type_interface
+  - fallthrough
+  - fatal_error_message
+  - file_length
+  - first_where
+  - for_where
+  - force_cast
+  - force_try
+  - force_unwrapping
+  - function_body_length
+  - function_body_comments
+  - function_body_whitespace_lines
+  - function_parameter_count
+  - generic_type_name
+  - identifier_name
+  - implicit_getter
+  - implicitly_unwrapped_optional
+  - is_disjoint
+  - large_tuple
+  - leading_whitespace
+  - legacy_cggeometry_functions
+  - legacy_constant
+  - legacy_constructor
+  - literal_expression_end_indentation
+  - multiline_arguments
+  - multiline_parameters
+  - multiple_closures_with_trailing_closure
+  - operator_usage_whitespace
+  - redundant_discardable_let
+  - redundant_nil_coalescing
+  - redundant_void_return
+  - return_arrow_whitespace
+  - shorthand_operator
+  - single_test_class
+  - sorted_imports
+  - subclass
+  - superfluous_disable_command
+  - switch_case_alignment
+  - type_body_length
+  - type_name
+  - unneeded_break_in_switch
+  - unneeded_parentheses_in_closure_argument
+  - unused_closure_parameter
+  - unused_optional_binding
+  - vertical_parameter_alignment
+  - yoda_condition
+
+included:
+  - Web3Swift
+  - Example/Tests
+
+excluded:
+  - Example/Carthage
+  - Example/Pods
+  - Example/Web3Swift
+
+array_init:
+  severity: error
+
+attributes:
+  severity: error
+
+block_based_kvo:
+  severity: error
+
+class_delegate_protocol:
+  severity: error
+
+closing_brace:
+  severity: error
+
+closure_end_indentation:
+  severity: error
+
+closure_parameter_position:
+  severity: error
+
+closure_spacing:
+  severity: error
+
+colon:
+  severity: error
+  apply_to_dictionaries: false
+
+comma:
+  severity: error
+
+compiler_protocol_init:
+  severity: error
+
+contains_over_first_not_nil:
+  severity: error
+
+control_statement:
+  severity: error
+
+cyclomatic_complexity:
+  warning: 5
+  error: 15
+
+discouraged_optional_boolean:
+  severity: error
+
+empty_count:
+  severity: error
+
+empty_enum_arguments:
+  severity: error
+
+empty_parameters:
+  severity: error
+
+empty_parentheses_with_trailing_closure:
+  severity: error
+
+explicit_acl:
+  severity: warning
+
+explicit_init:
+  severity: error
+
+explicit_type_interface:
+  severity: error
+  excluded: 
+    - local
+
+fallthrough: 
+  severity: error
+
+fatal_error_message:
+  severity: error
+
+file_length:
+  warning: 200
+  error: 250
+  ignore_comment_only_lines: true
+
+first_where:
+  severity: error
+
+for_where:
+  severity: error
+
+force_cast: 
+  severity: error 
+
+force_try:
+  severity: error 
+
+force_unwrapping:
+  severity: error
+
+function_body_length:
+  warning: 40
+  error: 80
+
+function_parameter_count:
+  warning: 5
+  error: 7
+
+identifier_name:
+  min_length:
+    warning: 0 
+    error: 0
+  max_length:
+    warning: 30
+    error: 40
+  excluded:
+    - r
+    - s
+    - v
+
+implicit_getter:
+  severity: error
+
+implicitly_unwrapped_optional:
+  severity: error
+
+is_disjoint: 
+  severity: error
+
+large_tuple:
+  error: 2
+
+leading_whitespace:
+  severity: error
+
+legacy_cggeometry_functions:
+  severity: error
+
+legacy_constant:
+  severity: error
+
+legacy_constructor:
+  severity: error
+
+literal_expression_end_indentation:
+  severity: error
+
+multiline_arguments:
+  severity: error
+  first_argument_location: next_line
+
+multiline_parameters:
+  severity: error
+
+multiple_closures_with_trailing_closure:
+  severity: error
+
+operator_usage_whitespace:
+  severity: error
+
+redundant_discardable_let:
+  severity: error
+
+redundant_nil_coalescing:
+  severity: error
+
+redundant_void_return:
+  severity: error
+
+return_arrow_whitespace:
+  severity: error
+
+shorthand_operator:
+  severity: error
+
+single_test_class:
+  severity: error
+
+sorted_imports:
+  severity: error
+
+switch_case_alignment:
+  severity: error
+
+type_body_length:
+  warning: 200 
+  error: 250 
+
+type_name:
+  min_length: 
+    warning: 0
+    error: 0
+  max_length:
+    warning: 30
+    error: 40
+
+unneeded_break_in_switch:
+  severity: error
+
+unneeded_parentheses_in_closure_argument:
+  severity: error
+
+unused_closure_parameter:
+  severity: error
+
+unused_optional_binding:
+  severity: error
+
+vertical_parameter_alignment:
+  severity: error
+
+yoda_condition:
+  severity: error
+
+reporter: "xcode"

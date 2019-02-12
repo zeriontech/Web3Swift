@@ -1,11 +1,18 @@
 //
-// Created by Timofey on 1/20/18.
+// This source file is part of the Web3Swift.io open source project
+// Copyright 2018 The Web3Swift Authors
+// Licensed under Apache License v2.0
+//
+// RemoteProcedure.swift
+//
+// Created by Timofey Solonin on 10/05/2018
 //
 
 import Foundation
+import SwiftyJSON
 
-protocol RemoteProcedure {
+public protocol RemoteProcedure {
 
-    func call() throws -> Data
+    func call() throws -> JSON
 
 }
