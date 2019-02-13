@@ -187,6 +187,61 @@ final class EncodedABIFunctionTests: XCTestCase {
             description: "Selector + address[2] is expected to be encoded correctly"
         )
     }
+    
+    func testTwoAddressFixedArraysOfTwo() {
+        expect{
+            try EncodedABIFunction(
+                signature: SimpleString(
+                    string: "baz(uint32,bool)"
+                ),
+                parameters: [
+                    ABITuple(
+                        parameters: [
+                            ABITuple(
+                                parameters: [
+                                    ABIAddress(
+                                        address: EthAddress(
+                                            hex: "0x407d73d8a49eeb85d32cf465507dd71d507100c1"
+                                        )
+                                    ),
+                                    ABIAddress(
+                                        address: EthAddress(
+                                            hex: "0x407d73d8a49eeb85d32cf465507dd71d507100c2"
+                                        )
+                                    )
+                                ]
+                            ),
+                            ABITuple(
+                                parameters: [
+                                    ABIAddress(
+                                        address: EthAddress(
+                                            hex: "0x407d73d8a49eeb85d32cf465507dd71d507100c3"
+                                        )
+                                    ),
+                                    ABIAddress(
+                                        address: EthAddress(
+                                            hex: "0x407d73d8a49eeb85d32cf465507dd71d507100c4"
+                                        )
+                                    )
+                                ]
+                            )
+                        ]
+                    )
+                ]
+            ).value()
+        }.to(
+            equal(
+                Data(
+                    hex: "cdcd77c0" +
+                        "000000000000000000000000407d73d8a49eeb85d32cf465507dd71d507100c1" +
+                        "000000000000000000000000407d73d8a49eeb85d32cf465507dd71d507100c2" +
+                        "000000000000000000000000407d73d8a49eeb85d32cf465507dd71d507100c3" +
+                        "000000000000000000000000407d73d8a49eeb85d32cf465507dd71d507100c4"
+                )
+            ),
+            description: "Selector + address[2][2] is expected to be encoded correctly"
+        )
+    }
 
     func testAddressDynamicArrayOfTwo() {
         expect{
