@@ -8,7 +8,7 @@ PODS:
   - SwiftyJSON (4.1.0)
   - Web3Swift.io (0.0.1):
     - BigInt.swift (= 1.0.0)
-    - CryptoSwift (= 0.14.0)
+    - CryptoSwift (~> 0.14.0)
     - secp256k1_ios (= 0.1.1)
     - SwiftyJSON (= 4.1.0)
 
@@ -46,7 +46,7 @@ SPEC CHECKSUMS:
   secp256k1_ios: 3c94e6cce14ff03924cb6dc10c5017f17011b79d
   SwiftLint: ce933681be10c3266e82576dad676fa815a602e9
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
-  Web3Swift.io: 5fadce8e2814c5ddfed6d278b427f9b660e13ee7
+  Web3Swift.io: 8d7448b85e1b9afc4f59951631f22cab32d0a7db
 
 PODFILE CHECKSUM: da3580585a2e1577cba6b9aff6fe3cf1ca4b44d7
 
