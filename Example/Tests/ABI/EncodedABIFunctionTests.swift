@@ -604,4 +604,161 @@ final class EncodedABIFunctionTests: XCTestCase {
         )
     }
 
+    func test0xContractCallEncoding() {
+        let kittiesContract = EthAddress(
+            hex: "0x06012c8cf97bead5deae237070f9587f8e7a266d"
+        )
+        let sender = EthAddress(
+            hex: "0x0aD9Fb61a07BAC25625382B63693644497f1B204"
+        )
+        let receiver = EthAddress(
+            hex: "0x4dB6d56Bbb49DD66abC7be5D671fDdF9a5255Cc5"
+        )
+        let zero = EthAddress(
+            hex: "0x0000000000000000000000000000000000000000"
+        )
+        let makerAssetData = RightZeroesPaddedBytes(
+            origin: EncodedABIFunction(
+                signature: SimpleString(
+                    string: "ERC721Token(address,uint256)"
+                ),
+                parameters: [
+                    ABIAddress(
+                        address: kittiesContract
+                    ),
+                    ABIUnsignedNumber(
+                        origin: EthNumber(value: 478404)
+                    )
+                ]
+            ),
+            padding: 32
+        )
+        let takerAssetData = RightZeroesPaddedBytes(
+            origin: EncodedABIFunction(
+                signature: SimpleString(
+                    string: "ERC721Token(address,uint256)"
+                ),
+                parameters: [
+                    ABIAddress(
+                        address: kittiesContract
+                    ),
+                    ABIUnsignedNumber(
+                        origin: EthNumber(value: 392919)
+                    )
+                ]
+            ),
+            padding: 32
+        )
+        let orderInfo = EncodedABIFunction(
+            signature: SimpleString(
+                string: "getOrderInfo((" +
+                    "address," +
+                    "address," +
+                    "address," +
+                    "address," +
+                    "uint256," +
+                    "uint256," +
+                    "uint256," +
+                    "uint256," +
+                    "uint256," +
+                    "uint256," +
+                    "bytes," +
+                "bytes))"
+            ),
+            parameters: [
+                ABITuple(
+                    parameters: [
+                        // makerAddress
+                        ABIAddress(
+                            address: sender
+                        ),
+                        // takerAddress
+                        ABIAddress(
+                            address: receiver
+                        ),
+                        // feeRecipientAddress
+                        ABIAddress(
+                            address: zero
+                        ),
+                        // senderAddress
+                        ABIAddress(
+                            address: zero
+                        ),
+                        // makerAssetAmount
+                        ABIUnsignedNumber(
+                            origin: EthNumber(value: 1)
+                        ),
+                        // takerAssetAmount
+                        ABIUnsignedNumber(
+                            origin: EthNumber(value: 1)
+                        ),
+                        // makerFee
+                        ABIUnsignedNumber(
+                            origin: EthNumber(value: 0)
+                        ),
+                        // takerFee
+                        ABIUnsignedNumber(
+                            origin: EthNumber(value: 0)
+                        ),
+                        // expiration timestamp
+                        ABIUnsignedNumber(
+                            origin: EthNumber(
+                                hex: "5c5f8a23"
+                            )
+                        ),
+                        // salt
+                        ABIFixedBytes(
+                            origin: BytesFromHexString(
+                                hex: "745a4c682985f13b4f6935e129e895a70737172437c4296d900c7b0a1b19354e"
+                            )
+                        ),
+                        // makerAssetData
+                        ABIVariableBytes(
+                            origin: RightZeroesPaddedBytes(
+                                origin: makerAssetData,
+                                padding: 32
+                            )
+                        ),
+                        // takerAssetData
+                        ABIVariableBytes(
+                            origin: RightZeroesPaddedBytes(
+                                origin: takerAssetData,
+                                padding: 32
+                            )
+                        )
+                    ]
+                )
+            ]
+        )
+        expect{
+            try PrefixedHexString(bytes: orderInfo).value()
+        }.to(
+            equal(
+                "0xc75e0a81" +
+                "0000000000000000000000000000000000000000000000000000000000000020" +
+                "0000000000000000000000000ad9fb61a07bac25625382b63693644497f1b204" +
+                "0000000000000000000000004db6d56bbb49dd66abc7be5d671fddf9a5255cc5" +
+                "0000000000000000000000000000000000000000000000000000000000000000" +
+                "0000000000000000000000000000000000000000000000000000000000000000" +
+                "0000000000000000000000000000000000000000000000000000000000000001" +
+                "0000000000000000000000000000000000000000000000000000000000000001" +
+                "0000000000000000000000000000000000000000000000000000000000000000" +
+                "0000000000000000000000000000000000000000000000000000000000000000" +
+                "000000000000000000000000000000000000000000000000000000005c5f8a23" +
+                "745a4c682985f13b4f6935e129e895a70737172437c4296d900c7b0a1b19354e" +
+                "0000000000000000000000000000000000000000000000000000000000000180" +
+                "0000000000000000000000000000000000000000000000000000000000000200" +
+                "0000000000000000000000000000000000000000000000000000000000000060" +
+                "0257179200000000000000000000000006012c8cf97bead5deae237070f9587f" +
+                "8e7a266d00000000000000000000000000000000000000000000000000000000" +
+                "00074cc400000000000000000000000000000000000000000000000000000000" +
+                "0000000000000000000000000000000000000000000000000000000000000060" +
+                "0257179200000000000000000000000006012c8cf97bead5deae237070f9587f" +
+                "8e7a266d00000000000000000000000000000000000000000000000000000000" +
+                "0005fed700000000000000000000000000000000000000000000000000000000"
+            ),
+            description: "0x contract call is expected to be encoded correctly"
+        )
+    }
+    
 }
