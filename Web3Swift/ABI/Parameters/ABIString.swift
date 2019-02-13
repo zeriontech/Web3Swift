@@ -51,4 +51,20 @@ public final class ABIString: ABIEncodedParameter {
         return try origin.tails(offset: offset)
     }
 
+    /**
+    - returns:
+    true
+    */
+    public func isDynamic() -> Bool {
+        return origin.isDynamic()
+    }
+
+    /**
+    - returns:
+    1
+    */
+    public func headsCount() -> Int {
+        return 1
+    }
+
 }

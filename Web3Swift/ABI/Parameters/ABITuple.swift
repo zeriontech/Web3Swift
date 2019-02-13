@@ -13,19 +13,20 @@ import Foundation
 /** A collection of non dynamic elements of fixed length. Parameters of the ABI function are a dynamically typed tuple. Fixed length ABI arrays are a statically typed flatmapped tuple. */
 public final class ABITuple: ABIEncodedParameter {
 
+    private let encoding: ABITupleEncoding
     private let parameters: [ABIEncodedParameter]
 
     /**
     Ctor
 
     - parameters:
-        - parameters: a collection of parameters to be encoded as a tuple. All tuples inside tuples must be logically flatmapped to the root tuple. Having tuple in a dynamic collection in a tuple is allowed.
+        - parameters: a collection of parameters to be encoded as a tuple
     */
     public init(parameters: [ABIEncodedParameter]) {
         self.parameters = parameters
+        encoding = ABITupleEncoding(parameters: parameters)
     }
-
-    //TODO: Tuple heads are computed correctly only if it doesn't directly contain another tuple (having tuple in a dynamic collection in a tuple is allowed). This is because of the assumption that every ABI type but tuple has only one element in the heads. Such constraint breaks the declarativity of code when mapping directly from Solidity to Web3Swift ABIEncodedParameter because it imposes the flatmapping of the tuple in a tuple scenario on the user. From the standpoint of the ABI encoding enclosed tuple and flatmapped tuple produce equivalent encodings.
+    
     /**
     - parameters:
         - offset: number of elements preceding the tuple tails
@@ -34,21 +35,22 @@ public final class ABITuple: ABIEncodedParameter {
     A collection of heads followed by tails of the tuple parameters
     */
     public func heads(offset: Int) throws -> [BytesScalar] {
-        let parameters = self.parameters
-        var additionalOffset: Int = offset + parameters.count
-        var heads: [BytesScalar] = []
-        var tails: [BytesScalar] = []
-        try parameters.forEach{ parameter in
-            try heads += parameter.heads(
-                offset: additionalOffset
-            )
-            let parameterTails = try parameter.tails(
-                offset: additionalOffset
-            )
-            tails += parameterTails
-            additionalOffset += parameterTails.count
+        let heads: [BytesScalar]
+        if isDynamic() {
+            heads = [
+                LeftZeroesPaddedBytes(
+                    origin: SimpleBytes{
+                        try EthNumber(
+                            value: offset * 32
+                        ).value()
+                    },
+                    length: 32
+                )
+            ]
+        } else {
+            heads = try encoding.value()
         }
-        return heads + tails
+        return heads
     }
 
     /**
@@ -59,7 +61,36 @@ public final class ABITuple: ABIEncodedParameter {
     Empty collection
     */
     public func tails(offset: Int) throws -> [BytesScalar] {
-        return []
+        let tails: [BytesScalar]
+        if isDynamic() {
+            tails = try encoding.value()
+        } else {
+            tails = []
+        }
+        return tails
+    }
+
+    /**
+    - returns:
+    true if contains at least one dynamic parameter, false otherwise
+    */
+    public func isDynamic() -> Bool {
+        return parameters.contains(where: { $0.isDynamic() })
+    }
+
+    /**
+    - returns:
+    If tuple is dynamic it has a single head which is its offset. If tuple is static its heads count is a sum of its parameters heads count
+    */
+    public func headsCount() -> Int {
+        let count: Int
+        if isDynamic() {
+            count = 1
+        } else {
+            count = encoding.headsCount()
+        }
+        return count
     }
 
 }
+
