@@ -14,6 +14,7 @@ import Foundation
 public final class ABIDynamicCollection: ABIEncodedParameter {
 
     private let parameters: [ABIEncodedParameter]
+    private let encoding: ABITupleEncoding
 
     /**
     Ctor
@@ -23,6 +24,7 @@ public final class ABIDynamicCollection: ABIEncodedParameter {
     */
     public init(parameters: [ABIEncodedParameter]) {
         self.parameters = parameters
+        encoding = ABITupleEncoding(parameters: parameters)
     }
 
     /**
@@ -50,24 +52,35 @@ public final class ABIDynamicCollection: ABIEncodedParameter {
         - offset: number of elements preceding the dynamic collection tails
 
     - returns:
-    A collection of the parameters encodings prefixed by the parameters count. Parameters encodings are offset by the previous offset plus a 1 for the count prefix.
+    A collection of the parameters encodings prefixed by the parameters count.
     */
     public func tails(offset: Int) throws -> [BytesScalar] {
-        let parameters = self.parameters
         return try [
             LeftZeroesPaddedBytes(
-                origin: SimpleBytes{
+                origin: SimpleBytes{ [parameters] in
                     try EthNumber(
                         value: parameters.count
                     ).value()
                 },
                 length: 32
             )
-        ] + ABITuple(
-            parameters: parameters
-        ).heads(
-            offset: 0
-        )
+        ] + encoding.value()
+    }
+
+    /**
+    - returns:
+    true
+    */
+    public func isDynamic() -> Bool {
+        return true
+    }
+
+    /**
+    - returns:
+    1
+    */
+    public func headsCount() -> Int {
+        return 1
     }
 
 }

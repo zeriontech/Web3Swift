@@ -52,4 +52,20 @@ public final class ABIUnsignedNumber: ABIEncodedParameter {
         return try origin.tails(offset: offset)
     }
 
+    /**
+    - returns:
+    false
+    */
+    public func isDynamic() -> Bool {
+        return false
+    }
+
+    /**
+    - returns:
+    1
+    */
+    public func headsCount() -> Int {
+        return 1
+    }
+    
 }

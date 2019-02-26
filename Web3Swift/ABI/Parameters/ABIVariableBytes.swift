@@ -80,4 +80,20 @@ public final class ABIVariableBytes: ABIEncodedParameter {
             }
     }
 
+    /**
+    - returns:
+    true
+    */
+    public func isDynamic() -> Bool {
+        return true
+    }
+
+    /**
+    - returns:
+    1
+    */
+    public func headsCount() -> Int {
+        return 1
+    }
+
 }
