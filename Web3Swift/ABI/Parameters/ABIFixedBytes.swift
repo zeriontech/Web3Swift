@@ -55,4 +55,20 @@ public final class ABIFixedBytes: ABIEncodedParameter {
         return []
     }
 
+    /**
+    - returns:
+    false
+    */
+    public func isDynamic() -> Bool {
+        return false
+    }
+
+    /**
+    - returns:
+    1
+    */
+    public func headsCount() -> Int {
+        return 1
+    }
+    
 }

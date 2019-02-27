@@ -36,5 +36,17 @@ public protocol ABIEncodedParameter {
     `DescribedError` if something went wrong
     */
     func tails(offset: Int) throws -> [BytesScalar]
+    
+    /**
+    - returns:
+    True if parameter is dynamic according to the ABI specification. False otherwise.
+    */
+    func isDynamic() -> Bool
+    
+    /**
+    - returns:
+    A count of heads elements of the parameter
+    */
+    func headsCount() -> Int
 
 }

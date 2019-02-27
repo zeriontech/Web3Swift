@@ -13,7 +13,7 @@ import Foundation
 /** Bytes of the encoded abi tuple */
 public final class EncodedABITuple: BytesScalar {
 
-    private let parameters: [ABIEncodedParameter]
+    private let encoding: BytesScalar
 
     /**
     Ctor
@@ -22,7 +22,11 @@ public final class EncodedABITuple: BytesScalar {
         - parameters: parameters of the tuple
     */
     public init(parameters: [ABIEncodedParameter]) {
-        self.parameters = parameters
+        encoding = ConcatenatedBytes(
+            bytes: ABITupleEncoding(
+                parameters: parameters
+            )
+        )
     }
 
     /**
@@ -33,11 +37,7 @@ public final class EncodedABITuple: BytesScalar {
     `DescribedError` if something went wrong.
     */
     public func value() throws -> Data {
-        return try ConcatenatedBytes(
-            bytes: ABITuple(
-                parameters: parameters
-            ).heads(offset: 0)
-        ).value()
+        return try encoding.value()
     }
-
+    
 }
