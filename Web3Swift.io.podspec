@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Web3Swift.io'
-  s.version          = '0.0.1'
+  s.version          = '0.0.2'
   s.summary          = 'Web3 library in Swift'
 
   s.description      = <<-DESC
