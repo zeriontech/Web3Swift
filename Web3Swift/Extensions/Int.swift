@@ -13,7 +13,7 @@ import Foundation
 extension Int {
 
     internal func unsignedByteWidth() -> Int {
-        return (self.bitWidth - self.leadingZeroBitCount - 1).unsafeDivided(by: 8) + 1
+        return (self.bitWidth - self.leadingZeroBitCount - 1).dividedReportingOverflow(by: 8).partialValue + 1
     }
 
     /**
