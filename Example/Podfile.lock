@@ -1,16 +1,16 @@
 PODS:
   - BigInt.swift (1.0.0)
-  - CryptoSwift (0.14.0)
+  - CryptoSwift (0.15.0)
   - Nimble (7.3.4)
   - Quick (1.3.4)
-  - secp256k1_ios (0.1.1)
+  - secp256k1_ios (0.1.3)
   - SwiftLint (0.25.1)
-  - SwiftyJSON (4.1.0)
-  - Web3Swift.io (0.0.1):
+  - SwiftyJSON (4.2.0)
+  - Web3Swift.io (0.0.2):
     - BigInt.swift (= 1.0.0)
-    - CryptoSwift (~> 0.14.0)
-    - secp256k1_ios (= 0.1.1)
-    - SwiftyJSON (= 4.1.0)
+    - CryptoSwift (~> 0.15.0)
+    - secp256k1_ios (= 0.1.3)
+    - SwiftyJSON (= 4.2.0)
 
 DEPENDENCIES:
   - Nimble (~> 7.0)
@@ -40,14 +40,14 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   BigInt.swift: 1e0ddf08d82166e72dfb0fa8d40301d273081afc
-  CryptoSwift: 35a10419f4dbf0619c13f8c1c180037e115323fa
+  CryptoSwift: 769f58a9e89f64e8796c2e59ce5f002dc81a2438
   Nimble: 051e3d8912d40138fa5591c78594f95fb172af37
   Quick: f4f7f063c524394c73ed93ac70983c609805d481
-  secp256k1_ios: 3c94e6cce14ff03924cb6dc10c5017f17011b79d
+  secp256k1_ios: ac9ef04e761f43c58012b28548afa91493761f17
   SwiftLint: ce933681be10c3266e82576dad676fa815a602e9
-  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
-  Web3Swift.io: 8d7448b85e1b9afc4f59951631f22cab32d0a7db
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  Web3Swift.io: 0c499e6258819e410354338d09625cb81611628e
 
 PODFILE CHECKSUM: da3580585a2e1577cba6b9aff6fe3cf1ca4b44d7
 
-COCOAPODS: 1.6.0
+COCOAPODS: 1.6.1
