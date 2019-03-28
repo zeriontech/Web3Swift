@@ -23,6 +23,6 @@ Pod::Spec.new do |s|
   s.dependency 'SwiftyJSON', '= 4.2.0'
   s.dependency 'secp256k1_ios', '= 0.1.3'
   s.dependency 'CryptoSwift', '~> 0.15.0'
-  s.dependency 'BigInt.swift', '= 1.0.0'
+  s.dependency 'BigInt', '= 3.1.0'
 
 end
