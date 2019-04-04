@@ -12,7 +12,7 @@ PODS:
     - BigInt (~> 3.1)
     - CryptoSwift (~> 1.0)
     - secp256k1_ios (~> 0.1)
-    - SwiftyJSON (~> 4.2)
+    - SwiftyJSON (~> 4.3)
 
 DEPENDENCIES:
   - Nimble (~> 7.0)
@@ -50,7 +50,7 @@ SPEC CHECKSUMS:
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   SwiftLint: ce933681be10c3266e82576dad676fa815a602e9
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
-  Web3Swift.io: 32b5372963cdd17dba568e19529b5de22ddbf361
+  Web3Swift.io: e22a1d2d05b6a9a5343a97305a7155c9b28c5d38
 
 PODFILE CHECKSUM: da3580585a2e1577cba6b9aff6fe3cf1ca4b44d7
 
