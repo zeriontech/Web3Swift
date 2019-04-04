@@ -29,6 +29,22 @@ public final class EncodedABIFunction: BytesScalar {
         self.signature = signature
         self.parameters = parameters
     }
+    
+    /**
+     Ctor
+     
+     - parameters:
+        - signature: function title followed by parameters titles
+        - parameters: parameters of the function
+     */
+    public convenience init(signature: String, parameters: [ABIEncodedParameter]) {
+        self.init(
+            signature: SimpleString(
+                string: signature
+            ),
+            parameters: parameters
+        )
+    }
 
     /**
     - returns:
