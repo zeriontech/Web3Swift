@@ -41,5 +41,20 @@ class AlchemyNetworkTests: XCTestCase {
             description: "Network Mainnet is expected to have id 1"
         )
     }
+    
+    func testEthereumBalanceCheck() {
+        expect{
+            try EthInteger(
+                hex: try BalanceProcedure(
+                    network: MainnetAlchemyNetwork(),
+                    address: Alice().address(),
+                    state: LatestBlockChainState()
+                ).call()["result"].string()
+            ).value()
+        }.to(
+            equal(0),
+            description: "Alice balance is expected to be equal 0"
+        )
+    }
 
 }
