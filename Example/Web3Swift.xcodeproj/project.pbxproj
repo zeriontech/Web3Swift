@@ -153,6 +153,8 @@
 		8C77B9F3203DC77A0097DE61 /* BytesParameterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9F2203DC77A0097DE61 /* BytesParameterTests.swift */; };
 		8C77B9F5203DC9340097DE61 /* BooleanParameterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9F4203DC9340097DE61 /* BooleanParameterTests.swift */; };
 		8C77B9F9203DCA220097DE61 /* QuantityParameterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77B9F8203DCA220097DE61 /* QuantityParameterTests.swift */; };
+		8C7ED874224C635C0058C8FF /* AlchemyNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7ED873224C635C0058C8FF /* AlchemyNetworkTests.swift */; };
+		8C7ED878224C647A0058C8FF /* MainnetAlchemyNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7ED877224C647A0058C8FF /* MainnetAlchemyNetwork.swift */; };
 		8C8B79012107B99000F6EC2C /* EthUnsignedTransactionBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8B79002107B99000F6EC2C /* EthUnsignedTransactionBytesTests.swift */; };
 		8C8B79052107C01400F6EC2C /* EthManuallySignedTransactionBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8B79042107C01400F6EC2C /* EthManuallySignedTransactionBytesTests.swift */; };
 		8CA4CB6220D6CA6F009AAFA8 /* CompactHexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA4CB6120D6CA6F009AAFA8 /* CompactHexStringTests.swift */; };
@@ -323,6 +325,8 @@
 		8C77B9F2203DC77A0097DE61 /* BytesParameterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BytesParameterTests.swift; sourceTree = "<group>"; };
 		8C77B9F4203DC9340097DE61 /* BooleanParameterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooleanParameterTests.swift; sourceTree = "<group>"; };
 		8C77B9F8203DCA220097DE61 /* QuantityParameterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityParameterTests.swift; sourceTree = "<group>"; };
+		8C7ED873224C635C0058C8FF /* AlchemyNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlchemyNetworkTests.swift; sourceTree = "<group>"; };
+		8C7ED877224C647A0058C8FF /* MainnetAlchemyNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainnetAlchemyNetwork.swift; sourceTree = "<group>"; };
 		8C8B79002107B99000F6EC2C /* EthUnsignedTransactionBytesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthUnsignedTransactionBytesTests.swift; sourceTree = "<group>"; };
 		8C8B79042107C01400F6EC2C /* EthManuallySignedTransactionBytesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthManuallySignedTransactionBytesTests.swift; sourceTree = "<group>"; };
 		8CA4CB6120D6CA6F009AAFA8 /* CompactHexStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactHexStringTests.swift; sourceTree = "<group>"; };
@@ -386,6 +390,7 @@
 				8C748B9220407E1800F40AF9 /* GethNetworkTests.swift */,
 				8C748B942040848B00F40AF9 /* EthNetworkTests.swift */,
 				8C748B9620408A4800F40AF9 /* InfuraNetworkTests.swift */,
+				8C7ED873224C635C0058C8FF /* AlchemyNetworkTests.swift */,
 				584FA10372E81BD021BBE091 /* GanacheLocalNetworkTests.swift */,
 				584FAC3ECB551AEEC8ABD750 /* MainnetInfuraMetamaskNetworkTests.swift */,
 				584FAA912A7641621F0BD442 /* VerifiedNetworkTests.swift */,
@@ -484,6 +489,7 @@
 			children = (
 				584FA888EDFB99F27887D65B /* GanacheLocalNetwork.swift */,
 				584FA742AE71D7A00EE214B0 /* MainnetMetamaskNetwork.swift */,
+				8C7ED877224C647A0058C8FF /* MainnetAlchemyNetwork.swift */,
 			);
 			path = Networks;
 			sourceTree = "<group>";
@@ -1109,6 +1115,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C748B8F20407AF100F40AF9 /* ObjectParameterTests.swift in Sources */,
+				8C7ED878224C647A0058C8FF /* MainnetAlchemyNetwork.swift in Sources */,
 				8C77B9F9203DCA220097DE61 /* QuantityParameterTests.swift in Sources */,
 				8C748B952040848B00F40AF9 /* EthNetworkTests.swift in Sources */,
 				8C77B9F3203DC77A0097DE61 /* BytesParameterTests.swift in Sources */,
@@ -1160,6 +1167,7 @@
 				584FA57D105290DBCD21DCD7 /* MainnetMetamaskNetwork.swift in Sources */,
 				584FA8DB9AC9BD077D9315A5 /* MainnetInfuraMetamaskNetworkTests.swift in Sources */,
 				584FA7F17D3B2B2F38437B3B /* RightZeroesPaddedBytesTests.swift in Sources */,
+				8C7ED874224C635C0058C8FF /* AlchemyNetworkTests.swift in Sources */,
 				584FA5C085BF5892631B17AF /* LeftZeroesPaddedBytesTests.swift in Sources */,
 				584FA4C51FE10AFE6858E23A /* EncodedABIFunctionTests.swift in Sources */,
 				584FAA14636513F543FBBB25 /* Keccak256BytesTests.swift in Sources */,
@@ -1329,7 +1337,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1375,7 +1383,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1388,6 +1396,7 @@
 			baseConfigurationReference = EF31EFC3250D5A7EF77E859E /* Pods-Web3Swift_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Web3Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1404,6 +1413,7 @@
 			baseConfigurationReference = 17A034A484746115F55C4602 /* Pods-Web3Swift_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Web3Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1419,6 +1429,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F63B257E71ACEC57197C6918 /* Pods-Web3Swift_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1436,6 +1447,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1683BBDF32FA87183DA47238 /* Pods-Web3Swift_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
