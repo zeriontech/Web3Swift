@@ -5,30 +5,27 @@
 </p>
 
 <p align="center">
+    <a href="https://cocoapods.org/pods/Web3Swift.io">
+        <img src="https://img.shields.io/cocoapods/v/Web3Swift.io.svg?style=flat" alt="Version">
+    </a>
     <a href="https://codecov.io/gh/zeriontech/Web3Swift">
         <img src="https://codecov.io/gh/zeriontech/Web3Swift/branch/develop/graph/badge.svg" alt="Code coverage" />
     </a>
     <a href="https://travis-ci.org/zeriontech/Web3Swift">
         <img src="https://travis-ci.org/zeriontech/Web3Swift.svg?branch=develop" alt="CI Status">
     </a>
-<a href="https://app.fossa.io/projects/git%2Bgithub.com%2Fzeriontech%2FWeb3Swift?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fzeriontech%2FWeb3Swift.svg?type=shield"/></a>
-    <a href="https://t.me/joinchat/AAiU-kcI09OSTb2y2GsJ_w">  
-        <img src="https://img.shields.io/badge/chat-on%20telegram-blue.svg?longCache=true&style=flat" alt="Join Telegram">
-    </a>
-    <a href="https://cocoapods.org/pods/Web3Swift.io">
-        <img src="https://img.shields.io/cocoapods/v/Web3Swift.io.svg?style=flat" alt="Version">
-    </a>
     <a href="https://opensource.org/licenses/Apache-2.0">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License">
     </a>
+<a href="https://app.fossa.io/projects/git%2Bgithub.com%2Fzeriontech%2FWeb3Swift?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fzeriontech%2FWeb3Swift.svg?type=shield"/></a>
     <a href="https://twitter.com/intent/follow?screen_name=web3swift">
         <img src="https://img.shields.io/twitter/follow/web3swift.svg?style=flat&logo=twitter"
     alt="Follow on Twitter">
     </a>
+    <a href="https://t.me/joinchat/AAiU-kcI09OSTb2y2GsJ_w">  
+        <img src="https://img.shields.io/badge/chat-on%20telegram-blue.svg?longCache=true&style=flat" alt="Join Telegram">
+    </a>
 </p>
-
-
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fzeriontech%2FWeb3Swift.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fzeriontech%2FWeb3Swift?ref=badge_large)
 
 ## Installation
 
@@ -51,13 +48,13 @@ import Web3Swift
 let sender: PrivateKey = EthPrivateKey(
     hex: "0x1636e10756e62baabddd4364010444205f1216bdb1644ff8f776f6e2982aa9f5"
 )
-    
+
 let recipient: BytesScalar = EthAddress(
     hex: "0x79d2c50Ba0cA4a2C6F8D65eBa1358bEfc1cFD403"
 )
-    
+
 let network: Network = InfuraNetwork(
-    chain: "mainnet", 
+    chain: "mainnet",
     apiKey: "0c4d6dc730244b4185a6bde26f981bff"
 )
 

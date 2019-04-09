@@ -18,6 +18,29 @@ import Quick
 
 final class EncodedABIFunctionTests: XCTestCase {
 
+    func testStringContucton() {
+        expect{
+            try EncodedABIFunction(
+                signature: "baz(uint32,bool)",
+                parameters: [
+                    ABIAddress(
+                        address: EthAddress(
+                            hex: "0x407d73d8a49eeb85d32cf465507dd71d507100c1"
+                        )
+                    )
+                ]
+            ).value()
+        }.to(
+                equal(
+                    Data(
+                        hex: "cdcd77c0" +
+                        "000000000000000000000000407d73d8a49eeb85d32cf465507dd71d507100c1"
+                    )
+                ),
+                description: "Selector + address is expected to be encoded correctly"
+        )
+    }
+    
     func testTwoDimensionalDynamicArrayOfTwoEncoding() {
         expect{
             try EncodedABIFunction(
