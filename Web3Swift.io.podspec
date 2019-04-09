@@ -1,17 +1,19 @@
 Pod::Spec.new do |s|
   s.name             = 'Web3Swift.io'
-  s.version          = '0.0.2'
-  s.summary          = 'Web3 library in Swift'
+  s.version          = '0.0.3'
+  s.summary          = 'Web3 library for Swift. Construct and sign transactions, interact with smart contracts.'
 
   s.description      = <<-DESC
-  Ethereum client library written in pure Swift.
+Ethereum client library written in pure Swift.
+Sign transactions and messages, interact with smart contracts,
+encode and decode ABI messages. 
                        DESC
 
   s.homepage         = 'https://github.com/zeriontech/Web3Swift'
   s.license          = { :type => 'Apache License 2.0', :file => 'LICENSE' }
   s.author           = { 
     'Timofey Solonin' => 'abdulowork@gmail.com',
-    'Vadim Koleoshkin' => 'vadim@zerion.io'
+    'Vadim Koleoshkin' => 'vadim@koleoshkin.com'
   }
   s.source           = { :git => 'https://github.com/zeriontech/Web3Swift.git', :tag => s.version.to_s }
   s.homepage         = 'https://web3swift.io'
