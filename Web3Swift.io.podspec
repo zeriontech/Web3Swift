@@ -1,28 +1,30 @@
 Pod::Spec.new do |s|
   s.name             = 'Web3Swift.io'
-  s.version          = '0.0.2'
-  s.summary          = 'Web3 library in Swift'
+  s.version          = '0.0.3'
+  s.summary          = 'Web3 library for Swift. Construct and sign transactions, interact with Smart Contracts in the Ethereum Networks.'
 
   s.description      = <<-DESC
-  Ethereum client library written in pure Swift.
+Ethereum client library written in pure Swift.
+Sign transactions and messages, interact with Smart Contracts,
+encode and Decode ABI messages. 
                        DESC
 
   s.homepage         = 'https://github.com/zeriontech/Web3Swift'
   s.license          = { :type => 'Apache License 2.0', :file => 'LICENSE' }
   s.author           = { 
     'Timofey Solonin' => 'abdulowork@gmail.com',
-    'Vadim Koleoshkin' => 'vadim@zerion.io'
+    'Vadim Koleoshkin' => 'vadim@koleoshkin.com'
   }
   s.source           = { :git => 'https://github.com/zeriontech/Web3Swift.git', :tag => s.version.to_s }
   s.homepage         = 'https://web3swift.io'
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
 
   s.module_name = 'Web3Swift'
   s.source_files = 'Web3Swift/**/*'
-  s.dependency 'SwiftyJSON', '= 4.1.0'
-  s.dependency 'secp256k1_ios', '= 0.1.1'
-  s.dependency 'CryptoSwift', '~> 0.14.0'
-  s.dependency 'BigInt.swift', '= 1.0.0'
+  s.dependency 'SwiftyJSON', '~> 4.3'
+  s.dependency 'secp256k1_ios', '~> 0.1'
+  s.dependency 'CryptoSwift', '~> 1.0'
+  s.dependency 'BigInt', '~> 3.1'
 
 end
