@@ -69,5 +69,18 @@ final class ABIMessageTests: XCTestCase {
             description: "Correct message is expected to persist"
         )
     }
+    
+    func testConstructingWithData() {
+        expect{
+            try ABIMessage(
+                message: BytesFromHexString(hex: "0x000000000000000000000000407d73d8a49eeb85d32cf465507dd71d507100c1").value()
+            ).value()[0].value().toHexString()
+        }.to(
+            equal(
+                "000000000000000000000000407d73d8a49eeb85d32cf465507dd71d507100c1"
+            ),
+            description: "Message is expected to be correct"
+        )
+    }
 
 }
