@@ -32,7 +32,7 @@ public extension Collection {
     - throws:
     `DescribedError` when element of a collection is not single
     */
-    public func single() throws -> Self.Element {
+    func single() throws -> Self.Element {
         if self.count == 1, let first = self.first {
             return first
         } else {
@@ -52,7 +52,7 @@ public extension Collection {
     - throws:
     `Swift.Error` if something went wrong
     */
-    public func splitAt(sequencingStrategy: (Self.Element) throws -> Bool) rethrows -> [SubSequence] {
+    func splitAt(sequencingStrategy: (Self.Element) throws -> Bool) rethrows -> [SubSequence] {
         var currentIndex = self.startIndex
         var result: [SubSequence] = try self.indices.compactMap { i in
             guard try sequencingStrategy(self[i]) else {
