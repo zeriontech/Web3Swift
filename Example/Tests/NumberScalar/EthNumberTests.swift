@@ -122,5 +122,14 @@ final class EthNumberTests: XCTestCase {
             description: "Negative integers are considered invalid"
         )
     }
+    
+    func testZeroIsEncodedCorretly() {
+        expect{
+            try Zero().value().toHexString()
+        }.to(
+            equal("00"),
+            description: "Zero encoded correctly"
+        )
+    }
 
 }
