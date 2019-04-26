@@ -66,6 +66,20 @@ public final class ABIMessage: CollectionScalar<BytesScalar> {
             )
         )
     }
+    
+    /**
+     Ctor
+     
+     - parameters:
+     - message: concatenated bytes of the abi message
+     */
+    public convenience init(message: Data) {
+        self.init(
+            message: SimpleBytes(
+                bytes: message
+            )
+        )
+    }
 
     /**
     - returns:
