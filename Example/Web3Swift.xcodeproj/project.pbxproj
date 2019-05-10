@@ -159,6 +159,7 @@
 		8C8B79052107C01400F6EC2C /* EthManuallySignedTransactionBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8B79042107C01400F6EC2C /* EthManuallySignedTransactionBytesTests.swift */; };
 		8CA4CB6220D6CA6F009AAFA8 /* CompactHexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA4CB6120D6CA6F009AAFA8 /* CompactHexStringTests.swift */; };
 		8CE83C622285A91D00877DCA /* DecimalFromHexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE83C612285A91D00877DCA /* DecimalFromHexTests.swift */; };
+		8CE83C662285EDC500877DCA /* NormalizedDecimalFromHexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE83C652285EDC500877DCA /* NormalizedDecimalFromHexTests.swift */; };
 		94831128426593F56EE4BCAF /* Pods_Web3Swift_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31007316603078343330134 /* Pods_Web3Swift_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -332,6 +333,7 @@
 		8C8B79042107C01400F6EC2C /* EthManuallySignedTransactionBytesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthManuallySignedTransactionBytesTests.swift; sourceTree = "<group>"; };
 		8CA4CB6120D6CA6F009AAFA8 /* CompactHexStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactHexStringTests.swift; sourceTree = "<group>"; };
 		8CE83C612285A91D00877DCA /* DecimalFromHexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalFromHexTests.swift; sourceTree = "<group>"; };
+		8CE83C652285EDC500877DCA /* NormalizedDecimalFromHexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalizedDecimalFromHexTests.swift; sourceTree = "<group>"; };
 		8D3D6BEF8030D59C6F4A15FB /* Pods_Web3Swift_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Web3Swift_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D1308587140D3019CBC0F5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		EF31EFC3250D5A7EF77E859E /* Pods-Web3Swift_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Web3Swift_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Web3Swift_Example/Pods-Web3Swift_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -869,6 +871,7 @@
 			isa = PBXGroup;
 			children = (
 				8CE83C612285A91D00877DCA /* DecimalFromHexTests.swift */,
+				8CE83C652285EDC500877DCA /* NormalizedDecimalFromHexTests.swift */,
 			);
 			path = DecimalScalar;
 			sourceTree = "<group>";
@@ -1205,6 +1208,7 @@
 				584FA659D7E3D235F107B30A /* ContractDeploymentAndCallIT.swift in Sources */,
 				584FA224DD79A59F68AFCD3E /* ComputedContractAddressTests.swift in Sources */,
 				584FA91C2284970D36822BF8 /* LastBytesTests.swift in Sources */,
+				8CE83C662285EDC500877DCA /* NormalizedDecimalFromHexTests.swift in Sources */,
 				584FA25884A8A5968AE8796C /* ContractCallProcedureTests.swift in Sources */,
 				584FADD42B73A3FEEE9B8550 /* VerifiedProcedureTests.swift in Sources */,
 				584FAA51FCCC335CDDCCF362 /* EthContractCallBytesTests.swift in Sources */,

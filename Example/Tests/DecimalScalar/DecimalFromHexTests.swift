@@ -8,7 +8,6 @@
 // Created by Vadim Koleoshkin on 10/05/2019
 //
 
-import Foundation
 import Nimble
 import Quick
 @testable import Web3Swift
@@ -88,8 +87,25 @@ class DecimalFromHexTests: XCTestCase {
             // swiftlint:disable force_unwrapping
             equal(
                 Decimal(string: "115792089237316195423570985008687907853269984665640564039457584007913129639935")!
-            )
+            ),
+            description: "Max UInt256 is expected to be encoded correctly"
             // swiftlint:enable force_unwrapping
+        )
+    }
+    
+    func testIncorrectDecimalConversion() {
+        expect{
+            try DecimalFromHex(
+                hex: SimpleBytes(
+                    bytes: Array<UInt8>(
+                        repeating: 0xff,
+                        count: 255
+                    )
+                )
+            ).value()
+        }.to(
+            throwError(errorType: HexToDecimalConversionError.self),
+            description: "Incorrect decimal bytes should throw and error"
         )
     }
 

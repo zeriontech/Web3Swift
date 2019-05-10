@@ -10,7 +10,7 @@
 
 import Foundation
 
-/** Hexadecimal unsigned big endian number as a decimal number represented as string */
+/** Hexadecimal unsigned big endian number represented as a Decimal number */
 public final class DecimalFromHex: DecimalScalar {
     
     private let hex: BytesScalar
@@ -21,7 +21,7 @@ public final class DecimalFromHex: DecimalScalar {
     
     /**
      - returns:
-     Decimal representation of a hexadecimal representation
+     Decimal representation of a hexadecimal
      */
     public func value() throws -> Decimal {
         guard let value = try Decimal(
@@ -43,7 +43,7 @@ public final class HexToDecimalConversionError: DescribedError {
     
     private let hex: String
     
-    init(hex: String) {
+    public init(hex: String) {
         self.hex = hex
     }
     
