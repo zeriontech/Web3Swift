@@ -159,6 +159,7 @@
 		8C8B79052107C01400F6EC2C /* EthManuallySignedTransactionBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8B79042107C01400F6EC2C /* EthManuallySignedTransactionBytesTests.swift */; };
 		8CA4CB6220D6CA6F009AAFA8 /* CompactHexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA4CB6120D6CA6F009AAFA8 /* CompactHexStringTests.swift */; };
 		8CE83C7022862AFC00877DCA /* SignedPersonalMessageBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE83C6F22862AFC00877DCA /* SignedPersonalMessageBytesTests.swift */; };
+		8CE83C722286FA1100877DCA /* PersonalMessageBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE83C712286FA1100877DCA /* PersonalMessageBytesTests.swift */; };
 		94831128426593F56EE4BCAF /* Pods_Web3Swift_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31007316603078343330134 /* Pods_Web3Swift_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -332,6 +333,7 @@
 		8C8B79042107C01400F6EC2C /* EthManuallySignedTransactionBytesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthManuallySignedTransactionBytesTests.swift; sourceTree = "<group>"; };
 		8CA4CB6120D6CA6F009AAFA8 /* CompactHexStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactHexStringTests.swift; sourceTree = "<group>"; };
 		8CE83C6F22862AFC00877DCA /* SignedPersonalMessageBytesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedPersonalMessageBytesTests.swift; sourceTree = "<group>"; };
+		8CE83C712286FA1100877DCA /* PersonalMessageBytesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMessageBytesTests.swift; sourceTree = "<group>"; };
 		8D3D6BEF8030D59C6F4A15FB /* Pods_Web3Swift_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Web3Swift_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D1308587140D3019CBC0F5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		EF31EFC3250D5A7EF77E859E /* Pods-Web3Swift_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Web3Swift_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Web3Swift_Example/Pods-Web3Swift_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -869,6 +871,7 @@
 			isa = PBXGroup;
 			children = (
 				8CE83C6F22862AFC00877DCA /* SignedPersonalMessageBytesTests.swift */,
+				8CE83C712286FA1100877DCA /* PersonalMessageBytesTests.swift */,
 			);
 			name = PersonalMessageBytes;
 			path = Tests/PersonalMessageBytes;
@@ -1228,6 +1231,7 @@
 				584FAE6A3D95112554EB95C9 /* SizeBufferedBytesTests.swift in Sources */,
 				584FA295F349607F86034DFE /* MappedCollectionTests.swift in Sources */,
 				584FAE0B17197BFE8116E5B2 /* EnumeratedCollectionTests.swift in Sources */,
+				8CE83C722286FA1100877DCA /* PersonalMessageBytesTests.swift in Sources */,
 				584FA950690658F8974C969F /* ABIMessageTests.swift in Sources */,
 				584FAA388C4F5EE08E8A5644 /* DecodedABIAddressTests.swift in Sources */,
 				584FAA64B2C4B6976019C571 /* DecodedABIBooleanTests.swift in Sources */,

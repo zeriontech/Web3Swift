@@ -18,11 +18,38 @@ class SignedPersonalMessageBytesTests: XCTestCase {
     {
         expect{
             try SignedPersonalMessageBytes(
-                message: "Hello World!",
+                message: "Imagine there's no heaven" +
+                "It's easy if you try" +
+                "No hell below us" +
+                "Above us only sky" +
+                "Imagine all the people living for today",
                 signerKey: Alice().privateKey()
             ).value().toHexString()
         }.to(
-            equal("22b68ea178be3fbbdd6636e79db7d6357821b1f521adbdef3519c5314526535a38346d9437064ae8da46283297540051f078e296e67277931b0fb0e29d42e86c1b"),
+            equal(
+            "a70963d7da7a0388c2dc0126efc51b068e6919a9742acba984b9a83688cccba24fd8bc0572af57e872fc5ed351f773fff031035f5a4c9be6491b56ab29b82b8a1b"
+            ),
+            description: "Make sure signature is valid"
+        )
+    }
+    
+    func testValidSignatureFromScalar()
+    {
+        expect{
+            try SignedPersonalMessageBytes(
+                message: SimpleString(
+                    string: "Imagine there's no countries" +
+                    "It isn't hard to do" +
+                    "Nothing to kill or die for" +
+                    "And no religion too" +
+                    "Imagine all the people living life in peace, you"
+                ),
+                signerKey: Alice().privateKey()
+            ).value().toHexString()
+        }.to(
+            equal(
+                "47f7fce8a3be2c375f0f86f9aaff895bdaaac0d419118596ba3688aa0858e02a5ce7a5fab3b9cd777582c45d472b91ca4ac89b84e6f420e6260db7bae213b40d1c"
+            ),
             description: "Make sure signature is valid"
         )
     }
