@@ -160,6 +160,8 @@
 		8C8B79012107B99000F6EC2C /* EthUnsignedTransactionBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8B79002107B99000F6EC2C /* EthUnsignedTransactionBytesTests.swift */; };
 		8C8B79052107C01400F6EC2C /* EthManuallySignedTransactionBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8B79042107C01400F6EC2C /* EthManuallySignedTransactionBytesTests.swift */; };
 		8CA4CB6220D6CA6F009AAFA8 /* CompactHexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA4CB6120D6CA6F009AAFA8 /* CompactHexStringTests.swift */; };
+		8CE83C7022862AFC00877DCA /* SignedPersonalMessageBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE83C6F22862AFC00877DCA /* SignedPersonalMessageBytesTests.swift */; };
+		8CE83C722286FA1100877DCA /* PersonalMessageBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE83C712286FA1100877DCA /* PersonalMessageBytesTests.swift */; };
 		8CE83C622285A91D00877DCA /* DecimalFromHexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE83C612285A91D00877DCA /* DecimalFromHexTests.swift */; };
 		8CE83C662285EDC500877DCA /* NormalizedDecimalFromHexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE83C652285EDC500877DCA /* NormalizedDecimalFromHexTests.swift */; };
 		94831128426593F56EE4BCAF /* Pods_Web3Swift_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31007316603078343330134 /* Pods_Web3Swift_Example.framework */; };
@@ -336,6 +338,8 @@
 		8C8B79002107B99000F6EC2C /* EthUnsignedTransactionBytesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthUnsignedTransactionBytesTests.swift; sourceTree = "<group>"; };
 		8C8B79042107C01400F6EC2C /* EthManuallySignedTransactionBytesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthManuallySignedTransactionBytesTests.swift; sourceTree = "<group>"; };
 		8CA4CB6120D6CA6F009AAFA8 /* CompactHexStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactHexStringTests.swift; sourceTree = "<group>"; };
+		8CE83C6F22862AFC00877DCA /* SignedPersonalMessageBytesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedPersonalMessageBytesTests.swift; sourceTree = "<group>"; };
+		8CE83C712286FA1100877DCA /* PersonalMessageBytesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMessageBytesTests.swift; sourceTree = "<group>"; };
 		8CE83C612285A91D00877DCA /* DecimalFromHexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalFromHexTests.swift; sourceTree = "<group>"; };
 		8CE83C652285EDC500877DCA /* NormalizedDecimalFromHexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalizedDecimalFromHexTests.swift; sourceTree = "<group>"; };
 		8D3D6BEF8030D59C6F4A15FB /* Pods_Web3Swift_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Web3Swift_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -800,6 +804,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				8CE83C6E22862ADB00877DCA /* PersonalMessageBytes */,
 				8CE83C602285A8D500877DCA /* DecimalScalar */,
 				8C77B9F1203DC75D0097DE61 /* Params */,
 				8C77B9E6203DAF0F0097DE61 /* Address */,
@@ -873,6 +878,16 @@
 			path = Params;
 			sourceTree = "<group>";
 		};
+		8CE83C6E22862ADB00877DCA /* PersonalMessageBytes */ = {
+			isa = PBXGroup;
+			children = (
+				8CE83C6F22862AFC00877DCA /* SignedPersonalMessageBytesTests.swift */,
+				8CE83C712286FA1100877DCA /* PersonalMessageBytesTests.swift */,
+			);
+			name = PersonalMessageBytes;
+			path = Tests/PersonalMessageBytes;
+			sourceTree = SOURCE_ROOT;
+    };
 		8CE83C602285A8D500877DCA /* DecimalScalar */ = {
 			isa = PBXGroup;
 			children = (
@@ -1177,6 +1192,7 @@
 				584FAC87B490AD9C55DBB3AA /* EthRLPTests.swift in Sources */,
 				584FAADDF5CB1FD4572644E1 /* CachedBytesTests.swift in Sources */,
 				584FA8368A550CEF7AA30085 /* TransactionReceiptProcedureTests.swift in Sources */,
+				8CE83C7022862AFC00877DCA /* SignedPersonalMessageBytesTests.swift in Sources */,
 				584FAFF5E966CB6A9CF1B17A /* EthAutoAccountIT.swift in Sources */,
 				584FA479C553F9EAF3EF0E5D /* EthTransactionIT.swift in Sources */,
 				584FA232EF68173B6351106A /* EthTransactionHashIT.swift in Sources */,
@@ -1237,6 +1253,7 @@
 				584FAE6A3D95112554EB95C9 /* SizeBufferedBytesTests.swift in Sources */,
 				584FA295F349607F86034DFE /* MappedCollectionTests.swift in Sources */,
 				584FAE0B17197BFE8116E5B2 /* EnumeratedCollectionTests.swift in Sources */,
+				8CE83C722286FA1100877DCA /* PersonalMessageBytesTests.swift in Sources */,
 				584FA950690658F8974C969F /* ABIMessageTests.swift in Sources */,
 				584FAA388C4F5EE08E8A5644 /* DecodedABIAddressTests.swift in Sources */,
 				584FAA64B2C4B6976019C571 /* DecodedABIBooleanTests.swift in Sources */,
