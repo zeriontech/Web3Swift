@@ -44,5 +44,14 @@ public final class EthTransactionReceipt: TransactionReceipt {
             hex: procedure.call()["result"]["gasUsed"].string()
         )
     }
+    
+    public func logs() throws -> CollectionScalar<TransactionLog> {
+        return try SimpleCollection(
+            collection: procedure.call()["result"]["logs"].arrayValue.map {
+                EthTransactionLog(serializedLog: $0)
+            }
+        )
+    }
+    
 
 }

@@ -21,5 +21,14 @@ public protocol TransactionReceipt {
     `DescribedError if something went wrong`
     */
     func usedGasAmount() throws -> BytesScalar
+    
+    /**
+     - returns:
+        Collection of logs emmited in transaction
+     
+     - throws:
+        `DescribedError if something went wrong`
+     */
+    func logs() throws -> CollectionScalar<TransactionLog>
 
 }
