@@ -38,6 +38,7 @@ public final class PersonalMessageBytes: BytesScalar {
     }
     
     public func value() throws -> Data {
+        let message = try self.message.value()
         return try ConcatenatedBytes(
             bytes: [
                 //Ethereum prefix
@@ -46,11 +47,11 @@ public final class PersonalMessageBytes: BytesScalar {
                 ),
                 //Message length
                 UTF8StringBytes(
-                    string: String(self.message.value().count)
+                    string: String(message.count)
                 ),
                 //Message
                 UTF8StringBytes(
-                    string: self.message.value()
+                    string: message
                 )
             ]
         ).value()
