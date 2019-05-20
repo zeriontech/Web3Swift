@@ -12,24 +12,24 @@ import Foundation
 
 public protocol TransactionLog {
     
-    func signature() -> BytesScalar
+    func signature() throws -> BytesScalar
     
-    func topics() -> [BytesScalar]
+    func topics() throws -> [BytesScalar]
     
-    func data() -> ABIMessage
+    func data() throws -> ABIMessage
     
-    func index() -> EthNumber
+    func index() throws -> EthNumber
     
-    func removed() -> BooleanScalar
+    func removed() throws -> BooleanScalar
     
-    func address() -> EthAddress
+    func address() throws -> EthAddress
     
-    func transactionHash() -> EthTxHash
+    func transactionHash() throws -> EthTxHash
     
-    func blockHash() -> BlockHash
+    func blockHash() throws -> BlockHash
     
-    func blockNumber() -> EthNumber
+    func blockNumber() throws -> EthNumber
     
-    func transactionIndex() -> EthNumber
+    func transactionIndex() throws -> EthNumber
     
 }

@@ -28,7 +28,10 @@ public final class EthTransactionHash: TransactionHash {
         transactionHash: BytesScalar
     ) {
         self.network = network
-        self.transactionHash = transactionHash
+        self.transactionHash = FixedLengthBytes(
+            origin: transactionHash,
+            length: 32
+        )
     }
 
     /**

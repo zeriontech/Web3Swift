@@ -61,5 +61,19 @@ extension JSON {
             throw InvalidTypeError(json: self, expectedType: String.self)
         }
     }
-
+    
+    /**
+     - returns:
+     `Bool` representation from `JSON` value
+     
+     - throws:
+     `DescribedError` if the type was not an `Bool`
+     */
+    internal func bool() throws -> Bool {
+        if let boolean = self.bool {
+            return boolean
+        } else {
+            throw InvalidTypeError(json: self, expectedType: Bool.self)
+        }
+    }
 }

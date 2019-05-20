@@ -11,6 +11,14 @@
 import Foundation
 import SwiftyJSON
 
+internal final class InvalidTopicsCount: DescribedError {
+    
+    internal var description: String {
+        return "Log does not contain signature"
+    }
+    
+}
+
 public final class EthTransactionLog: TransactionLog {
     
     private let log: JSON
@@ -19,62 +27,66 @@ public final class EthTransactionLog: TransactionLog {
         self.log = serializedLog
     }
     
-    public func signature() -> BytesScalar {
-        return self.topics()[0]
+    public func signature() throws -> BytesScalar {
+        let topics = try self.topics()
+        if topics.isEmpty {
+            throw InvalidTopicsCount()
+        }
+        return topics[0]
     }
     
-    public func topics() -> [BytesScalar] {
-        return log["topics"].arrayValue.map {
-            BytesFromHexString(hex: $0.stringValue)
+    public func topics() throws -> [BytesScalar] {
+        return try log["topics"].arrayValue.map {
+            try BytesFromHexString(hex: $0.string())
         }
     }
     
-    public func data() -> ABIMessage {
-        return ABIMessage(
-            message: log["data"].stringValue
+    public func data() throws -> ABIMessage {
+        return try ABIMessage(
+            message: log["data"].string()
         )
     }
     
     
-    public func index() -> EthNumber {
-        return EthNumber(
-            hex: log["index"].stringValue
+    public func index() throws -> EthNumber {
+        return try EthNumber(
+            hex: log["index"].string()
         )
     }
     
-    public func removed() -> BooleanScalar {
-        return SimpleBoolean(
-            bool: log["removed"].boolValue
+    public func removed() throws -> BooleanScalar {
+        return try SimpleBoolean(
+            bool: log["removed"].bool()
         )
     }
     
-    public func address() -> EthAddress {
-        return EthAddress(
-            hex: log["address"].stringValue
+    public func address() throws -> EthAddress {
+        return try EthAddress(
+            hex: log["address"].string()
         )
     }
     
-    public func transactionHash() -> EthTxHash {
-        return EthTxHash(
-            hex: log["transactionHash"].stringValue
+    public func transactionHash() throws -> EthTxHash {
+        return try EthTxHash(
+            hex: log["transactionHash"].string()
         )
     }
     
-    public func blockHash() -> BlockHash {
-        return BlockHash(
-            hex: log["blockHash"].stringValue
+    public func blockHash() throws -> BlockHash {
+        return try BlockHash(
+            hex: log["blockHash"].string()
         )
     }
     
-    public func blockNumber() -> EthNumber {
-        return EthNumber(
-            hex: log["blockNumber"].stringValue
+    public func blockNumber() throws -> EthNumber {
+        return try EthNumber(
+            hex: log["blockNumber"].string()
         )
     }
     
-    public func transactionIndex() -> EthNumber {
-        return EthNumber(
-            hex: log["transactionIndex"].stringValue
+    public func transactionIndex() throws -> EthNumber {
+        return try EthNumber(
+            hex: log["transactionIndex"].string()
         )
     }
 }
