@@ -161,6 +161,7 @@
 		8C8B79052107C01400F6EC2C /* EthManuallySignedTransactionBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8B79042107C01400F6EC2C /* EthManuallySignedTransactionBytesTests.swift */; };
 		8CA49C1E228B622B001CFA84 /* FetchingLogsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA49C1D228B622B001CFA84 /* FetchingLogsTests.swift */; };
 		8CA4CB6220D6CA6F009AAFA8 /* CompactHexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA4CB6120D6CA6F009AAFA8 /* CompactHexStringTests.swift */; };
+		8CCEEEB2229339D800C371D5 /* MockedTransactionLogWithTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCEEEB1229339D800C371D5 /* MockedTransactionLogWithTransfer.swift */; };
 		8CE83C622285A91D00877DCA /* DecimalFromHexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE83C612285A91D00877DCA /* DecimalFromHexTests.swift */; };
 		8CE83C662285EDC500877DCA /* NormalizedDecimalFromHexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE83C652285EDC500877DCA /* NormalizedDecimalFromHexTests.swift */; };
 		8CE83C7022862AFC00877DCA /* SignedPersonalMessageBytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE83C6F22862AFC00877DCA /* SignedPersonalMessageBytesTests.swift */; };
@@ -340,6 +341,7 @@
 		8C8B79042107C01400F6EC2C /* EthManuallySignedTransactionBytesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthManuallySignedTransactionBytesTests.swift; sourceTree = "<group>"; };
 		8CA49C1D228B622B001CFA84 /* FetchingLogsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingLogsTests.swift; sourceTree = "<group>"; };
 		8CA4CB6120D6CA6F009AAFA8 /* CompactHexStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactHexStringTests.swift; sourceTree = "<group>"; };
+		8CCEEEB1229339D800C371D5 /* MockedTransactionLogWithTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedTransactionLogWithTransfer.swift; sourceTree = "<group>"; };
 		8CE83C612285A91D00877DCA /* DecimalFromHexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalFromHexTests.swift; sourceTree = "<group>"; };
 		8CE83C652285EDC500877DCA /* NormalizedDecimalFromHexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalizedDecimalFromHexTests.swift; sourceTree = "<group>"; };
 		8CE83C6F22862AFC00877DCA /* SignedPersonalMessageBytesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedPersonalMessageBytesTests.swift; sourceTree = "<group>"; };
@@ -766,6 +768,7 @@
 				607FACD11AFB9204008FA782 /* Products */,
 				50C3ECB5548832459AC51D59 /* Pods */,
 				B8B89B3A7E7096470B1FDD04 /* Frameworks */,
+				8CCEEEB0229339B900C371D5 /* TransactionLogs */,
 				584FAC786109413F2D9921CE /* Extensions */,
 				584FA69C4FB6C3320C6C30C7 /* Actors */,
 				584FA6C3E836F74DAE45A0A4 /* Networks */,
@@ -879,6 +882,14 @@
 				8C748B8E20407AF100F40AF9 /* ObjectParameterTests.swift */,
 			);
 			path = Params;
+			sourceTree = "<group>";
+		};
+		8CCEEEB0229339B900C371D5 /* TransactionLogs */ = {
+			isa = PBXGroup;
+			children = (
+				8CCEEEB1229339D800C371D5 /* MockedTransactionLogWithTransfer.swift */,
+			);
+			path = TransactionLogs;
 			sourceTree = "<group>";
 		};
 		8CE83C602285A8D500877DCA /* DecimalScalar */ = {
@@ -1145,6 +1156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				8CCEEEB2229339D800C371D5 /* MockedTransactionLogWithTransfer.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

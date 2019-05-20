@@ -66,9 +66,12 @@ public final class EthTransactionLog: TransactionLog {
         )
     }
     
-    public func transactionHash() throws -> EthTxHash {
-        return try EthTxHash(
-            hex: log["transactionHash"].string()
+    public func transactionHash() throws -> BytesScalar {
+        return try FixedLengthBytes(
+            origin: BytesFromHexString(
+                hex: log["transactionHash"].string()
+            ),
+            length: 32
         )
     }
     
