@@ -13,6 +13,10 @@ import Foundation
 /** Receipt associated with the transaction */
 public protocol TransactionReceipt {
 
+    func blockHash() throws -> BlockHash
+    
+    func cumulativeUsedGasAmount() throws -> EthNumber
+    
     /**
     - returns:
     Gas amount that was used up by the transaction

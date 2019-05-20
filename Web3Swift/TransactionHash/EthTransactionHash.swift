@@ -12,22 +12,18 @@ import Foundation
 
 /** Hash of a raw transaction data */
 public final class EthTransactionHash: TransactionHash {
-
-    private let network: Network
+    
     private let transactionHash: BytesScalar
 
     /**
     Ctor
 
     - parameters:
-        - network: network to work with
         - transactionHash: bytes representation of the transaction hash
     */
     public init(
-        network: Network,
         transactionHash: BytesScalar
     ) {
-        self.network = network
         self.transactionHash = FixedLengthBytes(
             origin: transactionHash,
             length: 32
@@ -41,10 +37,12 @@ public final class EthTransactionHash: TransactionHash {
     - throws:
     `DescribedError if something went wrong`
     */
-    public func transaction() throws -> Transaction {
-        return EthTransaction(
-            network: network,
-            transactionHash: transactionHash
+    public func transaction(network: Network) throws -> Transaction {
+        return try EthTransaction(
+            transaction: TransactionProcedure(
+                network: network,
+                transactionHash: transactionHash
+            ).call()
         )
     }
 
@@ -55,10 +53,12 @@ public final class EthTransactionHash: TransactionHash {
     - throws:
     `DescribedError if something went wrong`
     */
-    public func receipt() throws -> TransactionReceipt {
-        return EthTransactionReceipt(
-            network: network,
-            transactionHash: transactionHash
+    public func receipt(network: Network) throws -> TransactionReceipt {
+        return try EthTransactionReceipt(
+            receipt: TransactionReceiptProcedure(
+                network: network,
+                transactionHash: transactionHash
+            ).call()
         )
     }
 
@@ -72,5 +72,4 @@ public final class EthTransactionHash: TransactionHash {
     public func value() throws -> Data {
         return try transactionHash.value()
     }
-
 }

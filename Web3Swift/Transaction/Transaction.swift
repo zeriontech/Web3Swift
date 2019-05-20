@@ -9,10 +9,11 @@
 //
 
 import Foundation
+import SwiftyJSON
 
+//FIXME: Not full implementation of transaction
 /** A transaction from the blockchain */
 public protocol Transaction {
-
     /**
     - returns:
     Number of transactions deployed by sender before this one
@@ -21,5 +22,20 @@ public protocol Transaction {
     `DescribedError` if something went wrong
     */
     func nonce() throws -> BytesScalar
-
+    
+    func blockHash() throws -> BlockHash
+    
+    func from() throws -> EthAddress
+    
+    func gas() throws -> EthNumber
+    
+    func gasPrice() throws -> EthNumber
+    
+    func hash() throws -> TransactionHash
+    
+    func input() throws -> BytesScalar
+    
+    func to() throws -> EthAddress
+    
+    func value() throws -> EthNumber
 }

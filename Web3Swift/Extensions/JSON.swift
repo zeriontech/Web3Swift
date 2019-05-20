@@ -76,4 +76,12 @@ extension JSON {
             throw InvalidTypeError(json: self, expectedType: Bool.self)
         }
     }
+    
+    internal func array() throws -> [SwiftyJSON.JSON] {
+        if let array = self.array {
+            return array
+        } else {
+            throw InvalidTypeError(json: self, expectedType: [SwiftyJSON.JSON].self)
+        }
+    }
 }

@@ -36,7 +36,7 @@ public final class EthTransactionLog: TransactionLog {
     }
     
     public func topics() throws -> [BytesScalar] {
-        return try log["topics"].arrayValue.map {
+        return try log["topics"].array().map {
             try BytesFromHexString(hex: $0.string())
         }
     }
@@ -66,17 +66,16 @@ public final class EthTransactionLog: TransactionLog {
         )
     }
     
-    public func transactionHash() throws -> BytesScalar {
-        return try FixedLengthBytes(
-            origin: BytesFromHexString(
+    public func transactionHash() throws -> TransactionHash {
+        return try EthTransactionHash(
+            transactionHash: BytesFromHexString(
                 hex: log["transactionHash"].string()
-            ),
-            length: 32
+            )
         )
     }
     
     public func blockHash() throws -> BlockHash {
-        return try BlockHash(
+        return try EthBlockHash(
             hex: log["blockHash"].string()
         )
     }

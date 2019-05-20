@@ -9,27 +9,22 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 /** Receipt returned by network for transaction */
 public final class EthTransactionReceipt: TransactionReceipt {
-
-    private let procedure: RemoteProcedure
-
+    
+    let receipt: JSON
     /**
     Ctor
 
     - parameters:
-        - network: network to work with
         - transactionHash: bytes representation of the transaction hash
     */
     public init(
-        network: Network,
-        transactionHash: BytesScalar
+        receipt: JSON
     ) {
-        self.procedure = TransactionReceiptProcedure(
-            network: network,
-            transactionHash: transactionHash
-        )
+        self.receipt = receipt
     }
 
     /**
@@ -41,17 +36,30 @@ public final class EthTransactionReceipt: TransactionReceipt {
     */
     public func usedGasAmount() throws -> BytesScalar {
         return try EthNumber(
-            hex: procedure.call()["result"]["gasUsed"].string()
+            hex: receipt["gasUsed"].string()
         )
     }
     
     public func logs() throws -> CollectionScalar<TransactionLog> {
-        return try SimpleCollection(
-            collection: procedure.call()["result"]["logs"].arrayValue.map {
-                EthTransactionLog(serializedLog: $0)
-            }
+        return try CachedCollection(
+            origin: SimpleCollection(
+                collection: receipt["logs"].array().map {
+                    EthTransactionLog(serializedLog: $0)
+                }
+            )
         )
     }
     
+    public func blockHash() throws -> BlockHash {
+        return try EthBlockHash(
+            hex: receipt["blockHash"].string()
+        )
+    }
+    
+    public func cumulativeUsedGasAmount() throws -> EthNumber {
+        return try EthNumber(
+            hex: receipt["cumulativeGasUsed"].string()
+        )
+    }
 
 }

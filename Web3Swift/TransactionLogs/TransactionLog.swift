@@ -23,8 +23,8 @@ public protocol TransactionLog {
     func removed() throws -> BooleanScalar
     
     func address() throws -> EthAddress
-    //TODO: Will be changed to TransactionHash
-    func transactionHash() throws -> BytesScalar
+    
+    func transactionHash() throws -> TransactionHash
     
     func blockHash() throws -> BlockHash
     

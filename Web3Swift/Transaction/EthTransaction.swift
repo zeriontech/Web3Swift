@@ -9,27 +9,17 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 /** A transaction from the blockchain */
 public final class EthTransaction: Transaction {
 
-    private let procedure: RemoteProcedure
+    private let transaction: JSON
 
-    /**
-    Ctor
-
-    - parameters:
-        - network: network to work with
-        - transactionHash: bytes representation of the transaction hash
-    */
     public init(
-        network: Network,
-        transactionHash: BytesScalar
+        transaction: JSON
     ) {
-        procedure = TransactionProcedure(
-            network: network,
-            transactionHash: transactionHash
-        )
+       self.transaction = transaction
     }
 
     /**
@@ -41,8 +31,57 @@ public final class EthTransaction: Transaction {
     */
     public func nonce() throws -> BytesScalar {
         return try EthNumber(
-            hex: procedure.call()["result"]["nonce"].string()
+            hex: transaction["nonce"].string()
         )
     }
-
+    
+    public func blockHash() throws -> BlockHash {
+        return try EthBlockHash(
+            hex: transaction["blockHash"].string()
+        )
+    }
+    
+    public func from() throws -> EthAddress {
+        return try EthAddress(
+            hex: transaction["from"].string()
+        )
+    }
+    
+    public func gas() throws -> EthNumber {
+        return try EthNumber(
+            hex: transaction["gas"].string()
+        )
+    }
+    
+    public func gasPrice() throws -> EthNumber {
+        return try EthNumber(
+            hex: transaction["gasPrice"].string()
+        )
+    }
+    
+    public func hash() throws -> TransactionHash {
+        return try EthTransactionHash(
+            transactionHash: BytesFromHexString(
+                hex: transaction["gasPrice"].string()
+            )
+        )
+    }
+    
+    public func input() throws -> BytesScalar {
+        return try BytesFromHexString(
+            hex: transaction["gasPrice"].string()
+        )
+    }
+    
+    public func to() throws -> EthAddress {
+        return try EthAddress(
+            hex: transaction["to"].string()
+        )
+    }
+    
+    public func value() throws -> EthNumber {
+        return try EthNumber(
+            hex: transaction["value"].string()
+        )
+    }
 }

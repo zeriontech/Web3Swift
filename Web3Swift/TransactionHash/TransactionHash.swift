@@ -20,7 +20,7 @@ public protocol TransactionHash: BytesScalar {
     - throws:
     `DescribedError if something went wrong`
     */
-    func transaction() throws -> Transaction
+    func transaction(network: Network) throws -> Transaction
 
     /**
     - returns:
@@ -29,6 +29,6 @@ public protocol TransactionHash: BytesScalar {
     - throws:
     `DescribedError if something went wrong`
     */
-    func receipt() throws -> TransactionReceipt
+    func receipt(network: Network) throws -> TransactionReceipt
 
 }
