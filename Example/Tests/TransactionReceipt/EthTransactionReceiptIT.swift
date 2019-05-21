@@ -17,11 +17,12 @@ final class EthTransactionReceiptIT: XCTestCase {
 
     func testExistingTransactionReceipt() {
         expect{
-            try EthTransactionReceipt(
-                network: MainnetInfuraNetwork(),
+            try EthTransactionHash(
                 transactionHash: BytesFromHexString(
                     hex: "0xd84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"
                 )
+            ).receipt(
+                network: MainnetAlchemyNetwork()
             ).usedGasAmount().value().toHexString()
         }.to(
             equal(

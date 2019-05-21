@@ -74,7 +74,7 @@ public final class EthBlockHash: BlockHash {
             block: BlockByHashProcedure(
                 network: network,
                 blockHash: bytes
-            ).call()
+            ).call()["result"]
         )
     }
     

@@ -44,12 +44,7 @@ class FetchingLogsTests: XCTestCase {
     
     func testFetchLogs2() {
         expect {
-            let receipt = EthTransactionReceipt(
-                network: MainnetAlchemyNetwork(),
-                transactionHash: BytesFromHexString(
-                    hex: "0x8790901230866dca461f30371f93bd538ab39535bb6c9a57fedbbbdea937ca1e"
-                )
-            )
+            let receipt = try EthTransactionHash(transactionHash: BytesFromHexString(hex: "0x8790901230866dca461f30371f93bd538ab39535bb6c9a57fedbbbdea937ca1e")).receipt(network: MainnetAlchemyNetwork())
             
             let logs = try receipt.logs().value()
             

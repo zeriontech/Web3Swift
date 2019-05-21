@@ -62,7 +62,6 @@ public final class EthAutoAccount: Account {
     */
     public func send(weiAmount: BytesScalar, to recipientAddress: BytesScalar) throws -> TransactionHash {
         return try EthTransactionHash(
-            network: network,
             transactionHash: BytesFromCompactHexString(
                 hex: SimpleString(
                     string: SendRawTransactionProcedure(

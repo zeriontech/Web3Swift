@@ -17,11 +17,12 @@ final class EthTransactionIT: XCTestCase {
 
     func testExistingTransactionNonce() {
         expect{
-            try EthTransaction(
-                network: MainnetInfuraNetwork(),
+            try EthTransactionHash(
                 transactionHash: BytesFromHexString(
                     hex: "0xd84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"
                 )
+            ).transaction(
+                network: MainnetInfuraNetwork()
             ).nonce().value().toHexString()
         }.to(
             equal(

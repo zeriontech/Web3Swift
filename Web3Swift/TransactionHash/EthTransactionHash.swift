@@ -42,7 +42,7 @@ public final class EthTransactionHash: TransactionHash {
             transaction: TransactionProcedure(
                 network: network,
                 transactionHash: transactionHash
-            ).call()
+            ).call()["result"]
         )
     }
 
@@ -58,7 +58,7 @@ public final class EthTransactionHash: TransactionHash {
             receipt: TransactionReceiptProcedure(
                 network: network,
                 transactionHash: transactionHash
-            ).call()
+            ).call()["result"]
         )
     }
 
