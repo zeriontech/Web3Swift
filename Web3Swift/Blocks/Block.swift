@@ -11,16 +11,37 @@
 import Foundation
 
 //FIXME: Block description is not full
+/** Representation of Block mined on Ethereum blockchain */
 public protocol Block {
     
+    /**
+     - returns:
+     block number represented as `EthNumber`
+     */
     func number() throws -> EthNumber
     
+    /**
+     - returns:
+     block hash represented as `BlockHash`
+     */
     func hash() throws -> BlockHash
     
+    /**
+     - returns:
+     blocks parent hash represented as `BlockHash`
+     */
     func parentHash() throws -> BlockHash
    
+    /**
+     - returns:
+     UNIX timestamp of block represented as `EthNumber`
+     */
     func timestamp() throws -> EthNumber
     
+    /**
+     - returns:
+     List of transactions `Transaction` mined in the block 
+     */
     func transactions() throws -> CollectionScalar<Transaction>
     
 }

@@ -11,6 +11,7 @@
 import Foundation
 @testable import Web3Swift
 
+/* Fake transaction log  */
 public final class MockedTransactionLogWithTransfer: TransactionLog {
     
     public func transactionHash() throws -> TransactionHash {

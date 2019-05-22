@@ -19,7 +19,7 @@ public final class EthBlockHash: BlockHash {
      Ctor
      
      - parameters:
-     - bytes: `BytesScalar` with a `value` count of 32
+        - bytes: `BytesScalar` with a `value` count of 32
      */
     public init(bytes: BytesScalar) {
         self.bytes = FixedLengthBytes(
@@ -32,7 +32,7 @@ public final class EthBlockHash: BlockHash {
      Ctor
      
      - parameters:
-     - hex: `StringScalar` representing bytes of the block hash in hex format
+        - hex: `StringScalar` representing bytes of the block hash in hex format
      */
     public convenience init(hex: StringScalar) {
         self.init(
@@ -46,7 +46,7 @@ public final class EthBlockHash: BlockHash {
      Ctor
      
      - parameters:
-     - hex: `String` representing bytes of the block hash in hex format
+        - hex: `String` representing bytes of the block hash in hex format
      */
     public convenience init(hex: String) {
         self.init(
@@ -69,6 +69,18 @@ public final class EthBlockHash: BlockHash {
         return try bytes.value()
     }
     
+    /**
+     Block representation of ethereum block hash
+     
+     - parameters:
+        - network: `Network` to fetch from JSON-RPC node
+     
+     - returns:
+     `Block` object
+     
+     - throws:
+     `DescribedError` if something went wrong 
+     */
     public func block(network: Network) throws -> Block {
         return try EthBlock(
             block: BlockByHashProcedure(

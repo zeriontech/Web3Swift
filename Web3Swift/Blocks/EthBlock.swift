@@ -11,11 +11,18 @@
 import Foundation
 import SwiftyJSON
 
+/** JSON RPC representation of Block mined on Ethereum blockchain */
 public final class EthBlock: Block {
     
     private let block: JSON
     
-    init(block: JSON) {
+    /**
+     Ctor
+     
+     - parameters:
+        - block: a JSON serialized block
+     */
+    public init(block: JSON) {
         self.block = block
     }
     

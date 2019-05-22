@@ -11,6 +11,7 @@
 import Foundation
 import SwiftyJSON
 
+/** Permanently cached procedure */
 public final class CachedProcedure: RemoteProcedure {
     
     private let stickyValue: StickyComputation<JSON>
@@ -27,7 +28,13 @@ public final class CachedProcedure: RemoteProcedure {
         }
     }
 
-    
+    /**
+     - returns:
+     Cashed `JSON` from the procedure
+     
+     - throws:
+     `DescribedError` if something went wrong
+     */
     public func call() throws -> JSON {
         return try stickyValue.result()
     }

@@ -77,6 +77,13 @@ extension JSON {
         }
     }
     
+    /**
+     - returns:
+     `Array` representation from `JSON` value
+     
+     - throws:
+     `DescribedError` if the type was not an `Array`
+     */
     internal func array() throws -> [SwiftyJSON.JSON] {
         if let array = self.array {
             return array

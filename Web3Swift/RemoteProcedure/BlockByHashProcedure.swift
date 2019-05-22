@@ -22,7 +22,7 @@ public final class BlockByHashProcedure: RemoteProcedure {
      
      - parameters:
      - network: network to ask for transaction
-     - transactionHash: hash of the raw transaction
+     - blockHash: hash of the raw block
      */
     public init(
         network: Network,
@@ -34,7 +34,7 @@ public final class BlockByHashProcedure: RemoteProcedure {
     
     /**
      - returns:
-     `JSON` representation of the transaction
+     `JSON` representation of the block
      
      - throws:
      `DescribedError` if something went wrong
