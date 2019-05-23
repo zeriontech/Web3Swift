@@ -66,5 +66,31 @@ final class JSONTypeErrorTests: XCTestCase {
             description: "Casting String to Int from JSON is expected throw"
         )
     }
+    
+    func testValidBoolFromJSONCastsToBool() {
+        expect{
+            try JSON(
+                dictionary: [
+                    "True" : true
+                ]
+            )["True"].bool()
+        }.to(
+            equal(true),
+            description: "Casting Bool to Bool from JSON is expected to persist"
+        )
+    }
+    
+    func testNotABoolFromJSONCastsToBool() {
+        expect{
+            try JSON(
+                dictionary: [
+                    "Rain in the sky" : "make the world fly"
+                ]
+            )["Rain in the sky"].bool()
+        }.to(
+            throwError(errorType: InvalidTypeError<Bool>.self),
+            description: "Casting String to Bool from JSON is expected throw"
+        )
+    }
 
 }
