@@ -15,21 +15,65 @@ import Quick
 
 final class EthTransactionReceiptIT: XCTestCase {
 
-    func testExistingTransactionReceipt() {
+    let transactionHash = EthTransactionHash(
+        transactionHash: BytesFromHexString(
+            hex: "0xfbaad83ca594fa30902586f06c9a2fd4d3855f3769e4cf3157eb0013abd0661f"
+        )
+    )
+    
+    let network = MainnetAlchemyNetwork()
+    
+    func testExistingTransactionReceiptCumulativeGasUsed() {
         expect{
-            try EthTransactionHash(
-                transactionHash: BytesFromHexString(
-                    hex: "0xd84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"
-                )
-            ).receipt(
-                network: MainnetAlchemyNetwork()
-            ).usedGasAmount().value().toHexString()
+            try self.transactionHash.receipt(
+                network: self.network
+            ).cumulativeUsedGasAmount().value().toDecimalString()
         }.to(
             equal(
-                "5208"
+                "4613437"
             ),
-            description: "This transaction from mainnet used up 21000 gas"
+            description: "This transaction from mainnet cumulatively used up 4613437 gas"
         )
     }
+    
+    func testExistingTransactionReceiptGasUsed() {
+        expect{
+            try self.transactionHash.receipt(
+                network: self.network
+            ).usedGasAmount().value().toDecimalString()
+        }.to(
+            equal(
+                "52362"
+            ),
+            description: "This transaction from mainnet used up 52362 gas"
+        )
+    }
+    
+    func testExistingTransactionReceiptBlockHash() {
+        expect{
+            try self.transactionHash.receipt(
+                network: self.network
+            ).blockHash().value().toPrefixedHexString()
+        }.to(
+            equal(
+                "0xc63e76e7df16dfcde6b80db2764ac714a35cf9ee04e67a69c71d255c457b35b4"
+            ),
+            description: "This transaction from mainnet block hash 0xc63e76e7df16dfcde6b80db2764ac714a35cf9ee04e67a69c71d255c457b35b4"
+        )
+    }
+    
+    func testExistingTransactionReceiptLog() {
+        expect{
+            try self.transactionHash.receipt(
+                network: self.network
+            ).logs().value().count
+        }.to(
+            equal(
+                1
+            ),
+            description: "This transaction from mainnet logs count 1"
+        )
+    }
+    
 
 }
