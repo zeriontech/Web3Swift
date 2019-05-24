@@ -62,14 +62,14 @@ public final class EthTransaction: Transaction {
     public func hash() throws -> TransactionHash {
         return try EthTransactionHash(
             transactionHash: BytesFromHexString(
-                hex: transaction["gasPrice"].string()
+                hex: transaction["hash"].string()
             )
         )
     }
     
     public func input() throws -> BytesScalar {
         return try BytesFromHexString(
-            hex: transaction["gasPrice"].string()
+            hex: transaction["input"].string()
         )
     }
     

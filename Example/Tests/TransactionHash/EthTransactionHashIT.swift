@@ -23,12 +23,10 @@ final class EthTransactionHashIT: XCTestCase {
                 )
             ).receipt(
                 network: MainnetAlchemyNetwork()
-            ).usedGasAmount().value().toHexString()
-        }.to(
-            equal(
-                "5208"
-            ),
-            description: "This transaction from mainnet used up 21000 gas"
+            )
+        }.notTo(
+            throwError(),
+            description: "The receipt should be fetched from blockchain"
         )
     }
 
@@ -40,12 +38,10 @@ final class EthTransactionHashIT: XCTestCase {
                 )
             ).transaction(
                 network: MainnetAlchemyNetwork()
-            ).nonce().value().toHexString()
-        }.to(
-            equal(
-                "05"
-            ),
-            description: "This transaction from mainnet had a nonce of 5"
+            )
+        }.notTo(
+            throwError(),
+            description: "The transaction should be fetched from blockchain"
         )
     }
 
