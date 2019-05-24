@@ -93,4 +93,40 @@ final class JSONTypeErrorTests: XCTestCase {
         )
     }
 
+    func testValidArrayFromJSONCastsToArray() {
+        expect{
+            try JSON(
+                dictionary: [
+                    "A Hard Day’s Night" : [
+                        ["Line1" : "It's been a hard day's night, and I've been working like a dog"],
+                        ["Line2" : "It's been a hard day's night, I should be sleeping like a log"],
+                        ["Line3" : "But when I get home to you I'll find the things that you do"],
+                        ["Line4" : "Will make me feel alright"]
+                    ]
+                ]
+            )["A Hard Day’s Night"].array()
+        }.to(
+            equal([
+                ["Line1" : "It's been a hard day's night, and I've been working like a dog"],
+                ["Line2" : "It's been a hard day's night, I should be sleeping like a log"],
+                ["Line3" : "But when I get home to you I'll find the things that you do"],
+                ["Line4" : "Will make me feel alright"]
+            ]),
+            description: "Casting Array to Array from JSON is expected to persist"
+        )
+    }
+    
+    func testNotAArrayFromJSONCastsToArray() {
+        expect{
+            try JSON(
+                dictionary: [
+                    "A Hard Day’s Night" : "10th of July 1964"
+                ]
+            )["A Hard Day’s Night"].array()
+        }.to(
+            throwError(errorType: InvalidTypeError<[JSON]>.self),
+            description: "Casting String to Array from JSON is expected throw"
+        )
+    }
+
 }
