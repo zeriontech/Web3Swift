@@ -23,19 +23,9 @@ class FetchingLogsTests: XCTestCase {
                     hex: "0x8790901230866dca461f30371f93bd538ab39535bb6c9a57fedbbbdea937ca1e"
                 )
             ).call()
-            
-            print(receipt["result"]["logs"].arrayValue)
-            
             let logs: [TransactionLog] = receipt["result"]["logs"].arrayValue.map {
                 EthTransactionLog(serializedLog: $0)
             }
-            
-            try logs.forEach{ log in
-                print(try log.topics()[0].value().toPrefixedHexString())
-                print(try log.blockNumber().value().toDecimal())
-                print(try log.address().value().toPrefixedHexString())
-            }
-            
             return logs
         }.notTo(
             throwError()
@@ -46,15 +36,7 @@ class FetchingLogsTests: XCTestCase {
         expect {
             let receipt = try EthTransactionHash(transactionHash: BytesFromHexString(hex: "0x8790901230866dca461f30371f93bd538ab39535bb6c9a57fedbbbdea937ca1e")).receipt(network: MainnetAlchemyNetwork())
             
-            let logs = try receipt.logs().value()
-            
-            try logs.forEach{ log in
-                print(try log.signature().value().toPrefixedHexString())
-                print(try log.blockNumber().value().toDecimal())
-                print(try log.address().value().toPrefixedHexString())
-            }
-            
-            return logs
+            return try receipt.logs().value()
         }.notTo(
             throwError()
         )
