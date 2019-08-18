@@ -15,19 +15,15 @@ import Quick
 
 final class EthTransactionIT: XCTestCase {
     
-    let transactionHash = EthTransactionHash(
-        transactionHash: BytesFromHexString(
-            hex: "0xd84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"
-        )
-    )
-    
-    let network = MainnetInfuraNetwork()
 
     func testExistingTransactionNonce() {
         expect{
-            try self.transactionHash.transaction(
-                network: self.network
-            ).nonce().value().toHexString()
+            try EthTransactionHash(
+                transactionHash: BytesFromHexString(
+                    hex: "0xd84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"
+                ),
+                network: MainnetAlchemyNetwork()
+            ).transaction().nonce().value().toHexString()
         }.to(
             equal(
                 "05"
@@ -38,9 +34,12 @@ final class EthTransactionIT: XCTestCase {
     
     func testExistingTransactionBlockHash() {
         expect{
-            try self.transactionHash.transaction(
-                network: self.network
-            ).blockHash().value().toPrefixedHexString()
+            try EthTransactionHash(
+                transactionHash: BytesFromHexString(
+                    hex: "0xd84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"
+                ),
+                network: MainnetAlchemyNetwork()
+            ).transaction().blockHash().value().toPrefixedHexString()
         }.to(
             equal(
                 "0x18f0c46affb8d5636b6bc1e1774bccd741f95e7ececafd234b8d76d3e40183c6"
@@ -51,9 +50,12 @@ final class EthTransactionIT: XCTestCase {
     
     func testExistingTransactionSender() {
         expect{
-            try self.transactionHash.transaction(
-                network: self.network
-            ).from().value().toPrefixedHexString()
+            try EthTransactionHash(
+                transactionHash: BytesFromHexString(
+                    hex: "0xd84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"
+                ),
+                network: MainnetAlchemyNetwork()
+            ).transaction().from().value().toPrefixedHexString()
         }.to(
             equal(
                 "0xbb5109879678d02e020c3ec92b29ee97adbd83e7"
@@ -64,9 +66,12 @@ final class EthTransactionIT: XCTestCase {
     
     func testExistingTransactionReceiver() {
         expect{
-            try self.transactionHash.transaction(
-                network: self.network
-            ).to().value().toPrefixedHexString()
+            try EthTransactionHash(
+                transactionHash: BytesFromHexString(
+                    hex: "0xd84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"
+                ),
+                network: MainnetAlchemyNetwork()
+            ).transaction().to().value().toPrefixedHexString()
         }.to(
             equal(
                 "0xf5bec430576ff1b82e44ddb5a1c93f6f9d0884f3"
@@ -77,9 +82,12 @@ final class EthTransactionIT: XCTestCase {
     
     func testExistingTransactionGas() {
         expect{
-            try self.transactionHash.transaction(
-                network: self.network
-            ).gas().value().toDecimalString()
+            try EthTransactionHash(
+                transactionHash: BytesFromHexString(
+                    hex: "0xd84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"
+                ),
+                network: MainnetAlchemyNetwork()
+            ).transaction().gas().value().toDecimalString()
         }.to(
             equal(
                 "166666"
@@ -90,9 +98,12 @@ final class EthTransactionIT: XCTestCase {
     
     func testExistingTransactionGasPrice() {
         expect{
-            try self.transactionHash.transaction(
-                network: self.network
-            ).gasPrice().value().toDecimalString()
+            try EthTransactionHash(
+                transactionHash: BytesFromHexString(
+                    hex: "0xd84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"
+                ),
+                network: MainnetAlchemyNetwork()
+            ).transaction().gasPrice().value().toDecimalString()
         }.to(
             equal(
                 "50000000000"
@@ -103,9 +114,12 @@ final class EthTransactionIT: XCTestCase {
     
     func testExistingTransactionHash() {
         expect{
-            try self.transactionHash.transaction(
-                network: self.network
-            ).hash().value().toPrefixedHexString()
+            try EthTransactionHash(
+                transactionHash: BytesFromHexString(
+                    hex: "0xd84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"
+                ),
+                network: MainnetAlchemyNetwork()
+            ).transaction().hash().value().toPrefixedHexString()
         }.to(
             equal(
                 "0xd84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"
@@ -116,9 +130,12 @@ final class EthTransactionIT: XCTestCase {
     
     func testExistingTransactionValue() {
         expect{
-            try self.transactionHash.transaction(
-                network: self.network
-            ).value().value().toDecimalString()
+            try EthTransactionHash(
+                transactionHash: BytesFromHexString(
+                    hex: "0xd84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"
+                ),
+                network: MainnetAlchemyNetwork()
+            ).transaction().value().value().toDecimalString()
         }.to(
             equal(
                 "489370000000000000"
@@ -129,9 +146,12 @@ final class EthTransactionIT: XCTestCase {
     
     func testExistingTransactionInput() {
         expect{
-            try self.transactionHash.transaction(
-                network: self.network
-            ).input().value().toHexString()
+            try EthTransactionHash(
+                transactionHash: BytesFromHexString(
+                    hex: "0xd84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"
+                ),
+                network: MainnetAlchemyNetwork()
+            ).transaction().input().value().toHexString()
         }.to(
             equal(
                ""

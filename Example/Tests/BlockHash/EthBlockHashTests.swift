@@ -21,7 +21,8 @@ class EthBlockHashTests: XCTestCase {
             try EthBlockHash(
                 bytes: BytesFromHexString(
                     hex: "0x2f3d84a9e5007e4a1755cefab11b27b298fb23dcee161ffd260696d0068b7891"
-                )
+                ),
+                network: MainnetAlchemyNetwork()
             ).value().toPrefixedHexString()
         }.to(
             equal("0x2f3d84a9e5007e4a1755cefab11b27b298fb23dcee161ffd260696d0068b7891"),
@@ -33,7 +34,8 @@ class EthBlockHashTests: XCTestCase {
     {
         expect{
             try EthBlockHash(
-                hex: "0x2f3d84a9e5007e4a1755cefab11b27b298fb23dcee161ffd260696d0068b7891"
+                hex: "0x2f3d84a9e5007e4a1755cefab11b27b298fb23dcee161ffd260696d0068b7891",
+                network: MainnetAlchemyNetwork()
             ).value().toPrefixedHexString()
         }.to(
             equal("0x2f3d84a9e5007e4a1755cefab11b27b298fb23dcee161ffd260696d0068b7891"),
@@ -47,7 +49,8 @@ class EthBlockHashTests: XCTestCase {
             try EthBlockHash(
                 hex: SimpleString(
                     string: "0x2f3d84a9e5007e4a1755cefab11b27b298fb23dcee161ffd260696d0068b7891"
-                )
+                ),
+                network: MainnetAlchemyNetwork()
             ).value().toPrefixedHexString()
         }.to(
             equal("0x2f3d84a9e5007e4a1755cefab11b27b298fb23dcee161ffd260696d0068b7891"),
@@ -59,10 +62,9 @@ class EthBlockHashTests: XCTestCase {
     {
         expect{
             try EthBlockHash(
-                hex: "0x2f3d84a9e5007e4a1755cefab11b27b298fb23dcee161ffd260696d0068b7891"
-            ).block(
+                hex: "0x2f3d84a9e5007e4a1755cefab11b27b298fb23dcee161ffd260696d0068b7891",
                 network: MainnetAlchemyNetwork()
-            ).hash().value().toPrefixedHexString()
+            ).block().hash().value().toPrefixedHexString()
         }.to(
             equal("0x2f3d84a9e5007e4a1755cefab11b27b298fb23dcee161ffd260696d0068b7891"),
             description: "Expect block hash to have correct value"

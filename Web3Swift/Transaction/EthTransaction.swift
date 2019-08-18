@@ -15,11 +15,15 @@ import SwiftyJSON
 public final class EthTransaction: Transaction {
 
     private let transaction: JSON
+    
+    private let network: Network
 
     public init(
-        transaction: JSON
+        transaction: JSON,
+        network: Network
     ) {
-       self.transaction = transaction
+        self.transaction = transaction
+        self.network = network
     }
 
     /**
@@ -37,7 +41,8 @@ public final class EthTransaction: Transaction {
     
     public func blockHash() throws -> BlockHash {
         return try EthBlockHash(
-            hex: transaction["blockHash"].string()
+            hex: transaction["blockHash"].string(),
+            network: network
         )
     }
     
@@ -63,7 +68,8 @@ public final class EthTransaction: Transaction {
         return try EthTransactionHash(
             transactionHash: BytesFromHexString(
                 hex: transaction["hash"].string()
-            )
+            ),
+            network: network
         )
     }
     

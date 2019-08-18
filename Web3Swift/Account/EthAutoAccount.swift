@@ -74,7 +74,8 @@ public final class EthAutoAccount: Account {
                         )
                     ).call()["result"].string()
                 )
-            )
+            ),
+            network: network
         )
     }
 

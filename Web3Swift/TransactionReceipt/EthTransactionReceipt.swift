@@ -15,16 +15,21 @@ import SwiftyJSON
 public final class EthTransactionReceipt: TransactionReceipt {
     
     let receipt: JSON
+    
+    private let network: Network
     /**
     Ctor
 
     - parameters:
         - transactionHash: bytes representation of the transaction hash
+        - network: `Network` to fetch from JSON-RPC node
     */
     public init(
-        receipt: JSON
+        receipt: JSON,
+        network: Network
     ) {
         self.receipt = receipt
+        self.network = network
     }
 
     /**
@@ -44,7 +49,10 @@ public final class EthTransactionReceipt: TransactionReceipt {
         return try CachedCollection(
             origin: SimpleCollection(
                 collection: receipt["logs"].array().map {
-                    EthTransactionLog(serializedLog: $0)
+                    EthTransactionLog(
+                        serializedLog: $0,
+                        network: self.network
+                    )
                 }
             )
         )
@@ -52,7 +60,8 @@ public final class EthTransactionReceipt: TransactionReceipt {
     
     public func blockHash() throws -> BlockHash {
         return try EthBlockHash(
-            hex: receipt["blockHash"].string()
+            hex: receipt["blockHash"].string(),
+            network: network
         )
     }
     

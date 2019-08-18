@@ -18,7 +18,8 @@ public final class MockedTransactionLogWithTransfer: TransactionLog {
         return EthTransactionHash(
             transactionHash: BytesFromHexString(
                 hex: "0x8790901230866dca461f30371f93bd538ab39535bb6c9a57fedbbbdea937ca1e"
-            )
+            ),
+            network: MainnetAlchemyNetwork()
         )
     }
     
@@ -55,7 +56,10 @@ public final class MockedTransactionLogWithTransfer: TransactionLog {
     }
     
     public func blockHash() throws -> BlockHash {
-        return EthBlockHash(hex: "0x51944c28d9ff7a4204a293740eb0afa6c755d3e815ecaeccb4639360098ebe83")
+        return EthBlockHash(
+            hex: "0x51944c28d9ff7a4204a293740eb0afa6c755d3e815ecaeccb4639360098ebe83",
+            network: MainnetAlchemyNetwork() 
+        )
     }
     
     public func blockNumber() throws -> EthNumber {

@@ -16,11 +16,8 @@ public protocol BlockHash: BytesScalar {
     /**
     Block representation of ethereum block hash
 
-    - parameters:
-     - network: `Network` to fetch from JSON-RPC node
-
     - returns:
     `Block` object
     */
-    func block(network: Network) throws -> Block
+    func block() throws -> Block
 }

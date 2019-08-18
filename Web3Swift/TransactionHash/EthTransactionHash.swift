@@ -14,20 +14,24 @@ import Foundation
 public final class EthTransactionHash: TransactionHash {
     
     private let transactionHash: BytesScalar
+    private let network: Network
 
     /**
     Ctor
 
     - parameters:
         - transactionHash: bytes representation of the transaction hash
+        - network: `Network` to fetch from JSON-RPC node
     */
     public init(
-        transactionHash: BytesScalar
+        transactionHash: BytesScalar,
+        network: Network
     ) {
         self.transactionHash = FixedLengthBytes(
             origin: transactionHash,
             length: 32
         )
+        self.network = network
     }
 
     /**
@@ -37,12 +41,13 @@ public final class EthTransactionHash: TransactionHash {
     - throws:
     `DescribedError if something went wrong`
     */
-    public func transaction(network: Network) throws -> Transaction {
+    public func transaction() throws -> Transaction {
         return try EthTransaction(
             transaction: TransactionProcedure(
                 network: network,
                 transactionHash: transactionHash
-            ).call()["result"]
+            ).call()["result"],
+            network: network
         )
     }
 
@@ -53,12 +58,13 @@ public final class EthTransactionHash: TransactionHash {
     - throws:
     `DescribedError if something went wrong`
     */
-    public func receipt(network: Network) throws -> TransactionReceipt {
+    public func receipt() throws -> TransactionReceipt {
         return try EthTransactionReceipt(
             receipt: TransactionReceiptProcedure(
                 network: network,
                 transactionHash: transactionHash
-            ).call()["result"]
+            ).call()["result"],
+            network: network
         )
     }
 

@@ -16,14 +16,18 @@ public final class EthBlock: Block {
     
     private let block: JSON
     
+    private let network: Network
+    
     /**
      Ctor
      
      - parameters:
         - block: a JSON serialized block
+        - network: `Network` to fetch from JSON-RPC node
      */
-    public init(block: JSON) {
+    public init(block: JSON, network: Network) {
         self.block = block
+        self.network = network
     }
     
     public func number() throws -> EthNumber {
@@ -34,13 +38,15 @@ public final class EthBlock: Block {
     
     public func hash() throws -> BlockHash {
         return try EthBlockHash(
-            hex: block["hash"].string()
+            hex: block["hash"].string(),
+            network: network
         )
     }
     
     public func parentHash() throws -> BlockHash {
         return try EthBlockHash(
-            hex: block["parentHash"].string()
+            hex: block["parentHash"].string(),
+            network: network
         )
     }
     
@@ -54,7 +60,10 @@ public final class EthBlock: Block {
         return try CachedCollection(
             origin: SimpleCollection(
                 collection: block["transactions"].array().map {
-                    EthTransaction(transaction: $0)
+                    EthTransaction(
+                        transaction: $0,
+                        network: self.network
+                    )
                 }
             )
         )

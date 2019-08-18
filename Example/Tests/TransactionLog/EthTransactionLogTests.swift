@@ -13,20 +13,15 @@ import Quick
 @testable import Web3Swift
 
 class EthTransactionLogTests: XCTestCase {
-
-    let transactionHash = EthTransactionHash(
-        transactionHash: BytesFromHexString(
-            hex: "0xfbaad83ca594fa30902586f06c9a2fd4d3855f3769e4cf3157eb0013abd0661f"
-        )
-    )
-    
-    let network = MainnetAlchemyNetwork()
     
     func testLogFetching() {
         expect{
-            try self.transactionHash.receipt(
-                network: self.network
-            ).logs().value()[0]
+            try EthTransactionHash(
+                transactionHash: BytesFromHexString(
+                    hex: "0xfbaad83ca594fa30902586f06c9a2fd4d3855f3769e4cf3157eb0013abd0661f"
+                ),
+                network: MainnetAlchemyNetwork()
+            ).receipt().logs().value()[0]
         }.notTo(
             throwError(),
             description: "Expect log to be obtained"
@@ -35,11 +30,12 @@ class EthTransactionLogTests: XCTestCase {
     
     func testLogFetchingFields() {
         expect{
-            let log = try self.transactionHash.receipt(
-                network: self.network
-            ).logs().value()[0]
-            
-            print(log)
+            let log = try EthTransactionHash(
+                transactionHash: BytesFromHexString(
+                    hex: "0xfbaad83ca594fa30902586f06c9a2fd4d3855f3769e4cf3157eb0013abd0661f"
+                ),
+                network: MainnetAlchemyNetwork()
+            ).receipt().logs().value()[0]
             
             expect{
                 try log.address().value().toPrefixedHexString()
@@ -52,8 +48,7 @@ class EthTransactionLogTests: XCTestCase {
                 try log.topics().reduce("", { concatedTopics, topic in
                     return concatedTopics + (try topic.value().toHexString())
                 })
-            }.to(
-                equal("ddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef0000000000000000000000000849f0eb50a758dc837e9013b3c18610e9530089000000000000000000000000c1852f917835a9f2f97112672bc5c8afd1f21dc3"),
+            }.to(                equal("ddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef0000000000000000000000000849f0eb50a758dc837e9013b3c18610e9530089000000000000000000000000c1852f917835a9f2f97112672bc5c8afd1f21dc3"),
                 description: "Expect log topics to be correct"
             )
             

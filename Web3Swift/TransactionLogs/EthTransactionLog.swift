@@ -22,9 +22,11 @@ internal final class InvalidTopicsCount: DescribedError {
 public final class EthTransactionLog: TransactionLog {
     
     private let log: JSON
+    private let network: Network
     
-    public init(serializedLog: JSON) {
+    public init(serializedLog: JSON, network: Network) {
         self.log = serializedLog
+        self.network = network
     }
     
     public func signature() throws -> BytesScalar {
@@ -70,13 +72,15 @@ public final class EthTransactionLog: TransactionLog {
         return try EthTransactionHash(
             transactionHash: BytesFromHexString(
                 hex: log["transactionHash"].string()
-            )
+            ),
+            network: network
         )
     }
     
     public func blockHash() throws -> BlockHash {
         return try EthBlockHash(
-            hex: log["blockHash"].string()
+            hex: log["blockHash"].string(),
+            network: network
         )
     }
     

@@ -15,17 +15,21 @@ public final class EthBlockHash: BlockHash {
     
     private let bytes: BytesScalar
     
+    private let network: Network
+    
     /**
      Ctor
      
      - parameters:
         - bytes: `BytesScalar` with a `value` count of 32
+        - network: `Network` to fetch from JSON-RPC node
      */
-    public init(bytes: BytesScalar) {
+    public init(bytes: BytesScalar, network: Network) {
         self.bytes = FixedLengthBytes(
             origin: bytes,
             length: 32
         )
+        self.network = network
     }
     
     /**
@@ -33,12 +37,14 @@ public final class EthBlockHash: BlockHash {
      
      - parameters:
         - hex: `StringScalar` representing bytes of the block hash in hex format
+        - network: `Network` to fetch from JSON-RPC node
      */
-    public convenience init(hex: StringScalar) {
+    public convenience init(hex: StringScalar, network: Network) {
         self.init(
             bytes: BytesFromHexString(
                 hex: hex
-            )
+            ),
+            network: network
         )
     }
     
@@ -47,12 +53,14 @@ public final class EthBlockHash: BlockHash {
      
      - parameters:
         - hex: `String` representing bytes of the block hash in hex format
+        - network: `Network` to fetch from JSON-RPC node
      */
-    public convenience init(hex: String) {
+    public convenience init(hex: String, network: Network) {
         self.init(
             hex: SimpleString{
                 hex
-            }
+            },
+            network: network
         )
     }
     
@@ -72,21 +80,19 @@ public final class EthBlockHash: BlockHash {
     /**
      Block representation of ethereum block hash
      
-     - parameters:
-        - network: `Network` to fetch from JSON-RPC node
-     
      - returns:
      `Block` object
      
      - throws:
      `DescribedError` if something went wrong 
      */
-    public func block(network: Network) throws -> Block {
+    public func block() throws -> Block {
         return try EthBlock(
             block: BlockByHashProcedure(
                 network: network,
                 blockHash: bytes
-            ).call()["result"]
+            ).call()["result"],
+            network: network
         )
     }
     

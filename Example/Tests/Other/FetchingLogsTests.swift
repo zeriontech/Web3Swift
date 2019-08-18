@@ -24,7 +24,10 @@ class FetchingLogsTests: XCTestCase {
                 )
             ).call()
             let logs: [TransactionLog] = receipt["result"]["logs"].arrayValue.map {
-                EthTransactionLog(serializedLog: $0)
+                EthTransactionLog(
+                    serializedLog: $0,
+                    network: MainnetAlchemyNetwork()
+                )
             }
             return logs
         }.notTo(
@@ -34,8 +37,12 @@ class FetchingLogsTests: XCTestCase {
     
     func testFetchLogs2() {
         expect {
-            let receipt = try EthTransactionHash(transactionHash: BytesFromHexString(hex: "0x8790901230866dca461f30371f93bd538ab39535bb6c9a57fedbbbdea937ca1e")).receipt(network: MainnetAlchemyNetwork())
-            
+            let receipt = try EthTransactionHash(
+                transactionHash: BytesFromHexString(
+                    hex: "0x8790901230866dca461f30371f93bd538ab39535bb6c9a57fedbbbdea937ca1e"
+                ),
+                network: MainnetAlchemyNetwork()
+            ).receipt()
             return try receipt.logs().value()
         }.notTo(
             throwError()
