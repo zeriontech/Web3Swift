@@ -48,7 +48,8 @@ class EthTransactionLogTests: XCTestCase {
                 try log.topics().reduce("", { concatedTopics, topic in
                     return concatedTopics + (try topic.value().toHexString())
                 })
-            }.to(                equal("ddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef0000000000000000000000000849f0eb50a758dc837e9013b3c18610e9530089000000000000000000000000c1852f917835a9f2f97112672bc5c8afd1f21dc3"),
+            }.to(
+                equal("ddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef0000000000000000000000000849f0eb50a758dc837e9013b3c18610e9530089000000000000000000000000c1852f917835a9f2f97112672bc5c8afd1f21dc3"),
                 description: "Expect log topics to be correct"
             )
             
@@ -58,28 +59,28 @@ class EthTransactionLogTests: XCTestCase {
                 })
             }.to(
                 equal("00000000000000000000000000000000000000000000d3c21bcecceda1000000"),
-                    description: "Expect log data to be correct"
+                description: "Expect log data to be correct"
             )
             
             expect{
                 try log.signature().value().toHexString()
             }.to(
                 equal("ddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"),
-                    description: "Expect log signature to be correct"
+                description: "Expect log signature to be correct"
             )
             
             expect{
                 try log.blockHash().value().toHexString()
             }.to(
                 equal("c63e76e7df16dfcde6b80db2764ac714a35cf9ee04e67a69c71d255c457b35b4"),
-                    description: "Expect log block hash to be correct"
+                description: "Expect log block hash to be correct"
             )
             
             expect{
                 try log.blockNumber().value().toDecimalString()
             }.to(
-                    equal("7823234"),
-                    description: "Expect log block number to be correct"
+                equal("7823234"),
+                description: "Expect log block number to be correct"
             )
             
             expect{
@@ -116,7 +117,4 @@ class EthTransactionLogTests: XCTestCase {
             description: "Expect log to be obtained"
         )
     }
-    
-    
-    
 }
