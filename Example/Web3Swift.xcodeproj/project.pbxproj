@@ -163,6 +163,7 @@
 		8CA49C1E228B622B001CFA84 /* FetchingLogsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA49C1D228B622B001CFA84 /* FetchingLogsTests.swift */; };
 		8CA4CB6220D6CA6F009AAFA8 /* CompactHexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA4CB6120D6CA6F009AAFA8 /* CompactHexStringTests.swift */; };
 		8CA4ED3D2309952A006FED70 /* EthBlockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA4ED3C2309952A006FED70 /* EthBlockTests.swift */; };
+		8CA4ED3F2309CD15006FED70 /* ArithmeticFunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA4ED3E2309CD15006FED70 /* ArithmeticFunctionsTests.swift */; };
 		8CDB3EFB2296C6C6007FBD11 /* EthBlockHashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDB3EFA2296C6C6007FBD11 /* EthBlockHashTests.swift */; };
 		8CDB3EFC22971B52007FBD11 /* MockedTransactionLogWithTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCEEEB1229339D800C371D5 /* MockedTransactionLogWithTransfer.swift */; };
 		8CDB3EFE22971F8A007FBD11 /* CachedProcedureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDB3EFD22971F8A007FBD11 /* CachedProcedureTests.swift */; };
@@ -347,6 +348,7 @@
 		8CA49C1D228B622B001CFA84 /* FetchingLogsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingLogsTests.swift; sourceTree = "<group>"; };
 		8CA4CB6120D6CA6F009AAFA8 /* CompactHexStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactHexStringTests.swift; sourceTree = "<group>"; };
 		8CA4ED3C2309952A006FED70 /* EthBlockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthBlockTests.swift; sourceTree = "<group>"; };
+		8CA4ED3E2309CD15006FED70 /* ArithmeticFunctionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticFunctionsTests.swift; sourceTree = "<group>"; };
 		8CCEEEB1229339D800C371D5 /* MockedTransactionLogWithTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedTransactionLogWithTransfer.swift; sourceTree = "<group>"; };
 		8CDB3EFA2296C6C6007FBD11 /* EthBlockHashTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthBlockHashTests.swift; sourceTree = "<group>"; };
 		8CDB3EFD22971F8A007FBD11 /* CachedProcedureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedProcedureTests.swift; sourceTree = "<group>"; };
@@ -756,6 +758,7 @@
 				584FA6E27706136910DAAD74 /* UnsignedNumbersExponentiationTests.swift */,
 				584FA1881DBE9A400A529BC5 /* EthNumberTests.swift */,
 				584FAD10CFD47ACAE96F474C /* HexAsDecimalStringTests.swift */,
+				8CA4ED3E2309CD15006FED70 /* ArithmeticFunctionsTests.swift */,
 			);
 			path = NumberScalar;
 			sourceTree = "<group>";
@@ -1233,6 +1236,7 @@
 				584FAA357B56038EF5C83C01 /* HexStringTests.swift in Sources */,
 				584FA474A83B20483AA3865A /* PrefixedHexStringTests.swift in Sources */,
 				8CDB3EFE22971F8A007FBD11 /* CachedProcedureTests.swift in Sources */,
+				8CA4ED3F2309CD15006FED70 /* ArithmeticFunctionsTests.swift in Sources */,
 				584FAEA6A4077131C889E840 /* TrimmedPrefixStringTests.swift in Sources */,
 				584FA80F75A83DCF7A6C971B /* UnprefixedHexStringTests.swift in Sources */,
 				584FA0A7CF0EBB0B9AAD344A /* HexPrefixTests.swift in Sources */,

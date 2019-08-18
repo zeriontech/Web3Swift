@@ -57,5 +57,16 @@ final class EthPrivateKeyTests: XCTestCase {
             description: "Private key from hex should compute correct public address"
         )
     }
+    
+    func testInValidStringPrivateKey() {
+        expect{
+            try EthPrivateKey(
+                hex: "0xfake1636e10756e62baabddd4364010444205f1216bdb1644ff8f776f6e2982aa9f5"
+            ).value()
+        }.to(
+            throwError(),
+            description: "Invalid private key should throw an error"
+        )
+    }
 
 }

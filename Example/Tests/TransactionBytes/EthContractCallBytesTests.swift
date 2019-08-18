@@ -57,5 +57,31 @@ final class EthContractCallBytesTests: XCTestCase {
             description: "Contract call is expected to be encoded correctly"
         )
     }
+    
+    func testSimpleContractCallIsEncodedCorrectly() {
+        expect{
+            try EthContractCallBytes(
+                network: MainnetAlchemyNetwork(),
+                senderKey: Alice().privateKey(),
+                contractAddress: EthAddress(
+                    hex: "0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359"
+                ),
+                weiAmount: Zero(),
+                functionCall: EncodedABIFunction(
+                    signature: "balanceOf(address)",
+                    parameters: [
+                        ABIAddress(
+                            address: Bob().address()
+                        )
+                    ]
+                )
+            ).value().toHexString()
+        }.to(
+            equal(
+                "f8870284ee6b2800825bc79489d24a6b4ccb1b6faa2625fe562bdd9a2326035980a470a08231000000000000000000000000c1eb01819ae7dfbd99ee795953a0d67888866f3526a001edaa7338ac48db15caba1056d01c8d4bdda4b32a64436d5155d2753429f842a0159f3dfab009a08064127c7b68f087c915fc0afc2848881d9dd7c19c8055be26"
+            ),
+            description: "Contract call is expected to be encoded correctly"
+        )
+    }
 
 }
