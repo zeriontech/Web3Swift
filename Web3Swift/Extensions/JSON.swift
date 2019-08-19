@@ -61,5 +61,34 @@ extension JSON {
             throw InvalidTypeError(json: self, expectedType: String.self)
         }
     }
-
+    
+    /**
+     - returns:
+     `Bool` representation from `JSON` value
+     
+     - throws:
+     `DescribedError` if the type was not an `Bool`
+     */
+    internal func bool() throws -> Bool {
+        if let boolean = self.bool {
+            return boolean
+        } else {
+            throw InvalidTypeError(json: self, expectedType: Bool.self)
+        }
+    }
+    
+    /**
+     - returns:
+     `Array` representation from `JSON` value
+     
+     - throws:
+     `DescribedError` if the type was not an `Array`
+     */
+    internal func array() throws -> [SwiftyJSON.JSON] {
+        if let array = self.array {
+            return array
+        } else {
+            throw InvalidTypeError(json: self, expectedType: [SwiftyJSON.JSON].self)
+        }
+    }
 }

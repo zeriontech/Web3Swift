@@ -14,21 +14,70 @@ import Quick
 @testable import Web3Swift
 
 final class EthTransactionReceiptIT: XCTestCase {
-
-    func testExistingTransactionReceipt() {
+    
+    func testExistingTransactionReceiptCumulativeGasUsed() {
         expect{
-            try EthTransactionReceipt(
-                network: MainnetInfuraNetwork(),
+            try EthTransactionHash(
                 transactionHash: BytesFromHexString(
-                    hex: "0xd84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"
-                )
-            ).usedGasAmount().value().toHexString()
+                    hex: "0xfbaad83ca594fa30902586f06c9a2fd4d3855f3769e4cf3157eb0013abd0661f"
+                ),
+                network: MainnetAlchemyNetwork()
+            ).receipt().cumulativeUsedGasAmount().value().toDecimalString()
         }.to(
             equal(
-                "5208"
+                "4613437"
             ),
-            description: "This transaction from mainnet used up 21000 gas"
+            description: "This transaction from mainnet cumulatively used up 4613437 gas"
         )
     }
+    
+    func testExistingTransactionReceiptGasUsed() {
+        expect{
+            try EthTransactionHash(
+                transactionHash: BytesFromHexString(
+                    hex: "0xfbaad83ca594fa30902586f06c9a2fd4d3855f3769e4cf3157eb0013abd0661f"
+                ),
+                network: MainnetAlchemyNetwork()
+            ).receipt().usedGasAmount().value().toDecimalString()
+        }.to(
+            equal(
+                "52362"
+            ),
+            description: "This transaction from mainnet used up 52362 gas"
+        )
+    }
+    
+    func testExistingTransactionReceiptBlockHash() {
+        expect{
+            try EthTransactionHash(
+                transactionHash: BytesFromHexString(
+                    hex: "0xfbaad83ca594fa30902586f06c9a2fd4d3855f3769e4cf3157eb0013abd0661f"
+                ),
+                network: MainnetAlchemyNetwork()
+            ).receipt().blockHash().value().toPrefixedHexString()
+        }.to(
+            equal(
+                "0xc63e76e7df16dfcde6b80db2764ac714a35cf9ee04e67a69c71d255c457b35b4"
+            ),
+            description: "This transaction from mainnet block hash 0xc63e76e7df16dfcde6b80db2764ac714a35cf9ee04e67a69c71d255c457b35b4"
+        )
+    }
+    
+    func testExistingTransactionReceiptLog() {
+        expect{
+            try EthTransactionHash(
+                transactionHash: BytesFromHexString(
+                    hex: "0xfbaad83ca594fa30902586f06c9a2fd4d3855f3769e4cf3157eb0013abd0661f"
+                ),
+                network: MainnetAlchemyNetwork()
+            ).receipt().logs().value().count
+        }.to(
+            equal(
+                1
+            ),
+            description: "This transaction from mainnet logs count 1"
+        )
+    }
+    
 
 }

@@ -144,5 +144,17 @@ final class AndTests: XCTestCase {
             )
         }
     }
+    
+    func testScalarConditionNotThrows() {
+        expect{
+            try And(
+                lhs: True(),
+                rhs: True()
+            ).value()
+        }.to(
+            equal(true),
+            description: "If lhs and rhs are equal to true than And is expected to be true"
+        )
+    }
 
 }

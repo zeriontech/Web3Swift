@@ -18,42 +18,38 @@ final class EthTransactionHashIT: XCTestCase {
     func testExistingTransactionHashReceipt() {
         expect{
             try EthTransactionHash(
-                network: MainnetInfuraNetwork(),
                 transactionHash: BytesFromHexString(
                     hex: "0xd84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"
-                )
-            ).receipt().usedGasAmount().value().toHexString()
-        }.to(
-            equal(
-                "5208"
-            ),
-            description: "This transaction from mainnet used up 21000 gas"
+                ),
+                network: MainnetAlchemyNetwork()
+            ).receipt()
+        }.notTo(
+            throwError(),
+            description: "The receipt should be fetched from blockchain"
         )
     }
 
     func testExistingTransactionHashTransaction() {
         expect{
             try EthTransactionHash(
-                network: MainnetInfuraNetwork(),
                 transactionHash: BytesFromHexString(
                     hex: "0xd84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"
-                )
-            ).transaction().nonce().value().toHexString()
-        }.to(
-            equal(
-                "05"
-            ),
-            description: "This transaction from mainnet had a nonce of 5"
+                ),
+                network: MainnetAlchemyNetwork()
+            ).transaction()
+        }.notTo(
+            throwError(),
+            description: "The transaction should be fetched from blockchain"
         )
     }
 
     func testPersistsHashValue() {
         expect{
             try EthTransactionHash(
-                network: MainnetInfuraNetwork(),
                 transactionHash: BytesFromHexString(
                     hex: "0xd84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"
-                )
+                ),
+                network: MainnetAlchemyNetwork()
             ).value().toHexString()
         }.to(
             equal("d84b4a8661d546b3858d5b6fcf5a815e5efab48786deee67a4441d27b22e3011"),
