@@ -64,21 +64,24 @@ final class EthContractCallBytesTests: XCTestCase {
                 network: MainnetAlchemyNetwork(),
                 senderKey: Alice().privateKey(),
                 contractAddress: EthAddress(
-                    hex: "0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359"
+                    hex: "0x6b175474e89094c44da98b954eedeac495271d0f"
                 ),
                 weiAmount: Zero(),
                 functionCall: EncodedABIFunction(
-                    signature: "balanceOf(address)",
+                    signature: "approve(address,uint256)",
                     parameters: [
                         ABIAddress(
                             address: Bob().address()
+                        ),
+                        ABIUnsignedNumber(
+                            origin: EthNumber(value: 1)
                         )
                     ]
                 )
             ).value().toHexString()
         }.to(
             equal(
-                "f8870284ee6b2800825bc79489d24a6b4ccb1b6faa2625fe562bdd9a2326035980a470a08231000000000000000000000000c1eb01819ae7dfbd99ee795953a0d67888866f3526a001edaa7338ac48db15caba1056d01c8d4bdda4b32a64436d5155d2753429f842a0159f3dfab009a08064127c7b68f087c915fc0afc2848881d9dd7c19c8055be26"
+                "f8a80284bebc200082abd2946b175474e89094c44da98b954eedeac495271d0f80b844095ea7b3000000000000000000000000c1eb01819ae7dfbd99ee795953a0d67888866f35000000000000000000000000000000000000000000000000000000000000000125a0d80fee8f5b79148b041b0eaf6ed487674ee01e75ece536f80870e838aebcc626a06a37d1e32991846d5626f93c54fe59eb5c9adaba3856da742b07fd09c628cc58"
             ),
             description: "Contract call is expected to be encoded correctly"
         )
