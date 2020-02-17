@@ -25,6 +25,6 @@ encode and decode ABI messages.
   s.dependency 'SwiftyJSON', '~> 4.3'
   s.dependency 'secp256k1_ios', '~> 0.1'
   s.dependency 'CryptoSwift', '~> 1.0'
-  s.dependency 'BigInt', '~> 3.1'
+  s.dependency 'BigInt', '~> 5.0'
 
 end
