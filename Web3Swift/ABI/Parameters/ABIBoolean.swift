@@ -27,11 +27,11 @@ public final class ABIBoolean: ABIEncodedParameter {
                 origin: SimpleBytes{
                     if origin {
                         return Data(
-                            bytes: [0x01]
+                            [0x01]
                         )
                     } else {
                         return Data(
-                            bytes: [0x00]
+                            [0x00]
                         )
                     }
                 },

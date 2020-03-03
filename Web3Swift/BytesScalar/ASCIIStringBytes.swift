@@ -45,7 +45,7 @@ public final class ASCIIStringBytes: BytesScalar {
     */
     public func value() throws -> Data {
         return try Data(
-            bytes: string.value()
+            string.value()
                 .unicodeScalars
                 .map{ scalar in
                     guard scalar.isASCII else {

@@ -23,7 +23,7 @@ internal final class RLPStandardAppendix: RLPAppendix {
         switch bytes.count {
         case 0...55:
             return Data(
-                bytes: [
+                [
                     UInt8(
                         UInt8(bytes.count) + offset
                     )
@@ -31,7 +31,7 @@ internal final class RLPStandardAppendix: RLPAppendix {
             ) + bytes
         case 56...Int.max:
             return try Data(
-                bytes: [
+                [
                     UInt8(bytes.count.unsignedByteWidth() + Int(offset) + 55)
                 ]
             ) + TrimmedZeroPrefixBytes(

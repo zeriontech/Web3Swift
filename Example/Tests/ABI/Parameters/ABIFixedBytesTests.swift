@@ -28,7 +28,7 @@ final class ABIFixedBytesTests: XCTestCase {
         }.to(
             equal(
                 Data(
-                    bytes: [0x01, 0x02] + Array<UInt8>(repeating: 0x00, count: 30)
+                    [0x01, 0x02] + Array<UInt8>(repeating: 0x00, count: 30)
                 )
             ),
             description: "Encoded fixed bytes are expected to be padded to the length of 32 with zeroes to the right"

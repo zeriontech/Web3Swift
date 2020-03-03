@@ -41,7 +41,7 @@ final class ABIDynamicCollectionTests: XCTestCase {
         }.to(
             equal(
                 Data(
-                    bytes: Array<UInt8>(repeating: 0x00, count: 31) + [0x20]
+                    Array<UInt8>(repeating: 0x00, count: 31) + [0x20]
                 ).toHexString()
             ),
             description: "ABI dynamic collection is expected to encode length to tails correctly"

@@ -19,13 +19,13 @@ final class RLPTests: XCTestCase {
         expect{
             try SimpleRLP(
                 bytes: Data(
-                    bytes: Array("dog".utf8)
+                    Array("dog".utf8)
                 )
             ).value()
         }.to(
             equal(
                 Data(
-                    bytes: [0x83] + Array("dog".utf8)
+                    [0x83] + Array("dog".utf8)
                 )
             )
         )
@@ -38,12 +38,12 @@ final class RLPTests: XCTestCase {
                     rlps: [
                         SimpleRLP(
                             bytes: Data(
-                                bytes: Array("cat".utf8)
+                                Array("cat".utf8)
                             )
                         ),
                         SimpleRLP(
                             bytes: Data(
-                                bytes: Array("dog".utf8)
+                                Array("dog".utf8)
                             )
                         ),
                     ]
@@ -51,7 +51,7 @@ final class RLPTests: XCTestCase {
             }.to(
                 equal(
                     Data(
-                        bytes: [
+                        [
                             0xc8,
                             0x83,
                             "c".utf8.single(),
@@ -82,7 +82,7 @@ final class RLPTests: XCTestCase {
         }.to(
             equal(
                 Data(
-                    bytes: [
+                    [
                         0x00
                     ]
                 )
@@ -102,7 +102,7 @@ final class RLPTests: XCTestCase {
         }.to(
             equal(
                 Data(
-                    bytes: [
+                    [
                         0x0f
                     ]
                 )
@@ -122,7 +122,7 @@ final class RLPTests: XCTestCase {
         }.to(
             equal(
                 Data(
-                    bytes: [
+                    [
                         0x7f
                     ]
                 )
@@ -142,7 +142,7 @@ final class RLPTests: XCTestCase {
         }.to(
             equal(
                 Data(
-                    bytes: [
+                    [
                         0x81,
                         0x80
                     ]
@@ -163,7 +163,7 @@ final class RLPTests: XCTestCase {
         }.to(
             equal(
                 Data(
-                    bytes: [
+                    [
                         0x81,
                         0xff
                     ]
@@ -184,7 +184,7 @@ final class RLPTests: XCTestCase {
         }.to(
             equal(
                 Data(
-                    bytes: [
+                    [
                         0x82,
                         0x01,
                         0x00
@@ -206,7 +206,7 @@ final class RLPTests: XCTestCase {
         }.to(
             equal(
                 Data(
-                    bytes: [
+                    [
                         0x82,
                         0x04,
                         0x00
@@ -249,7 +249,7 @@ final class RLPTests: XCTestCase {
         }.to(
             equal(
                 Data(
-                    bytes: [
+                    [
                         0xc7,
                         0xc0,
                         0xc1,
@@ -268,13 +268,13 @@ final class RLPTests: XCTestCase {
         expect(
             try SimpleRLP(
                 bytes: Data(
-                    bytes: Array("Lorem ipsum dolor sit amet, consectetur adipisicing elit".utf8)
+                    Array("Lorem ipsum dolor sit amet, consectetur adipisicing elit".utf8)
                 )
             ).value()
         ).to(
             equal(
                 Data(
-                    bytes: [0xb8, 0x38] + Array("Lorem ipsum dolor sit amet, consectetur adipisicing elit".utf8)
+                    [0xb8, 0x38] + Array("Lorem ipsum dolor sit amet, consectetur adipisicing elit".utf8)
                 )
             )
         )
@@ -289,13 +289,13 @@ final class RLPTests: XCTestCase {
         expect{
             try SimpleRLP(
                 bytes: Data(
-                    bytes: Array(string.utf8)
+                    Array(string.utf8)
                 )
             ).value()
         }.to(
             equal(
                 Data(
-                    bytes: [0xb9, 0x04, 0x00] + Array(string.utf8)
+                    [0xb9, 0x04, 0x00] + Array(string.utf8)
                 )
             )
         )

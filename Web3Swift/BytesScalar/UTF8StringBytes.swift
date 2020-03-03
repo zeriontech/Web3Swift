@@ -46,7 +46,7 @@ public final class UTF8StringBytes: BytesScalar {
     */
     public func value() throws -> Data {
         return try Data(
-            bytes: Array(
+            Array(
                 string.value().utf8
             )
         )

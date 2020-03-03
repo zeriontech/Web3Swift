@@ -34,7 +34,7 @@ public final class ReversedBytes: BytesScalar {
     */
     public func value() throws -> Data {
         return try Data(
-            bytes: origin.value().reversed()
+            origin.value().reversed()
         )
     }
 

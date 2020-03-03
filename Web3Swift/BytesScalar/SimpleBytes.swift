@@ -40,7 +40,7 @@ public final class SimpleBytes: BytesScalar {
         self.init(
             bytes: {
                 try Data(
-                    bytes: bytes.value()
+                    bytes.value()
                 )
             }
         )

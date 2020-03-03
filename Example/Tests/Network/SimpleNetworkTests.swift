@@ -53,7 +53,7 @@ final class SimpleNetworkTests: XCTestCase {
                     },
                     call: { _, _ in
                         return Data(
-                            bytes: call
+                            call
                         )
                     }
                 ).call(

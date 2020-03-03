@@ -33,7 +33,7 @@ final class BytesFromHexStringTests: XCTestCase {
             }.to(
                 equal(
                     Data(
-                        bytes: bytes
+                        bytes
                     )
                 ),
                 description: "Non ambiguous prefixed hex string is expected to produce valid bytes array"
@@ -82,7 +82,7 @@ final class BytesFromHexStringTests: XCTestCase {
             }.to(
                 equal(
                     Data(
-                        bytes: bytes
+                        bytes
                     )
                 ),
                 description: "Non ambiguous unprefixed hex string is expected to produce valid bytes array"

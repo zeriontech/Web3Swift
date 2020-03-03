@@ -31,7 +31,7 @@ final class GanacheLocalNetworkTests: XCTestCase {
         }.to(
             equal(
                 Data(
-                    bytes: [0x04, 0xA8, 0x17, 0xC8, 0x00]
+                    [0x04, 0xA8, 0x17, 0xC8, 0x00]
                 )
             ),
             description: "Ganache gas price is expected to be equal 20_000_000_000"
