@@ -29,7 +29,7 @@ final class FixedLengthBytesTests: XCTestCase {
             }.to(
                 equal(
                     Data(
-                        bytes: Array(
+                        Array(
                             repeating: 0x00,
                             count: length
                         )

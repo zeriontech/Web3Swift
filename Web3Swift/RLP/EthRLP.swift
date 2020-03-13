@@ -41,7 +41,7 @@ public final class EthRLP: RLP {
         let encodedNumber = try SimpleRLP(
             bytes: number.value()
         ).value()
-        if encodedNumber == Data(bytes: [0x00]) {
+        if encodedNumber == Data([0x00]) {
             return try SimpleRLP(
                 bytes: []
             ).value()

@@ -29,7 +29,7 @@ public final class RandomNonce: Entropy {
         } else {
             var randomBytes = Array<UInt8>(repeating: 0, count: size)
             if SecRandomCopyBytes(kSecRandomDefault, size, &randomBytes) == errSecSuccess {
-                let nonce = Data(bytes: randomBytes)
+                let nonce = Data(randomBytes)
                 cachedNonce = nonce
                 return nonce
             } else {

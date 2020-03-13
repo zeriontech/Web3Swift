@@ -35,7 +35,7 @@ public final class Keccak256Bytes: BytesScalar {
     */
     public func value() throws -> Data {
         return try Data(
-            bytes: SHA3(
+            SHA3(
                 variant: .keccak256
             ).calculate(
                 for: Array(

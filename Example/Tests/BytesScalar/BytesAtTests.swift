@@ -36,7 +36,7 @@ final class BytesAtTests: XCTestCase {
         }.to(
             equal(
                 Data(
-                    bytes: [
+                    [
                         3, 4, 5
                     ]
                 )

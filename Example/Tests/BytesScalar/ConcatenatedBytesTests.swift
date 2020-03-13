@@ -47,7 +47,7 @@ final class ConcatenatedBytesTests: XCTestCase {
                 ).value()
             }.to(
                 equal(
-                    Data(bytes: bytes)
+                    Data(bytes)
                 ),
                 description: "Concatenated bytes are expected to match their Data representation"
             )
@@ -91,7 +91,7 @@ final class ConcatenatedBytesTests: XCTestCase {
                 ).value()
             }.to(
                 equal(
-                    Data(bytes: bytes)
+                    Data(bytes)
                 ),
                 description: "Concatenated bytes are expected to match their Data representation"
             )

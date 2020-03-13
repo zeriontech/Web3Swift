@@ -22,7 +22,7 @@ final class UTF8StringBytesTests: XCTestCase {
         }.to(
             equal(
                 Data(
-                    bytes: Array("Hello world".utf8)
+                    Array("Hello world".utf8)
                 )
             )
         )

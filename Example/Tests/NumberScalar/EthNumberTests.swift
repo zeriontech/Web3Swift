@@ -74,7 +74,7 @@ final class EthNumberTests: XCTestCase {
         }.to(
             equal(
                 Data(
-                    bytes: [0x01] + Array<UInt8>(repeating: 0x00, count: 8)
+                    [0x01] + Array<UInt8>(repeating: 0x00, count: 8)
                 )
             ),
             description: "EthNumber is expected to be a big endian representation of a decimal"

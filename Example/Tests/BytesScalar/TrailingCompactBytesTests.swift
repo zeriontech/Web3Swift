@@ -27,7 +27,7 @@ final class TrailingCompactBytesTests: XCTestCase {
                         bytes: [0]
                     ),
                     Data(
-                        bytes: [0]
+                        [0]
                     )
                 ),
                 (
@@ -35,7 +35,7 @@ final class TrailingCompactBytesTests: XCTestCase {
                         bytes: [0, 1, 0, 1]
                     ),
                     Data(
-                        bytes: [0, 1, 0, 1]
+                        [0, 1, 0, 1]
                     )
                 )
             ]
@@ -66,7 +66,7 @@ final class TrailingCompactBytesTests: XCTestCase {
                         bytes: [0, 0, 0]
                     ),
                     Data(
-                        bytes: [0]
+                        [0]
                     )
                 ),
                 (
@@ -74,7 +74,7 @@ final class TrailingCompactBytesTests: XCTestCase {
                         bytes: [0, 1, 0, 1, 0, 0, 0]
                     ),
                     Data(
-                        bytes: [0, 1, 0, 1]
+                        [0, 1, 0, 1]
                     )
                 )
             ]

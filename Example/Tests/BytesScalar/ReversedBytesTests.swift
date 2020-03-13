@@ -27,7 +27,7 @@ final class ReversedBytesTests: XCTestCase {
         }.to(
             equal(
                 Data(
-                    bytes: [
+                    [
                         4, 3, 2, 1
                     ]
                 )

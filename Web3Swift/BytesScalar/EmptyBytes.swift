@@ -21,7 +21,7 @@ public final class EmptyBytes: BytesScalar {
     Doesn't throw
     */
     public func value() throws -> Data {
-        return Data(bytes: [])
+        return Data([])
     }
 
 }

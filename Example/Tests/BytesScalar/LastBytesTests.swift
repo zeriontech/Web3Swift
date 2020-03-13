@@ -27,7 +27,7 @@ final class LastBytesTests: XCTestCase {
         }.to(
             equal(
                 Data(
-                    bytes: [
+                    [
                         0x03, 0x04, 0x05
                     ]
                 )
@@ -48,7 +48,7 @@ final class LastBytesTests: XCTestCase {
         }.to(
             equal(
                 Data(
-                    bytes: [
+                    [
                         0x01, 0x02
                     ]
                 )

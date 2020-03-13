@@ -33,7 +33,7 @@ final class BytesFromCompactHexStringTests: XCTestCase {
             }.to(
                 equal(
                     Data(
-                        bytes: bytes
+                        bytes
                     )
                 ),
                 description: "Non ambiguous prefixed hex string is expected to produce valid bytes array"
@@ -59,7 +59,7 @@ final class BytesFromCompactHexStringTests: XCTestCase {
             }.to(
                 equal(
                     Data(
-                        bytes: bytes
+                        bytes
                     )
                 ),
                 description: "Ambiguous prefixed hex string is expected to produce valid bytes array by appending a leading zero"
@@ -86,7 +86,7 @@ final class BytesFromCompactHexStringTests: XCTestCase {
             }.to(
                 equal(
                     Data(
-                        bytes: bytes
+                        bytes
                     )
                 ),
                 description: "Non ambiguous unprefixed hex string is expected to produce valid bytes array"
@@ -112,7 +112,7 @@ final class BytesFromCompactHexStringTests: XCTestCase {
             }.to(
                 equal(
                     Data(
-                        bytes: bytes
+                        bytes
                     )
                 ),
                 description: "Ambiguous prefixed hex string is expected to produce valid bytes array by appending a leading zero"

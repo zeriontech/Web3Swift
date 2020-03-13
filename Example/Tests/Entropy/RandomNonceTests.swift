@@ -31,7 +31,7 @@ final class RandomNonceTests: XCTestCase {
         ).toNot(
             equal(
                 Data(
-                    bytes: Array<UInt8>(repeating: 0, count: 32)
+                    Array<UInt8>(repeating: 0, count: 32)
                 )
             )
         )
