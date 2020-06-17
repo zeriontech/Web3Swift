@@ -31,6 +31,7 @@ public final class SimpleCollection<T>: CollectionScalar<T> {
     - parameters:
         - collection: a closure representing an array as a collection of elements
     */
+    // swiftlint:disable:next attributes
     public convenience init(collection: @escaping () throws -> ([T])) {
         self.init(collection: { try AnyCollection(collection()) })
     }

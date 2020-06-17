@@ -3,30 +3,30 @@ PODS:
   - CryptoSwift (1.3.0)
   - Nimble (7.3.4)
   - Quick (1.3.4)
-  - secp256k1_ios (0.1.3)
-  - SwiftLint (0.31.0)
+  - secp256k1.swift (0.1.4)
+  - SwiftLint (0.27.0)
   - SwiftyJSON (4.3.0)
-  - Web3Swift.io (0.0.3):
+  - Web3Swift.io (0.0.4):
     - BigInt (~> 5.0)
     - CryptoSwift (~> 1.0)
-    - secp256k1_ios (~> 0.1)
+    - secp256k1.swift (~> 0.1)
     - SwiftyJSON (~> 4.3)
 
 DEPENDENCIES:
   - Nimble (~> 7.0)
   - Quick (~> 1.2)
+  - SwiftLint (= 0.27)
   - SwiftLint (~> 0.27)
   - Web3Swift.io (from `../`)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - Nimble
-    - Quick
-    - SwiftLint
   trunk:
     - BigInt
     - CryptoSwift
-    - secp256k1_ios
+    - Nimble
+    - Quick
+    - secp256k1.swift
+    - SwiftLint
     - SwiftyJSON
 
 EXTERNAL SOURCES:
@@ -38,11 +38,11 @@ SPEC CHECKSUMS:
   CryptoSwift: 1283821600233bdbeb96d7b389c3288c3bf77211
   Nimble: 051e3d8912d40138fa5591c78594f95fb172af37
   Quick: f4f7f063c524394c73ed93ac70983c609805d481
-  secp256k1_ios: ac9ef04e761f43c58012b28548afa91493761f17
-  SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
+  secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
+  SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
-  Web3Swift.io: d73b1a0e4a8cec74493c1090265b7828a5effc48
+  Web3Swift.io: c10366f6daa98d6cd669d053fbe831b0ed20338d
 
-PODFILE CHECKSUM: 2e44a26eed843b24dadf38c791a6c0a80ffde2fb
+PODFILE CHECKSUM: a92dfff1059a074e829f137af158b15e15bc2d87
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1
