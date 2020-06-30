@@ -14,6 +14,12 @@ import Foundation
 public final class EmptyBytes: BytesScalar {
 
     /**
+    Ctor
+    */
+    public init() {
+    }
+
+    /**
     - returns:
     Empty bytes as `Data`
 
