@@ -96,6 +96,44 @@ public final class EthContractCall: BytesScalar {
     }
 
     /**
+    Ctor
+
+    - parameters:
+        - network: network to call
+        - senderAddress: address of the msg.sender
+        - contractAddress: address of the contract
+        - weiAmount: amount to be sent in wei
+        - functionCall: encoded call the contract function
+    */
+    public convenience init(
+        network: Network,
+        senderAddress: BytesScalar,
+        contractAddress: BytesScalar,
+        weiAmount: BytesScalar,
+        functionCall: BytesScalar
+    ) {
+        self.init(
+            call: ContractCallProcedure(
+                network: network,
+                parameters: [
+                    "from" : BytesParameter(
+                        bytes: senderAddress
+                    ),
+                    "to" : BytesParameter(
+                        bytes: contractAddress
+                    ),
+                    "value" : BytesParameter(
+                        bytes: weiAmount
+                    ),
+                    "data" : BytesParameter(
+                        bytes: functionCall
+                    )
+                ]
+            )
+        )
+    }
+
+    /**
     - returns:
     The return of the function call
     */
