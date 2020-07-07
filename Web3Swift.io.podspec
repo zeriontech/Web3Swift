@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Web3Swift.io'
-  s.version          = '0.0.3'
+  s.version          = '0.0.4'
   s.summary          = 'Web3 library for Swift. Construct and sign transactions, interact with smart contracts.'
 
   s.description      = <<-DESC
@@ -23,7 +23,7 @@ encode and decode ABI messages.
   s.module_name = 'Web3Swift'
   s.source_files = 'Web3Swift/**/*'
   s.dependency 'SwiftyJSON', '~> 4.3'
-  s.dependency 'secp256k1_ios', '~> 0.1'
+  s.dependency 'secp256k1.swift', '~> 0.1'
   s.dependency 'CryptoSwift', '~> 1.0'
   s.dependency 'BigInt', '~> 5.0'
 

@@ -8,7 +8,7 @@ end
 
 target 'Web3Swift_Tests' do
   pod 'Web3Swift.io', :path => '../'
-  pod 'SwiftLint', '~> 0.27'
+  pod 'SwiftLint', '= 0.27'
   pod 'Quick', '~> 1.2'
   pod 'Nimble', '~> 7.0'
 end
