@@ -6,7 +6,9 @@
 	"license": "Apache License 2.0",
 	"private": true,
 	"engines": {
-		"yarn": "^1.2.1"
+		"yarn": "^1.2.1",
+		"npm": "^6.7.0",
+		"node": "^11.15.0"
 	},
 	"dependencies": {
 		"bignumber.js": "^6.0.0",
