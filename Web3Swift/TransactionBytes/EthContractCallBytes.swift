@@ -67,6 +67,40 @@ public final class EthContractCallBytes: BytesScalar {
         weiAmount: BytesScalar,
         functionCall: BytesScalar
     ) {
+        let gasPrice = CachedBytes(
+            origin: EthGasPrice(
+                network: network
+            )
+        )
+        self.init(
+            network: network,
+            gasPrice: gasPrice,
+            senderKey: senderKey,
+            contractAddress: contractAddress,
+            weiAmount: weiAmount,
+            functionCall: functionCall
+        )
+    }
+
+    /**
+    Ctor
+
+    - parameters:
+        - network: network where transaction is to be deployed
+        - gasPrice: gas price in Wei
+        - senderKey: private key of a sender
+        - contractAddress: address of the recipient contract
+        - weiAmount: amount to be sent in wei
+        - functionCall: encoded function call
+    */
+    public convenience init(
+        network: Network,
+        gasPrice: BytesScalar,
+        senderKey: PrivateKey,
+        contractAddress: BytesScalar,
+        weiAmount: BytesScalar,
+        functionCall: BytesScalar
+    ) {
         let senderAddress = CachedBytes(
             origin: SimpleBytes{
                 try senderKey.address().value()
@@ -74,11 +108,6 @@ public final class EthContractCallBytes: BytesScalar {
         )
         let contractAddress = CachedBytes(
             origin: contractAddress
-        )
-        let gasPrice = CachedBytes(
-            origin: EthGasPrice(
-                network: network
-            )
         )
         let functionCall = CachedBytes(
             origin: functionCall
