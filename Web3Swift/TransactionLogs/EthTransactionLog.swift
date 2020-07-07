@@ -52,7 +52,7 @@ public final class EthTransactionLog: TransactionLog {
     
     public func index() throws -> EthNumber {
         return try EthNumber(
-            hex: log["transactionLogIndex"].string()
+            hex: log["logIndex"].string()
         )
     }
     

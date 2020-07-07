@@ -10,7 +10,7 @@
 
 import CryptoSwift
 import Foundation
-import secp256k1_ios
+import secp256k1
 
 private final class InvalidPrivateKeyError: DescribedError {
 
