@@ -37,5 +37,33 @@ final class EthContractCallTests: XCTestCase {
             description: "EOS supply is expected to be 1,000,000,000,000,000,000,000,000,000 wad"
         )
     }
+    
+    func testWethDeposit() {
+        expect{
+            try HexAsDecimalString(
+                hex: EthContractCall(
+                    network: MainnetInfuraNetwork(),
+                    senderAddress: EthAddress(
+                        hex: "0x42b9df65b219b3dd36ff330a4dd8f327a6ada990"
+                    ),
+                    contractAddress: EthAddress(
+                        hex: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+                    ),
+                    weiAmount: EthNumber(decimal: "1"),
+                    functionCall: EncodedABIFunction(
+                        signature: SimpleString(
+                            string: "deposit()"
+                        ),
+                        parameters: []
+                    )
+                )
+            ).value()
+        }.to(
+            equal(
+                "0"
+            ),
+            description: "Paypable functions should be eligible for calling"
+        )
+    }
 
 }

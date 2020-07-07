@@ -122,8 +122,8 @@ public final class EthContractCall: BytesScalar {
                     "to" : BytesParameter(
                         bytes: contractAddress
                     ),
-                    "value" : BytesParameter(
-                        bytes: weiAmount
+                    "value" : QuantityParameter(
+                        number: weiAmount
                     ),
                     "data" : BytesParameter(
                         bytes: functionCall
