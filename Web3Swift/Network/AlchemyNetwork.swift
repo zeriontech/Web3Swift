@@ -23,7 +23,7 @@ public final class AlchemyNetwork: Network {
      - apiKey: api key for accessing JSON RPC calls
      */
     public init(chain: String, apiKey: String) {
-        origin = GethNetwork(url: "https://eth-"+chain.lowercased()+".alchemyapi.io/jsonrpc/"+apiKey)
+        origin = GethNetwork(url: "https://eth-"+chain.lowercased()+".alchemyapi.io/v2/"+apiKey)
     }
     
     /**

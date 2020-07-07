@@ -34,7 +34,7 @@ class EthTransactionLogTests: XCTestCase {
                 transactionHash: BytesFromHexString(
                     hex: "0xfbaad83ca594fa30902586f06c9a2fd4d3855f3769e4cf3157eb0013abd0661f"
                 ),
-                network: MainnetAlchemyNetwork()
+                network: MainnetInfuraNetwork()
             ).receipt().logs().value()[0]
             
             expect{
@@ -86,7 +86,7 @@ class EthTransactionLogTests: XCTestCase {
             expect{
                 try log.index().value().toDecimalString()
             }.to(
-                equal("0"),
+                equal("85"),
                 description: "Expect log index to be correct"
             )
             

@@ -62,7 +62,7 @@ final class EthContractCallBytesTests: XCTestCase {
         //TODO: We got a problem with gas price encoding here. Since we use mainnet to encode this request gas price changes every time. Migration to Ganage might solve this problem.
         expect{
             try EthContractCallBytes(
-                network: MainnetAlchemyNetwork(),
+                network: MainnetInfuraNetwork(),
                 senderKey: Alice().privateKey(),
                 contractAddress: EthAddress(
                     hex: "0x6b175474e89094c44da98b954eedeac495271d0f"
