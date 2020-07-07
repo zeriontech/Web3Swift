@@ -11,7 +11,7 @@
 import CryptoSwift
 import Nimble
 import Quick
-import secp256k1_ios
+import secp256k1
 @testable import Web3Swift
 import XCTest
 
