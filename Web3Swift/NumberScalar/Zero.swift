@@ -14,6 +14,12 @@ import Foundation
 public final class Zero: BytesScalar {
     
     private let zero: BytesScalar = EthNumber(value: 0)
+
+    /**
+    Ctor
+    */
+    public init() {
+    }
     
     /**
      - returns:
