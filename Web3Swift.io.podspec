@@ -19,6 +19,7 @@ encode and decode ABI messages.
   s.homepage         = 'https://web3swift.io'
 
   s.ios.deployment_target = '10.0'
+  s.osx.deployment_target = '10.14'
 
   s.module_name = 'Web3Swift'
   s.source_files = 'Web3Swift/**/*'
