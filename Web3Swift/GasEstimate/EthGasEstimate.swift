@@ -241,6 +241,87 @@ public final class EthGasEstimate: BytesScalar {
     }
 
     /**
+    Ctor
+
+    - parameters:
+        - network: network to call
+        - senderAddress: bytes representation of a sender address
+        - recipientAddress: bytes representation of a recipient address
+        - gasEstimate: estimate of the gas to be spent
+        - gasPrice: price that will be paid for each unit of gas
+        - contractCall: encoded contract call
+    */
+    public convenience init(
+        network: Network,
+        senderAddress: BytesScalar,
+        recipientAddress: BytesScalar,
+        gasEstimate: BytesScalar,
+        gasPrice: BytesScalar,
+        contractCall: BytesScalar
+    ) {
+        self.init(
+            estimationProcedure: EstimateGasProcedure(
+                network: network,
+                parameters: [
+                    "from" : BytesParameter(
+                        bytes: senderAddress
+                    ),
+                    "to" : BytesParameter(
+                        bytes: recipientAddress
+                    ),
+                    "gas" : QuantityParameter(
+                        number: gasEstimate
+                    ),
+                    "gasPrice" : QuantityParameter(
+                        number: gasPrice
+                    ),
+                    "data" : BytesParameter(
+                        bytes: contractCall
+                    )
+                ]
+            )
+        )
+    }
+    
+    /**
+    Ctor
+
+    - parameters:
+        - network: network to call
+        - senderAddress: bytes representation of a sender address
+        - recipientAddress: bytes representation of a recipient address
+        - gasPrice: price that will be paid for each unit of gas
+        - contractCall: encoded contract call
+    */
+    public convenience init(
+        network: Network,
+        senderAddress: BytesScalar,
+        recipientAddress: BytesScalar,
+        gasPrice: BytesScalar,
+        contractCall: BytesScalar
+    ) {
+        self.init(
+            estimationProcedure: EstimateGasProcedure(
+                network: network,
+                parameters: [
+                    "from" : BytesParameter(
+                        bytes: senderAddress
+                    ),
+                    "to" : BytesParameter(
+                        bytes: recipientAddress
+                    ),
+                    "gasPrice" : QuantityParameter(
+                        number: gasPrice
+                    ),
+                    "data" : BytesParameter(
+                        bytes: contractCall
+                    )
+                ]
+            )
+        )
+    }
+    
+    /**
     - returns:
     Hexadecimal representation of an estimate value
 
